@@ -7,7 +7,7 @@
 <title>Welcome <%=session.getAttribute("name_user")%></title>
 </head>
 <body>
-<h2>Principal 1</h2>
+<h2>Principal </h2>
     <h3>Login successful!!!</h3>
     <h4>
         Hello,

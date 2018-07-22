@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.casia.config.conexionDB;
+import com.casia.entity.UsuarioEntity;
 
 public class UsuarioDao {
 	
@@ -64,19 +65,33 @@ public class UsuarioDao {
 		return status;
     }
 	
-	public static Integer ObtenerRol(String name_user) throws SQLException
+	public static String ObtenerRol(UsuarioEntity userEnt) throws SQLException
 	{
 		PreparedStatement ps = null;
-		ps = connection.prepareStatement("SELECT `Rol_id` FROM `usuario` WHERE `name_user` =:name_user");
+		String rol_user;
+		String name_user;
+		String pass_user;
+
+		ps = connection.prepareStatement("SELECT name_user, pass_user, rol_user FROM usuario");
 		ResultSet rs = ps.executeQuery();
-		if(rs.next())
+		while(rs.next())
 		{
-            return rs.getInt("Rol_id");
-        }
-        
-        return null;
-    }
-	    
+			name_user = rs.getString("name_user");
+			pass_user = rs.getString("pass_user");
+			rol_user = rs.getString("rol_user");
+
+			if (name_user.equals(name_user) && pass_user.equals(pass_user) && rol_user.equals("admin"))
+			{
+				return "admin";
+			}
+			else if (name_user.equals(name_user) && pass_user.equals(pass_user) && rol_user.equals("directiva"))
+			{
+				return "directiva";
+			}
+
+		}
+		return "Error en el rol de usuario";
+	}	    
     
     //Metodo para comprobar si el nombre de usuario recibido ya esta registrado
     public boolean siNombreUsuarioExiste(String name_user) throws SQLException
