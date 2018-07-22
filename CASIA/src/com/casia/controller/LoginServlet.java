@@ -20,14 +20,13 @@ import com.casia.entity.UsuarioEntity;
 //@WebServlet("/UsuarioServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private UsuarioDao dao;
+	
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public LoginServlet() {
 		super();
-		dao = new UsuarioDao();
 		// TODO Auto-generated constructor stub
 	}
 
@@ -44,36 +43,38 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("text/html");  
+		
         PrintWriter out = response.getWriter();  
         RequestDispatcher rd = null;
         
         
         String name_user = request.getParameter("name_user");  
         String pass_user = request.getParameter("pass_user");
-        
-        UsuarioEntity userEnt = new UsuarioEntity();
-        userEnt.setName_user(name_user);
-        userEnt.setPass_user(pass_user);
-        
-        try {
-				String userRol = UsuarioDao.ObtenerRol(userEnt);
-				if (userRol.equals("admin")){
-					System.out.println("Entro en admin");
-					 HttpSession session = request.getSession();
-					 session.setAttribute("admin", name_user);
-					 session.setAttribute("name_user", name_user);
-					 rd = request.getRequestDispatcher("PrincipalAdmin.jsp");
-					 rd.forward(request,response);
-				} else if (userRol.equals("directiva")) {
-					HttpSession session = request.getSession();
-					 session.setAttribute("directiva", name_user);
-					 session.setAttribute("name_user", name_user);
-					 rd = request.getRequestDispatcher("Principal.jsp");
-					 rd.forward(request,response);
-				}  
-			else
-			{  
+
+		UsuarioEntity userEnt = new UsuarioEntity();
+		userEnt.setName_user(name_user);
+		userEnt.setPass_user(pass_user);
+		
+		UsuarioDao userDao = new UsuarioDao();
+
+		try {
+			String userRol = userDao.ObtenerRol(userEnt);
+			System.out.println("El rol es: "+userDao.ObtenerRol(userEnt));
+			if (userRol.equals("admin")) {
+				System.out.println("Entro en admin");
+				HttpSession session = request.getSession();
+				session.setAttribute("admin", name_user);
+				session.setAttribute("name_user", name_user);
+				rd = request.getRequestDispatcher("PrincipalAdmin.jsp");
+				rd.forward(request, response);
+			} else if (userRol.equals("directiva")) {
+				System.out.println("Entro en directiva");
+				HttpSession session = request.getSession();
+				session.setAttribute("directiva", name_user);
+				session.setAttribute("name_user", name_user);
+				rd = request.getRequestDispatcher("Principal.jsp");
+				rd.forward(request, response);
+			} else {
 			    out.print("<p style=\"color:red\">Sorry username or password error</p>");  
 			    rd = request.getRequestDispatcher("Login.jsp");  
 			    rd.include(request,response);  

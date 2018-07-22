@@ -7,20 +7,23 @@
 <title>Bienvenido a CASIA</title>
 </head>
 <body>
- <form action="UsuarioServlet" method="post">
-        <fieldset style="width: 300px">
+<form name="form" action="<%=request.getContextPath()%>/LoginServlet" method="post">
+        <fieldset style="width: 300px" align="center">
             <legend> Iniciar Sesión </legend>
             <table>
-                <tr>
-                    <td>Usuario</td>
-                    <td><input type="text" name="name_user" required="required" /></td>
-                </tr>
-                <tr>
-                    <td>Password</td>
-                    <td><input type="password" name="pass_user" required="required" /></td>
-                </tr>
-                
-                <tr>
+				<tr>
+					<td>Usuario</td>
+					<td><input type="text" name="name_user" required="required" /></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type="password" name="pass_user"
+						required="required" /></td>
+				</tr>
+				<tr>
+					<td><span style="color: red"><%=(request.getAttribute("errMessage") == null) ? "" : request.getAttribute("errMessage")%></span></td>
+				</tr>
+				<tr>
                     <td><input type="submit" value="Login" /></td>
                 </tr>
             </table>

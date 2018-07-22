@@ -65,26 +65,25 @@ public class UsuarioDao {
 		return status;
     }
 	
-	public static String ObtenerRol(UsuarioEntity userEnt) throws SQLException
+	public String ObtenerRol(UsuarioEntity userEnt) throws SQLException
 	{
 		PreparedStatement ps = null;
-		String rol_user;
-		String name_user;
-		String pass_user;
+		String name_user = userEnt.getName_user();
+		String pass_user = userEnt.getPass_user();
 
 		ps = connection.prepareStatement("SELECT name_user, pass_user, rol_user FROM usuario");
 		ResultSet rs = ps.executeQuery();
 		while(rs.next())
 		{
-			name_user = rs.getString("name_user");
-			pass_user = rs.getString("pass_user");
-			rol_user = rs.getString("rol_user");
+			String name_userDB = rs.getString("name_user");
+			String pass_userDB = rs.getString("pass_user");
+			String rol_userDB = rs.getString("rol_user");
 
-			if (name_user.equals(name_user) && pass_user.equals(pass_user) && rol_user.equals("admin"))
+			if (name_user.equals(name_userDB) && pass_user.equals(pass_userDB) && rol_userDB.equals("admin"))
 			{
 				return "admin";
 			}
-			else if (name_user.equals(name_user) && pass_user.equals(pass_user) && rol_user.equals("directiva"))
+			else if (name_user.equals(name_userDB) && pass_user.equals(pass_userDB) && rol_userDB.equals("directiva"))
 			{
 				return "directiva";
 			}

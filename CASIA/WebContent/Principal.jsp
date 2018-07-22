@@ -7,10 +7,10 @@
 <title>Welcome <%=session.getAttribute("name_user")%></title>
 </head>
 <body>
-<h2>Principal </h2>
-    <h3>Login successful!!!</h3>
-    <h4>
-        Hello,
-        <%=session.getAttribute("name_user")%></h4>
+<center><h2>Principal</h2></center>
+ 
+Welcome <%=session.getAttribute("name_user")%>
+ 
+<div style="text-align: right"><a href="<%=request.getContextPath()%>/LogoutServlet">Logout</a></div>
 </body>
 </html>
