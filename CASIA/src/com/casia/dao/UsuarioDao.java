@@ -26,7 +26,7 @@ public class UsuarioDao {
         
         return rs.next();
     }*/
-	public static boolean validarLogin(String name_user, String pass_user) throws SQLException
+	/*public static boolean validarLogin(String name_user, String pass_user) throws SQLException
     {
 		boolean status = false;
 		PreparedStatement ps = null;
@@ -63,7 +63,7 @@ public class UsuarioDao {
 			}
 		}
 		return status;
-    }
+    }*/
 	
 	public String ObtenerRol(UsuarioEntity userEnt) throws SQLException
 	{
@@ -89,7 +89,7 @@ public class UsuarioDao {
 			}
 
 		}
-		return "Error en el rol de usuario";
+		return "Usuario o contrase&ntilde;a inv&aacute;lidos";
 	}	    
     
     //Metodo para comprobar si el nombre de usuario recibido ya esta registrado
