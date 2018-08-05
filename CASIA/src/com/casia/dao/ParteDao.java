@@ -44,7 +44,7 @@ public class ParteDao {
 		List<ParteEntity> partes = new ArrayList<ParteEntity>();
 		try {
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("select * from parte where tipo_sancion is not null");
+			ResultSet rs = statement.executeQuery("select * from parte where tipo_sancion is not null order by fecha_parte asc");
 			while (rs.next()) {
 				ParteEntity parte = new ParteEntity();
 				parte.setId_parte(rs.getInt("id_parte"));
@@ -130,7 +130,7 @@ public class ParteDao {
 		
 		try {
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("select * from parte  where tipo_sancion is null");
+			ResultSet rs = statement.executeQuery("select * from parte  where tipo_sancion is null order by fecha_parte asc");
 			while (rs.next()) {
 				ParteEntity parte = new ParteEntity();
 				parte.setId_parte(rs.getInt("id_parte"));
