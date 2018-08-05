@@ -24,7 +24,7 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>ParteServlet</display-name>
     <servlet-name>ParteServlet</servlet-name>
@@ -33,5 +33,15 @@
   <servlet-mapping>
     <servlet-name>ParteServlet</servlet-name>
     <url-pattern>/ParteServlet</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>SancionServlet</display-name>
+    <servlet-name>SancionServlet</servlet-name>
+    <servlet-class>com.casia.controller.SancionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SancionServlet</servlet-name>
+    <url-pattern>/SancionServlet</url-pattern>
   </servlet-mapping>
 </web-app>
