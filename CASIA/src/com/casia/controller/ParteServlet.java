@@ -91,7 +91,7 @@ public class ParteServlet extends HttpServlet {
 		parteEnt.setMotivo_parte(request.getParameter("motivo_parte"));
 		
 		try {
-            fecha_parte = new SimpleDateFormat("MM/dd/yyyy").parse(request.getParameter("fecha_parte"));
+            fecha_parte = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_parte"));
             parteEnt.setFecha_parte(fecha_parte);
         } catch (ParseException e) {
             e.printStackTrace();

@@ -10,7 +10,6 @@ import java.util.List;
 
 import com.casia.config.conexionDB;
 import com.casia.entity.ParteEntity;
-import com.casia.entity.SancionEntity;
 
 public class ParteDao {
 	private static Connection connection;

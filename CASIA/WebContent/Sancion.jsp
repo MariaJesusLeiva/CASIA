@@ -22,10 +22,10 @@
             value="<c:out value="${sancion.tipo_sancion}" />" /> <br />   
         Fecha Inicio : <input
             type="text" name="fecha_inicio"
-            value="<fmt:formatDate pattern="MM/dd/yyyy" value="${sancion.fecha_inicio}" />" /> <br />
+            value="<fmt:formatDate pattern="dd/MM/yyyy" value="${sancion.fecha_inicio}" />" /> <br />
         Fecha Fin : <input
             type="text" name="fecha_fin"
-            value="<fmt:formatDate pattern="MM/dd/yyyy" value="${sancion.fecha_fin}" />" /> <br />
+            value="<fmt:formatDate pattern="dd/MM/yyyy" value="${sancion.fecha_fin}" />" /> <br />
         Total : <input type="text" name="total_dias"
             value="<c:out value="${sancion.total_dias}" />" /> <br /> 
             <input

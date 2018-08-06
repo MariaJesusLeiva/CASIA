@@ -41,7 +41,7 @@
 						})
 						if($target.find('tbody tr:visible').size() === 0) {
 							var col_count = $target.find('tr').first().find('td').size();
-							var no_results = $('<tr class="filterTable_no_results"><td colspan="'+col_count+'">No se han econtrado resultados</td></tr>')
+							var no_results = $('<tr class="filterTable_no_results"><td colspan="'+col_count+'">Sin resultados</td></tr>')
 							$target.find('tbody').append(no_results);
 						}
 					}
@@ -101,7 +101,7 @@ $(function(){
 							<c:forEach items="${partesSin}" var="parte">
 								<tr>
 									<td><c:out value="${parte.codigo}" /></td>
-									<td><fmt:formatDate pattern="MM/dd/yyyy"
+									<td><fmt:formatDate pattern="dd-MM-yyyy"
 											value="${parte.fecha_parte}" /></td>
 									<td><c:out value="${parte.nombre_profe}" /></td>
 									<td><c:out value="${parte.nombre_alum}" /></td>
@@ -145,7 +145,7 @@ $(function(){
             <c:forEach items="${partes}" var="parte">
                 <tr>
                     <%-- <td><c:out value="${parte.codigo}" /></td> --%>
-                    <td><fmt:formatDate pattern="MM/dd/yyyy" value="${parte.fecha_parte}" /></td>
+                    <td><fmt:formatDate pattern="dd-MM-yyyy" value="${parte.fecha_parte}" /></td>
                     <td><c:out value="${parte.nombre_profe}" /></td>
                     <td><c:out value="${parte.nombre_alum}" /></td>
                     <td><c:out value="${parte.grupo}" /></td>
