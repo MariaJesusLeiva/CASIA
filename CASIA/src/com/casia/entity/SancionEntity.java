@@ -9,6 +9,10 @@ public class SancionEntity {
 	private Date fecha_fin;
 	private Integer total_dias;
 	private String tipo_sancion;
+	private String observacion;
+	private String trabajo;
+	private String asistencia;
+	
 	public Integer getId_sancion() {
 		return id_sancion;
 	}
@@ -45,4 +49,23 @@ public class SancionEntity {
 	public void setTipo_sancion(String tipo_sancion) {
 		this.tipo_sancion = tipo_sancion;
 	}
+	public String getObservacion() {
+		return observacion;
+	}
+	public void setObservacion(String observacion) {
+		this.observacion = observacion;
+	}
+	public String getTrabajo() {
+		return trabajo;
+	}
+	public void setTrabajo(String trabajo) {
+		this.trabajo = trabajo;
+	}
+	public String getAsistencia() {
+		return asistencia;
+	}
+	public void setAsistencia(String asistencia) {
+		this.asistencia = asistencia;
+	}
+	
 }

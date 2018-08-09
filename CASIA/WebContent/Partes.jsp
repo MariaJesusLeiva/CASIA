@@ -119,7 +119,7 @@ $(function(){
 			<div class="col-md-6">
 				<div class="panel panel-success">
 					<div class="panel-heading">
-						<h3 class="panel-title">SANCIONES</h3>
+						<h3 class="panel-title">HISTORIAL DE PARTES</h3>
 						<div class="pull-right">
 							<span class="clickable filter" data-toggle="tooltip" title="Buscador" data-container="body">
 								<i class="glyphicon glyphicon-search"></i>

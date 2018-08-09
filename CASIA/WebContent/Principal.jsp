@@ -22,7 +22,7 @@
 				data-toggle="dropdown"> Partes <b class="caret"></b>
 			</a>
 				<ul class="dropdown-menu">
-					<li><a href="NuevoParte.jsp">Nuevo</a></li>
+					<li><a href="CrearParte.jsp">Nuevo</a></li>
 					<li><a href="ParteServlet?action=consultar">Consultar</a></li>
 					<li><a href="#">Link</a></li>
 					<li><a href="#">Link</a></li>

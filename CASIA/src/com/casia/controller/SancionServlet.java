@@ -73,19 +73,17 @@ public class SancionServlet extends HttpServlet {
 		SancionEntity sancionEnt = new SancionEntity();
 		Date fecha_inicio = null;
 		Date fecha_fin = null;
-		Integer total_dias;
-		
-		
+		Integer total_dias;		
 
 		try {
-			fecha_inicio = new SimpleDateFormat("MM/dd/yyyy").parse(request.getParameter("fecha_inicio"));
+			fecha_inicio = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_inicio"));
 			sancionEnt.setFecha_inicio(fecha_inicio);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 
 		try {
-			fecha_fin = new SimpleDateFormat("MM/dd/yyyy").parse(request.getParameter("fecha_fin"));
+			fecha_fin = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_fin"));
 			sancionEnt.setFecha_fin(fecha_fin);
 		} catch (ParseException e) {
 			e.printStackTrace();
@@ -96,6 +94,9 @@ public class SancionServlet extends HttpServlet {
 		sancionEnt.setTipo_sancion(request.getParameter("tipo_sancion"));
 		String id_parte = request.getParameter("id_parte");
 		sancionEnt.setId_parte(Integer.parseInt(id_parte));
+		sancionEnt.setObservacion(request.getParameter("observacion"));
+		sancionEnt.setTrabajo(request.getParameter("trabajo"));
+		sancionEnt.setAsistencia(request.getParameter("asistencia"));
 		SancionDao sancionDao = new SancionDao();
 		sancionDao.addSancion(sancionEnt);
 		System.out.println("Sancion creada");

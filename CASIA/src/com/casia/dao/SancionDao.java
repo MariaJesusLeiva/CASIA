@@ -40,13 +40,16 @@ private static Connection connection;
 	public void addSancion(SancionEntity sancionEnt) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into sancion(id_parte,tipo_sancion,fecha_inicio,fecha_fin,total_dias) values (?, ?, ?, ?, ?)");
+					.prepareStatement("insert into sancion(id_parte,tipo_sancion,fecha_inicio,fecha_fin,total_dias,observacion,asistencia,trabajo) values (?, ?, ?, ?, ?, ?, ?, ?)");
 			// Parameters start with 1
 			preparedStatement.setInt(1, sancionEnt.getId_parte());
 			preparedStatement.setString(2, sancionEnt.getTipo_sancion());
 			preparedStatement.setDate(3, new java.sql.Date(sancionEnt.getFecha_inicio().getTime()));
 			preparedStatement.setDate(4, new java.sql.Date(sancionEnt.getFecha_fin().getTime()));
 			preparedStatement.setInt(5, sancionEnt.getTotal_dias());
+			preparedStatement.setString(6, sancionEnt.getObservacion());
+			preparedStatement.setString(7, sancionEnt.getTrabajo());
+			preparedStatement.setString(8, sancionEnt.getAsistencia());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
