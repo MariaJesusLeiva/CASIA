@@ -16,6 +16,8 @@ import javax.servlet.http.HttpSession;
 
 public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	private static String SALIR = "/Login.jsp";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -29,16 +31,18 @@ public class LogoutServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		RequestDispatcher rd = null;
-		HttpSession session = request.getSession(false);
 
-		if (session != null) {
-			session.invalidate();
-			request.setAttribute("errMessage", "Cierre de sesión correcto");
-			rd = request.getRequestDispatcher("Login.jsp");
-			rd.forward(request, response);
-			System.out.println("Logged out");
+		HttpSession session = request.getSession(false);
+		RequestDispatcher rd = null;
+		String action = request.getParameter("action");
+		if (action.equalsIgnoreCase("salir")) {
+			if(session != null) {
+				session.removeAttribute("user_name");
+				session.invalidate();
+				request.setAttribute("errMessage", "Cierre de sesión correcto");
+				rd = request.getRequestDispatcher("Login.jsp");
+				rd.forward(request, response);
+			}
 		}
 	}
 
