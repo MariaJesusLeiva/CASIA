@@ -1,0 +1,25 @@
+
+td.titulo {
+	background-color: #D6E6F4;
+	border-right: 1px #41719C solid;
+	border-left: 1px #41719C solid;
+	border-top: 5px #41719C solid;
+	text-align: center;	
+}
+td.form {
+	background-color: #D6E6F4;
+	border-right: 1px #41719C solid;
+	border-left: 1px #41719C solid;
+	text-align: left;
+}
+tr.trparte{
+	border-top: 5px #41719C solid;
+	border-bottom: 5px #41719C solid;
+
+}
+
+textarea.estilotextarea{
+	width: 500px;
+	height: 300px;
+	resize:none;	
+}

@@ -12,6 +12,7 @@ public class SancionEntity {
 	private String observacion;
 	private String trabajo;
 	private String asistencia;
+	private String nombre_alum;
 	
 	public Integer getId_sancion() {
 		return id_sancion;
@@ -66,6 +67,12 @@ public class SancionEntity {
 	}
 	public void setAsistencia(String asistencia) {
 		this.asistencia = asistencia;
+	}
+	public String getNombre_alum() {
+		return nombre_alum;
+	}
+	public void setNombre_alum(String nombre_alum) {
+		this.nombre_alum = nombre_alum;
 	}
 	
 }

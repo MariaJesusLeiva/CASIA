@@ -5,14 +5,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
-
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=uft-8">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<link href="/css/partes.css" rel="stylesheet" type="text/css">
+<link href="css/partes.css" rel="stylesheet" type="text/css">
 <title>Partes Pendientes</title>
 </head>
 <%@ include file="Principal.jsp"%>
@@ -151,7 +149,7 @@ $(function(){
                     <td><c:out value="${parte.grupo}" /></td>
                     <%-- <td><c:out value="${parte.motivo_parte}" /></td> --%>
                     <td><c:out value="${parte.tipo_sancion}" /></td>
-                     <td><a href="SancionServlet?action=consultar&id_parte=<c:out value="${parte.id_parte}"/>"><i class="glyphicon glyphicon-eye-open"></i></a></td>
+                     <td><a href="ParteServlet?action=consultar&id_parte=<c:out value="${parte.id_parte}"/>"><i class="glyphicon glyphicon-eye-open"></i></a></td>
                 </tr>
             </c:forEach>
 						</tbody>

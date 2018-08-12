@@ -7,7 +7,6 @@ import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,23 +22,25 @@ import com.casia.entity.SancionEntity;
  * Servlet implementation class SancionServlet
  */
 
-public class SancionServlet extends HttpServlet {
+public class SancionServlet extends HttpServlet
+{
 	private static final long serialVersionUID = 1L;
 	private static String ASIGNAR = "/Sancion.jsp";
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SancionServlet() {
+    public SancionServlet()
+    {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+
 		SancionDao sancionDao = new SancionDao();
 		ParteDao parteDao = new ParteDao();
 		ParteEntity parteEnt = new ParteEntity();
@@ -47,7 +48,9 @@ public class SancionServlet extends HttpServlet {
 		String alumsancion, profesancion;
 		HttpSession session = request.getSession(); //Se ha sacado del if de asignar, pendiente de que no falle en un futuro
 		String action = request.getParameter("action");
-		if (action.equalsIgnoreCase("asignar")){
+		
+		if (action.equalsIgnoreCase("asignar"))
+		{
 			forward = ASIGNAR;
             int id_parte = Integer.parseInt(request.getParameter("id_parte"));            
 			request.setAttribute("sancion", sancionDao.getParteById(id_parte));
@@ -59,33 +62,42 @@ public class SancionServlet extends HttpServlet {
 			System.out.println("Nombre alum "+alumsancion); 
 			session.setAttribute("alumsancion", alumsancion);
 			session.setAttribute("profesancion", profesancion);
+			request.setAttribute("sanciones", sancionDao.getAllSanciones());
 		}
 		RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
+		request.setAttribute("sanciones", sancionDao.getAllSanciones());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+			throws ServletException, IOException
+	{
+
 		SancionEntity sancionEnt = new SancionEntity();
 		Date fecha_inicio = null;
 		Date fecha_fin = null;
 		Integer total_dias;		
 
-		try {
+		try
+		{
 			fecha_inicio = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_inicio"));
 			sancionEnt.setFecha_inicio(fecha_inicio);
-		} catch (ParseException e) {
+		}
+		catch (ParseException e)
+		{
 			e.printStackTrace();
 		}
 
-		try {
+		try
+		{
 			fecha_fin = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_fin"));
 			sancionEnt.setFecha_fin(fecha_fin);
-		} catch (ParseException e) {
+		}
+		catch (ParseException e)
+		{
 			e.printStackTrace();
 		}
 
@@ -97,6 +109,7 @@ public class SancionServlet extends HttpServlet {
 		sancionEnt.setObservacion(request.getParameter("observacion"));
 		sancionEnt.setTrabajo(request.getParameter("trabajo"));
 		sancionEnt.setAsistencia(request.getParameter("asistencia"));
+		sancionEnt.setNombre_alum(request.getParameter("nombre_alum"));
 		SancionDao sancionDao = new SancionDao();
 		sancionDao.addSancion(sancionEnt);
 		System.out.println("Sancion creada");
@@ -108,7 +121,6 @@ public class SancionServlet extends HttpServlet {
 		RequestDispatcher view = request.getRequestDispatcher("Partes.jsp");
 		request.setAttribute("partesSin", parteDao.getAllPartesSinSanciones());
 		request.setAttribute("partes", parteDao.getAllPartes());
-		view.forward(request, response);
-		
+		view.forward(request, response);		
 	}
 }
