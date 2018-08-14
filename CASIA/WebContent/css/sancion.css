@@ -24,7 +24,8 @@ input.estiloinput{
 textarea.estilotextarea{
 	width: 300px;
 	height: 200px;
-	resize:none;	
+	resize: none;
+	maxlength: 500;	
 }
 .row {
 	margin-top: 40px;
@@ -46,4 +47,20 @@ textarea.estilotextarea{
 
 .panel-body {
 	display: none;
+}
+
+input:invalid {
+  border: 1px solid red;
+}
+
+input:valid {
+  border: 1px solid green;
+}
+
+select:invalid {
+  border: 1px solid red;
+}
+
+select:valid {
+  border: 1px solid green;
 }

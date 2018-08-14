@@ -21,5 +21,34 @@ tr.trparte{
 textarea.estilotextarea{
 	width: 500px;
 	height: 300px;
-	resize:none;	
+	resize: none;	
+	maxlength: 500;
+}
+
+textarea.estilotextareagris{
+	width: 500px;
+	height: 300px;
+	resize: none;	
+	maxlength: 500;
+	background-color: #e2e4e5;
+}
+
+input:invalid {
+  border: 1px solid red;
+}
+
+input:valid {
+  border: 1px solid green;
+}
+
+textarea:invalid {
+  border: 1px solid red;
+}
+
+textarea:valid {
+  border: 1px solid green;
+}
+
+input.estilofondogris{
+	background-color: #e2e4e5;
 }

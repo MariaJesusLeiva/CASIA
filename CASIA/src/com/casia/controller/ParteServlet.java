@@ -22,7 +22,8 @@ import com.casia.entity.ParteEntity;
 
 public class ParteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static String CONSULTAR = "/ConsultarParte.jsp";
+	private static String CONSULTAR = "Partes.jsp";
+	private static String VERPARTE = "ConsultarParte.jsp";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -38,15 +39,36 @@ public class ParteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		ParteDao parteDao = new ParteDao();
+		ParteEntity parteEnt = new ParteEntity();
+		HttpSession session = request.getSession();
 		String forward = "";
 		String action = request.getParameter("action");
 		if (action.equalsIgnoreCase("consultar")) {
 			forward = CONSULTAR;
-			request.setAttribute("partesSin", parteDao.getAllPartesSinSanciones());
+			request.setAttribute("parte", parteDao.getAllPartesSinSanciones());
 			request.setAttribute("partes", parteDao.getAllPartes());
+		} else if (action.equalsIgnoreCase("verParte")) {
+			forward = VERPARTE;
+/*			String alum = parteEnt.getNombre_alum();
+			String profe = parteEnt.getNombre_profe();
+			String motivo = parteEnt.getMotivo_parte();
+			Date fechaparte = parteEnt.getFecha_parte();
+			Integer codigo = parteEnt.getCodigo();
+			String grupo = parteEnt.getGrupo();
+			String tiposancion = parteEnt.getTipo_sancion();
+			session.setAttribute("alumparte", alum);
+			session.setAttribute("profeparte", profe);
+			session.setAttribute("motivoparte", motivo);
+			session.setAttribute("fechaparte", fechaparte);
+			session.setAttribute("codigo", codigo);
+			session.setAttribute("grupo", grupo);
+			session.setAttribute("tiposancion", tiposancion);*/
+			
+			int id_parte = Integer.parseInt(request.getParameter("id_parte"));
+			request.setAttribute("parte", parteDao.getParteById(id_parte));
 		}
 
-		RequestDispatcher view = request.getRequestDispatcher("Partes.jsp");
+		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request, response);
 	}
 

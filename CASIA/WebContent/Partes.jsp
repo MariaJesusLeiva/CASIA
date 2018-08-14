@@ -67,6 +67,9 @@ $(function(){
 	$('[data-toggle="tooltip"]').tooltip();
 })
 </script>
+
+
+
 <div class="container">
     <h1>Pulsar en el icono de filtro <small>(<i class="glyphicon glyphicon-search"></i>)</small></h1>
     	<div class="row">
@@ -91,12 +94,12 @@ $(function(){
 								<th>Profesor</th>
 								<th>Alumno</th>
 								<th>Grupo</th>
-								<th>Motivo</th>
+								<!-- <th>Motivo</th> -->
 								<th>Sanción</th>
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${partesSin}" var="parte">
+							<c:forEach items="${parte}" var="parte">
 								<tr>
 									<td><c:out value="${parte.codigo}" /></td>
 									<td><fmt:formatDate pattern="dd-MM-yyyy"
@@ -104,7 +107,7 @@ $(function(){
 									<td><c:out value="${parte.nombre_profe}" /></td>
 									<td><c:out value="${parte.nombre_alum}" /></td>
 									<td><c:out value="${parte.grupo}" /></td>
-									<td><c:out value="${parte.motivo_parte}" /></td>
+									<%-- <td><c:out value="${parte.motivo_parte}" /></td> --%>
 									<td><a
 										href="SancionServlet?action=asignar&id_parte=<c:out value="${parte.id_parte}"/>"><i class="glyphicon glyphicon-edit"></i></a></td>
 
@@ -130,7 +133,7 @@ $(function(){
 					<table class="table table-hover" id="task-table" align="center">
 						<thead>
 							<tr>
-            	<!-- <th>Código</th> -->
+            	<th>Código</th>
             	<th>Fecha</th>
             	<th>Profesor</th>
             	<th>Alumno</th>
@@ -142,14 +145,14 @@ $(function(){
 						<tbody>
             <c:forEach items="${partes}" var="parte">
                 <tr>
-                    <%-- <td><c:out value="${parte.codigo}" /></td> --%>
+                    <td><c:out value="${parte.codigo}" /></td>
                     <td><fmt:formatDate pattern="dd-MM-yyyy" value="${parte.fecha_parte}" /></td>
                     <td><c:out value="${parte.nombre_profe}" /></td>
                     <td><c:out value="${parte.nombre_alum}" /></td>
                     <td><c:out value="${parte.grupo}" /></td>
                     <%-- <td><c:out value="${parte.motivo_parte}" /></td> --%>
                     <td><c:out value="${parte.tipo_sancion}" /></td>
-                     <td><a href="ParteServlet?action=consultar&id_parte=<c:out value="${parte.id_parte}"/>"><i class="glyphicon glyphicon-eye-open"></i></a></td>
+                     <td><a href="ParteServlet?action=verParte&id_parte=<c:out value="${parte.id_parte}"/>"><i class="glyphicon glyphicon-eye-open"></i></a></td>
                 </tr>
             </c:forEach>
 						</tbody>
@@ -158,71 +161,5 @@ $(function(){
 			</div>
 		</div>
 	</div>
-
-
-
-
-
-
-
-    <%-- <table border=3>
-        <thead>
-            <tr>
-            	<th>Código</th>
-            	<th>Fecha del Parte</th>
-            	<th>Profesor</th>
-            	<th>Alumno</th>
-            	<th>Grupo</th>
-            	<th>Motivo</th>
-            	<th>Sanción</th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach items="${partesSin}" var="parte">
-                <tr>
-                    <td><c:out value="${parte.id_parte}" /></td>
-                    <td><c:out value="${parte.codigo}" /></td>
-                    <td><fmt:formatDate pattern="MM/dd/yyyy" value="${parte.fecha_parte}" /></td>
-                    <td><c:out value="${parte.nombre_profe}" /></td>
-                    <td><c:out value="${parte.nombre_alum}" /></td>
-                    <td><c:out value="${parte.grupo}" /></td>
-                    <td><c:out value="${parte.motivo_parte}" /></td>
-                    <td><a href="SancionServlet?action=asignar&id_parte=<c:out value="${parte.id_parte}"/>">Asignar</a></td>
-
-                </tr>
-            </c:forEach>
-        </tbody>        
-    </table>
-    <hr style="border:15px;"><hr style="border:2px;">
-    <table border=3>
-        <thead>
-            <tr>
-            	<th>Código</th>
-            	<th>Fecha del Parte</th>
-            	<th>Profesor</th>
-            	<th>Alumno</th>
-            	<th>Grupo</th>
-            	<th>Motivo</th>
-            	<th>Sanción</th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach items="${partes}" var="parte">
-                <tr>
-                    <td><c:out value="${parte.id_parte}" /></td>
-                    <td><c:out value="${parte.codigo}" /></td>
-                    <td><fmt:formatDate pattern="MM/dd/yyyy" value="${parte.fecha_parte}" /></td>
-                    <td><c:out value="${parte.nombre_profe}" /></td>
-                    <td><c:out value="${parte.nombre_alum}" /></td>
-                    <td><c:out value="${parte.grupo}" /></td>
-                    <td><c:out value="${parte.motivo_parte}" /></td>
-                    <td><c:out value="${parte.tipo_sancion}" /></td>
-                     <td><a href="SancionServlet?action=consultar&id_parte=<c:out value="${parte.id_parte}"/>">Consultar</a></td> 
-                     Añadir consultar en servlet
-
-                </tr>
-            </c:forEach>
-        </tbody>
-    </table> --%>
 </body>
 </html>

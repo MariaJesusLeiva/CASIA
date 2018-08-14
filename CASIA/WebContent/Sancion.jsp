@@ -79,6 +79,42 @@ $(function(){
 	$('[data-toggle="tooltip"]').tooltip();
 })
 </script>
+	<script>
+function limita(elEvento, maximoCaracteres) {
+  var elemento = document.getElementById("textarea");
+
+  // Obtener la tecla pulsada 
+  var evento = elEvento || window.event;
+  var codigoCaracter = evento.charCode || evento.keyCode;
+  // Permitir utilizar las teclas con flecha horizontal
+  if(codigoCaracter == 37 || codigoCaracter == 39) {
+    return true;
+  }
+
+  // Permitir borrar con la tecla Backspace y con la tecla Supr.
+  if(codigoCaracter == 8 || codigoCaracter == 46) {
+    return true;
+  }
+  else if(elemento.value.length >= maximoCaracteres ) {
+    return false;
+  }
+  else {
+    return true;
+  }
+}
+
+function actualizaInfo(maximoCaracteres) {
+  var elemento = document.getElementById("textarea");
+  var info = document.getElementById("info");
+
+  if(elemento.value.length >= maximoCaracteres ) {
+    info.innerHTML = "Máximo "+maximoCaracteres+" caracteres";
+  }  else {
+    info.innerHTML = (maximoCaracteres-elemento.value.length)+" Caracteres restantes";
+  }
+}
+</script>
+
 	<div class="text-white text-center d-block mb-1">
 		<h4 class="titulo pb-2 pt-2">Formulario para Asignar una Sanción</h4>
 	</div>
@@ -90,31 +126,34 @@ $(function(){
 						value="<c:out value="${sancion.id_parte}" />">
 					<table class="table table-sm">
 						<tr class="trsancion">
-							<td class ="titulo">Alumno</td>
-							<td class ="form"><input class ="estiloinput" type="text"
+							<td class="titulo">Alumno</td>
+							<td class="form"><input class="estiloinput" type="text"
 								name="nombre_alum" readonly="readonly"
 								value="<%=session.getAttribute("alumsancion")%>"></td>
 						</tr>
 						<tr class="trsancion">
-							<td class ="titulo">Profesor</td>
-							<td class ="form"><input class ="estiloinput" type="text"
+							<td class="titulo">Profesor</td>
+							<td class="form"><input class="estiloinput" type="text"
 								name="nombre_profe" readonly="readonly"
 								value="<%=session.getAttribute("profesancion")%>"></td>
 						</tr>
 
 						<tr class="trsancion">
-							<td class ="titulo">Observación</td>
-							<td class ="form" colspan="3" class="w-75"><textarea class ="estilotextarea" name="observacion"
-									value="<c:out value="${sancion.observacion}" />"></textarea></td>
+							<td class="titulo">Observación</td>
+							<td class="form" colspan="3" class="w-75"><textarea
+									class="estilotextarea" id="textmotivo" name="observacion"
+									onkeypress="return limita(event, 500);"
+									onkeyup="actualizaInfo(500)"
+									value="<c:out value="${sancion.observacion}" />"></textarea>
+								<div id="info">Máximo 500 caracteres</div></td>
 						</tr>
 						<tr class="trsancion">
-							<td class ="titulo">Sancion <span class="text-danger">*</span></td>
-							<td class ="form">
+							<td class="titulo">Sancion <span class="text-danger">*</span></td>
+							<td class="form">
 								<div class="select-wrapper">
 									<select name="tipo_sancion"
 										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;"
-										class="w-100 no-print-required">
-										<option class="no-print">Seleccionar</option>
+										required>
 										<option value="Recreo">Recreo</option>
 										<option value="PROA">PROA</option>
 										<option value="Expulsión">Expulsión</option>
@@ -122,28 +161,32 @@ $(function(){
 								</div>
 						</tr>
 						<tr class="trsancion">
-							<td class ="titulo">Trabajo</td>
-							<td class ="form" colspan="3" class="w-75"><textarea class ="estilotextarea" name="observacion"
-									value="<c:out value="${sancion.trabajo}" />"></textarea></td>
+							<td class="titulo">Trabajo</td>
+							<td class="form" colspan="3" class="w-75"><textarea
+									class="estilotextarea" id="textmotivo" name="observacion"
+									onkeypress="return limita(event, 500);"
+									onkeyup="actualizaInfo(500)"
+									value="<c:out value="${sancion.trabajo}" />"></textarea>
+								<div id="info">Máximo 500 caracteres</div></td>
 						</tr>
 						<tr class="trsancion">
-							<td class ="titulo">Fecha inicio <span class="text-danger">*</span></td>
-							<td class ="form"><input type="date" name="fecha_inicio"
-								pattern="yyyy-MM-dd"
-								value="<c:out value="${sancion.fecha_inicio}" />"
-								class="w-100 element-white no-print-required"></td>
+							<td class="titulo">Fecha inicio <span class="text-danger">*</span></td>
+							<td class="form"><input type="date" name="fecha_inicio"
+								pattern="yyyy-MM-dd" required
+								value="<c:out value="${sancion.fecha_inicio}" />"></td>
 						</tr>
 						<tr class="trsancion">
-							<td class ="titulo">Fecha fin <span class="text-danger">*</span></td>
-							<td class ="form"><input type="date" name="fecha_fin" pattern="yyyy-MM-dd"
-								value="<c:out value="${sancion.fecha_fin}" />"
-								class="w-100 element-white no-print-required"></td>
+							<td class="titulo">Fecha fin <span class="text-danger">*</span></td>
+							<td class="form"><input type="date" name="fecha_fin"
+								pattern="yyyy-MM-dd" required
+								value="<c:out value="${sancion.fecha_fin}" />"></td>
+
 						</tr>
 						<tr class="trsancion">
-							<td class ="titulo">Nº de días <span class="text-danger">*</span></td>
-							<td class ="form"><input type="text" name="total_dias" size="5"
-								value="<c:out value="${sancion.total_dias}" />"
-								class="w-100 no-print-required element-white"></td>
+							<td class="titulo">Nº de días <span class="text-danger">*</span></td>
+							<td class="form"><input type="text" name="total_dias"
+								size="5" required
+								value="<c:out value="${sancion.total_dias}" />"></td>
 						</tr>
 
 
