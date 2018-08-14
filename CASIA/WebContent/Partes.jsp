@@ -99,7 +99,7 @@ $(function(){
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${parte}" var="parte">
+							<c:forEach items="${partesSin}" var="parte">
 								<tr>
 									<td><c:out value="${parte.codigo}" /></td>
 									<td><fmt:formatDate pattern="dd-MM-yyyy"

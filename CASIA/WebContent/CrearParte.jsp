@@ -109,8 +109,8 @@ function actualizaInfo(maximoCaracteres) {
 							</td>
 							<td colspan="3" class="form"><textarea class="estilotextarea" id="textmotivo" name="motivo_parte"
 									value="<c:out value="${parte.motivo_parte}" />" rows="10"
-									cols="75" required onkeypress="return limita(event, 500);" onkeyup="actualizaInfo(500)"></textarea>
-									<div id="info">Máximo 500 caracteres</div></td>
+									cols="75" required onkeypress="return limita(event, 1000);" onkeyup="actualizaInfo(1000)"></textarea>
+									<div id="info">Máximo 1000 caracteres</div></td>
 						</tr>
 					</table>
 					<div class="row mt-3 mb-3">

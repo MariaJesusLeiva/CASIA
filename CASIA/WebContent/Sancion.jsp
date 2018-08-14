@@ -116,7 +116,8 @@ function actualizaInfo(maximoCaracteres) {
 </script>
 
 	<div class="text-white text-center d-block mb-1">
-		<h4 class="titulo pb-2 pt-2">Formulario para Asignar una Sanción</h4>
+		<h3 class="titulo pb-2 pt-2">Formulario para Asignar una Sanción correspondiente al parte con código (<%=session.getAttribute("codigoparte")%>)</h3>
+
 	</div>
 	<div class="container">
 		<div class="row">
@@ -180,7 +181,6 @@ function actualizaInfo(maximoCaracteres) {
 							<td class="form"><input type="date" name="fecha_fin"
 								pattern="yyyy-MM-dd" required
 								value="<c:out value="${sancion.fecha_fin}" />"></td>
-
 						</tr>
 						<tr class="trsancion">
 							<td class="titulo">Nº de días <span class="text-danger">*</span></td>
@@ -188,8 +188,6 @@ function actualizaInfo(maximoCaracteres) {
 								size="5" required
 								value="<c:out value="${sancion.total_dias}" />"></td>
 						</tr>
-
-
 					</table>
 					<div class="row mt-3 mb-3">
 						<div class="col-12">

@@ -24,7 +24,7 @@ public class ParteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String CONSULTAR = "Partes.jsp";
 	private static String VERPARTE = "ConsultarParte.jsp";
-       
+	private static String MODIFICAR = "ModificarParte.jsp";
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -43,27 +43,16 @@ public class ParteServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String forward = "";
 		String action = request.getParameter("action");
-		if (action.equalsIgnoreCase("consultar")) {
+		if (action.equalsIgnoreCase("consultarParte")) {
 			forward = CONSULTAR;
-			request.setAttribute("parte", parteDao.getAllPartesSinSanciones());
+			request.setAttribute("partesSin", parteDao.getAllPartesSinSanciones());
 			request.setAttribute("partes", parteDao.getAllPartes());
 		} else if (action.equalsIgnoreCase("verParte")) {
-			forward = VERPARTE;
-/*			String alum = parteEnt.getNombre_alum();
-			String profe = parteEnt.getNombre_profe();
-			String motivo = parteEnt.getMotivo_parte();
-			Date fechaparte = parteEnt.getFecha_parte();
-			Integer codigo = parteEnt.getCodigo();
-			String grupo = parteEnt.getGrupo();
-			String tiposancion = parteEnt.getTipo_sancion();
-			session.setAttribute("alumparte", alum);
-			session.setAttribute("profeparte", profe);
-			session.setAttribute("motivoparte", motivo);
-			session.setAttribute("fechaparte", fechaparte);
-			session.setAttribute("codigo", codigo);
-			session.setAttribute("grupo", grupo);
-			session.setAttribute("tiposancion", tiposancion);*/
-			
+			forward = VERPARTE;			
+			int id_parte = Integer.parseInt(request.getParameter("id_parte"));
+			request.setAttribute("parte", parteDao.getParteById(id_parte));
+		} else if (action.equalsIgnoreCase("modificarParte")) {
+			forward = MODIFICAR;			
 			int id_parte = Integer.parseInt(request.getParameter("id_parte"));
 			request.setAttribute("parte", parteDao.getParteById(id_parte));
 		}
@@ -94,18 +83,35 @@ public class ParteServlet extends HttpServlet {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
-		List<ParteEntity> id;
+		
+		String id_p = request.getParameter("id_parte");
+		ParteDao parteDao = new ParteDao();
+		if(id_p == null || id_p.isEmpty()) {
+			List<ParteEntity> id;
+			id = (List<ParteEntity>)parteDao.getAllPartes();
+			System.out.println("id de lista "+id.size()); 
+			Integer id_nuevo = id.size()+1;
+			parteEnt.setId_parte(id_nuevo);
+			parteDao.addParte(parteEnt);
+	        System.out.println("id "+parteEnt.getId_parte()); 
+		} else {
+			id_parte = Integer.parseInt(request.getParameter("id_parte"));			
+			parteEnt.setId_parte(id_parte);
+			parteDao.updateParte(parteEnt);
+		}
+    
+/*		//Usado antes de crear el modificar parte
+  		List<ParteEntity> id;
 		ParteDao parteDao = new ParteDao();
 		id = (List<ParteEntity>)parteDao.getAllPartes();
 		id_parte = id.size()+1;
 		parteEnt.setId_parte(id_parte);
 		parteDao.addParte(parteEnt);
-        System.out.println("id "+parteEnt.getId_parte());    
-
-		RequestDispatcher view = request.getRequestDispatcher("Partes.jsp");
+        System.out.println("id "+parteEnt.getId_parte());*/
+		
         request.setAttribute("partes", parteDao.getAllPartes());
         request.setAttribute("partesSin", parteDao.getAllPartesSinSanciones());
+        RequestDispatcher view = request.getRequestDispatcher("Partes.jsp");
         view.forward(request, response);
 	}
 	

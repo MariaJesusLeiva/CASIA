@@ -12,7 +12,7 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/crearparte.css" rel="stylesheet" type="text/css">
-<title>Ver Parte</title>
+<title>Consultar Parte</title>
 </head>
 <%@ include file="Principal.jsp"%>
 <body>
@@ -74,7 +74,7 @@
 					</table>
 					<div class="row mt-3 mb-3">
 						<div class="col-12">
-							<a href="SancionServlet?action=modificar&id_parte=<c:out value="${parte.id_parte}"/>" class="btn btn-primary w-100 no-print">Modificar</a>
+							<a href="ParteServlet?action=modificarParte&id_parte=<c:out value="${parte.id_parte}"/>" class="btn btn-primary w-100 no-print">Modificar</a>
 							<button class="btn btn-primary w-100 no-print" type="button"
 								value="Atrás" name="Boton1" onclick="atras();">Atrás</button>
 						</div>

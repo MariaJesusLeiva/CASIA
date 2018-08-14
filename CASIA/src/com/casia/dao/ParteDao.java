@@ -43,6 +43,26 @@ public class ParteDao
 		}
 	}
 	
+	public void updateParte(ParteEntity parteEnt) {
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("UPDATE parte SET codigo=?, fecha_parte=?, nombre_profe=?," + 
+							"nombre_alum=?, grupo=?, motivo_parte=? WHERE id_parte=?");
+			// Parameters start with 1
+			preparedStatement.setInt(1, parteEnt.getCodigo());
+			preparedStatement.setDate(2, new java.sql.Date(parteEnt.getFecha_parte().getTime()));
+			preparedStatement.setString(3, parteEnt.getNombre_profe());
+			preparedStatement.setString(4, parteEnt.getNombre_alum());
+			preparedStatement.setString(5, parteEnt.getGrupo());
+			preparedStatement.setString(6, parteEnt.getMotivo_parte());
+			preparedStatement.setInt(7, parteEnt.getId_parte());
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public List<ParteEntity> getAllPartes()
 	{
 		List<ParteEntity> partes = new ArrayList<ParteEntity>();
@@ -119,6 +139,7 @@ public class ParteDao
 			{
 				alumsancion.setNombre_alum(rs.getString("nombre_alum"));
 				alumsancion.setNombre_profe(rs.getString("nombre_profe"));
+				alumsancion.setCodigo(rs.getInt("codigo"));
 			}
 		}
 		catch (SQLException e)

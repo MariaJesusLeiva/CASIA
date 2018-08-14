@@ -29,7 +29,7 @@
 				</a>
 					<ul class="dropdown-menu">
 						<li><a href="CrearParte.jsp">Nuevo</a></li>
-						<li><a href="ParteServlet?action=consultar">Consultar</a></li>
+						<li><a href="ParteServlet?action=consultarParte">Consultar</a></li>
 						<li><a href="#">Link</a></li>
 						<li><a href="#">Link</a></li>
 					</ul></li>
@@ -37,7 +37,7 @@
 					data-toggle="dropdown"> Sanciones <b class="caret"></b>
 				</a>
 					<ul class="dropdown-menu">
-						<li><a href="NuevoParte.jsp">Nuevo</a></li>
+						<li><a href="SancionServlet?action=recreo">Recreo</a></li>
 						<li><a href="#">Link</a></li>
 						<li><a href="#">Link</a></li>
 						<li><a href="#">Link</a></li>

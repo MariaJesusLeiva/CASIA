@@ -45,6 +45,7 @@ public class SancionServlet extends HttpServlet
 		ParteDao parteDao = new ParteDao();
 		ParteEntity parteEnt = new ParteEntity();
 		String forward="";
+		Integer codigoparte;
 		String alumsancion, profesancion;
 		HttpSession session = request.getSession(); //Se ha sacado del if de asignar, pendiente de que no falle en un futuro
 		String action = request.getParameter("action");
@@ -59,14 +60,18 @@ public class SancionServlet extends HttpServlet
 			parteEnt = parteDao.getAlumSancionByIdParte(id_parte);
 			alumsancion = parteEnt.getNombre_alum();
 			profesancion = parteEnt.getNombre_profe();
+			codigoparte = parteEnt.getCodigo();
 			System.out.println("Nombre alum "+alumsancion); 
 			session.setAttribute("alumsancion", alumsancion);
 			session.setAttribute("profesancion", profesancion);
+			session.setAttribute("codigoparte", codigoparte);
 			request.setAttribute("sanciones", sancionDao.getAllSanciones());
+		} else if (action.equalsIgnoreCase("recreo")) {
+			
 		}
 		RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
-		request.setAttribute("sanciones", sancionDao.getAllSanciones());
+		//request.setAttribute("sanciones", sancionDao.getAllSanciones());
 	}
 
 	/**
