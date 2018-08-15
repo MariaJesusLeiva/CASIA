@@ -9,72 +9,60 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=uft-8">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/crearparte.css" rel="stylesheet" type="text/css">
 <title>Recreo</title>
 </head>
 <%@ include file="Principal.jsp"%>
 <body>
+	<script language="javascript">
+	function atras(){history.back();}
+	function actualizar(){location.reload();}
+	function adelante(){history.forward();}
+</script>
 	<div class="container">
-		<div class="row">
-			<div class="table-responsive table-bordered movie-table">
-				<table class="table movie-table">
-					<thead>
-						<tr class="movie-table-head">
-							<th>Fecha</th>
-							<th>Alumno</th>
-							<th>Observación</th>
-							<th>Trabajo</th>
-							<!-- <th>Asistencia</th> -->
-						</tr>
-					</thead>
-					<tbody>
-					<c:forEach items="${partesSin}" var="parte">
-						<!--row-->
-						<tr class="dark-row">
-							<td>Toy Story</td>
-							<td><span style="color: green;">5</span> /5</td>
-							<td>40</td>
-							<td>Both</td>
-						</tr>
-						</c:forEach>
-						<!--/.row-->
 
-						<!--row-->
-						<tr class="light-row">
-							<td>The Shining</td>
-							<td><span style="color: green;">5</span> /5</td>
-							<td>37</td>
-							<td>Both</td>
-						</tr>
-						<!--/.row-->
+				<form  method="POST" action='RecreoServlet' name="frmAddAsistencia">
+					<table class="table movie-table">
+						<thead>
+							<tr class="movie-table-head">
 
-						<!--row-->
-						<tr class="dark-row">
-							<td>Rubber</td>
-							<td><span style="color: red;">1</span> /5</td>
-							<td>20</td>
-							<td>Rental</td>
-						</tr>
-						<!--/.row-->
-
-						<!--row-->
-						<tr class="light-row">
-							<td>The Hangover</td>
-							<td><span style="color: orange;">3</span> /5</td>
-							<td>33</td>
-							<td>Sale</td>
-						</tr>
-						<!--/.row-->
-
-
-
-					</tbody>
-				</table>
-			</div>
+								<th>Fecha</th>
+								<th>Alumno</th>
+								<th>Asistencia</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${recreo}" var="recreo">
+								<tr class="dark-row">
+									<%-- <td style="display: none"><c:out value="${recreo.id_sancion}" /></td> --%>
+									<td><fmt:formatDate pattern="dd-MM-yyyy"
+											value="${recreo.fecha_inicio}" /></td>
+									<td><c:out value="${recreo.nombre_alum}" /></td>
+									<td><input type="checkbox" name="asistencia"
+										value="${recreo.id_sancion}"></td>
+									<td><input type="text" name="id_sancion" style="display: none"
+										value="${recreo.id_sancion}"></td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+					<div>
+						
+							<button class="btn btn-primary w-100 no-print" type="submit"
+								value="Submit">Guardar</button>
+							<button class="btn btn-primary w-100 no-print" type="button"
+								value="Atrás" name="Boton1" onclick="atras();">Atrás</button>
+						
+					</div>
+				</form>
 		</div>
-	</div>
+
 </body>
 </html>

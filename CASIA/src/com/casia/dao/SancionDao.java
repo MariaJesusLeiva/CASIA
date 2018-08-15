@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.casia.config.conexionDB;
+import com.casia.entity.ParteEntity;
 import com.casia.entity.SancionEntity;
 
 public class SancionDao
@@ -106,4 +107,49 @@ private static Connection connection;
 		return sanciones;
 	}
 
+	public Object getAllRecreos() {
+		List<SancionEntity> recreos = new ArrayList<SancionEntity>();
+		try
+		{
+			Statement statement = connection.createStatement();
+			/*ResultSet rs = statement.executeQuery("SELECT * FROM sancion s " + 
+										"INNER JOIN parte p ON s.id_parte=p.id_parte " +
+										"ORDER BY s.fecha_inicio ASC");*/
+			ResultSet rs = statement.executeQuery("SELECT * FROM sancion " + 
+										"WHERE tipo_sancion= 'recreo' AND asistencia IS NULL " +
+										"ORDER BY fecha_inicio ASC");
+			
+			while (rs.next())
+			{
+				SancionEntity recreo = new SancionEntity();
+				recreo.setId_sancion(rs.getInt("id_sancion"));
+				recreo.setId_parte(rs.getInt("id_parte"));
+				recreo.setFecha_inicio(rs.getDate("fecha_inicio"));
+				recreo.setObservacion(rs.getString("observacion"));
+				recreo.setTrabajo(rs.getString("trabajo"));
+				recreo.setNombre_alum(rs.getString("nombre_alum"));
+				
+				recreos.add(recreo);
+			}
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return recreos;
+	}
+
+	public void updateAsistencia(Integer id) {
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("UPDATE sancion SET asistencia= 'Sí'" + 
+							"WHERE id_sancion=?");
+			// Parameters start with 1
+			preparedStatement.setInt(1, id);
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

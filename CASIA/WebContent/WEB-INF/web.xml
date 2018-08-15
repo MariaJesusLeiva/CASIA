@@ -34,7 +34,7 @@
     <servlet-name>ParteServlet</servlet-name>
     <url-pattern>/ParteServlet</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>SancionServlet</display-name>
     <servlet-name>SancionServlet</servlet-name>
@@ -43,5 +43,15 @@
   <servlet-mapping>
     <servlet-name>SancionServlet</servlet-name>
     <url-pattern>/SancionServlet</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>RecreoServlet</display-name>
+    <servlet-name>RecreoServlet</servlet-name>
+    <servlet-class>com.casia.controller.RecreoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RecreoServlet</servlet-name>
+    <url-pattern>/RecreoServlet</url-pattern>
   </servlet-mapping>
 </web-app>

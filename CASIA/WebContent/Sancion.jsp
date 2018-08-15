@@ -142,7 +142,7 @@ function actualizaInfo(maximoCaracteres) {
 						<tr class="trsancion">
 							<td class="titulo">Observación</td>
 							<td class="form" colspan="3" class="w-75"><textarea
-									class="estilotextarea" id="textmotivo" name="observacion"
+									class="estilotextarea" id="textarea" name="observacion"
 									onkeypress="return limita(event, 500);"
 									onkeyup="actualizaInfo(500)"
 									value="<c:out value="${sancion.observacion}" />"></textarea>
@@ -164,7 +164,7 @@ function actualizaInfo(maximoCaracteres) {
 						<tr class="trsancion">
 							<td class="titulo">Trabajo</td>
 							<td class="form" colspan="3" class="w-75"><textarea
-									class="estilotextarea" id="textmotivo" name="observacion"
+									class="estilotextarea" id="textarea" name="observacion"
 									onkeypress="return limita(event, 500);"
 									onkeyup="actualizaInfo(500)"
 									value="<c:out value="${sancion.trabajo}" />"></textarea>

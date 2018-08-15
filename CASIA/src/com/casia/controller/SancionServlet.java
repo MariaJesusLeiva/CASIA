@@ -26,6 +26,7 @@ public class SancionServlet extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 	private static String ASIGNAR = "/Sancion.jsp";
+	private static String RECREO = "/Recreo.jsp";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -66,9 +67,7 @@ public class SancionServlet extends HttpServlet
 			session.setAttribute("profesancion", profesancion);
 			session.setAttribute("codigoparte", codigoparte);
 			request.setAttribute("sanciones", sancionDao.getAllSanciones());
-		} else if (action.equalsIgnoreCase("recreo")) {
-			
-		}
+		} 
 		RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
 		//request.setAttribute("sanciones", sancionDao.getAllSanciones());
