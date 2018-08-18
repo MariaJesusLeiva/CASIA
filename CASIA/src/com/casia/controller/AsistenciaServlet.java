@@ -1,8 +1,6 @@
 package com.casia.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.text.ParseException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,22 +9,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.casia.dao.PROADao;
 import com.casia.dao.ParteDao;
+import com.casia.dao.RecreoDao;
 import com.casia.dao.SancionDao;
-import com.casia.entity.SancionEntity;
 
 /**
- * Servlet implementation class RecreoServlet
+ * Servlet implementation class AsistenciaServlet
  */
-
-public class RecreoServlet extends HttpServlet {
+@WebServlet("/AsistenciaServlet")
+public class AsistenciaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static String ASISTENCIARECREO = "/Recreo.jsp";
-       
+	private static String ASISTENCIARECREO = "/AsistenciaRecreo.jsp";
+	private static String ASISTENCIAPROA = "/AsistenciaPROA.jsp"; 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RecreoServlet() {
+    public AsistenciaServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,12 +34,16 @@ public class RecreoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		SancionDao sancionDao = new SancionDao();
+		RecreoDao recreoDao = new RecreoDao();
+		PROADao proaDao = new PROADao();
 		String forward="";
 		String action = request.getParameter("action");
-		if (action.equalsIgnoreCase("asistencia")) {
+		if (action.equalsIgnoreCase("asistenciaRecreo")) {
 			forward = ASISTENCIARECREO;
-			request.setAttribute("recreo", sancionDao.getAllRecreos());
+			request.setAttribute("recreo", recreoDao.getAllAsistenciaRecreos());
+		} else if (action.equalsIgnoreCase("asistenciaPROA")) {
+			forward = ASISTENCIAPROA;
+			request.setAttribute("proa", proaDao.getAllAsistenciaPROAs());
 		}
 		RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
@@ -65,13 +68,12 @@ public class RecreoServlet extends HttpServlet {
 			System.out.println("Database was updated");
 		}
 		
-		
+		//CAMBIAR DESTINO
 		ParteDao parteDao = new ParteDao();
 		RequestDispatcher view = request.getRequestDispatcher("Partes.jsp");
 		request.setAttribute("partesSin", parteDao.getAllPartesSinSanciones());
 		request.setAttribute("partes", parteDao.getAllPartes());
 		view.forward(request, response);			
 		} 
-
 
 }

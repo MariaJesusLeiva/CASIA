@@ -5,6 +5,7 @@ import java.util.Date;
 public class ParteEntity {
 	private Integer id_parte;
 	private Integer codigo;
+	private String curso;
 	private String tipo_sancion;
 	private Date fecha_parte;
 	private String nombre_profe;
@@ -24,6 +25,12 @@ public class ParteEntity {
 	}
 	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
+	}
+	public String getCurso() {
+		return curso;
+	}
+	public void setCurso(String curso) {
+		this.curso = curso;
 	}
 	public String getTipo_sancion() {
 		return tipo_sancion;

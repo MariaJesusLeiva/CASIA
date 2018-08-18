@@ -2,54 +2,31 @@ package com.casia.entity;
 
 import java.util.Date;
 
-public class SancionEntity {
+public class RecreoEntity {
+	private Integer id_recreo;
 	private Integer id_sancion;
-	private Integer id_parte;
 	private Date fecha_inicio;
-	private Date fecha_fin;
-	private Integer total_dias;
-	private String tipo_sancion;
 	private String observacion;
 	private String trabajo;
 	private String asistencia;
 	private String nombre_alum;
-	private String asignado_dias;
-	
+	public Integer getId_recreo() {
+		return id_recreo;
+	}
+	public void setId_recreo(Integer id_recreo) {
+		this.id_recreo = id_recreo;
+	}
 	public Integer getId_sancion() {
 		return id_sancion;
 	}
 	public void setId_sancion(Integer id_sancion) {
 		this.id_sancion = id_sancion;
 	}
-	public Integer getId_parte() {
-		return id_parte;
-	}
-	public void setId_parte(Integer id_parte) {
-		this.id_parte = id_parte;
-	}
 	public Date getFecha_inicio() {
 		return fecha_inicio;
 	}
 	public void setFecha_inicio(Date fecha_inicio) {
 		this.fecha_inicio = fecha_inicio;
-	}
-	public Date getFecha_fin() {
-		return fecha_fin;
-	}
-	public void setFecha_fin(Date fecha_fin) {
-		this.fecha_fin = fecha_fin;
-	}
-	public Integer getTotal_dias() {
-		return total_dias;
-	}
-	public void setTotal_dias(Integer total_dias) {
-		this.total_dias = total_dias;
-	}
-	public String getTipo_sancion() {
-		return tipo_sancion;
-	}
-	public void setTipo_sancion(String tipo_sancion) {
-		this.tipo_sancion = tipo_sancion;
 	}
 	public String getObservacion() {
 		return observacion;
@@ -75,11 +52,7 @@ public class SancionEntity {
 	public void setNombre_alum(String nombre_alum) {
 		this.nombre_alum = nombre_alum;
 	}
-	public String getAsignado_dias() {
-		return asignado_dias;
-	}
-	public void setAsignado_dias(String asignado_dias) {
-		this.asignado_dias = asignado_dias;
-	}
 	
+	
+
 }

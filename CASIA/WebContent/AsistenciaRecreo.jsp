@@ -5,7 +5,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
+
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=uft-8">
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -15,11 +17,16 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/tablasfiltro.css" rel="stylesheet" type="text/css">
-<title>Partes Pendientes</title>
+<title>Asistencia Recreo</title>
 </head>
 <%@ include file="Principal.jsp"%>
 <body>
-	<script>
+	<script language="javascript">
+	function atras(){history.back();}
+	function actualizar(){location.reload();}
+	function adelante(){history.forward();}
+</script>
+<script>
 (function(){
     'use strict';
 	var $ = jQuery;
@@ -54,7 +61,7 @@
 	$('[data-action="filter"]').filterTable();
 })(jQuery);
 </script>
-	<script>
+<script>
 $(function(){
     // attach table filter plugin to inputs
 	$('[data-action="filter"]').filterTable();
@@ -80,9 +87,11 @@ $(function(){
 		</h1>
 		<div class="row">
 			<div class="col-md-6">
+			<form method="POST" action='RecreoServlet' name="frmAddAsistencia">
+						
 				<div class="panel panel-info">
 					<div class="panel-heading">
-						<h3 class="panel-title">PENDIENTES DE SANCIÓN</h3>
+						<h3 class="panel-title">ASISTENCIA DE RECREO</h3>
 						<div class="pull-right">
 							<span class="clickable filter" data-toggle="tooltip"
 								title="Buscador" data-container="body"> <i
@@ -95,82 +104,39 @@ $(function(){
 							data-action="filter" data-filters="#dev-table"
 							placeholder="Introduzca filtro" />
 					</div>
-					<table class="table table-hover" id="dev-table">
-						<thead>
-							<tr>
-								<th class="centrado">Código</th>
-								<th class="centrado">Fecha</th>
-								<th class="centrado">Profesor</th>
-								<th class="centrado">Alumno</th>
-								<th class="centrado">Grupo</th>
-								<th class="centrado">Sanción</th>
-							</tr>
-						</thead>
-						<tbody align="center">
-							<c:forEach items="${partesSin}" var="parte">
+						<table class="table table-hover" id="dev-table" align="center">
+							<thead>
 								<tr>
-									<td><c:out value="${parte.codigo}" /></td>
-									<td><fmt:formatDate pattern="dd-MM-yyyy"
-											value="${parte.fecha_parte}" /></td>
-									<td><c:out value="${parte.nombre_profe}" /></td>
-									<td><c:out value="${parte.nombre_alum}" /></td>
-									<td><c:out value="${parte.grupo}" /></td>
-									<td><a
-										href="SancionServlet?action=asignar&id_parte=<c:out value="${parte.id_parte}"/>"><i
-											class="glyphicon glyphicon-edit"></i></a></td>
+									<th class="centrado">Fecha</th>
+									<th class="centrado">Alumno</th>
+									<th class="centrado">Asistencia</th>
+								</tr>
+							</thead>
+							<tbody class="centrado">
+								<c:forEach items="${recreo}" var="recreo">
+									<tr class="dark-row">
+										<%-- <td style="display: none"><c:out value="${recreo.id_sancion}" /></td> --%>
+										<td><fmt:formatDate pattern="dd-MM-yyyy"
+												value="${recreo.fecha_inicio}" /></td>
+										<td><c:out value="${recreo.nombre_alum}" /></td>
+										<td><input type="checkbox" name="asistencia"
+											value="${recreo.id_sancion}"></td>
+										<td><input type="text" name="id_sancion"
+											style="display: none" value="${recreo.id_sancion}"></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+				</div>
+										<div>
 
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="panel panel-success">
-					<div class="panel-heading">
-						<h3 class="panel-title">HISTORIAL DE PARTES</h3>
-						<div class="pull-right">
-							<span class="clickable filter" data-toggle="tooltip"
-								title="Buscador" data-container="body"> <i
-								class="glyphicon glyphicon-search"></i>
-							</span>
+							<center><button class="btn btn-primary w-100 no-print" style=text-align=center type="submit"
+								value="Submit">Guardar</button>
+							<button class="btn btn-primary w-100 no-print" type="button"
+								value="Atrás" name="Boton1" onclick="atras();">Atrás</button></center>
+
 						</div>
-					</div>
-					<div class="panel-body">
-						<input type="text" class="form-control" id="task-table-filter"
-							data-action="filter" data-filters="#task-table"
-							placeholder="Introduzca filtro" />
-					</div>
-					<table class="table table-hover" id="task-table">
-						<thead>
-							<tr>
-								<th class="centrado">Código</th>
-								<th class="centrado">Fecha</th>
-								<th class="centrado">Profesor</th>
-								<th class="centrado">Alumno</th>
-								<th class="centrado">Grupo</th>
-								<th class="centrado">Sanción</th>
-								<th class="centrado">&nbsp</th>
-							</tr>
-						</thead>
-						<tbody align="center">
-							<c:forEach items="${partes}" var="parte">
-								<tr>
-									<td><c:out value="${parte.codigo}" /></td>
-									<td><fmt:formatDate pattern="dd-MM-yyyy"
-											value="${parte.fecha_parte}" /></td>
-									<td><c:out value="${parte.nombre_profe}" /></td>
-									<td><c:out value="${parte.nombre_alum}" /></td>
-									<td><c:out value="${parte.grupo}" /></td>
-									<td><c:out value="${parte.tipo_sancion}" /></td>
-									<td><a
-										href="ParteServlet?action=verParte&id_parte=<c:out value="${parte.id_parte}"/>"><i
-											class="glyphicon glyphicon-eye-open"></i></a></td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</div>
+					</form>
 			</div>
 		</div>
 	</div>

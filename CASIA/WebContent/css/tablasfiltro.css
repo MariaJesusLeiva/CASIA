@@ -21,3 +21,7 @@
 .panel-body {
 	display: none;
 }
+
+.centrado {
+    text-align: center;
+}

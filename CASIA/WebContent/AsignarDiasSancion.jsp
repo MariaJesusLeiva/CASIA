@@ -17,7 +17,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/sancion.css" rel="stylesheet" type="text/css">
-<title>Asignar Sanción</title>
+<title>Asignar Días</title>
 </head>
 <%@ include file="Principal.jsp"%>
 <body>
@@ -116,15 +116,16 @@ function actualizaInfo(maximoCaracteres) {
 </script>
 
 	<div class="text-white text-center d-block mb-1">
-		<h3 class="titulo pb-2 pt-2">Formulario para Asignar una Sanción correspondiente al parte con código (<%=session.getAttribute("codigoparte")%>)</h3>
+		<h3 class="titulo pb-2 pt-2">Formulario para Asignar los Días de Sanción para el Alumno (<%=session.getAttribute("alumsancion")%>)</h3>
 
 	</div>
+	</br>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<form method="POST" action='SancionServlet' name="frmAddSancion">
-					<input type="text" name="id_parte" style="display: none"
-						value="<c:out value="${sancion.id_parte}" />">
+				<form method="POST" action='ReservaDiaSancionServlet' name="frmAddDia">
+					<input type="text" name="id_sancion" style="display: none"
+						value="<c:out value="${sancion.id_sancion}" />">
 					<table class="table table-sm">
 						<tr class="trsancion">
 							<td class="titulo">Alumno</td>
@@ -133,60 +134,16 @@ function actualizaInfo(maximoCaracteres) {
 								value="<%=session.getAttribute("alumsancion")%>"></td>
 						</tr>
 						<tr class="trsancion">
-							<td class="titulo">Profesor</td>
+							<td class="titulo">Sanción</td>
 							<td class="form"><input class="estiloinput" type="text"
-								name="nombre_profe" readonly="readonly"
-								value="<%=session.getAttribute("profesancion")%>"></td>
-						</tr>
-
-						<tr class="trsancion">
-							<td class="titulo">Observación</td>
-							<td class="form" colspan="3" class="w-75"><textarea
-									class="estilotextarea" id="textarea" name="observacion"
-									onkeypress="return limita(event, 500);"
-									onkeyup="actualizaInfo(500)"
-									value="<c:out value="${sancion.observacion}" />"></textarea>
-								<div id="info">Máximo 500 caracteres</div></td>
+								name="tipo_sancion" readonly="readonly"
+								value="${sancion.tipo_sancion}"></td>
 						</tr>
 						<tr class="trsancion">
-							<td class="titulo">Sancion <span class="text-danger">*</span></td>
-							<td class="form">
-								<div class="select-wrapper">
-									<select name="tipo_sancion"
-										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;"
-										required>
-										<option value="Recreo">Recreo</option>
-										<option value="PROA">PROA</option>
-										<option value="Expulsión">Expulsión</option>
-									</select>
-								</div>
-						</tr>
-						<tr class="trsancion">
-							<td class="titulo">Trabajo</td>
-							<td class="form" colspan="3" class="w-75"><textarea
-									class="estilotextarea" id="textarea" name="observacion"
-									onkeypress="return limita(event, 500);"
-									onkeyup="actualizaInfo(500)"
-									value="<c:out value="${sancion.trabajo}" />"></textarea>
-								<div id="info">Máximo 500 caracteres</div></td>
-						</tr>
-						<tr class="trsancion">
-							<td class="titulo">Fecha inicio <span class="text-danger">*</span></td>
+							<td class="titulo">Fecha <span class="text-danger">*</span></td>
 							<td class="form"><input type="date" name="fecha_inicio"
 								pattern="yyyy-MM-dd" required
 								value="<c:out value="${sancion.fecha_inicio}" />"></td>
-						</tr>
-						<tr class="trsancion">
-							<td class="titulo">Fecha fin <span class="text-danger">*</span></td>
-							<td class="form"><input type="date" name="fecha_fin"
-								pattern="yyyy-MM-dd" required
-								value="<c:out value="${sancion.fecha_fin}" />"></td>
-						</tr>
-						<tr class="trsancion">
-							<td class="titulo">Nº de días <span class="text-danger">*</span></td>
-							<td class="form"><input type="text" name="total_dias"
-								size="5" required
-								value="<c:out value="${sancion.total_dias}" />"></td>
 						</tr>
 					</table>
 					<div class="row mt-3 mb-3">
@@ -202,7 +159,7 @@ function actualizaInfo(maximoCaracteres) {
 			<div class="col-md-6">
 				<div class="panel panel-success">
 					<div class="panel-heading">
-						<h3 class="panel-title">HISTORIAL SANCIONES</h3>
+						<h3 class="panel-title">HISTORIAL RECREO Y PROA</h3>
 						<div class="pull-right">
 							<span class="clickable filter" data-toggle="tooltip"
 								title="Buscador" data-container="body"> <i
@@ -215,23 +172,21 @@ function actualizaInfo(maximoCaracteres) {
 							data-action="filter" data-filters="#task-table"
 							placeholder="Introduzca filtro" />
 					</div>
-					<table class="table table-hover" id="task-table" align="center">
+					<table class="table table-hover" id="task-table">
 						<thead>
 							<tr>
-								<!-- <th>Código</th> -->
-								<th>Fecha Inicio</th>
-								<th>Tipo</th>
-								<th>Alumno</th>
+								<th class="centrado">Fecha</th>
+								<th class="centrado">Sanción</th>
+								<th class="centrado">Alumno</th>
 							</tr>
 						</thead>
-						<tbody>
-							<c:forEach items="${sanciones}" var="sancion">
+						<tbody class="centrado">
+							<c:forEach items="${reservas}" var="reserva">
 								<tr>
-									<%-- <td><c:out value="${parte.codigo}" /></td> --%>
 									<td><fmt:formatDate pattern="dd-MM-yyyy"
-											value="${sancion.fecha_inicio}" /></td>
-									<td><c:out value="${sancion.tipo_sancion}" /></td>
-									<td><c:out value="${sancion.nombre_alum}" /></td>
+											value="${reserva.fecha_inicio}" /></td>
+									<td><c:out value="${reserva.tipo_sancion}" /></td>
+									<td><c:out value="${reserva.nombre_alum}" /></td>
 								</tr>
 							</c:forEach>
 						</tbody>

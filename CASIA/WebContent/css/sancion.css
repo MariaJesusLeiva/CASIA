@@ -12,6 +12,10 @@ td.form {
 	border-left: 1px #41719C solid;
 	text-align: left;
 }
+td.expulsion{
+	background-color: #D6E6F4;
+	size:30;
+}
 tr.trsancion{
 	border-top: 5px #41719C solid;
 	border-bottom: 5px #41719C solid;
@@ -63,4 +67,8 @@ select:invalid {
 
 select:valid {
   border: 1px solid green;
+}
+
+.centrado {
+    text-align: center;
 }

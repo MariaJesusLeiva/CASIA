@@ -7,19 +7,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=uft-8">
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/tablasfiltro.css" rel="stylesheet" type="text/css">
-<title>Partes Pendientes</title>
+<title>Sanciones Sin Días</title>
 </head>
 <%@ include file="Principal.jsp"%>
 <body>
-	<script>
+<script>
 (function(){
     'use strict';
 	var $ = jQuery;
@@ -54,7 +50,7 @@
 	$('[data-action="filter"]').filterTable();
 })(jQuery);
 </script>
-	<script>
+<script>
 $(function(){
     // attach table filter plugin to inputs
 	$('[data-action="filter"]').filterTable();
@@ -72,53 +68,45 @@ $(function(){
 })
 </script>
 
-	<div class="container">
-		<h1>
-			Pulsar en el icono de filtro <small>(<i
-				class="glyphicon glyphicon-search"></i>)
-			</small>
-		</h1>
-		<div class="row">
+
+
+<div class="container">
+    <h1>Pulsar en el icono de filtro <small>(<i class="glyphicon glyphicon-search"></i>)</small></h1>
+    	<div class="row">
 			<div class="col-md-6">
 				<div class="panel panel-info">
 					<div class="panel-heading">
-						<h3 class="panel-title">PENDIENTES DE SANCIÓN</h3>
+						<h3 class="panel-title">SANCIONES</h3>
 						<div class="pull-right">
-							<span class="clickable filter" data-toggle="tooltip"
-								title="Buscador" data-container="body"> <i
-								class="glyphicon glyphicon-search"></i>
+							<span class="clickable filter" data-toggle="tooltip" title="Buscador" data-container="body">
+								<i class="glyphicon glyphicon-search"></i>
 							</span>
 						</div>
 					</div>
 					<div class="panel-body">
-						<input type="text" class="form-control" id="dev-table-filter"
-							data-action="filter" data-filters="#dev-table"
-							placeholder="Introduzca filtro" />
+						<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Introduzca filtro" />
 					</div>
 					<table class="table table-hover" id="dev-table">
 						<thead>
 							<tr>
-								<th class="centrado">Código</th>
-								<th class="centrado">Fecha</th>
-								<th class="centrado">Profesor</th>
 								<th class="centrado">Alumno</th>
-								<th class="centrado">Grupo</th>
 								<th class="centrado">Sanción</th>
+								<th class="centrado">Total de días</th>
+								<th class="centrado">Asignar Día</th>
+								<th class="centrado">Finalizar</th>
 							</tr>
 						</thead>
-						<tbody align="center">
-							<c:forEach items="${partesSin}" var="parte">
+						<tbody class="centrado">
+							<c:forEach items="${sancionSin}" var="sancion">
 								<tr>
-									<td><c:out value="${parte.codigo}" /></td>
-									<td><fmt:formatDate pattern="dd-MM-yyyy"
-											value="${parte.fecha_parte}" /></td>
-									<td><c:out value="${parte.nombre_profe}" /></td>
-									<td><c:out value="${parte.nombre_alum}" /></td>
-									<td><c:out value="${parte.grupo}" /></td>
+									<td><c:out value="${sancion.nombre_alum}" /></td>
+									<td><c:out value="${sancion.tipo_sancion}" /></td>
+									<td><c:out value="${sancion.total_dias}" /></td>
+									<%-- <td><c:out value="${parte.motivo_parte}" /></td> --%>
 									<td><a
-										href="SancionServlet?action=asignar&id_parte=<c:out value="${parte.id_parte}"/>"><i
-											class="glyphicon glyphicon-edit"></i></a></td>
-
+										href="ReservaDiaSancionServlet?action=asignarDias&id_sancion=<c:out value="${sancion.id_sancion}"/>"><i class="glyphicon glyphicon-edit"></i></a></td>
+									<td><a
+										href="SancionServlet?action=asigadoDias&id_sancion=<c:out value="${sancion.id_sancion}"/>"><i class="glyphicon glyphicon-ok"></i></a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -128,46 +116,33 @@ $(function(){
 			<div class="col-md-6">
 				<div class="panel panel-success">
 					<div class="panel-heading">
-						<h3 class="panel-title">HISTORIAL DE PARTES</h3>
+						<h3 class="panel-title">HISTORIAL RECREO Y PROA</h3>
 						<div class="pull-right">
-							<span class="clickable filter" data-toggle="tooltip"
-								title="Buscador" data-container="body"> <i
-								class="glyphicon glyphicon-search"></i>
+							<span class="clickable filter" data-toggle="tooltip" title="Buscador" data-container="body">
+								<i class="glyphicon glyphicon-search"></i>
 							</span>
 						</div>
 					</div>
 					<div class="panel-body">
-						<input type="text" class="form-control" id="task-table-filter"
-							data-action="filter" data-filters="#task-table"
-							placeholder="Introduzca filtro" />
+						<input type="text" class="form-control" id="task-table-filter" data-action="filter" data-filters="#task-table" placeholder="Introduzca filtro" />
 					</div>
-					<table class="table table-hover" id="task-table">
+					<table class="table table-hover" id="task-table" align="center">
 						<thead>
 							<tr>
-								<th class="centrado">Código</th>
 								<th class="centrado">Fecha</th>
-								<th class="centrado">Profesor</th>
-								<th class="centrado">Alumno</th>
-								<th class="centrado">Grupo</th>
 								<th class="centrado">Sanción</th>
-								<th class="centrado">&nbsp</th>
+								<th class="centrado">Alumno</th>           	
 							</tr>
 						</thead>
-						<tbody align="center">
-							<c:forEach items="${partes}" var="parte">
-								<tr>
-									<td><c:out value="${parte.codigo}" /></td>
-									<td><fmt:formatDate pattern="dd-MM-yyyy"
-											value="${parte.fecha_parte}" /></td>
-									<td><c:out value="${parte.nombre_profe}" /></td>
-									<td><c:out value="${parte.nombre_alum}" /></td>
-									<td><c:out value="${parte.grupo}" /></td>
-									<td><c:out value="${parte.tipo_sancion}" /></td>
-									<td><a
-										href="ParteServlet?action=verParte&id_parte=<c:out value="${parte.id_parte}"/>"><i
-											class="glyphicon glyphicon-eye-open"></i></a></td>
-								</tr>
-							</c:forEach>
+						<tbody class="centrado">
+            <c:forEach items="${sanciones}" var="sancion">
+                <tr>
+                   <td><fmt:formatDate pattern="dd-MM-yyyy" value="${sancion.fecha_inicio}" /></td>
+                    <td><c:out value="${sancion.tipo_sancion}" /></td>
+                    <td><c:out value="${sancion.nombre_alum}" /></td>
+                    
+                </tr>
+            </c:forEach>
 						</tbody>
 					</table>
 				</div>

@@ -72,10 +72,12 @@ public class ParteServlet extends HttpServlet {
 		
 		codigo = Integer.parseInt(request.getParameter("codigo"));
 		parteEnt.setCodigo(codigo);
+		parteEnt.setCurso(request.getParameter("curso"));
 		parteEnt.setNombre_profe(request.getParameter("nombre_profe"));
 		parteEnt.setNombre_alum(request.getParameter("nombre_alum"));
 		parteEnt.setGrupo(request.getParameter("grupo"));
 		parteEnt.setMotivo_parte(request.getParameter("motivo_parte"));
+		
 		
 		try {
             fecha_parte = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_parte"));

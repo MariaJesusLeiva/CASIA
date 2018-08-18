@@ -25,15 +25,16 @@ public class ParteDao
 		try
 		{
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("INSERT INTO parte(codigo, fecha_parte, nombre_profe, nombre_alum, grupo, motivo_parte) " +
-							"VALUES (?, ?, ?, ?, ?, ?)");
+					.prepareStatement("INSERT INTO parte(codigo, curso, fecha_parte, nombre_profe, nombre_alum, grupo, motivo_parte) " +
+							"VALUES (?, ?, ?, ?, ?, ?, ?)");
 
 			preparedStatement.setInt(1, parteEnt.getCodigo());
-			preparedStatement.setDate(2, new java.sql.Date(parteEnt.getFecha_parte().getTime()));
-			preparedStatement.setString(3, parteEnt.getNombre_profe());
-			preparedStatement.setString(4, parteEnt.getNombre_alum());
-			preparedStatement.setString(5, parteEnt.getGrupo());
-			preparedStatement.setString(6, parteEnt.getMotivo_parte());
+			preparedStatement.setString(2, parteEnt.getCurso());
+			preparedStatement.setDate(3, new java.sql.Date(parteEnt.getFecha_parte().getTime()));
+			preparedStatement.setString(4, parteEnt.getNombre_profe());
+			preparedStatement.setString(5, parteEnt.getNombre_alum());
+			preparedStatement.setString(6, parteEnt.getGrupo());
+			preparedStatement.setString(7, parteEnt.getMotivo_parte());
 			preparedStatement.executeUpdate();
 
 		}
@@ -47,7 +48,7 @@ public class ParteDao
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("UPDATE parte SET codigo=?, fecha_parte=?, nombre_profe=?," + 
-							"nombre_alum=?, grupo=?, motivo_parte=? WHERE id_parte=?");
+							"nombre_alum=?, grupo=?, motivo_parte=?, curso=? WHERE id_parte=?");
 			// Parameters start with 1
 			preparedStatement.setInt(1, parteEnt.getCodigo());
 			preparedStatement.setDate(2, new java.sql.Date(parteEnt.getFecha_parte().getTime()));
@@ -55,7 +56,8 @@ public class ParteDao
 			preparedStatement.setString(4, parteEnt.getNombre_alum());
 			preparedStatement.setString(5, parteEnt.getGrupo());
 			preparedStatement.setString(6, parteEnt.getMotivo_parte());
-			preparedStatement.setInt(7, parteEnt.getId_parte());
+			preparedStatement.setString(7, parteEnt.getCurso());
+			preparedStatement.setInt(8, parteEnt.getId_parte());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -71,7 +73,7 @@ public class ParteDao
 		{
 			Statement statement = connection.createStatement();
 			ResultSet rs = statement.executeQuery("SELECT * FROM parte WHERE tipo_sancion " +
-									"IS NOT NULL ORDER BY fecha_parte ASC");
+									"IS NOT NULL ORDER BY codigo DESC");
 			
 			while (rs.next())
 			{
@@ -83,6 +85,7 @@ public class ParteDao
 				parte.setNombre_alum(rs.getString("nombre_alum"));
 				parte.setGrupo(rs.getString("grupo"));
 				parte.setTipo_sancion(rs.getString("tipo_sancion"));
+				parte.setCurso(rs.getString("curso"));
 				parte.setMotivo_parte(rs.getString("motivo_parte"));
 				partes.add(parte);
 			}
@@ -109,6 +112,7 @@ public class ParteDao
 			{
 				parte.setId_parte(rs.getInt("id_parte"));
 				parte.setCodigo(rs.getInt("codigo"));
+				parte.setCurso(rs.getString("curso"));
 				parte.setFecha_parte(rs.getDate("fecha_parte"));
 				parte.setNombre_profe(rs.getString("nombre_profe"));
 				parte.setNombre_alum(rs.getString("nombre_alum"));
@@ -149,6 +153,7 @@ public class ParteDao
 		return alumsancion;
 	}
 	
+	//Usado en SancionServlet para actualizar el campo tipo_sancion de la tabla parte
 	public void updateSancionParte (int id_parte)
 	{		
 		try
@@ -180,6 +185,7 @@ public class ParteDao
 				ParteEntity parte = new ParteEntity();
 				parte.setId_parte(rs.getInt("id_parte"));
 				parte.setCodigo(rs.getInt("codigo"));
+				parte.setCurso(rs.getString("curso"));
 				parte.setFecha_parte(rs.getDate("fecha_parte"));
 				parte.setNombre_profe(rs.getString("nombre_profe"));
 				parte.setNombre_alum(rs.getString("nombre_alum"));

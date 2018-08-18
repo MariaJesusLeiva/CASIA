@@ -15,7 +15,11 @@ td.form {
 tr.trparte{
 	border-top: 5px #41719C solid;
 	border-bottom: 5px #41719C solid;
-
+}
+tr.trselect{
+	border-top: 5px #41719C solid;
+	border-bottom: 5px #41719C solid;
+	size:30;
 }
 
 textarea.estilotextarea{

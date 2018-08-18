@@ -44,14 +44,24 @@
     <servlet-name>SancionServlet</servlet-name>
     <url-pattern>/SancionServlet</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
-    <display-name>RecreoServlet</display-name>
-    <servlet-name>RecreoServlet</servlet-name>
-    <servlet-class>com.casia.controller.RecreoServlet</servlet-class>
+    <display-name>ReservaDiaSancionServlet</display-name>
+    <servlet-name>ReservaDiaSancionServlet</servlet-name>
+    <servlet-class>com.casia.controller.ReservaDiaSancionServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>RecreoServlet</servlet-name>
-    <url-pattern>/RecreoServlet</url-pattern>
+    <servlet-name>ReservaDiaSancionServlet</servlet-name>
+    <url-pattern>/ReservaDiaSancionServlet</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>AsistenciaServlet</display-name>
+    <servlet-name>AsistenciaServlet</servlet-name>
+    <servlet-class>com.casia.controller.AsistenciaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AsistenciaServlet</servlet-name>
+    <url-pattern>/AsistenciaServlet</url-pattern>
   </servlet-mapping>
 </web-app>
