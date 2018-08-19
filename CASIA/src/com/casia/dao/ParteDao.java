@@ -73,9 +73,10 @@ public class ParteDao
 		try
 		{
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("SELECT * FROM parte WHERE tipo_sancion " +
-									"IS NOT NULL ORDER BY curso DESC, codigo DESC");
-			
+//			ResultSet rs = statement.executeQuery("SELECT * FROM parte WHERE tipo_sancion " +
+//									"IS NOT NULL ORDER BY curso DESC, codigo DESC");
+			ResultSet rs = statement.executeQuery("SELECT * FROM parte " +
+									"ORDER BY curso DESC, codigo DESC");
 			while (rs.next())
 			{
 				ParteEntity parte = new ParteEntity();

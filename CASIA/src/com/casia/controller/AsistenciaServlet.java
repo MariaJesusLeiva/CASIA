@@ -20,8 +20,8 @@ import com.casia.dao.SancionDao;
 
 public class AsistenciaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static String ASISTENCIARECREO = "/AsistenciaRecreo.jsp";
-	private static String ASISTENCIAPROA = "/AsistenciaPROA.jsp"; 
+	private static String ASISTENCIARECREO = "AsistenciaRecreo.jsp";
+	private static String ASISTENCIAPROA = "AsistenciaPROA.jsp"; 
     /**
      * @see HttpServlet#HttpServlet()
      */

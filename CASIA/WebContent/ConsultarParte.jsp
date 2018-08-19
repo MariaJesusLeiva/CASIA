@@ -44,32 +44,31 @@
 							<td class="titulo">Código </td>
 							<td class="form"><input class="estilofondogris" type="text" name="codigo" readonly="readonly"
 								value="<c:out value="${parte.codigo}"/>"></td>
-							<td class="titulo">Fecha </td>
-							<td class="form"><input class="estilofondogris" type="date" name="fecha_parte" readonly="readonly"
-								value="<c:out value="${parte.fecha_parte}"/>"></td>
+							<td class="titulo">Curso </td>
+							<td class="form"><input  class="estilofondogris" type="text" name="curso"
+								size="10" readonly="readonly" value="<c:out value="${parte.curso}" />"></td>	
 						</tr>
 						<tr class="trparte">
 							<td class="titulo">Alumno</td>
 							<td class="form"><input class="estilofondogris" type="text" name="nombre_alum" readonly="readonly"
 								size="40" value="<c:out value="${parte.nombre_alum}"/>"></td>
-							<td class="titulo">Grupo 
-							</td>
+							<td class="titulo">Grupo</td>
 							<td class="form"><input class="estilofondogris" type="text" name="grupo" readonly="readonly" size="10"
 								value="<c:out value="${parte.grupo}"/>"></td>
 						</tr>
 						<tr class="trparte">
-							<td class="titulo">Profesor
-							</td>
-							<td colspan="3" class="form"><input class="estilofondogris" type="text"
-								name="nombre_profe" readonly="readonly" size="40"
-								value="<c:out value="${parte.nombre_profe}"/>"></td>
+							<td class="titulo">Profesor</td>
+							<td class="form"><input class="estilofondogris" type="text" name="nombre_profe" readonly="readonly"
+								size="40" value="<c:out value="${parte.nombre_profe}"/>"></td>
+							<td class="titulo">Fecha</td>
+							<td class="form"><input class="estilofondogris" type="date" name="fecha_parte" readonly="readonly"
+								value="<c:out value="${parte.fecha_parte}"/>"></td>
 						</tr>
 						<tr class="trparte">
 							<td class="titulo">Motivo del Parte
 							</td>
 							<td colspan="3" class="form"><textarea class="estilotextareagris" name="motivo_parte" readonly="readonly"
-									rows="10" cols="75"><c:out value="${parte.motivo_parte}"/></textarea>
-									</td>
+									rows="10" cols="75"><c:out value="${parte.motivo_parte}"/></textarea></td>
 						</tr>
 					</table>
 					<div class="row mt-3 mb-3">

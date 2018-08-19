@@ -76,18 +76,17 @@ private static Connection connection;
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("UPDATE sancion SET tipo_sancion=?, observacion=?, trabajo=?," + 
-							"nombre_alum=?, asignado_dias=?, fecha_inicio=?, fecha_fin=?, total_dias=? " +
+							"nombre_alum=?, fecha_inicio=?, fecha_fin=?, total_dias=? " +
 							"WHERE id_sancion=?");
 			
 			preparedStatement.setString(1, sancionEnt.getTipo_sancion());
 			preparedStatement.setString(2, sancionEnt.getObservacion());
 			preparedStatement.setString(3, sancionEnt.getTrabajo());
 			preparedStatement.setString(4, sancionEnt.getNombre_alum());
-			preparedStatement.setString(5, sancionEnt.getAsignado_dias());
-			preparedStatement.setDate(6, new java.sql.Date(sancionEnt.getFecha_inicio().getTime()));
-			preparedStatement.setDate(7, new java.sql.Date(sancionEnt.getFecha_fin().getTime()));
-			preparedStatement.setInt(8, sancionEnt.getTotal_dias());
-			preparedStatement.setInt(9, sancionEnt.getId_sancion());
+			preparedStatement.setDate(5, new java.sql.Date(sancionEnt.getFecha_inicio().getTime()));
+			preparedStatement.setDate(6, new java.sql.Date(sancionEnt.getFecha_fin().getTime()));
+			preparedStatement.setInt(7, sancionEnt.getTotal_dias());
+			preparedStatement.setInt(8, sancionEnt.getId_sancion());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -229,7 +228,7 @@ private static Connection connection;
 		try 
 		{
 			PreparedStatement preparedStatement = connection.
-					prepareStatement("SELECT * FROM sancion WHERE id_sancion=? ORDER BY id_sancion DESC");
+					prepareStatement("SELECT * FROM sancion WHERE id_sancion=?");
 			preparedStatement.setInt(1, id_sancion);
 			ResultSet rs = preparedStatement.executeQuery();
 			
@@ -238,6 +237,8 @@ private static Connection connection;
 				sancion.setId_sancion(rs.getInt("id_sancion"));
 				sancion.setId_parte(rs.getInt("id_parte"));
 				sancion.setNombre_alum(rs.getString("nombre_alum"));
+				sancion.setTrabajo(rs.getString("trabajo"));
+				sancion.setObservacion(rs.getString("observacion"));
 				sancion.setTipo_sancion(rs.getString("tipo_sancion"));
 				sancion.setFecha_inicio(rs.getDate("fecha_inicio"));
 				sancion.setFecha_fin(rs.getDate("fecha_fin"));

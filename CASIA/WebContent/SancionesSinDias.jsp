@@ -106,7 +106,7 @@ $(function(){
 									<td><a
 										href="ReservaDiaSancionServlet?action=asignarDias&id_sancion=<c:out value="${sancion.id_sancion}"/>"><i class="glyphicon glyphicon-edit"></i></a></td>
 									<td><a
-										href="SancionServlet?action=asigadoDias&id_sancion=<c:out value="${sancion.id_sancion}"/>"><i class="glyphicon glyphicon-ok"></i></a></td>
+										href="ReservaDiaSancionServlet?action=asignadoDias&id_sancion=<c:out value="${sancion.id_sancion}"/>"><i class="glyphicon glyphicon-ok"></i></a></td>
 								</tr>
 							</c:forEach>
 						</tbody>

@@ -7,13 +7,11 @@ import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.casia.dao.ParteDao;
 import com.casia.dao.ReservaDiaSancionDao;
 import com.casia.dao.SancionDao;
 import com.casia.entity.ReservaDiaSancionEntity;
@@ -25,7 +23,8 @@ import com.casia.entity.SancionEntity;
 
 public class ReservaDiaSancionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static String ASIGNARDIAS = "/AsignarDiasSancion.jsp";
+	private static String ASIGNARDIAS = "AsignarDiasSancion.jsp";
+	private static String ASIGNADODIAS = "SancionesSinDias.jsp";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -56,6 +55,12 @@ public class ReservaDiaSancionServlet extends HttpServlet {
 			System.out.println("Nombre alum "+alumsancion); 
 			session.setAttribute("alumsancion", alumsancion);
 			request.setAttribute("reservas", reservaDao.getAllReservas());
+		} else if (action.equalsIgnoreCase("asignadoDias")) {
+			forward = ASIGNADODIAS;
+			int id_sancion = Integer.parseInt(request.getParameter("id_sancion"));
+			sancionDao.updateAsignadoDias(id_sancion);   
+			request.setAttribute("sancionSin", sancionDao.getAllSancionesSinDias());
+			request.setAttribute("sanciones", reservaDao.getAllRecreoPROA());
 		}
 		RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);

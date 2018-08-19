@@ -27,12 +27,11 @@ import com.casia.entity.SancionEntity;
 public class SancionServlet extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
-	private static String CREARSANCION = "/CrearSancion.jsp";
-	private static String ASIGNADODIAS = "/AsignarDiasSancion.jsp";
-	private static String VERSANCIONESSINDIAS = "/SancionesSinDias.jsp";
-	private static String HISTORIAL = "/Sanciones.jsp";
-	private static String VERSANCION = "/ConsultarSancion.jsp";
-	private static String MODIFICARSANCION = "/ModificarSancion.jsp";
+	private static String CREARSANCION = "CrearSancion.jsp";
+	private static String VERSANCIONESSINDIAS = "SancionesSinDias.jsp";
+	private static String HISTORIAL = "Sanciones.jsp";
+	private static String VERSANCION = "ConsultarSancion.jsp";
+	private static String MODIFICARSANCION = "ModificarSancion.jsp";
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -76,14 +75,6 @@ public class SancionServlet extends HttpServlet
 			session.setAttribute("codigoparte", codigoparte);
 			request.setAttribute("sanciones", sancionDao.getAllSanciones());
 		
-		} else if (action.equalsIgnoreCase("asignadoDias")) {
-			forward = ASIGNADODIAS;
-			int id_sancion = Integer.parseInt(request.getParameter("id_sancion"));
-			sancionDao.updateAsignadoDias(id_sancion);   
-			alumsancion = sancionEnt.getNombre_alum();
-			session.setAttribute("alumsancion", alumsancion);
-			request.setAttribute("sancion", sancionDao.getSancionById(id_sancion));
-			
 		} else if (action.equalsIgnoreCase("verSancionesSinDias")) {
 			forward = VERSANCIONESSINDIAS;
 			request.setAttribute("sancionSin", sancionDao.getAllSancionesSinDias());
@@ -106,13 +97,12 @@ public class SancionServlet extends HttpServlet
 			session.setAttribute("codigoparte", codigoparte);	
 			
 		} else if (action.equalsIgnoreCase("modificarSancion")) {
-			forward = MODIFICARSANCION;
-			
+			forward = MODIFICARSANCION;			
 			int id_sancion = Integer.parseInt(request.getParameter("id_sancion"));
-			request.setAttribute("sancion", sancionDao.getSancionById(id_sancion));
-			//codigoparte = parteDao.getParteByIdsancion(id_sancion);
-			//session.setAttribute("codigoparte", codigoparte);
+			request.setAttribute("sancion", sancionDao.getSancionById(id_sancion)); 
+			
 		}
+		
 		RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
 		//request.setAttribute("sanciones", sancionDao.getAllSanciones());
@@ -161,7 +151,12 @@ public class SancionServlet extends HttpServlet
 				String total_dias = request.getParameter("total_dias");
 				System.out.println("total_dias " + total_dias);
 				sancionEnt.setTotal_dias(Integer.parseInt(total_dias));
-
+				
+				if(total_dias != null) {
+					sancionDao.updateAsignadoDias(id_s); 
+					System.out.println("Cambiado el asignado dia");
+				}
+				
 				try {
 					fecha_inicio = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_inicio"));
 					sancionEnt.setFecha_inicio(fecha_inicio);
@@ -175,24 +170,26 @@ public class SancionServlet extends HttpServlet
 				} catch (ParseException e) {
 					e.printStackTrace();
 				}
+				
 				sancionDao.updateSancionExpulsion(sancionEnt);
 				
 				forward = HISTORIAL;
 				request.setAttribute("sanciones", sancionDao.getAllSanciones());
 				RequestDispatcher view = request.getRequestDispatcher(forward);
 		        view.forward(request, response);
+		        
 			} else {
-				
-			//Para actualizar el campo tipo_sancion de la tabla parte
-			ParteDao parteDao = new ParteDao();
-			Integer id_p = Integer.parseInt(request.getParameter("id_parte"));
-			parteDao.updateSancionParte(id_p);
-			forward = VERSANCIONESSINDIAS;
-			ReservaDiaSancionDao reservaDao = new ReservaDiaSancionDao();
-			RequestDispatcher view = request.getRequestDispatcher(forward);
-			request.setAttribute("sancionSin", sancionDao.getAllSancionesSinDias());
-			request.setAttribute("sanciones", reservaDao.getAllRecreoPROA());
-			view.forward(request, response);
+
+				// Para actualizar el campo tipo_sancion de la tabla parte
+				ParteDao parteDao = new ParteDao();
+				Integer id_p = Integer.parseInt(request.getParameter("id_parte"));
+				parteDao.updateSancionParte(id_p);
+				forward = VERSANCIONESSINDIAS;
+				ReservaDiaSancionDao reservaDao = new ReservaDiaSancionDao();
+				RequestDispatcher view = request.getRequestDispatcher(forward);
+				request.setAttribute("sancionSin", sancionDao.getAllSancionesSinDias());
+				request.setAttribute("sanciones", reservaDao.getAllRecreoPROA());
+				view.forward(request, response);
 			}
 			
 		} else {
@@ -205,13 +202,19 @@ public class SancionServlet extends HttpServlet
 			sancionEnt.setTotal_dias(Integer.parseInt(total_dias));
 			String tipo_sancion =  request.getParameter("tipo_sancion");
 			System.out.println("tipo_sancion "+tipo_sancion);
+			
 			if(tipo_sancion.equals("Seleccionar")) {
 				request.setAttribute("errMessage", "Seleccionar sanción");
 				
-			}else if (tipo_sancion.equals("Expulsión")) {
+			} else if (tipo_sancion.equals("Expulsión")) {
 				int id_p = Integer.parseInt(request.getParameter("id_parte"));
 				int id_s = sancionDao.getIdSancionByIdParte(id_p);
 				sancionEnt.setId_sancion(id_s);
+				
+				if(total_dias != null) {
+					sancionDao.updateAsignadoDias(id_s); 
+					System.out.println("Cambiado el asignado dia");
+				}				
 				
 				try {
 					fecha_inicio = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_inicio"));
@@ -226,70 +229,28 @@ public class SancionServlet extends HttpServlet
 				} catch (ParseException e) {
 					e.printStackTrace();
 				}
+				
 				sancionDao.updateSancionExpulsion(sancionEnt);
 				
 				forward = HISTORIAL;
 				request.setAttribute("sanciones", sancionDao.getAllSanciones());
 				RequestDispatcher view = request.getRequestDispatcher(forward);
 		        view.forward(request, response);
-			}else {
-				
-			//Para actualizar el campo tipo_sancion de la tabla parte
-			ParteDao parteDao = new ParteDao();
-			Integer id_p = Integer.parseInt(request.getParameter("id_parte"));
-			parteDao.updateSancionParte(id_p);
-			
-			forward = VERSANCIONESSINDIAS;
-			ReservaDiaSancionDao reservaDao = new ReservaDiaSancionDao();
-			RequestDispatcher view = request.getRequestDispatcher(forward);
-			request.setAttribute("sancionSin", sancionDao.getAllSancionesSinDias());
-			request.setAttribute("sanciones", reservaDao.getAllRecreoPROA());
-			view.forward(request, response);
+		        
+			} else {
+
+				// Para actualizar el campo tipo_sancion de la tabla parte
+				ParteDao parteDao = new ParteDao();
+				Integer id_p = Integer.parseInt(request.getParameter("id_parte"));
+				parteDao.updateSancionParte(id_p);
+
+				forward = VERSANCIONESSINDIAS;
+				ReservaDiaSancionDao reservaDao = new ReservaDiaSancionDao();
+				RequestDispatcher view = request.getRequestDispatcher(forward);
+				request.setAttribute("sancionSin", sancionDao.getAllSancionesSinDias());
+				request.setAttribute("sanciones", reservaDao.getAllRecreoPROA());
+				view.forward(request, response);
 			}
 		}		
-
-		/*String tipo_sancion =  request.getParameter("tipo_sancion");
-		System.out.println("tipo_sancion "+tipo_sancion);
-		
-		if (tipo_sancion.equals("Expulsión")) {
-			int id_p = Integer.parseInt(request.getParameter("id_parte"));
-			int id_s = sancionDao.getIdSancionByIdParte(id_p);
-			sancionEnt.setId_sancion(id_s);
-			String total_dias = request.getParameter("total_dias");
-			System.out.println("total_dias " + total_dias);
-			sancionEnt.setTotal_dias(Integer.parseInt(total_dias));
-
-			try {
-				fecha_inicio = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_inicio"));
-				sancionEnt.setFecha_inicio(fecha_inicio);
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
-
-			try {
-				fecha_fin = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_fin"));
-				sancionEnt.setFecha_fin(fecha_fin);
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
-			sancionDao.updateSancion(sancionEnt);
-			
-			forward = HISTORIAL;
-			request.setAttribute("sanciones", sancionDao.getAllSanciones());
-			RequestDispatcher view = request.getRequestDispatcher(forward);
-	        view.forward(request, response);
-		}else {
-			
-		//Para actualizar el campo tipo_sancion de la tabla parte
-		ParteDao parteDao = new ParteDao();
-		Integer id_p = Integer.parseInt(request.getParameter("id_parte"));
-		parteDao.updateSancionParte(id_p);
-
-		ReservaDiaSancionDao reservaDao = new ReservaDiaSancionDao();
-		RequestDispatcher view = request.getRequestDispatcher("SancionesSinDias.jsp");
-		request.setAttribute("sancionSin", sancionDao.getAllSancionesSinDias());
-		request.setAttribute("sanciones", reservaDao.getAllRecreoPROA());
-		view.forward(request, response);
-		}*/
 	}
 }

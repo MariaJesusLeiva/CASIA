@@ -27,6 +27,94 @@
 			history.forward();
 		}
 	</script>
+	
+	<script>
+(function(){
+    'use strict';
+	var $ = jQuery;
+	$.fn.extend({
+		filterTable: function(){
+			return this.each(function(){
+				$(this).on('keyup', function(e){
+					$('.filterTable_no_results').remove();
+					var $this = $(this), 
+                        search = $this.val().toLowerCase(), 
+                        target = $this.attr('data-filters'), 
+                        $target = $(target), 
+                        $rows = $target.find('tbody tr');
+                        
+					if(search == '') {
+						$rows.show(); 
+					} else {
+						$rows.each(function(){
+							var $this = $(this);
+							$this.text().toLowerCase().indexOf(search) === -1 ? $this.hide() : $this.show();
+						})
+						if($target.find('tbody tr:visible').size() === 0) {
+							var col_count = $target.find('tr').first().find('td').size();
+							var no_results = $('<tr class="filterTable_no_results"><td colspan="'+col_count+'">Sin resultados</td></tr>')
+							$target.find('tbody').append(no_results);
+						}
+					}
+				});
+			});
+		}
+	});
+	$('[data-action="filter"]').filterTable();
+})(jQuery);
+</script>
+	<script>
+$(function(){
+    // attach table filter plugin to inputs
+	$('[data-action="filter"]').filterTable();
+	
+	$('.container').on('click', '.panel-heading span.filter', function(e){
+		var $this = $(this), 
+			$panel = $this.parents('.panel');
+		
+		$panel.find('.panel-body').slideToggle();
+		if($this.css('display') != 'none') {
+			$panel.find('.panel-body input').focus();
+		}
+	});
+	$('[data-toggle="tooltip"]').tooltip();
+})
+</script>
+	<script>
+function limita(elEvento, maximoCaracteres) {
+  var elemento = document.getElementById("textarea");
+
+  // Obtener la tecla pulsada 
+  var evento = elEvento || window.event;
+  var codigoCaracter = evento.charCode || evento.keyCode;
+  // Permitir utilizar las teclas con flecha horizontal
+  if(codigoCaracter == 37 || codigoCaracter == 39) {
+    return true;
+  }
+
+  // Permitir borrar con la tecla Backspace y con la tecla Supr.
+  if(codigoCaracter == 8 || codigoCaracter == 46) {
+    return true;
+  }
+  else if(elemento.value.length >= maximoCaracteres ) {
+    return false;
+  }
+  else {
+    return true;
+  }
+}
+
+function actualizaInfo(maximoCaracteres) {
+  var elemento = document.getElementById("textarea");
+  var info = document.getElementById("info");
+
+  if(elemento.value.length >= maximoCaracteres ) {
+    info.innerHTML = "Máximo "+maximoCaracteres+" caracteres";
+  }  else {
+    info.innerHTML = (maximoCaracteres-elemento.value.length)+" Caracteres restantes";
+  }
+}
+</script>
 
 	<div class="container">
 		<div class="row">
@@ -44,31 +132,30 @@
 							<td class="titulo">Código </td>
 							<td class="form"><input type="number" min="1" max="9999999999" name="codigo"
 								value="<c:out value="${parte.codigo}"/>" required></td>
-							<td class="titulo">Fecha </td>
-							<td class="form"><input required type="date" name="fecha_parte"
-								value="<c:out value="${parte.fecha_parte}"/>"></td>
+							<td class="titulo">Curso </td>
+							<td class="form"><input required type="text" name="curso"
+								size="10" value="<c:out value="${parte.curso}" />"></td>
 						</tr>
 						<tr class="trparte">
 							<td class="titulo">Alumno</td>
 							<td class="form"><input required type="text" name="nombre_alum"	size="40" value="<c:out value="${parte.nombre_alum}"/>"></td>
-							<td class="titulo">Grupo 
-							</td>
+							<td class="titulo">Grupo</td>
 							<td class="form"><input required type="text" name="grupo" size="10"
 								value="<c:out value="${parte.grupo}"/>"></td>
 						</tr>
 						<tr class="trparte">
-							<td class="titulo">Profesor
-							</td>
-							<td colspan="3" class="form"><input required type="text"
-								name="nombre_profe" size="40"
-								value="<c:out value="${parte.nombre_profe}"/>"></td>
+							<td class="titulo">Profesor</td>
+							<td class="form"><input required type="text" name="nombre_profe" size="40" value="<c:out value="${parte.nombre_profe}"/>"></td>
+							<td class="titulo">Fecha</td>
+							<td class="form"><input required type="date" name="fecha_parte"	value="<c:out value="${parte.fecha_parte}"/>"></td>
 						</tr>
 						<tr class="trparte">
 							<td class="titulo">Motivo del Parte
 							</td>
-							<td colspan="3" class="form"><textarea required name="motivo_parte"
-									rows="10" cols="75"><c:out value="${parte.motivo_parte}"/></textarea>
-									</td>
+							<td colspan="3" class="form"><textarea class="estilotextarea" required id="textarea" name="motivo_parte"
+									onkeypress="return limita(event, 1000);"
+									onkeyup="actualizaInfo(1000)" rows="10" cols="75"><c:out value="${parte.motivo_parte}"/></textarea>
+									<div id="info">Máximo 1000 caracteres</div></td>
 						</tr>
 					</table>
 					<div class="row mt-3 mb-3">

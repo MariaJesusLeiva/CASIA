@@ -28,7 +28,7 @@ public class ParteServlet extends HttpServlet {
 	private static String VERPARTE = "ConsultarParte.jsp";
 	private static String MODIFICAR = "ModificarParte.jsp";
 	private static String PENDIENTESANCION = "PendienteSancion.jsp";
-	private static String VERSANCION = "/ConsultarSancion.jsp";
+	private static String VERSANCION = "ConsultarSancion.jsp";
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -100,6 +100,7 @@ public class ParteServlet extends HttpServlet {
 		ParteEntity parteEnt = new ParteEntity();
 		Date fecha_parte = null;
 		Integer codigo, id_parte;
+		String forward= "";
 		
 		codigo = Integer.parseInt(request.getParameter("codigo"));
 		parteEnt.setCodigo(codigo);
@@ -131,22 +132,16 @@ public class ParteServlet extends HttpServlet {
 			id_parte = Integer.parseInt(request.getParameter("id_parte"));			
 			parteEnt.setId_parte(id_parte);
 			parteDao.updateParte(parteEnt);
+			forward = HISTORIAL;
+			request.setAttribute("partes", parteDao.getAllPartes());
+			RequestDispatcher view = request.getRequestDispatcher(forward);
+	        view.forward(request, response);
 		}
     
-/*		//Usado antes de crear el modificar parte
-  		List<ParteEntity> id;
-		ParteDao parteDao = new ParteDao();
-		id = (List<ParteEntity>)parteDao.getAllPartes();
-		id_parte = id.size()+1;
-		parteEnt.setId_parte(id_parte);
-		parteDao.addParte(parteEnt);
-        System.out.println("id "+parteEnt.getId_parte());*/
-		
+		forward = PENDIENTESANCION;	
         request.setAttribute("partes", parteDao.getAllPartes());
         request.setAttribute("partesSin", parteDao.getAllPartesSinSanciones());
-        RequestDispatcher view = request.getRequestDispatcher("PendienteSancion.jsp");
+        RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
 	}
-	
-
 }
