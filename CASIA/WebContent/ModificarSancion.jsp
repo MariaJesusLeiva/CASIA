@@ -190,7 +190,7 @@ function actualizaInfo(maximoCaracteres) {
 					</table>
 					<div class="row mt-3 mb-3">
 						<div class="col-12">
-							<button class="btn btn-primary w-100 no-print" type="submit"
+							<button class="btn btn-primary w-100 no-print" type="submit" onclick="return confirm('¿Está seguro de los cambios?');"
 								value="Submit">Guardar</button>
 							<button class="btn btn-primary w-100 no-print" type="button"
 								value="Atrás" name="Boton1" onclick="atras();">Atrás</button>

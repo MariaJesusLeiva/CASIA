@@ -54,7 +54,7 @@
     <servlet-name>ReservaDiaSancionServlet</servlet-name>
     <url-pattern>/ReservaDiaSancionServlet</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>AsistenciaServlet</display-name>
     <servlet-name>AsistenciaServlet</servlet-name>
@@ -63,5 +63,15 @@
   <servlet-mapping>
     <servlet-name>AsistenciaServlet</servlet-name>
     <url-pattern>/AsistenciaServlet</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>AbsentismoServlet</display-name>
+    <servlet-name>AbsentismoServlet</servlet-name>
+    <servlet-class>com.casia.controller.AbsentismoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AbsentismoServlet</servlet-name>
+    <url-pattern>/AbsentismoServlet</url-pattern>
   </servlet-mapping>
 </web-app>
