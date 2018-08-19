@@ -25,13 +25,14 @@ private static Connection connection;
 		try
 		{
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("INSERT INTO reservadiasancion(id_sancion, fecha_inicio, nombre_alum, tipo_sancion) " +
-							"VALUES (?, ?, ?, ?)");
+					.prepareStatement("INSERT INTO reservadiasancion(id_sancion, fecha_inicio, nombre_alum, tipo_sancion, asistencia) " +
+							"VALUES (?, ?, ?, ?, ?)");
 
 			preparedStatement.setInt(1, reservaEnt.getId_sancion());
 			preparedStatement.setDate(2, new java.sql.Date(reservaEnt.getFecha_inicio().getTime()));
 			preparedStatement.setString(3, reservaEnt.getNombre_alum());
 			preparedStatement.setString(4, reservaEnt.getTipo_sancion());
+			preparedStatement.setString(5, reservaEnt.getAsistencia());
 			preparedStatement.executeUpdate();
 
 		}
@@ -61,6 +62,7 @@ private static Connection connection;
 				reserva.setTipo_sancion(rs.getString("tipo_sancion"));
 				reserva.setNombre_alum(rs.getString("nombre_alum"));
 				reserva.setFecha_inicio(rs.getDate("fecha_inicio"));
+				reserva.setAsistencia(rs.getString("asistencia"));
 				
 				reservas.add(reserva);
 			}
@@ -92,6 +94,7 @@ private static Connection connection;
 				reserva.setFecha_inicio(rs.getDate("fecha_inicio"));
 				reserva.setNombre_alum(rs.getString("nombre_alum"));
 				reserva.setTipo_sancion(rs.getString("tipo_sancion"));
+				reserva.setAsistencia(rs.getString("asistencia"));
 			
 				reservas.add(reserva);
 			}

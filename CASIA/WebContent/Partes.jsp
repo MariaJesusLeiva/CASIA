@@ -15,7 +15,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/tablasfiltro.css" rel="stylesheet" type="text/css">
-<title>Partes Pendientes</title>
+<title>Historial Partes</title>
 </head>
 <%@ include file="Principal.jsp"%>
 <body>
@@ -79,53 +79,7 @@ $(function(){
 			</small>
 		</h1>
 		<div class="row">
-			<div class="col-md-6">
-				<div class="panel panel-info">
-					<div class="panel-heading">
-						<h3 class="panel-title">PENDIENTES DE SANCIÓN</h3>
-						<div class="pull-right">
-							<span class="clickable filter" data-toggle="tooltip"
-								title="Buscador" data-container="body"> <i
-								class="glyphicon glyphicon-search"></i>
-							</span>
-						</div>
-					</div>
-					<div class="panel-body">
-						<input type="text" class="form-control" id="dev-table-filter"
-							data-action="filter" data-filters="#dev-table"
-							placeholder="Introduzca filtro" />
-					</div>
-					<table class="table table-hover" id="dev-table">
-						<thead>
-							<tr>
-								<th class="centrado">Código</th>
-								<th class="centrado">Fecha</th>
-								<th class="centrado">Profesor</th>
-								<th class="centrado">Alumno</th>
-								<th class="centrado">Grupo</th>
-								<th class="centrado">Sanción</th>
-							</tr>
-						</thead>
-						<tbody align="center">
-							<c:forEach items="${partesSin}" var="parte">
-								<tr>
-									<td><c:out value="${parte.codigo}" /></td>
-									<td><fmt:formatDate pattern="dd-MM-yyyy"
-											value="${parte.fecha_parte}" /></td>
-									<td><c:out value="${parte.nombre_profe}" /></td>
-									<td><c:out value="${parte.nombre_alum}" /></td>
-									<td><c:out value="${parte.grupo}" /></td>
-									<td><a
-										href="SancionServlet?action=asignar&id_parte=<c:out value="${parte.id_parte}"/>"><i
-											class="glyphicon glyphicon-edit"></i></a></td>
-
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</div>
-			</div>
-			<div class="col-md-6">
+			<div class="col-md-12">
 				<div class="panel panel-success">
 					<div class="panel-heading">
 						<h3 class="panel-title">HISTORIAL DE PARTES</h3>
@@ -145,6 +99,7 @@ $(function(){
 						<thead>
 							<tr>
 								<th class="centrado">Código</th>
+								<th class="centrado">Curso</th>
 								<th class="centrado">Fecha</th>
 								<th class="centrado">Profesor</th>
 								<th class="centrado">Alumno</th>
@@ -157,12 +112,14 @@ $(function(){
 							<c:forEach items="${partes}" var="parte">
 								<tr>
 									<td><c:out value="${parte.codigo}" /></td>
+									<td><c:out value="${parte.curso}" /></td>
 									<td><fmt:formatDate pattern="dd-MM-yyyy"
 											value="${parte.fecha_parte}" /></td>
 									<td><c:out value="${parte.nombre_profe}" /></td>
 									<td><c:out value="${parte.nombre_alum}" /></td>
 									<td><c:out value="${parte.grupo}" /></td>
-									<td><c:out value="${parte.tipo_sancion}" /></td>
+									<td><a
+										href="ParteServlet?action=verSancion&id_parte=<c:out value="${parte.id_parte}"/>"><i><c:out value="${parte.tipo_sancion}" /></i></a></td>
 									<td><a
 										href="ParteServlet?action=verParte&id_parte=<c:out value="${parte.id_parte}"/>"><i
 											class="glyphicon glyphicon-eye-open"></i></a></td>

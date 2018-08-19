@@ -8,6 +8,7 @@ public class ReservaDiaSancionEntity {
 	private Date fecha_inicio;
 	private String nombre_alum;
 	private String tipo_sancion;
+	private String asistencia;
 	
 	public Integer getId_sancion() {
 		return id_sancion;
@@ -38,6 +39,11 @@ public class ReservaDiaSancionEntity {
 	}
 	public void setTipo_sancion(String tipo_sancion) {
 		this.tipo_sancion = tipo_sancion;
+	}
+	public String getAsistencia() {
+		return asistencia;
+	}
+	public void setAsistencia(String asistencia) {
+		this.asistencia = asistencia;
 	}	
-
 }

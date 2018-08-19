@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.casia.config.conexionDB;
-import com.casia.entity.RecreoEntity;
 import com.casia.entity.SancionEntity;
 
 public class RecreoDao {
@@ -66,7 +65,6 @@ private static Connection connection;
 				SancionEntity recreo = new SancionEntity();
 				recreo.setId_sancion(rs.getInt("id_sancion"));
 				recreo.setFecha_inicio(rs.getDate("fecha_inicio"));
-				recreo.setAsistencia(rs.getString("asistencia"));
 				recreo.setObservacion(rs.getString("observacion"));
 				recreo.setTrabajo(rs.getString("trabajo"));
 				recreo.setNombre_alum(rs.getString("nombre_alum"));

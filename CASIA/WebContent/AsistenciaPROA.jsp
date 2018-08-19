@@ -87,7 +87,7 @@ $(function(){
 		</h1>
 		<div class="row">
 			<div class="col-md-6">
-			<form method="POST" action='RecreoServlet' name="frmAddAsistencia">
+			<form method="POST" action='AsistenciaServlet' name="frmAddAsistencia">
 						
 				<div class="panel panel-info">
 					<div class="panel-heading">

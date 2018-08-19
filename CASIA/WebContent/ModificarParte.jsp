@@ -11,7 +11,7 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<link href="css/crearparte.css" rel="stylesheet" type="text/css">
+<link href="css/parte.css" rel="stylesheet" type="text/css">
 <title>Modificar Parte</title>
 </head>
 <%@ include file="Principal.jsp"%>
@@ -42,7 +42,8 @@
 					<table class="table table-sm">
 						<tr class="trparte">
 							<td class="titulo">Código </td>
-							<td class="form"><input required type="text" name="codigo" value="<c:out value="${parte.codigo}"/>"></td>
+							<td class="form"><input type="number" min="1" max="9999999999" name="codigo"
+								value="<c:out value="${parte.codigo}"/>" required></td>
 							<td class="titulo">Fecha </td>
 							<td class="form"><input required type="date" name="fecha_parte"
 								value="<c:out value="${parte.fecha_parte}"/>"></td>

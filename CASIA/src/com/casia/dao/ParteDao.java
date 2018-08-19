@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.casia.config.conexionDB;
 import com.casia.entity.ParteEntity;
+import com.casia.entity.SancionEntity;
 
 public class ParteDao
 {
@@ -73,7 +74,7 @@ public class ParteDao
 		{
 			Statement statement = connection.createStatement();
 			ResultSet rs = statement.executeQuery("SELECT * FROM parte WHERE tipo_sancion " +
-									"IS NOT NULL ORDER BY codigo DESC");
+									"IS NOT NULL ORDER BY curso DESC, codigo DESC");
 			
 			while (rs.next())
 			{
@@ -180,7 +181,8 @@ public class ParteDao
 		
 		try {
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("SELECT * FROM parte WHERE tipo_sancion IS NULL ORDER BY fecha_parte ASC");
+			ResultSet rs = statement.executeQuery("SELECT * FROM parte WHERE tipo_sancion = 'Seleccionar' " + 
+									"OR tipo_sancion IS NULL ORDER BY fecha_parte ASC");
 			while (rs.next()) {
 				ParteEntity parte = new ParteEntity();
 				parte.setId_parte(rs.getInt("id_parte"));
@@ -199,5 +201,33 @@ public class ParteDao
 			e.printStackTrace();
 		}
 		return partes;
+	}
+	
+	public ParteEntity getParteByIdsancion(int id_sancion) {
+		ParteEntity alumsancion = new ParteEntity();
+		
+		try 
+		{
+			PreparedStatement preparedStatement = connection.
+					prepareStatement("SELECT * FROM parte p " +
+								"INNER JOIN sancion s ON s.id_parte=p.id_parte " +
+								"WHERE id_sancion=?");
+			preparedStatement.setInt(1, id_sancion);
+			ResultSet rs = preparedStatement.executeQuery();
+			
+			if (rs.next())
+			{
+				alumsancion.setNombre_alum(rs.getString("nombre_alum"));
+				alumsancion.setNombre_profe(rs.getString("nombre_profe"));
+				alumsancion.setCodigo(rs.getInt("codigo"));
+
+			}
+		} 
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+
+		return alumsancion;
 	}
 }

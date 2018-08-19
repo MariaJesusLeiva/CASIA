@@ -29,7 +29,8 @@
 				</a>
 					<ul class="dropdown-menu">
 						<li><a href="CrearParte.jsp">Añadir</a></li>
-						<li><a href="ParteServlet?action=consultarParte">Consultar</a></li>
+						<li><a href="ParteServlet?action=pendienteSancion">Pendientes de sanción</a></li>
+						<li><a href="ParteServlet?action=historialParte">Historial</a></li>
 						<li><a href="#">Link</a></li>
 						<li><a href="#">Link</a></li>
 					</ul></li>
@@ -41,7 +42,7 @@
 						<li><a href="AsistenciaServlet?action=asistenciaRecreo">Recreo</a></li>
 						<li><a href="AsistenciaServlet?action=asistenciaPROA">PROA</a></li>
 						<li><a href="#">Expulsión</a></li>
-						<li><a href="SancionServlet?action=historial">Historial</a></li>
+						<li><a href="SancionServlet?action=historialSanciones">Historial</a></li>
 					</ul></li>
 
 				<li><a href="LogoutServlet?action=salir">Salir</a></li>
