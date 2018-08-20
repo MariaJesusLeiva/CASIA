@@ -15,7 +15,6 @@ td.form {
 }
 
 td.expulsion{
-	background-color: #D6E6F4;
 	size:30;
 }
 
@@ -34,21 +33,18 @@ textarea.estilotextarea{
 	width: 300px;
 	height: 200px;
 	resize: none;
-	maxlength: 500;	
 }
 
 textarea.estilograndetextarea{
 	width: 500px;
 	height: 300px;
-	resize: none;
-	maxlength: 500;	
+	resize: none;	
 }
 
 textarea.estilotextareagris{
 	width: 500px;
 	height: 300px;
 	resize: none;	
-	maxlength: 500;
 	background-color: #e2e4e5;
 }
 

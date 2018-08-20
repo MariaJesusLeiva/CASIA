@@ -119,7 +119,7 @@ function actualizaInfo(maximoCaracteres) {
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<form method="POST" action='SancionServlet' name="frmAddSancion">
+				<form method="POST" action='SancionServlet' name="frmModificarSancion">
 					<input type="text" name="id_parte" style="display: none"
 						value="<c:out value="${sancion.id_parte}" />">
 					<input type="text" name="id_sancion" style="display: none"

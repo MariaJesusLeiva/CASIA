@@ -123,7 +123,7 @@ function actualizaInfo(maximoCaracteres) {
 					<h4 class="titulo pb-2 pt-2">Modificar Parte de
 						Convivencia</h4>
 				</div>
-				<form method="POST" action='ParteServlet' name="frmAddParte">
+				<form method="POST" action='ParteServlet' name="frmModificarParte">
 				
 				<input type="text" name="id_parte" style="display: none"
 						value="<c:out value="${parte.id_parte}" />">

@@ -29,7 +29,6 @@
 				</a>
 					<ul class="dropdown-menu">
 						<li><a href="CrearParte.jsp">Añadir</a></li>
-						<li><a href="ParteServlet?action=pendienteSancion">Pendientes de sanción</a></li>
 						<li><a href="ParteServlet?action=historialParte">Historial</a></li>
 						<li><a href="#">Link</a></li>
 						<li><a href="#">Link</a></li>
@@ -38,11 +37,19 @@
 					data-toggle="dropdown"> Sanciones <b class="caret"></b>
 				</a>
 					<ul class="dropdown-menu">
+						<li><a href="ParteServlet?action=pendienteSancion">Pendientes de sanción</a></li>
 						<li><a href="SancionServlet?action=verSancionesSinDias">Asignar Días</a></li>
 						<li><a href="AsistenciaServlet?action=asistenciaRecreo">Recreo</a></li>
 						<li><a href="AsistenciaServlet?action=asistenciaPROA">PROA</a></li>
 						<li><a href="#">Expulsión</a></li>
 						<li><a href="SancionServlet?action=historialSanciones">Historial</a></li>
+					</ul></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown"> Absentismo <b class="caret"></b>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a href="CrearAbsentismo.jsp">Añadir</a></li>
+						<li><a href="#">Link</a></li>
 					</ul></li>
 
 				<li><a href="LogoutServlet?action=salir">Salir</a></li>
