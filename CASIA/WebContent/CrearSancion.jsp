@@ -121,7 +121,7 @@ function actualizaInfo(maximoCaracteres) {
 </script>
 
 	<div class="text-white text-center d-block mb-1">
-		<h3 class="titulo pb-2 pt-2">Formulario para Asignar una Sanción correspondiente al parte con código (<%=session.getAttribute("codigoparte")%>)</h3>
+		<h3 class="titulo pb-2 pt-2">Formulario para Asignar una Sanción Correspondiente al Parte con Código (<%=session.getAttribute("codigoparte")%>)</h3>
 
 	</div>
 	<div class="container">

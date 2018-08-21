@@ -4,8 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.casia.config.conexionDB;
+import com.casia.entity.ParteEntity;
 import com.casia.entity.UsuarioEntity;
 
 public class UsuarioDao {
@@ -65,6 +69,26 @@ public class UsuarioDao {
 		return status;
     }*/
 	
+	public void addUsuario(UsuarioEntity usuarioEnt)
+	{
+		try
+		{
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("INSERT INTO usuario(name_user, pass_user, rol_user) " +
+							"VALUES (?, ?, ?)");
+
+			preparedStatement.setString(1, usuarioEnt.getName_user());
+			preparedStatement.setString(2, usuarioEnt.getPass_user());
+			preparedStatement.setString(3, usuarioEnt.getRol_user());
+			preparedStatement.executeUpdate();
+
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
 	public String ObtenerRol(UsuarioEntity userEnt) throws SQLException
 	{
 		PreparedStatement ps = null;
@@ -102,12 +126,54 @@ public class UsuarioDao {
         return rs.next();
     }
     
-    //Metodo para registrar un usuario
+/*    //Metodo para registrar un usuario
     public void registrarUser(String name_user, String pass_user) throws SQLException
     {
         String sql = "INSERT INTO usuario(name_user, pass_user) VALUES ('"+name_user+"','"+pass_user+"')";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.executeUpdate();
-    }
+    }*/
+    
+    public List<UsuarioEntity> getAllUsuarios()
+	{
+		List<UsuarioEntity> usuarios = new ArrayList<UsuarioEntity>();
+		
+		try
+		{
+			Statement statement = connection.createStatement();
+
+			ResultSet rs = statement.executeQuery("SELECT * FROM usuario " +
+									"WHERE rol_user = 'directiva' " +
+									"ORDER BY rol_user DESC");
+			while (rs.next())
+			{
+				UsuarioEntity usuario = new UsuarioEntity();
+				usuario.setId_user(rs.getInt("id_user"));
+				usuario.setName_user(rs.getString("name_user"));
+				usuario.setPass_user(rs.getString("pass_user"));
+				usuario.setRol_user(rs.getString("rol_user"));
+				usuarios.add(usuario);
+			}
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return usuarios;
+	}
+
+	public void updateUsuario(UsuarioEntity usuarioEnt) {
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("UPDATE usuario SET name_user=?, pass_user=? WHERE id_user=?");
+
+			preparedStatement.setString(1, usuarioEnt.getName_user());
+			preparedStatement.setString(2, usuarioEnt.getPass_user());
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 }

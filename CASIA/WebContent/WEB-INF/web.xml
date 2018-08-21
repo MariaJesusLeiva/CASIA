@@ -64,7 +64,7 @@
     <servlet-name>AsistenciaServlet</servlet-name>
     <url-pattern>/AsistenciaServlet</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>AbsentismoServlet</display-name>
     <servlet-name>AbsentismoServlet</servlet-name>
@@ -73,5 +73,15 @@
   <servlet-mapping>
     <servlet-name>AbsentismoServlet</servlet-name>
     <url-pattern>/AbsentismoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UsuarioServlet</display-name>
+    <servlet-name>UsuarioServlet</servlet-name>
+    <servlet-class>com.casia.controller.UsuarioServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UsuarioServlet</servlet-name>
+    <url-pattern>/UsuarioServlet</url-pattern>
   </servlet-mapping>
 </web-app>
