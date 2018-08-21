@@ -76,9 +76,10 @@ $(function(){
 	$('[data-toggle="tooltip"]').tooltip();
 })
 </script>
-	<script>
+<script>
 function limita(elEvento, maximoCaracteres) {
   var elemento = document.getElementById("textarea");
+  var elemento2 = document.getElementById("textarea2");
 
   // Obtener la tecla pulsada 
   var evento = elEvento || window.event;
@@ -91,24 +92,31 @@ function limita(elEvento, maximoCaracteres) {
   // Permitir borrar con la tecla Backspace y con la tecla Supr.
   if(codigoCaracter == 8 || codigoCaracter == 46) {
     return true;
-  }
-  else if(elemento.value.length >= maximoCaracteres ) {
+  } else if(elemento.value.length > maximoCaracteres ) {
     return false;
-  }
-  else {
+  } else if(elemento2.value.length > maximoCaracteres ) {
+	return false;
+  } else {
     return true;
   }
 }
 
 function actualizaInfo(maximoCaracteres) {
   var elemento = document.getElementById("textarea");
+  var elemento2 = document.getElementById("textarea2");
   var info = document.getElementById("info");
+  var info2 = document.getElementById("info2");
 
-  if(elemento.value.length >= maximoCaracteres ) {
-    info.innerHTML = "Máximo "+maximoCaracteres+" caracteres";
+  if(elemento.value.length > maximoCaracteres ) {
+    info.innerHTML = "Sobrepasa caracteres permitidos";
   }  else {
     info.innerHTML = (maximoCaracteres-elemento.value.length)+" Caracteres restantes";
   }
+  if(elemento2.value.length > maximoCaracteres ) {
+	    info2.innerHTML = "Sobrepasa caracteres permitidos";
+	  } else {
+	    info2.innerHTML = (maximoCaracteres-elemento2.value.length)+" Caracteres restantes";
+	  }
 }
 </script>
 
@@ -161,11 +169,11 @@ function actualizaInfo(maximoCaracteres) {
 						<tr class="trsancion">
 							<td class="titulo">Trabajo</td>
 							<td class="form" colspan="3" class="w-75"><textarea
-									class="estilotextarea" id="textarea" name="observacion"
+									class="estilotextarea" id="textarea2" name="observacion"
 									onkeypress="return limita(event, 500);"
 									onkeyup="actualizaInfo(500)"
 									value="<c:out value="${sancion.trabajo}" />"></textarea>
-								<div id="info">Máximo 500 caracteres</div></td>
+								<div id="info2">Máximo 500 caracteres</div></td>
 						</tr>
 						
 						<tr class="trsancion">

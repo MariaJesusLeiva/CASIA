@@ -127,7 +127,12 @@ public class ParteServlet extends HttpServlet {
 			Integer id_nuevo = id.size()+1;
 			parteEnt.setId_parte(id_nuevo);
 			parteDao.addParte(parteEnt);
-	        System.out.println("id "+parteEnt.getId_parte()); 
+			System.out.println("id " + parteEnt.getId_parte());
+			forward = PENDIENTESANCION;
+			request.setAttribute("partes", parteDao.getAllPartes());
+			request.setAttribute("partesSin", parteDao.getAllPartesSinSanciones());
+			RequestDispatcher view = request.getRequestDispatcher(forward);
+			view.forward(request, response);
 		} else {
 			id_parte = Integer.parseInt(request.getParameter("id_parte"));			
 			parteEnt.setId_parte(id_parte);
@@ -136,12 +141,6 @@ public class ParteServlet extends HttpServlet {
 			request.setAttribute("partes", parteDao.getAllPartes());
 			RequestDispatcher view = request.getRequestDispatcher(forward);
 	        view.forward(request, response);
-		}
-    
-		forward = PENDIENTESANCION;	
-        request.setAttribute("partes", parteDao.getAllPartes());
-        request.setAttribute("partesSin", parteDao.getAllPartesSinSanciones());
-        RequestDispatcher view = request.getRequestDispatcher(forward);
-        view.forward(request, response);
+		}	
 	}
 }

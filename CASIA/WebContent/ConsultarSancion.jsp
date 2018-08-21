@@ -24,93 +24,7 @@
 	function actualizar(){location.reload();}
 	function adelante(){history.forward();}
 </script>
-<script>
-(function(){
-    'use strict';
-	var $ = jQuery;
-	$.fn.extend({
-		filterTable: function(){
-			return this.each(function(){
-				$(this).on('keyup', function(e){
-					$('.filterTable_no_results').remove();
-					var $this = $(this), 
-                        search = $this.val().toLowerCase(), 
-                        target = $this.attr('data-filters'), 
-                        $target = $(target), 
-                        $rows = $target.find('tbody tr');
-                        
-					if(search == '') {
-						$rows.show(); 
-					} else {
-						$rows.each(function(){
-							var $this = $(this);
-							$this.text().toLowerCase().indexOf(search) === -1 ? $this.hide() : $this.show();
-						})
-						if($target.find('tbody tr:visible').size() === 0) {
-							var col_count = $target.find('tr').first().find('td').size();
-							var no_results = $('<tr class="filterTable_no_results"><td colspan="'+col_count+'">Sin resultados</td></tr>')
-							$target.find('tbody').append(no_results);
-						}
-					}
-				});
-			});
-		}
-	});
-	$('[data-action="filter"]').filterTable();
-})(jQuery);
-</script>
-	<script>
-$(function(){
-    // attach table filter plugin to inputs
-	$('[data-action="filter"]').filterTable();
-	
-	$('.container').on('click', '.panel-heading span.filter', function(e){
-		var $this = $(this), 
-			$panel = $this.parents('.panel');
-		
-		$panel.find('.panel-body').slideToggle();
-		if($this.css('display') != 'none') {
-			$panel.find('.panel-body input').focus();
-		}
-	});
-	$('[data-toggle="tooltip"]').tooltip();
-})
-</script>
-	<script>
-function limita(elEvento, maximoCaracteres) {
-  var elemento = document.getElementById("textarea");
 
-  // Obtener la tecla pulsada 
-  var evento = elEvento || window.event;
-  var codigoCaracter = evento.charCode || evento.keyCode;
-  // Permitir utilizar las teclas con flecha horizontal
-  if(codigoCaracter == 37 || codigoCaracter == 39) {
-    return true;
-  }
-
-  // Permitir borrar con la tecla Backspace y con la tecla Supr.
-  if(codigoCaracter == 8 || codigoCaracter == 46) {
-    return true;
-  }
-  else if(elemento.value.length >= maximoCaracteres ) {
-    return false;
-  }
-  else {
-    return true;
-  }
-}
-
-function actualizaInfo(maximoCaracteres) {
-  var elemento = document.getElementById("textarea");
-  var info = document.getElementById("info");
-
-  if(elemento.value.length >= maximoCaracteres ) {
-    info.innerHTML = "Máximo "+maximoCaracteres+" caracteres";
-  }  else {
-    info.innerHTML = (maximoCaracteres-elemento.value.length)+" Caracteres restantes";
-  }
-}
-</script>
 	<div class="text-white text-center d-block mb-1">
 		<h3 class="titulo pb-2 pt-2">Sanción correspondiente al parte (<%=session.getAttribute("codigoparte")%>)</h3>
 
@@ -139,9 +53,10 @@ function actualizaInfo(maximoCaracteres) {
 
 						<tr class="trsancion">
 							<td class="titulo">Observacion</td>
-							<td colspan="3" class="form"><textarea class="estilotextareagris" readonly="readonly" id="textarea" name="observacion"
-									onkeypress="return limita(event, 500);"
-									onkeyup="actualizaInfo(500)"><c:out value="${sancion.observacion}"/></textarea>
+							<td colspan="3" class="form"><textarea
+									class="estilotextareagris" readonly="readonly" id="textarea"
+									name="observacion"><c:out
+										value="${sancion.observacion}" /></textarea>
 						</tr>
 						<tr class="trsancion">
 							<td class="titulo">Sancion</td>
@@ -150,11 +65,12 @@ function actualizaInfo(maximoCaracteres) {
 						</tr>
 						<tr class="trsancion">
 							<td class="titulo">Trabajo</td>
-							<td colspan="3" class="form"><textarea class="estilotextareagris" readonly="readonly" id="textarea" name="trabajo"
-									onkeypress="return limita(event, 500);"
-									onkeyup="actualizaInfo(500)"><c:out value="${sancion.trabajo}"/></textarea>
+							<td colspan="3" class="form"><textarea
+									class="estilotextareagris" readonly="readonly" id="textarea"
+									name="trabajo"><c:out
+										value="${sancion.trabajo}" /></textarea>
 						</tr>
-						
+
 						<tr class="trsancion">
 						<td class="expulsion"></td><td class="expulsion"><h4>En caso de Expulsión</h4></td>
 						</tr>

@@ -193,7 +193,6 @@ public class SancionServlet extends HttpServlet
 			}
 			
 		} else {
-			System.out.println("Entro en el else");
 			id_snc = Integer.parseInt(request.getParameter("id_sancion"));			
 			sancionEnt.setId_sancion(id_snc);
 			sancionDao.updateSancion(sancionEnt);
@@ -203,10 +202,7 @@ public class SancionServlet extends HttpServlet
 			String tipo_sancion =  request.getParameter("tipo_sancion");
 			System.out.println("tipo_sancion "+tipo_sancion);
 			
-			if(tipo_sancion.equals("Seleccionar")) {
-				request.setAttribute("errMessage", "Seleccionar sanción");
-				
-			} else if (tipo_sancion.equals("Expulsión")) {
+			if (tipo_sancion.equals("Expulsión")) {
 				int id_p = Integer.parseInt(request.getParameter("id_parte"));
 				int id_s = sancionDao.getIdSancionByIdParte(id_p);
 				sancionEnt.setId_sancion(id_s);

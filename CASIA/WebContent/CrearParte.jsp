@@ -58,8 +58,8 @@ function actualizaInfo(maximoCaracteres) {
   var elemento = document.getElementById("textmotivo");
   var info = document.getElementById("info");
 
-  if(elemento.value.length >= maximoCaracteres ) {
-    info.innerHTML = "Máximo "+maximoCaracteres+" caracteres";
+  if(elemento.value.length > maximoCaracteres ) {
+    info.innerHTML = "Sobrepasa caracteres permitidos";
   }  else {
     info.innerHTML = (maximoCaracteres-elemento.value.length)+" Caracteres restantes";
   }

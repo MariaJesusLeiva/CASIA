@@ -49,7 +49,7 @@
 				</a>
 					<ul class="dropdown-menu">
 						<li><a href="CrearAbsentismo.jsp">Añadir</a></li>
-						<li><a href="#">Link</a></li>
+						<li><a href="AbsentismoServlet?action=historialabsentismos">Historial</a></li>
 					</ul></li>
 
 				<li><a href="LogoutServlet?action=salir">Salir</a></li>

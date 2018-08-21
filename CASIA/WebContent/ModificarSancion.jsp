@@ -25,60 +25,9 @@
 	function adelante(){history.forward();}
 </script>
 <script>
-(function(){
-    'use strict';
-	var $ = jQuery;
-	$.fn.extend({
-		filterTable: function(){
-			return this.each(function(){
-				$(this).on('keyup', function(e){
-					$('.filterTable_no_results').remove();
-					var $this = $(this), 
-                        search = $this.val().toLowerCase(), 
-                        target = $this.attr('data-filters'), 
-                        $target = $(target), 
-                        $rows = $target.find('tbody tr');
-                        
-					if(search == '') {
-						$rows.show(); 
-					} else {
-						$rows.each(function(){
-							var $this = $(this);
-							$this.text().toLowerCase().indexOf(search) === -1 ? $this.hide() : $this.show();
-						})
-						if($target.find('tbody tr:visible').size() === 0) {
-							var col_count = $target.find('tr').first().find('td').size();
-							var no_results = $('<tr class="filterTable_no_results"><td colspan="'+col_count+'">Sin resultados</td></tr>')
-							$target.find('tbody').append(no_results);
-						}
-					}
-				});
-			});
-		}
-	});
-	$('[data-action="filter"]').filterTable();
-})(jQuery);
-</script>
-	<script>
-$(function(){
-    // attach table filter plugin to inputs
-	$('[data-action="filter"]').filterTable();
-	
-	$('.container').on('click', '.panel-heading span.filter', function(e){
-		var $this = $(this), 
-			$panel = $this.parents('.panel');
-		
-		$panel.find('.panel-body').slideToggle();
-		if($this.css('display') != 'none') {
-			$panel.find('.panel-body input').focus();
-		}
-	});
-	$('[data-toggle="tooltip"]').tooltip();
-})
-</script>
-	<script>
 function limita(elEvento, maximoCaracteres) {
   var elemento = document.getElementById("textarea");
+  var elemento2 = document.getElementById("textarea2");
 
   // Obtener la tecla pulsada 
   var evento = elEvento || window.event;
@@ -91,24 +40,31 @@ function limita(elEvento, maximoCaracteres) {
   // Permitir borrar con la tecla Backspace y con la tecla Supr.
   if(codigoCaracter == 8 || codigoCaracter == 46) {
     return true;
-  }
-  else if(elemento.value.length >= maximoCaracteres ) {
+  } else if(elemento.value.length > maximoCaracteres ) {
     return false;
-  }
-  else {
+  } else if(elemento2.value.length > maximoCaracteres ) {
+	    return false;
+  } else {
     return true;
   }
 }
 
 function actualizaInfo(maximoCaracteres) {
   var elemento = document.getElementById("textarea");
+  var elemento2 = document.getElementById("textarea2");
   var info = document.getElementById("info");
+  var info2 = document.getElementById("info2");
 
-  if(elemento.value.length >= maximoCaracteres ) {
-    info.innerHTML = "Máximo "+maximoCaracteres+" caracteres";
+  if(elemento.value.length > maximoCaracteres ) {
+    info.innerHTML = "Sobrepasa caracteres permitidos";
   }  else {
     info.innerHTML = (maximoCaracteres-elemento.value.length)+" Caracteres restantes";
   }
+  if(elemento2.value.length > maximoCaracteres ) {
+	    info2.innerHTML = "Sobrepasa caracteres permitidos";
+	  }  else {
+	    info2.innerHTML = (maximoCaracteres-elemento2.value.length)+" Caracteres restantes";
+	  }
 }
 </script>
 
@@ -147,23 +103,16 @@ function actualizaInfo(maximoCaracteres) {
 						</tr>
 						<tr class="trsancion">
 							<td class="titulo">Sancion <span class="text-danger">*</span></td>
-							<td class="form">
-								<div class="select-wrapper">
-									<select name="tipo_sancion"
-										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;"
-										required placeholder="Seleccionar">
-										<option value="Recreo">Recreo</option>
-										<option value="PROA">PROA</option>
-										<option value="Expulsión">Expulsión</option>
-									</select>
-								</div>
+							<td class="form"><input type="text"
+								name="tipo_sancion" readonly="readonly" value="<c:out value="${sancion.tipo_sancion}"/>">
+							<i>(Recreo, PROA o Expulsión)</i></td>	
 						</tr>
 						<tr class="trsancion">
 							<td class="titulo">Trabajo</td>
-							<td colspan="3" class="form"><textarea class="estilograndetextarea" id="textarea" name="trabajo"
+							<td colspan="3" class="form"><textarea class="estilograndetextarea" id="textarea2" name="trabajo"
 									onkeypress="return limita(event, 500);"
 									onkeyup="actualizaInfo(500)"><c:out value="${sancion.trabajo}"/></textarea>
-									<div id="info">Máximo 500 caracteres</div></td>
+									<div id="info2">Máximo 500 caracteres</div></td>
 						</tr>
 						
 						<tr class="trsancion">

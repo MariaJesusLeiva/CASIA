@@ -13,7 +13,7 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/absentismo.css" rel="stylesheet" type="text/css">
-<title>Crear Absentismo</title>
+<title>Modificar Absentismo</title>
 </head>
 <%@ include file="Principal.jsp"%>
 <body>
@@ -70,7 +70,7 @@ function limita(elEvento, maximoCaracteres) {
 		var info3 = document.getElementById("info3");
 		var info4 = document.getElementById("info4");
 
-		if (elemento.value.length >= maximoCaracteres) {
+		if (elemento.value.length > maximoCaracteres) {
 			info.innerHTML = "Sobrepasa caracteres permitidos";
 		} else {
 			info.innerHTML = (maximoCaracteres - elemento.value.length)
@@ -101,7 +101,9 @@ function limita(elEvento, maximoCaracteres) {
 					<h4 class="titulo pb-2 pt-2">Formulario para Parte de
 						Absentismo</h4>
 				</div>
-				<form method="POST" action='AbsentismoServlet' name="frmAddabsentismo">
+				<form method="POST" action='AbsentismoServlet' name="frmModificarabsentismo">
+				<input type="text" name="id_absentismo" style="display: none"
+						value="<c:out value="${absentismo.id_absentismo}" />">
 					<table class="table table-sm" padding="5">
 						<tr>
 							<td style="border-top: 5px #41719C solid" class="titulo">Código <span class="text-danger">*</span></td>
@@ -151,9 +153,9 @@ function limita(elEvento, maximoCaracteres) {
 						<tr>
 							<td class="titulo">Observación</td>
 							<td colspan="3" class="form"><textarea class="estilotextarea" id="textobservacion" name="observacion_faseuno"
-									value="<c:out value="${absentismo.observacion_faseuno}" />" onkeypress="return limita(event, 1000);" onkeyup="actualizaInfo(1000)"></textarea>
+									onkeypress="return limita(event, 1000);"
+									onkeyup="actualizaInfo(1000)"><c:out value="${absentismo.observacion_faseuno}"/></textarea>
 									<div id="info">Máximo 1000 caracteres</div></td>
-						
 						</tr>
 						<tr class="trabs">
 						<td colspan="6" class="titulofase"><h4>FASE 2</h4></td>
@@ -184,7 +186,7 @@ function limita(elEvento, maximoCaracteres) {
 							<td class="form"></td>
 						</tr>
 						<tr>
-							<td class="form"><input type="text" name="fechacita_fasedos" placeholder="dd-MM-yyyy"
+							<td style="text-align: center" class="form"><input type="text" name="fechacita_fasedos" placeholder="dd-MM-yyyy"
 								value="<c:out value="${absentismo.fechacita_fasedos}"/>"></td>
 							<td style="text-align: center" class="form"><input
 								type="time" name="horacita_fasedos"
@@ -212,7 +214,8 @@ function limita(elEvento, maximoCaracteres) {
 						<tr>
 							<td class="titulo">Observación</td>
 							<td colspan="3" class="form"><textarea class="estilotextarea" id="textobservacion2" name="observacion_fasedos"
-									value="<c:out value="${absentismo.observacion_fasedos}" />" onkeypress="return limita(event, 1000);" onkeyup="actualizaInfo(1000)"></textarea>
+									onkeypress="return limita(event, 1000);"
+									onkeyup="actualizaInfo(1000)"><c:out value="${absentismo.observacion_fasedos}"/></textarea>
 									<div id="info2">Máximo 1000 caracteres</div></td>
 						</tr>
 						<tr class="trabs">
@@ -230,7 +233,6 @@ function limita(elEvento, maximoCaracteres) {
 							<td class="titulo">Fecha Carta Fase 3</td>
 							<td class="form"><input type="text" name="fechacarta_fasetres"
 								placeholder="dd-MM-yyyy" value="<c:out value="${absentismo.fechacarta_fasetres}"/>"></td>
-							
 							<td class="titulo">Justificada</td>
 							<td class="form"><input type="text" name="justificada_fasetres"
 								size="3" placeholder="Sí/No"
@@ -274,7 +276,8 @@ function limita(elEvento, maximoCaracteres) {
 						<tr>
 							<td class="titulo">Observación</td>
 							<td colspan="3" class="form"><textarea class="estilotextarea" id="textobservacion3" name="observacion_fasetres"
-									value="<c:out value="${absentismo.observacion_fasetres}" />" onkeypress="return limita(event, 1000);" onkeyup="actualizaInfo(1000)"></textarea>
+									onkeypress="return limita(event, 1000);"
+									onkeyup="actualizaInfo(1000)"><c:out value="${absentismo.observacion_fasetres}"/></textarea>
 									<div id="info3">Máximo 1000 caracteres</div></td>
 						</tr>
 						<tr class="trabs">
@@ -290,15 +293,16 @@ function limita(elEvento, maximoCaracteres) {
 						</tr>
 						<tr>	
 							<td colspan="2" class="titulo">Fecha Derivación a Servicios Sociales</td>
-							<td class="form"><input type="text" name="fechacarta_fasecuatro"
-								placeholder="dd-MM-yyyy" value="<c:out value="${absentismo.fechacarta_fasecuatro}"/>"></td>
+							<td class="form"><input type="text" name="fechacarta_fasecuatro" placeholder="dd-MM-yyyy"
+								value="<c:out value="${absentismo.fechacarta_fasecuatro}"/>"></td>
 							<td class="form"></td>
-							<tr>
+						<tr>
 							<td class="titulo">Observación</td>
 							<td colspan="3" class="form"><textarea class="estilotextarea" id="textobservacion4" name="observacion_fasecuatro"
-									value="<c:out value="${absentismo.observacion_fasecuatro}" />" onkeypress="return limita(event, 1000);" onkeyup="actualizaInfo(1000)"></textarea>
+									onkeypress="return limita(event, 1000);"
+									onkeyup="actualizaInfo(1000)"><c:out value="${absentismo.observacion_fasecuatro}"/></textarea>
 									<div id="info4">Máximo 1000 caracteres</div></td>
-							</tr>
+						</tr>
 						<tr class="trabs">
 						<td colspan="6" class="titulofase"><h4></h4></td>
 						</tr>
@@ -309,17 +313,9 @@ function limita(elEvento, maximoCaracteres) {
 							<td style="border-top: 5px #41719C solid" class="titulo"></td>
 						</tr>
 						<tr style="border-bottom: 5px #41719C solid">
-							<td style="text-align: center" class="form">
-								<div class="select-wrapper">
-									<select name="fase_actual"
-										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;"
-										required>
-										<option value="Fase 1">Fase 1</option>
-										<option value="Fase 2">Fase 2</option>
-										<option value="Fase 3">Fase 3</option>
-										<option value="Fase 4">Fase 4</option>
-									</select>
-								</div>
+							<td style="text-align: center" class="form"><input type="text" name="fase_actual"
+								size="10" placeholder="Ej. Fase 1"
+								value="<c:out value="${absentismo.fase_actual}"/>" required></td>
 							<td style="text-align: center" class="form"><input type="text" name="caso_resuelto"
 								size="3" placeholder="Sí/No"
 								value="<c:out value="${absentismo.caso_resuelto}"/>"></td>	
@@ -331,7 +327,7 @@ function limita(elEvento, maximoCaracteres) {
 					</table>
 					<div class="row mt-3 mb-3">
 						<div class="col-12">
-							<button class="btn btn-primary w-100 no-print" type="submit" onclick="return confirm('¿Está seguro de crear el parte de absentismo?');"
+							<button class="btn btn-primary w-100 no-print" type="submit" onclick="return confirm('¿Está seguro de los cambios?');"
 								value="Submit">Guardar</button>
 							<button class="btn btn-primary w-100 no-print" type="button"
 								value="Atrás" name="Boton1" onclick="atras();">Atrás</button>
