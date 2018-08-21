@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@page import="java.util.List"%>
 <%@page import="com.casia.entity.SancionEntity"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -16,7 +15,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/sancion.css" rel="stylesheet" type="text/css">
-<title>Añadir Usuario</title>
+<title>Modificar Usuario</title>
 </head>
 <%@ include file="PrincipalAdmin.jsp"%>
 <body>
@@ -84,8 +83,10 @@ $(function(){
 		<div class="row">
 			<div class="col-md-6">
 			<br></br>
-			<b>Registrar Nuevo Usuario</b>
-				<form method="POST" action='UsuarioServlet' name="frmAddUsuario">
+			<b>Modificar Usuario</b>
+				<form method="POST" action='UsuarioServlet' name="frmModificarUsuario">
+					<input type="text" name="id_user" style="display: none"
+						value="<c:out value="${usuario.id_user}" />">
 					<table class="table table-sm">
 						<tr class="trsancion">
 							<td class="titulo">Usuario <span class="text-danger">*</span></td>
@@ -102,7 +103,7 @@ $(function(){
 					</table>
 					<div class="row mt-3 mb-3">
 						<div class="col-12">
-							<button class="btn btn-primary w-100 no-print" type="submit" onclick="return confirm('¿Está seguro de crear el usuario?');"
+							<button class="btn btn-primary w-100 no-print" type="submit" onclick="return confirm('¿Está seguro de guardar los cambios?');"
 								value="Submit">Guardar</button>
 							<button class="btn btn-primary w-100 no-print" type="button"
 								value="Atrás" name="Boton1" onclick="atras();">Atrás</button>
@@ -131,7 +132,6 @@ $(function(){
 							<tr>
 								<th class="centrado">Usuario</th>
 								<th class="centrado">Contraseña</th>
-								<th class="centrado">&nbsp</th>
 							</tr>
 						</thead>
 						<tbody class="centrado">
@@ -139,9 +139,6 @@ $(function(){
 								<tr>
 									<td><c:out value="${user.name_user}" /></td>
 									<td><c:out value="${user.pass_user}" /></td>
-								<td><a
-										href="UsuarioServlet?action=modificarUsuario&id_user=<c:out value="${user.id_user}"/>"><i
-											class="glyphicon glyphicon-pencil"></i></a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -149,6 +146,7 @@ $(function(){
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </body>
 </html>

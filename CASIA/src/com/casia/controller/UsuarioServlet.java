@@ -27,6 +27,7 @@ import com.casia.entity.UsuarioEntity;
 public class UsuarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String CREARUSUARIO = "CrearUsuario.jsp";
+	private static String MODIFICARUSUARIO = "ModificarUsuario.jsp";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -46,6 +47,11 @@ public class UsuarioServlet extends HttpServlet {
 		String action = request.getParameter("action");
 		if (action.equalsIgnoreCase("crearUsuario")) {
 			forward = CREARUSUARIO;
+			request.setAttribute("usuarios", usuarioDao.getAllUsuarios());
+		} else if (action.equalsIgnoreCase("modificarUsuario")) {
+			forward = MODIFICARUSUARIO;
+			int id_user = Integer.parseInt(request.getParameter("id_user"));
+			request.setAttribute("usuario", usuarioDao.getUsuarioById(id_user));
 			request.setAttribute("usuarios", usuarioDao.getAllUsuarios());
 		}
 		RequestDispatcher view = request.getRequestDispatcher(forward);

@@ -87,7 +87,7 @@ function actualizaInfo(maximoCaracteres) {
 						<tr class="trparte">
 							<td class="titulo">Alumno <span class="text-danger">*</span></td>
 							<td class="form"><input type="text" name="nombre_alum"
-								size="40" placeholder="Nombre Apellido1 Apellido2" value="<c:out value="${parte.nombre_alum}"/>"
+								size="40" placeholder="Apellido1 Apellido2, Nombre" value="<c:out value="${parte.nombre_alum}"/>"
 								required></td>
 							<td class="titulo">Grupo <span class="text-danger">*</span></td>
 							<td class="form"><input type="text" name="grupo" size="10"
@@ -97,7 +97,7 @@ function actualizaInfo(maximoCaracteres) {
 							<tr class="trparte">
 							<td class="titulo">Profesor <span class="text-danger">*</span></td>
 							<td class="form"><input type="text" name="nombre_profe"
-								size="40" placeholder="Nombre Apellido1 Apellido2" value="<c:out value="${parte.nombre_profe}"/>"
+								size="40" placeholder="Apellido1 Apellido2, Nombre" value="<c:out value="${parte.nombre_profe}"/>"
 								required></td>
 							<td class="titulo">Fecha <span class="text-danger">*</span></td>
 							<td class="form"><input type="date" name="fecha_parte" pattern="yyyy-MM-dd"

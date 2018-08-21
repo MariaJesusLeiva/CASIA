@@ -123,7 +123,7 @@ function limita(elEvento, maximoCaracteres) {
 						<tr>
 							<td class="titulo">Alumno <span class="text-danger">*</span></td>
 							<td class="form"><input type="text" name="nombre_alum"
-								size="40" placeholder="Nombre Apellido1 Apellido2" value="<c:out value="${absentismo.nombre_alum}"/>"required></td>
+								size="40" placeholder="Apellido1 Apellido2, Nombre" value="<c:out value="${absentismo.nombre_alum}"/>"required></td>
 							<td class="titulo">Fecha Nacimiento <span class="text-danger">*</span></td>
 							<td class="form"><input type="date" name="fecha_nacimiento" pattern="yyyy-MM-dd"
 								value="<c:out value="${absentismo.fecha_nacimiento}"/>"required></td>

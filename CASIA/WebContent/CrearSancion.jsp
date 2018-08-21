@@ -154,7 +154,7 @@ function actualizaInfo(maximoCaracteres) {
 								<div id="info">Máximo 500 caracteres</div></td>
 						</tr>
 						<tr class="trsancion">
-							<td class="titulo">Sancion <span class="text-danger">*</span></td>
+							<td class="titulo">Sanción <span class="text-danger">*</span></td>
 							<td class="form">
 								<div class="select-wrapper">
 									<select name="tipo_sancion"
@@ -177,7 +177,7 @@ function actualizaInfo(maximoCaracteres) {
 						</tr>
 						
 						<tr class="trsancion">
-						<td class="expulsion"></td><td class="expulsion"><h4>Completar en caso de Expulsión</h4></td>
+						<td class="expulsion"></td><td class="expulsion"><h4>Completar en Caso de Expulsión</h4></td>
 						</tr>
 						<tr class="trsancion">
 							<td class="titulo">Fecha inicio</td>

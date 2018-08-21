@@ -18,25 +18,25 @@
 		}
 	%>
 
-	<div class="navbar navbar-default">
+	<div class="navbar navbar-light" style="background-color: #D6E6F4;">
 		<div class="container">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="Principal.jsp">CASIA</a>
 			</div>
-			<ul class="nav navbar-nav">
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
+			<ul style="background-color: #D6E6F4;" class="nav navbar-nav" >
+				<li class="dropdown"><a style="background-color: #D6E6F4;" href="#" class="dropdown-toggle"
 					data-toggle="dropdown"> Partes <b class="caret"></b>
 				</a>
-					<ul class="dropdown-menu">
+					<ul style="background-color: #D6E6F4;" class="dropdown-menu">
 						<li><a href="CrearParte.jsp">Añadir</a></li>
 						<li><a href="ParteServlet?action=historialParte">Historial</a></li>
 						<li><a href="#">Link</a></li>
 						<li><a href="#">Link</a></li>
 					</ul></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
+				<li class="dropdown"><a style="background-color: #D6E6F4;" href="#" class="dropdown-toggle"
 					data-toggle="dropdown"> Sanciones <b class="caret"></b>
 				</a>
-					<ul class="dropdown-menu">
+					<ul style="background-color: #D6E6F4;" class="dropdown-menu">
 						<li><a href="ParteServlet?action=pendienteSancion">Pendientes de sanción</a></li>
 						<li><a href="SancionServlet?action=verSancionesSinDias">Asignar Días</a></li>
 						<li><a href="AsistenciaServlet?action=asistenciaRecreo">Recreo</a></li>
@@ -44,16 +44,25 @@
 						<li><a href="#">Expulsión</a></li>
 						<li><a href="SancionServlet?action=historialSanciones">Historial</a></li>
 					</ul></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
+				<li class="dropdown"><a style="background-color: #D6E6F4;" href="#" class="dropdown-toggle"
 					data-toggle="dropdown"> Absentismo <b class="caret"></b>
 				</a>
-					<ul class="dropdown-menu">
+					<ul style="background-color: #D6E6F4;" class="dropdown-menu">
 						<li><a href="CrearAbsentismo.jsp">Añadir</a></li>
 						<li><a href="AbsentismoServlet?action=historialabsentismos">Historial</a></li>
 					</ul></li>
 
-				<li><a href="LogoutServlet?action=salir">Salir</a></li>
 			</ul>
+			<form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" size=40 placeholder="Apellido1 Apellido2, Nombre">
+        </div>
+        <button class="btn btn-primary w-100 no-print" type="submit">Buscar</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a style="background-color: #D6E6F4;" href="LogoutServlet?action=salir">Salir</a></li>
+        
+      </ul>
 		</div>
 	</div>
 

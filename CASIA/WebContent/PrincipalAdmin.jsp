@@ -28,10 +28,7 @@
 					data-toggle="dropdown"> Usuarios <b class="caret"></b>
 				</a>
 					<ul class="dropdown-menu">
-						<li><a href="UsuarioServlet?action=crearUsuario">Añadir</a></li>
-						<li><a href="ParteServlet?action=historialParte">Historial</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
+						<li><a href="UsuarioServlet?action=crearUsuario">Administrar</a></li>
 					</ul></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown"> Sanciones <b class="caret"></b>

@@ -115,6 +115,7 @@ $(function(){
 								<th class="centrado">Total Días</th>
 								<th class="centrado">Fecha Inicio (Expulsión)</th>
 								<th class="centrado">Fecha Fin (Expulsión)</th>
+								<th class="centrado">&nbsp</th>
 								
 							</tr>
 						</thead>

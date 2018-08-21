@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.casia.config.conexionDB;
 import com.casia.entity.ParteEntity;
+import com.casia.entity.SancionEntity;
 import com.casia.entity.UsuarioEntity;
 
 public class UsuarioDao {
@@ -169,11 +170,37 @@ public class UsuarioDao {
 
 			preparedStatement.setString(1, usuarioEnt.getName_user());
 			preparedStatement.setString(2, usuarioEnt.getPass_user());
+			preparedStatement.setInt(3, usuarioEnt.getId_user());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public UsuarioEntity getUsuarioById(int id_user) {
+		UsuarioEntity usuario = new UsuarioEntity();
+		
+		try 
+		{
+			PreparedStatement preparedStatement = connection.
+					prepareStatement("SELECT * FROM usuario WHERE id_user=?");
+			preparedStatement.setInt(1, id_user);
+			ResultSet rs = preparedStatement.executeQuery();
+			
+			if (rs.next())
+			{
+				usuario.setId_user(rs.getInt("id_user"));
+				usuario.setName_user(rs.getString("name_user"));
+				usuario.setPass_user(rs.getString("pass_user"));
+			}
+		} 
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+
+		return usuario;
 	}
 
 }

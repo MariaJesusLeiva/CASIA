@@ -99,8 +99,7 @@ public class SancionServlet extends HttpServlet
 		} else if (action.equalsIgnoreCase("modificarSancion")) {
 			forward = MODIFICARSANCION;			
 			int id_sancion = Integer.parseInt(request.getParameter("id_sancion"));
-			request.setAttribute("sancion", sancionDao.getSancionById(id_sancion)); 
-			
+			request.setAttribute("sancion", sancionDao.getSancionById(id_sancion)); 			
 		}
 		
 		RequestDispatcher view = request.getRequestDispatcher(forward);

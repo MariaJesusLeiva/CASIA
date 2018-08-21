@@ -116,7 +116,7 @@ function actualizaInfo(maximoCaracteres) {
 						</tr>
 						
 						<tr class="trsancion">
-						<td class="expulsion"></td><td class="expulsion"><h4>En caso de Expulsión</h4></td>
+						<td class="expulsion"></td><td class="expulsion"><h4>En Caso de Expulsión</h4></td>
 						</tr>
 						<tr class="trsancion">
 							<td class="titulo">Fecha inicio</td>

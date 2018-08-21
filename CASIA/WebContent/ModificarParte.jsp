@@ -82,18 +82,18 @@ function actualizaInfo(maximoCaracteres) {
 								value="<c:out value="${parte.codigo}"/>" required></td>
 							<td class="titulo">Curso </td>
 							<td class="form"><input required type="text" name="curso"
-								size="10" value="<c:out value="${parte.curso}" />"></td>
+								size="10" placeholder="Ej. 17/18" value="<c:out value="${parte.curso}" />"></td>
 						</tr>
 						<tr class="trparte">
 							<td class="titulo">Alumno</td>
-							<td class="form"><input required type="text" name="nombre_alum"	size="40" value="<c:out value="${parte.nombre_alum}"/>"></td>
+							<td class="form"><input required placeholder="Apellido1 Apellido2, Nombre" type="text" name="nombre_alum" size="40" value="<c:out value="${parte.nombre_alum}"/>"></td>
 							<td class="titulo">Grupo</td>
-							<td class="form"><input required type="text" name="grupo" size="10"
+							<td class="form"><input required placeholder="Ej. 2ºA" type="text" name="grupo" size="10"
 								value="<c:out value="${parte.grupo}"/>"></td>
 						</tr>
 						<tr class="trparte">
 							<td class="titulo">Profesor</td>
-							<td class="form"><input required type="text" name="nombre_profe" size="40" value="<c:out value="${parte.nombre_profe}"/>"></td>
+							<td class="form"><input required placeholder="Apellido1 Apellido2, Nombre" type="text" name="nombre_profe" size="40" value="<c:out value="${parte.nombre_profe}"/>"></td>
 							<td class="titulo">Fecha</td>
 							<td class="form"><input required type="date" name="fecha_parte"	value="<c:out value="${parte.fecha_parte}"/>"></td>
 						</tr>
