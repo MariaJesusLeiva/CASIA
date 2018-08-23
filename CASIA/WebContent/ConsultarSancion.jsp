@@ -13,7 +13,7 @@
 	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<link href="css/sancion.css" rel="stylesheet" type="text/css">
+<link href="css/estilo2.css" rel="stylesheet" type="text/css">
 <title>Consultar Sanción</title>
 </head>
 <%@ include file="Principal.jsp"%>
@@ -38,32 +38,32 @@
 						<input type="text" name="id_sancion" style="display: none"
 						value="<c:out value="${sancion.id_sancion}" />">
 					<table class="table table-sm">
-						<tr class="trsancion">
-							<td class="titulo">Alumno</td>
+						<tr class="trfila">
+							<td class="titulo">Alumno </td>
 							<td class="form"><input class="estilofondogris" type="text"
 								name="nombre_alum" readonly="readonly" size="40"
 								value="<%=session.getAttribute("alumsancion")%>"></td>
 						</tr>
-						<tr class="trsancion">
-							<td class="titulo">Profesor</td>
+						<tr class="trfila">
+							<td class="titulo">Profesor </td>
 							<td class="form"><input class="estilofondogris" type="text"
 								name="nombre_profe" readonly="readonly" size="40"
 								value="<%=session.getAttribute("profesancion")%>"></td>
 						</tr>
 
-						<tr class="trsancion">
+						<tr class="trfila">
 							<td class="titulo">Observacion</td>
 							<td colspan="3" class="form"><textarea
 									class="estilotextareagris" readonly="readonly" id="textarea"
 									name="observacion"><c:out
 										value="${sancion.observacion}" /></textarea>
 						</tr>
-						<tr class="trsancion">
-							<td class="titulo">Sancion</td>
+						<tr class="trfila">
+							<td class="titulo">Sancion <span class="text-danger">*</span></td>
 							<td class="form"><input class="estilofondogris" type="text"
 								name="tipo_sancion" readonly="readonly" value="<c:out value="${sancion.tipo_sancion}"/>"></td>
 						</tr>
-						<tr class="trsancion">
+						<tr class="trfila">
 							<td class="titulo">Trabajo</td>
 							<td colspan="3" class="form"><textarea
 									class="estilotextareagris" readonly="readonly" id="textarea"
@@ -71,20 +71,20 @@
 										value="${sancion.trabajo}" /></textarea>
 						</tr>
 
-						<tr class="trsancion">
+						<tr class="trfila">
 						<td class="expulsion"></td><td class="expulsion"><h4>En caso de Expulsión</h4></td>
 						</tr>
-						<tr class="trsancion">
+						<tr class="trfila">
 							<td class="titulo">Fecha inicio</td>
 							<td class="form"><input class="estilofondogris" type="date" readonly="readonly" name="fecha_inicio"
 								value="<c:out value="${sancion.fecha_inicio}" />"></td>
 						</tr>
-						<tr class="trsancion">
+						<tr class="trfila">
 							<td class="titulo">Fecha fin</td>
 							<td class="form"><input class="estilofondogris" type="date" readonly="readonly" name="fecha_fin"
 								value="<c:out value="${sancion.fecha_fin}" />"></td>
 						</tr>
-						<tr class="trsancion">
+						<tr class="trfila">
 							<td class="titulo">Nº de días</td>
 							<td class="form"><input class="estilofondogris" type="number" min="0" max="999" readonly="readonly" name="total_dias"
 								size="5"  

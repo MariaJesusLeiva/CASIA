@@ -39,6 +39,11 @@ textarea.estilotextarea{
 	resize: none;	
 }
 
+textarea.estilotextarea2{
+	width: 300px;
+	height: 100px;
+	resize: none;	
+}
 textarea.estilotextareagris{
 	width: 500px;
 	height: 100px;
@@ -91,6 +96,14 @@ select:invalid {
 }
 
 select:valid {
+  border: 1px solid green;
+}
+
+textarea:invalid {
+  border: 1px solid red;
+}
+
+textarea:valid {
   border: 1px solid green;
 }
 

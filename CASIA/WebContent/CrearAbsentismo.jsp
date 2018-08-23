@@ -12,7 +12,7 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<link href="css/absentismo.css" rel="stylesheet" type="text/css">
+<link href="css/estilo4.css" rel="stylesheet" type="text/css">
 <title>Crear Absentismo</title>
 </head>
 <%@ include file="Principal.jsp"%>
@@ -102,7 +102,7 @@ function limita(elEvento, maximoCaracteres) {
 						Absentismo</h4>
 				</div>
 				<form method="POST" action='AbsentismoServlet' name="frmAddabsentismo">
-					<table class="table table-sm" padding="5">
+					<table class="table table-sm">
 						<tr>
 							<td style="border-top: 5px #41719C solid" class="titulo">Código <span class="text-danger">*</span></td>
 							<td style="border-top: 5px #41719C solid" class="titulo">Curso</td>

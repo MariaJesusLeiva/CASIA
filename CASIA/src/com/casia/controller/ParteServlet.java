@@ -121,13 +121,14 @@ public class ParteServlet extends HttpServlet {
 		ParteDao parteDao = new ParteDao();
 		
 		if(id_p == null || id_p.isEmpty()) {
-			List<ParteEntity> id;
+			/*List<ParteEntity> id;
 			id = (List<ParteEntity>)parteDao.getAllPartes();
 			System.out.println("id de lista "+id.size()); 
 			Integer id_nuevo = id.size()+1;
 			parteEnt.setId_parte(id_nuevo);
+			System.out.println("id " + parteEnt.getId_parte());*/
 			parteDao.addParte(parteEnt);
-			System.out.println("id " + parteEnt.getId_parte());
+			
 			forward = PENDIENTESANCION;
 			request.setAttribute("partes", parteDao.getAllPartes());
 			request.setAttribute("partesSin", parteDao.getAllPartesSinSanciones());

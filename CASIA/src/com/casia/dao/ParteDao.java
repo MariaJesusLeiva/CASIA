@@ -10,24 +10,19 @@ import java.util.List;
 
 import com.casia.config.conexionDB;
 import com.casia.entity.ParteEntity;
-import com.casia.entity.SancionEntity;
 
-public class ParteDao
-{
+public class ParteDao {
 	private static Connection connection;
-	
-	public ParteDao()
-	{
+
+	public ParteDao() {
 		connection = conexionDB.getConnection();
 	}
-	
-	public void addParte(ParteEntity parteEnt)
-	{
-		try
-		{
-			PreparedStatement preparedStatement = connection
-					.prepareStatement("INSERT INTO parte(codigo, curso, fecha_parte, nombre_profe, nombre_alum, grupo, motivo_parte) " +
-							"VALUES (?, ?, ?, ?, ?, ?, ?)");
+
+	public void addParte(ParteEntity parteEnt) {
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(
+					"INSERT INTO parte(codigo, curso, fecha_parte, nombre_profe, nombre_alum, grupo, motivo_parte) "
+							+ "VALUES (?, ?, ?, ?, ?, ?, ?)");
 
 			preparedStatement.setInt(1, parteEnt.getCodigo());
 			preparedStatement.setString(2, parteEnt.getCurso());
@@ -38,18 +33,16 @@ public class ParteDao
 			preparedStatement.setString(7, parteEnt.getMotivo_parte());
 			preparedStatement.executeUpdate();
 
-		}
-		catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void updateParte(ParteEntity parteEnt) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("UPDATE parte SET codigo=?, fecha_parte=?, nombre_profe=?," + 
-							"nombre_alum=?, grupo=?, motivo_parte=?, curso=? WHERE id_parte=?");
+					.prepareStatement("UPDATE parte SET codigo=?, fecha_parte=?, nombre_profe=?,"
+							+ "nombre_alum=?, grupo=?, motivo_parte=?, curso=? WHERE id_parte=?");
 			// Parameters start with 1
 			preparedStatement.setInt(1, parteEnt.getCodigo());
 			preparedStatement.setDate(2, new java.sql.Date(parteEnt.getFecha_parte().getTime()));
@@ -65,20 +58,14 @@ public class ParteDao
 			e.printStackTrace();
 		}
 	}
-	
-	public List<ParteEntity> getAllPartes()
-	{
+
+	public List<ParteEntity> getAllPartes() {
 		List<ParteEntity> partes = new ArrayList<ParteEntity>();
-		
-		try
-		{
+
+		try {
 			Statement statement = connection.createStatement();
-//			ResultSet rs = statement.executeQuery("SELECT * FROM parte WHERE tipo_sancion " +
-//									"IS NOT NULL ORDER BY curso DESC, codigo DESC");
-			ResultSet rs = statement.executeQuery("SELECT * FROM parte " +
-									"ORDER BY curso DESC, codigo DESC");
-			while (rs.next())
-			{
+			ResultSet rs = statement.executeQuery("SELECT * FROM parte " + "ORDER BY curso DESC, codigo DESC");
+			while (rs.next()) {
 				ParteEntity parte = new ParteEntity();
 				parte.setId_parte(rs.getInt("id_parte"));
 				parte.setCodigo(rs.getInt("codigo"));
@@ -91,27 +78,21 @@ public class ParteDao
 				parte.setMotivo_parte(rs.getString("motivo_parte"));
 				partes.add(parte);
 			}
-		}
-		catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return partes;
 	}
-	
-	public ParteEntity getParteById(int id_parte)
-	{
+
+	public ParteEntity getParteById(int id_parte) {
 		ParteEntity parte = new ParteEntity();
-		
-		try 
-		{
-			PreparedStatement preparedStatement = connection.
-					prepareStatement("SELECT * FROM parte WHERE id_parte=?");
+
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM parte WHERE id_parte=?");
 			preparedStatement.setInt(1, id_parte);
 			ResultSet rs = preparedStatement.executeQuery();
-			
-			if (rs.next())
-			{
+
+			if (rs.next()) {
 				parte.setId_parte(rs.getInt("id_parte"));
 				parte.setCodigo(rs.getInt("codigo"));
 				parte.setCurso(rs.getString("curso"));
@@ -122,68 +103,54 @@ public class ParteDao
 				parte.setTipo_sancion(rs.getString("tipo_sancion"));
 				parte.setMotivo_parte(rs.getString("motivo_parte"));
 			}
-		} 
-		catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
 		return parte;
 	}
-	
-	public ParteEntity getAlumSancionByIdParte(int id_parte)
-	{
+
+	public ParteEntity getAlumSancionByIdParte(int id_parte) {
 		ParteEntity alumsancion = new ParteEntity();
-		try
-		{
-			PreparedStatement preparedStatement = connection.
-					prepareStatement("SELECT * FROM parte WHERE id_parte=?");
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM parte WHERE id_parte=?");
 			preparedStatement.setInt(1, id_parte);
 			ResultSet rs = preparedStatement.executeQuery();
-			
-			if (rs.next())
-			{
+
+			if (rs.next()) {
 				alumsancion.setNombre_alum(rs.getString("nombre_alum"));
 				alumsancion.setNombre_profe(rs.getString("nombre_profe"));
 				alumsancion.setCodigo(rs.getInt("codigo"));
 			}
-		}
-		catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return alumsancion;
 	}
-	
-	//Usado en SancionServlet para actualizar el campo tipo_sancion de la tabla parte
-	public void updateSancionParte (int id_parte)
-	{		
-		try
-		{
+
+	// Usado en SancionServlet para actualizar el campo tipo_sancion de la tabla
+	// parte
+	public void updateSancionParte(int id_parte) {
+		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("UPDATE parte AS p " +
-							"INNER JOIN sancion AS s " +
-							"ON s.id_parte = p.id_parte " +
-							"SET p.tipo_sancion = s.tipo_sancion " +
-							"WHERE p.id_parte=?");
+					.prepareStatement("UPDATE parte AS p " + "INNER JOIN sancion AS s " + "ON s.id_parte = p.id_parte "
+							+ "SET p.tipo_sancion = s.tipo_sancion " + "WHERE p.id_parte=?");
 
 			preparedStatement.setInt(1, id_parte);
-			
+
 			preparedStatement.executeUpdate();
-		}
-		catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public List<ParteEntity> getAllPartesSinSanciones() {
 		List<ParteEntity> partes = new ArrayList<ParteEntity>();
-		
+
 		try {
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("SELECT * FROM parte WHERE tipo_sancion = 'Seleccionar' " + 
-									"OR tipo_sancion IS NULL ORDER BY fecha_parte ASC");
+			ResultSet rs = statement.executeQuery("SELECT * FROM parte WHERE tipo_sancion = 'Seleccionar' "
+					+ "OR tipo_sancion IS NULL ORDER BY fecha_parte ASC");
 			while (rs.next()) {
 				ParteEntity parte = new ParteEntity();
 				parte.setId_parte(rs.getInt("id_parte"));
@@ -195,7 +162,7 @@ public class ParteDao
 				parte.setGrupo(rs.getString("grupo"));
 				parte.setTipo_sancion(rs.getString("tipo_sancion"));
 				parte.setMotivo_parte(rs.getString("motivo_parte"));
-				
+
 				partes.add(parte);
 			}
 		} catch (SQLException e) {
@@ -203,29 +170,23 @@ public class ParteDao
 		}
 		return partes;
 	}
-	
+
 	public ParteEntity getParteByIdsancion(int id_sancion) {
 		ParteEntity alumsancion = new ParteEntity();
-		
-		try 
-		{
-			PreparedStatement preparedStatement = connection.
-					prepareStatement("SELECT * FROM parte p " +
-								"INNER JOIN sancion s ON s.id_parte=p.id_parte " +
-								"WHERE id_sancion=?");
+
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(
+					"SELECT * FROM parte p " + "INNER JOIN sancion s ON s.id_parte=p.id_parte " + "WHERE id_sancion=?");
 			preparedStatement.setInt(1, id_sancion);
 			ResultSet rs = preparedStatement.executeQuery();
-			
-			if (rs.next())
-			{
+
+			if (rs.next()) {
 				alumsancion.setNombre_alum(rs.getString("nombre_alum"));
 				alumsancion.setNombre_profe(rs.getString("nombre_profe"));
 				alumsancion.setCodigo(rs.getInt("codigo"));
 
 			}
-		} 
-		catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 

@@ -11,7 +11,7 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<link href="css/parte.css" rel="stylesheet" type="text/css">
+<link href="css/estilo1.css" rel="stylesheet" type="text/css">
 <title>Modificar Parte</title>
 </head>
 <%@ include file="Principal.jsp"%>
@@ -77,29 +77,28 @@ function actualizaInfo(maximoCaracteres) {
 						value="<c:out value="${parte.id_parte}" />">
 					<table class="table table-sm">
 						<tr class="trparte">
-							<td class="titulo">Código </td>
+							<td class="titulo">Código <span class="text-danger">*</span></td>
 							<td class="form"><input type="number" min="1" max="9999999999" name="codigo"
 								value="<c:out value="${parte.codigo}"/>" required></td>
-							<td class="titulo">Curso </td>
+							<td class="titulo">Curso <span class="text-danger">*</span></td>
 							<td class="form"><input required type="text" name="curso"
 								size="10" placeholder="Ej. 17/18" value="<c:out value="${parte.curso}" />"></td>
 						</tr>
 						<tr class="trparte">
-							<td class="titulo">Alumno</td>
+							<td class="titulo">Alumno <span class="text-danger">*</span></td>
 							<td class="form"><input required placeholder="Apellido1 Apellido2, Nombre" type="text" name="nombre_alum" size="40" value="<c:out value="${parte.nombre_alum}"/>"></td>
-							<td class="titulo">Grupo</td>
+							<td class="titulo">Grupo <span class="text-danger">*</span></td>
 							<td class="form"><input required placeholder="Ej. 2ºA" type="text" name="grupo" size="10"
 								value="<c:out value="${parte.grupo}"/>"></td>
 						</tr>
 						<tr class="trparte">
-							<td class="titulo">Profesor</td>
+							<td class="titulo">Profesor <span class="text-danger">*</span></td>
 							<td class="form"><input required placeholder="Apellido1 Apellido2, Nombre" type="text" name="nombre_profe" size="40" value="<c:out value="${parte.nombre_profe}"/>"></td>
-							<td class="titulo">Fecha</td>
+							<td class="titulo">Fecha <span class="text-danger">*</span></td>
 							<td class="form"><input required type="date" name="fecha_parte"	value="<c:out value="${parte.fecha_parte}"/>"></td>
 						</tr>
 						<tr class="trparte">
-							<td class="titulo">Motivo del Parte
-							</td>
+							<td class="titulo">Motivo del Parte	<span class="text-danger">*</span></td>
 							<td colspan="3" class="form"><textarea class="estilotextarea" required id="textarea" name="motivo_parte"
 									onkeypress="return limita(event, 1000);"
 									onkeyup="actualizaInfo(1000)" rows="10" cols="75"><c:out value="${parte.motivo_parte}"/></textarea>

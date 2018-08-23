@@ -13,7 +13,7 @@
 	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<link href="css/sancion.css" rel="stylesheet" type="text/css">
+<link href="css/estilo2.css" rel="stylesheet" type="text/css">
 <title>Crear Sanción</title>
 </head>
 <%@ include file="Principal.jsp"%>
@@ -131,20 +131,20 @@ function actualizaInfo(maximoCaracteres) {
 					<input type="text" name="id_parte" style="display: none"
 						value="<c:out value="${sancion.id_parte}" />">
 					<table class="table table-sm">
-						<tr class="trsancion">
+						<tr class="trfila">
 							<td class="titulo">Alumno</td>
 							<td class="form"><input class="estiloinput" type="text"
 								name="nombre_alum" readonly="readonly"
 								value="<%=session.getAttribute("alumsancion")%>"></td>
 						</tr>
-						<tr class="trsancion">
+						<tr class="trfila">
 							<td class="titulo">Profesor</td>
 							<td class="form"><input class="estiloinput" type="text"
 								name="nombre_profe" readonly="readonly"
 								value="<%=session.getAttribute("profesancion")%>"></td>
 						</tr>
 
-						<tr class="trsancion">
+						<tr class="trfila">
 							<td class="titulo">Observación</td>
 							<td class="form" colspan="3" class="w-75"><textarea
 									class="estilotextarea" id="textarea" name="observacion"
@@ -153,7 +153,7 @@ function actualizaInfo(maximoCaracteres) {
 									value="<c:out value="${sancion.observacion}" />"></textarea>
 								<div id="info">Máximo 500 caracteres</div></td>
 						</tr>
-						<tr class="trsancion">
+						<tr class="trfila">
 							<td class="titulo">Sanción <span class="text-danger">*</span></td>
 							<td class="form">
 								<div class="select-wrapper">
@@ -166,7 +166,7 @@ function actualizaInfo(maximoCaracteres) {
 									</select>
 								</div>
 						</tr>
-						<tr class="trsancion">
+						<tr class="trfila">
 							<td class="titulo">Trabajo</td>
 							<td class="form" colspan="3" class="w-75"><textarea
 									class="estilotextarea" id="textarea2" name="observacion"
@@ -176,22 +176,22 @@ function actualizaInfo(maximoCaracteres) {
 								<div id="info2">Máximo 500 caracteres</div></td>
 						</tr>
 						
-						<tr class="trsancion">
+						<tr class="trfila">
 						<td class="expulsion"></td><td class="expulsion"><h4>Completar en Caso de Expulsión</h4></td>
 						</tr>
-						<tr class="trsancion">
+						<tr class="trfila">
 							<td class="titulo">Fecha inicio</td>
 							<td class="form"><input type="date" name="fecha_inicio"
 								pattern="yyyy-MM-dd" 
 								value="<c:out value="${sancion.fecha_inicio}" />"></td>
 						</tr>
-						<tr class="trsancion">
+						<tr class="trfila">
 							<td class="titulo">Fecha fin</td>
 							<td class="form"><input type="date" name="fecha_fin"
 								pattern="yyyy-MM-dd" 
 								value="<c:out value="${sancion.fecha_fin}" />"></td>
 						</tr>
-						<tr class="trsancion">
+						<tr class="trfila">
 							<td class="titulo">Nº de días</td>
 							<td class="form"><input type="number" min="0" max="999" name="total_dias"
 								size="5" 

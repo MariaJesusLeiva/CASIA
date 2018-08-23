@@ -14,7 +14,7 @@
 	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<link href="css/sancion.css" rel="stylesheet" type="text/css">
+<link href="css/estilo2.css" rel="stylesheet" type="text/css">
 <title>Historial Absentismos</title>
 </head>
 <%@ include file="Principal.jsp"%>
@@ -82,7 +82,7 @@ $(function(){
 	<div class="text-white text-center d-block mb-1">
 		
 	</div>
-	<section class="container">
+	<div class="container">
 		<h1>
 			Pulsar en el icono de filtro <small>(<i
 				class="glyphicon glyphicon-search"></i>)
@@ -117,7 +117,7 @@ $(function(){
 								<th class="centrado">Mes Fase 3</th>
 								<th class="centrado">Mes Fase 4</th>
 								<th class="centrado">Caso Resuelto</th>
-								<th class="centrado">Mayor > 16</th>
+								<th class="centrado">Edad > 16</th>
 								
 							</tr>
 						</thead>
@@ -144,6 +144,6 @@ $(function(){
 				</div>
 			</div>
 		</div>
-	</section>
+	</div>
 </body>
 </html>

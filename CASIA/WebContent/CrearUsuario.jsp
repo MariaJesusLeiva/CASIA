@@ -15,7 +15,7 @@
 	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<link href="css/sancion.css" rel="stylesheet" type="text/css">
+<link href="css/estilo2.css" rel="stylesheet" type="text/css">
 <title>Añadir Usuario</title>
 </head>
 <%@ include file="PrincipalAdmin.jsp"%>
@@ -87,13 +87,13 @@ $(function(){
 			<b>Registrar Nuevo Usuario</b>
 				<form method="POST" action='UsuarioServlet' name="frmAddUsuario">
 					<table class="table table-sm">
-						<tr class="trsancion">
+						<tr class="trfila">
 							<td class="titulo">Usuario <span class="text-danger">*</span></td>
 							<td class="form"><input type="text" name="name_user"
 								value="<c:out value="${usuario.name_user}"/>"
 								required></td>
 						</tr>
-						<tr class="trsancion">
+						<tr class="trfila">
 							<td class="titulo">Contraseña <span class="text-danger">*</span>
 							<td class="form"><input type="text"	name="pass_user" required
 								value="<c:out value="${usuario.pass_user}" />"></td>

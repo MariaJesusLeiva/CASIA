@@ -14,7 +14,7 @@
 	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<link href="css/sancion.css" rel="stylesheet" type="text/css">
+<link href="css/estilo2.css" rel="stylesheet" type="text/css">
 <title>Historial Sanciones</title>
 </head>
 <%@ include file="Principal.jsp"%>
@@ -142,6 +142,6 @@ $(function(){
 				</div>
 			</div>
 		</div>
-	</section>
+	</div>
 </body>
 </html>

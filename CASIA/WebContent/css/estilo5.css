@@ -17,8 +17,16 @@ td.expulsion{
 	size:30;
 }
 
-tr.trsancion{
+tr.trreunion{
 	border-top: 5px #41719C solid;
+	border-bottom: 5px #41719C solid;
+	size:30;
+}
+tr.trreunion2{
+	border-top: 5px #41719C solid;
+	size:30;
+}
+tr.trreunion3{
 	border-bottom: 5px #41719C solid;
 	size:30;
 }
@@ -41,8 +49,8 @@ textarea.estilograndetextarea{
 }
 
 textarea.estilotextareagris{
-	width: 500px;
-	height: 300px;
+	width: 300px;
+	height: 200px;
 	resize: none;	
 	background-color: #e2e4e5;
 }

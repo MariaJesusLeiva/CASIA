@@ -12,7 +12,7 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<link href="css/absentismo.css" rel="stylesheet" type="text/css">
+<link href="css/estilo4.css" rel="stylesheet" type="text/css">
 <title>Consultar Absentismo</title>
 </head>
 <%@ include file="Principal.jsp"%>
@@ -33,7 +33,7 @@
 		<div class="row">
 			<div class="col-12 mt-4">
 				<div class="text-white text-center d-block mb-1">
-					<h4 class="titulo pb-2 pt-2">Formulario para Parte de
+					<h4 class="titulo pb-2 pt-2">Parte de
 						Absentismo</h4>
 				</div>
 				<form method="POST" action='AbsentismoServlet' name="frmConsultarabsentismo">

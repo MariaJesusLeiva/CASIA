@@ -39,9 +39,11 @@
 					<ul style="background-color: #D6E6F4;" class="dropdown-menu">
 						<li><a href="ParteServlet?action=pendienteSancion">Pendientes de sanción</a></li>
 						<li><a href="SancionServlet?action=verSancionesSinDias">Asignar Días</a></li>
+						<li><div style="border-top: 2px #41719C solid "class="dropdown-divider"></div></li>
 						<li><a href="AsistenciaServlet?action=asistenciaRecreo">Recreo</a></li>
 						<li><a href="AsistenciaServlet?action=asistenciaPROA">PROA</a></li>
 						<li><a href="#">Expulsión</a></li>
+						<li><div style="border-top: 2px #41719C solid "class="dropdown-divider"></div></li>
 						<li><a href="SancionServlet?action=historialSanciones">Historial</a></li>
 					</ul></li>
 				<li class="dropdown"><a style="background-color: #D6E6F4;" href="#" class="dropdown-toggle"
@@ -50,6 +52,24 @@
 					<ul style="background-color: #D6E6F4;" class="dropdown-menu">
 						<li><a href="CrearAbsentismo.jsp">Añadir</a></li>
 						<li><a href="AbsentismoServlet?action=historialabsentismos">Historial</a></li>
+					</ul></li>
+				<li class="dropdown"><a style="background-color: #D6E6F4;" href="#" class="dropdown-toggle"
+					data-toggle="dropdown"> Incidencias <b class="caret"></b>
+				</a>
+					<ul style="background-color: #D6E6F4;" class="dropdown-menu">
+						<li><a href="ReunionServlet?action=crearReunion">Acta Reunion</a></li>
+						<li><a href="ReunionServlet?action=verReuniones">Reuniones</a></li>
+						<li><div style="border-top: 2px #41719C solid "class="dropdown-divider"></div></li>
+						<li><a href="InfMedicaServlet?action=crearInfMedica">Inf. Médica</a></li>
+						<li><a href="InfMedicaServlet?action=verInfMedicas">Informaciones M.</a></li>
+						<li><div style="border-top: 2px #41719C solid "class="dropdown-divider"></div></li>
+						<li><a href="ActMedicaServlet?action=crearActMedica">Act. Médica</a></li>
+						<li><a href="ActMedicaServlet?action=verActMedicas">Actuaciones M.</a></li>
+						<li><div style="border-top: 2px #41719C solid "class="dropdown-divider"></div></li>
+						<li><a href="InfJuridicaServlet?action=crearInfJuridica">Inf. Jurídica</a></li>
+						<li><a href="InfJuridicaServlet?action=verInfJuridicas">Informaciones J.</a></li>
+						<li><div style="border-top: 2px #41719C solid "class="dropdown-divider"></div></li>
+						<li><a href="SancionServlet?action=historialSanciones">Historial</a></li>
 					</ul></li>
 
 			</ul>

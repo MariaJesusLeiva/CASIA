@@ -84,4 +84,44 @@
     <servlet-name>UsuarioServlet</servlet-name>
     <url-pattern>/UsuarioServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReunionServlet</display-name>
+    <servlet-name>ReunionServlet</servlet-name>
+    <servlet-class>com.casia.controller.ReunionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReunionServlet</servlet-name>
+    <url-pattern>/ReunionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>InfMedicaServlet</display-name>
+    <servlet-name>InfMedicaServlet</servlet-name>
+    <servlet-class>com.casia.controller.InfMedicaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InfMedicaServlet</servlet-name>
+    <url-pattern>/InfMedicaServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ActMedicaServlet</display-name>
+    <servlet-name>ActMedicaServlet</servlet-name>
+    <servlet-class>com.casia.controller.ActMedicaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ActMedicaServlet</servlet-name>
+    <url-pattern>/ActMedicaServlet</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>InfJuridicaServlet</display-name>
+    <servlet-name>InfJuridicaServlet</servlet-name>
+    <servlet-class>com.casia.controller.InfJuridicaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InfJuridicaServlet</servlet-name>
+    <url-pattern>/InfJuridicaServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

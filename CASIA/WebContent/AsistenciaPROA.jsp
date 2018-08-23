@@ -16,7 +16,7 @@
 	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<link href="css/tablasfiltro.css" rel="stylesheet" type="text/css">
+<link href="css/estilo3.css" rel="stylesheet" type="text/css">
 <title>Asistencia PROA</title>
 </head>
 <%@ include file="Principal.jsp"%>

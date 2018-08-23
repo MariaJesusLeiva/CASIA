@@ -140,10 +140,10 @@ public class AbsentismoServlet extends HttpServlet {
 		
 		String id_absentismo = request.getParameter("id_absentismo");
 		if(id_absentismo == null || id_absentismo.isEmpty()) {
-			List<AbsentismoEntity> id;
+			/*List<AbsentismoEntity> id;
 			id = (List<AbsentismoEntity>)absentismoDao.getAllAbsentismos();
 			Integer id_nuevo = id.size()+1;
-			absentismoEnt.setId_absentismo(id_nuevo);
+			absentismoEnt.setId_absentismo(id_nuevo);*/
 			absentismoDao.addAbsentismoTodo(absentismoEnt);
 		} else {
 			id_abs = Integer.parseInt(request.getParameter("id_absentismo"));

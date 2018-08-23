@@ -1,32 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@page import="java.util.List"%>
-<%@page import="com.casia.entity.SancionEntity"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
+
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=uft-8">
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/estilo2.css" rel="stylesheet" type="text/css">
-<title>Asignar Días</title>
+<title>Consultar Inf. Jurídica</title>
 </head>
 <%@ include file="Principal.jsp"%>
 <body>
-
 	<script language="javascript">
-	function atras(){history.back();}
-	function actualizar(){location.reload();}
-	function adelante(){history.forward();}
-</script>
-	<script>
+		function atras() {
+			history.back();
+		}
+		function actualizar() {
+			location.reload();
+		}
+		function adelante() {
+			history.forward();
+		}
+	</script>
+
+<script>
 (function(){
     'use strict';
 	var $ = jQuery;
@@ -78,77 +81,54 @@ $(function(){
 	$('[data-toggle="tooltip"]').tooltip();
 })
 </script>
-	<script>
-function limita(elEvento, maximoCaracteres) {
-  var elemento = document.getElementById("textarea");
 
-  // Obtener la tecla pulsada 
-  var evento = elEvento || window.event;
-  var codigoCaracter = evento.charCode || evento.keyCode;
-  // Permitir utilizar las teclas con flecha horizontal
-  if(codigoCaracter == 37 || codigoCaracter == 39) {
-    return true;
-  }
-
-  // Permitir borrar con la tecla Backspace y con la tecla Supr.
-  if(codigoCaracter == 8 || codigoCaracter == 46) {
-    return true;
-  }
-  else if(elemento.value.length >= maximoCaracteres ) {
-    return false;
-  }
-  else {
-    return true;
-  }
-}
-
-function actualizaInfo(maximoCaracteres) {
-  var elemento = document.getElementById("textarea");
-  var info = document.getElementById("info");
-
-  if(elemento.value.length >= maximoCaracteres ) {
-    info.innerHTML = "Máximo "+maximoCaracteres+" caracteres";
-  }  else {
-    info.innerHTML = (maximoCaracteres-elemento.value.length)+" Caracteres restantes";
-  }
-}
-</script>
-
-	<div class="text-white text-center d-block mb-1">
-		<h3 class="titulo pb-2 pt-2">Formulario para Asignar los Días de Sanción para el Alumno (<%=session.getAttribute("alumsancion")%>)</h3>
+<div class="text-white text-center d-block mb-1">
+		<h3 class="titulo pb-2 pt-2">Información Jurídica</h3>
 
 	</div>
-	</br>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<form method="POST" action='ReservaDiaSancionServlet' name="frmAddDia">
-					<input type="text" name="id_sancion" style="display: none"
-						value="<c:out value="${sancion.id_sancion}" />">
+				<form method="POST" action='InfJuridicaServlet' name="frmAddinfjuridica">
+				<input type="text" name="id_medica" style="display: none"
+						value="<c:out value="${infjuridica.id_juridica}" />">
 					<table class="table table-sm">
 						<tr class="trfila">
-							<td class="titulo">Alumno</td>
-							<td class="form"><input class="estiloinput" type="text"
-								name="nombre_alum" readonly="readonly"
-								value="<%=session.getAttribute("alumsancion")%>"></td>
+							<td class="titulo">Curso <span class="text-danger">*</span></td>
+							<td class="form"><input class="estilofondogris" type="text" name="curso" size="10" 
+								value="<c:out value="${infjuridica.curso}" />" readonly="readonly"></td>
+						</tr>	
+						<tr class="trfila">
+							<td class="titulo">Grupo <span class="text-danger">*</span></td>
+							<td class="form"><input class="estilofondogris" type="text" name="grupo" size="10"
+								value="<c:out value="${infjuridica.grupo}" />" readonly="readonly"></td>
+						</tr>					
+						<tr class="trfila">
+							<td class="titulo">Alumno <span class="text-danger">*</span></td>
+							<td class="form"><input class="estilofondogris" type="text" name="nombre_alum"
+								size="40"
+								value="<c:out value="${infjuridica.nombre_alum}"/>" readonly="readonly"></td>
+						</tr>
+						<tr class="trfila">	
+							<td class="titulo">Fecha Nacimiento <span
+								class="text-danger">*</span></td>
+							<td class="form"><input class="estilofondogris" type="date" name="fecha_nacimiento"
+								value="<c:out value="${infjuridica.fecha_nacimiento}"/>" readonly="readonly"></td>
 						</tr>
 						<tr class="trfila">
-							<td class="titulo">Sanción</td>
-							<td class="form"><input class="estiloinput" type="text"
-								name="tipo_sancion" readonly="readonly"
-								value="${sancion.tipo_sancion}"></td>
+							<td class="titulo">Información </td>
+							<td class="form"><textarea class="estilotextareagris2" name="inf_juridica" readonly="readonly"
+									rows="10" cols="75"><c:out value="${infjuridica.inf_juridica}"/></textarea></td>
 						</tr>
 						<tr class="trfila">
-							<td class="titulo">Fecha <span class="text-danger">*</span></td>
-							<td class="form"><input type="date" name="fecha_inicio"
-								pattern="yyyy-MM-dd" required
-								value="<c:out value="${sancion.fecha_inicio}" />"></td>
+							<td class="titulo">Aporta Documentación <span class="text-danger">*</span></td>
+							<td class="form"><input class="estilofondogris" type="text" name="documentacion" size="3"
+								value="<c:out value="${infjuridica.documentacion}"/>" readonly="readonly"></td>
 						</tr>
 					</table>
 					<div class="row mt-3 mb-3">
 						<div class="col-12">
-							<button class="btn btn-primary w-100 no-print" type="submit"
-								value="Submit">Guardar</button>
+							<a href="InfJuridicaServlet?action=modificarInfJuridica&id_medica=<c:out value="${infjuridica.id_juridica}"/>" class="btn btn-primary w-100 no-print">Modificar</a>
 							<button class="btn btn-primary w-100 no-print" type="button"
 								value="Atrás" name="Boton1" onclick="atras();">Atrás</button>
 						</div>
@@ -158,7 +138,7 @@ function actualizaInfo(maximoCaracteres) {
 			<div class="col-md-6">
 				<div class="panel panel-success">
 					<div class="panel-heading">
-						<h3 class="panel-title">HISTORIAL RECREO Y PROA</h3>
+						<h3 class="panel-title">HISTORIAL INFORMACIÓN JURÍDICA</h3>
 						<div class="pull-right">
 							<span class="clickable filter" data-toggle="tooltip"
 								title="Buscador" data-container="body"> <i
@@ -171,21 +151,22 @@ function actualizaInfo(maximoCaracteres) {
 							data-action="filter" data-filters="#task-table"
 							placeholder="Introduzca filtro" />
 					</div>
-					<table class="table table-hover" id="task-table">
+					<table class="table table-hover" id="task-table" align="center">
 						<thead>
 							<tr>
-								<th class="centrado">Fecha</th>
-								<th class="centrado">Sanción</th>
-								<th class="centrado">Alumno</th>
+								<th class="centrado">Curso</th>
+								<th class="centrado">Alumno</th>								
+								<th class="centrado">&nbsp</th>
 							</tr>
 						</thead>
 						<tbody class="centrado">
-							<c:forEach items="${reservas}" var="reserva">
+							<c:forEach items="${infjuridicas}" var="juridica">
 								<tr>
-									<td><fmt:formatDate pattern="dd-MM-yyyy"
-											value="${reserva.fecha_inicio}" /></td>
-									<td><c:out value="${reserva.tipo_sancion}" /></td>
-									<td><c:out value="${reserva.nombre_alum}" /></td>
+									<td><c:out value="${juridica.curso}" /></td>
+									<td><c:out value="${juridica.nombre_alum}" /></td>
+								<td><a
+										href="InfJuridicaServlet?action=verInfJuridica&id_juridica=<c:out value="${juridica.id_juridica}"/>"><i
+											class="glyphicon glyphicon-eye-open"></i></a></td>
 								</tr>
 							</c:forEach>
 						</tbody>

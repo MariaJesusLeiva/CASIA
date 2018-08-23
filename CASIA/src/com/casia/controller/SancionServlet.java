@@ -51,7 +51,6 @@ public class SancionServlet extends HttpServlet
 		ParteDao parteDao = new ParteDao();
 		ReservaDiaSancionDao reservaDao = new ReservaDiaSancionDao();
 		ParteEntity parteEnt = new ParteEntity();
-		SancionEntity sancionEnt = new SancionEntity();
 		String forward="";
 		Integer codigoparte;
 		String alumsancion, profesancion;
@@ -104,7 +103,6 @@ public class SancionServlet extends HttpServlet
 		
 		RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
-		//request.setAttribute("sanciones", sancionDao.getAllSanciones());
 	}
 
 	/**
@@ -115,6 +113,7 @@ public class SancionServlet extends HttpServlet
 	{
 
 		SancionEntity sancionEnt = new SancionEntity();
+		SancionDao sancionDao = new SancionDao();
 		Date fecha_inicio = null;
 		Date fecha_fin = null;
 		String forward="";
@@ -129,14 +128,14 @@ public class SancionServlet extends HttpServlet
 		sancionEnt.setNombre_alum(request.getParameter("nombre_alum"));
 		
 		String id_sancion = request.getParameter("id_sancion");
-		SancionDao sancionDao = new SancionDao();
-		
+				
 		if(id_sancion == null || id_sancion.isEmpty()) {
 
-			List<SancionEntity> id;
+			/*List<SancionEntity> id;
 			id = (List<SancionEntity>)sancionDao.getAllSanciones();
 			Integer id_nuevo = id.size()+1;
-			sancionEnt.setId_sancion(id_nuevo);
+			sancionEnt.setId_sancion(id_nuevo);*/
+			
 			sancionDao.addSancion(sancionEnt);
 			System.out.println("Sancion creada");
 			
