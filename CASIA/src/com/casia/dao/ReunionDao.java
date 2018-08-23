@@ -121,6 +121,19 @@ public class ReunionDao {
 		}
 	}
 
+	public void deleteReunionById(int id_reunion) {
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("DELETE FROM reunion WHERE id_reunion=?");
+			preparedStatement.setInt(1, id_reunion);
+
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public ReunionEntity getReunionById(int id_reunion) {
 		ReunionEntity reunion = new ReunionEntity();
 		

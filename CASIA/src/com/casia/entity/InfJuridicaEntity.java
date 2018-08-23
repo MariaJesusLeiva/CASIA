@@ -11,6 +11,7 @@ public class InfJuridicaEntity {
 	private String nombre_alum;
 	private String inf_juridica;
 	private String documentacion;
+	
 	public Integer getId_juridica() {
 		return id_juridica;
 	}

@@ -114,6 +114,7 @@ $(function(){
 								<th class="centrado">Fecha</th>
 								<th class="centrado">Hora</th>
 								<th class="centrado">&nbsp</th>
+								<th class="centrado">&nbsp</th>
 								
 							</tr>
 						</thead>
@@ -132,6 +133,9 @@ $(function(){
 								<td><a
 										href="ReunionServlet?action=verReunion&id_reunion=<c:out value="${reunion.id_reunion}"/>"><i
 											class="glyphicon glyphicon-eye-open"></i></a></td>
+										<td><a
+										href="ReunionServlet?action=eliminarReunion&id_reunion=<c:out value="${reunion.id_reunion}"/>" onclick="return confirm('¿Está seguro de eliminar?');"><i
+											class="glyphicon glyphicon-trash"></i></a></td>
 								</tr>
 							</c:forEach>
 						</tbody>

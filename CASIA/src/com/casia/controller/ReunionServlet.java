@@ -54,6 +54,12 @@ public class ReunionServlet extends HttpServlet {
 			int id_reunion = Integer.parseInt(request.getParameter("id_reunion"));
 			request.setAttribute("reunion", reunionDao.getReunionById(id_reunion));
 			request.setAttribute("reuniones", reunionDao.getAllReuniones());
+			
+		} else if (action.equalsIgnoreCase("eliminarReunion")) {
+			forward = VERREUNIONES;
+			int id_reunion = Integer.parseInt(request.getParameter("id_reunion"));
+			reunionDao.deleteReunionById(id_reunion);
+			request.setAttribute("reuniones", reunionDao.getAllReuniones());
 		}
 		 RequestDispatcher view = request.getRequestDispatcher(forward);
 		 view.forward(request, response);

@@ -90,7 +90,7 @@ $(function(){
 		<div class="row">
 			<div class="col-md-6">
 				<form method="POST" action='InfJuridicaServlet' name="frmAddinfjuridica">
-				<input type="text" name="id_medica" style="display: none"
+				<input type="text" name="id_juridica" style="display: none"
 						value="<c:out value="${infjuridica.id_juridica}" />">
 					<table class="table table-sm">
 						<tr class="trfila">
@@ -128,7 +128,7 @@ $(function(){
 					</table>
 					<div class="row mt-3 mb-3">
 						<div class="col-12">
-							<a href="InfJuridicaServlet?action=modificarInfJuridica&id_medica=<c:out value="${infjuridica.id_juridica}"/>" class="btn btn-primary w-100 no-print">Modificar</a>
+							<a href="InfJuridicaServlet?action=modificarInfJuridica&id_juridica=<c:out value="${infjuridica.id_juridica}"/>" class="btn btn-primary w-100 no-print">Modificar</a>
 							<button class="btn btn-primary w-100 no-print" type="button"
 								value="Atrás" name="Boton1" onclick="atras();">Atrás</button>
 						</div>

@@ -46,29 +46,29 @@ public class InfJuridicaServlet extends HttpServlet {
 
 		if (action.equalsIgnoreCase("crearInfJuridica")) {
 			forward = CREARINFJURIDICA;
-			request.setAttribute("infuridicas", infjuridicaDao.getAllInfJuridicas());
+			request.setAttribute("infjuridicas", infjuridicaDao.getAllInfJuridicas());
 
 		} else if (action.equalsIgnoreCase("verInfJuridicas")) {
 			forward = VERINFJURIDICAS;
-			request.setAttribute("infuridicas", infjuridicaDao.getAllInfJuridicas());
+			request.setAttribute("infjuridicas", infjuridicaDao.getAllInfJuridicas());
 
 		} else if (action.equalsIgnoreCase("verInfJuridica")) {
 			forward = VERINFJURIDICA;
 			int id_juridica = Integer.parseInt(request.getParameter("id_juridica"));
-			request.setAttribute("infuridica", infjuridicaDao.getInfJuridicaById(id_juridica));
+			request.setAttribute("infjuridica", infjuridicaDao.getInfJuridicaById(id_juridica));
 			request.setAttribute("infjuridicas", infjuridicaDao.getAllInfJuridicas());
 
 		} else if (action.equalsIgnoreCase("modificarInfJuridica")) {
 			forward = MODIFICARINFJURIDICA;
 			int id_juridica = Integer.parseInt(request.getParameter("id_juridica"));
-			request.setAttribute("infuridica", infjuridicaDao.getInfJuridicaById(id_juridica));
-			request.setAttribute("infuridicas", infjuridicaDao.getAllInfJuridicas());
+			request.setAttribute("infjuridica", infjuridicaDao.getInfJuridicaById(id_juridica));
+			request.setAttribute("infjuridicas", infjuridicaDao.getAllInfJuridicas());
 
-		} else if (action.equalsIgnoreCase("eliminarInfMedica")) {
+		} else if (action.equalsIgnoreCase("eliminarInfJuridica")) {
 			forward = VERINFJURIDICAS;
 			int id_juridica = Integer.parseInt(request.getParameter("id_juridica"));
 			infjuridicaDao.deleteInfJuridicaById(id_juridica);
-			request.setAttribute("infuridicas", infjuridicaDao.getAllInfJuridicas());
+			request.setAttribute("infjuridicas", infjuridicaDao.getAllInfJuridicas());
 		}
 
 		RequestDispatcher view = request.getRequestDispatcher(forward);

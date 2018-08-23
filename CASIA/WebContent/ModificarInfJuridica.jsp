@@ -125,8 +125,8 @@ function actualizaInfo(maximoCaracteres) {
 		<div class="row">
 			<div class="col-md-6">
 				<form method="POST" action='InfJuridicaServlet' name="frmModificarInfjuridica">
-				<input type="text" name="id_medica" style="display: none"
-						value="<c:out value="${infjuridica.id_medica}" />">
+				<input type="text" name="id_juridica" style="display: none"
+						value="<c:out value="${infjuridica.id_juridica}" />">
 					<table class="table table-sm">
 						<tr class="trfila">
 							<td class="titulo">Curso <span class="text-danger">*</span></td>
@@ -152,7 +152,7 @@ function actualizaInfo(maximoCaracteres) {
 						<tr class="trfila">
 							<td class="titulo">Información </td>
 							<td class="form"><textarea
-									class="estilotextarea" id="textarea" name="inf_medica" 
+									class="estilotextarea" id="textarea" name="inf_juridica" 
 									onkeypress="return limita(event, 500);"
 									onkeyup="actualizaInfo(500)"><c:out value="${infjuridica.inf_juridica}"/></textarea>
 								<div id="info">Máximo 500 caracteres</div></td>

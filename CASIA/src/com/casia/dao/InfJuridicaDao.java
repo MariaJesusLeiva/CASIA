@@ -74,14 +74,14 @@ public class InfJuridicaDao {
 		}
 	}
 
-	public InfJuridicaEntity getInfJuridicaById(int id_medica) {
+	public InfJuridicaEntity getInfJuridicaById(int id_juridica) {
 
 		InfJuridicaEntity infjuridicaEnt = new InfJuridicaEntity();
 
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("SELECT * FROM infjuridica WHERE id_juridica=?");
-			preparedStatement.setInt(1, id_medica);
+			preparedStatement.setInt(1, id_juridica);
 			ResultSet rs = preparedStatement.executeQuery();
 
 			if (rs.next()) {

@@ -127,7 +127,7 @@ $(function(){
 										href="InfJuridicaServlet?action=verInfJuridica&id_juridica=<c:out value="${juridica.id_juridica}"/>"><i
 											class="glyphicon glyphicon-eye-open"></i></a></td>
 											<td><a
-										href="InfJuridicaServlet?action=eliminarInfJuridica&id_juridica=<c:out value="${juridica.id_juridica}"/>"><i
+										href="InfJuridicaServlet?action=eliminarInfJuridica&id_juridica=<c:out value="${juridica.id_juridica}"/>" onclick="return confirm('¿Está seguro de eliminar?');"><i
 											class="glyphicon glyphicon-trash"></i></a></td>
 								</tr>
 							</c:forEach>

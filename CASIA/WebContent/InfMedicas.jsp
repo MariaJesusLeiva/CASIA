@@ -127,7 +127,7 @@ $(function(){
 										href="InfMedicaServlet?action=verInfMedica&id_medica=<c:out value="${medica.id_medica}"/>"><i
 											class="glyphicon glyphicon-eye-open"></i></a></td>
 											<td><a
-										href="InfMedicaServlet?action=eliminarInfMedica&id_medica=<c:out value="${medica.id_medica}"/>"><i
+										href="InfMedicaServlet?action=eliminarInfMedica&id_medica=<c:out value="${medica.id_medica}"/>" onclick="return confirm('¿Está seguro de eliminar?');"><i
 											class="glyphicon glyphicon-trash"></i></a></td>
 								</tr>
 							</c:forEach>
