@@ -1,10 +1,12 @@
-body{
+ body{
     padding: 50px;
+    background-color: #D6E6F4;
 }
 .modal-dialog {
     width: 300px;
 }
 .modal-footer {
+	margin-top: 300px;
     height: 70px;
     margin: 0;
 }
@@ -20,3 +22,31 @@ body{
     color: #fff;
     background: #3276B1;
 }
+
+.login-form {
+	margin-top: 100px;
+	max-width: 1500px;
+	height: 320px;
+	border: 1px solid #9C9C9C;
+	background-color: #EAEAEA;
+}
+
+/* 
+body {
+  margin: 0;
+  background-color: #D6E6F4;
+  height: 100vh;
+}
+#login .container #login-row #login-column #login-box {
+  margin-top: 100px;
+  max-width: 500px;
+  height: 320px;
+  border: 1px solid #9C9C9C;
+  background-color: #EAEAEA;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 50px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+} */

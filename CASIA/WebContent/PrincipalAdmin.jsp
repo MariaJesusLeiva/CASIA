@@ -18,37 +18,29 @@
 		}
 	%>
 
-	<div class="navbar navbar-default">
+	<div class="navbar navbar-light" style="background-color: #D6E6F4;">
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="PrincipalAdmin.jsp">CASIA</a>
+				<a class="navbar-brand" href="Principal.jsp">CASIA</a>
 			</div>
-			<ul class="nav navbar-nav">
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
+			<ul style="background-color: #D6E6F4;" class="nav navbar-nav" >
+				<li class="dropdown"><a style="background-color: #D6E6F4;" href="#" class="dropdown-toggle"
 					data-toggle="dropdown"> Usuarios <b class="caret"></b>
 				</a>
-					<ul class="dropdown-menu">
+					<ul style="background-color: #D6E6F4;" class="dropdown-menu">
 						<li><a href="UsuarioServlet?action=crearUsuario">Administrar</a></li>
 					</ul></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown"> Sanciones <b class="caret"></b>
+				<li class="dropdown"><a style="background-color: #D6E6F4;" href="#" class="dropdown-toggle"
+					data-toggle="dropdown"> Eliminar <b class="caret"></b>
 				</a>
-					<ul class="dropdown-menu">
-						<li><a href="ParteServlet?action=pendienteSancion">Pendientes de sanción</a></li>
-						<li><a href="SancionServlet?action=verSancionesSinDias">Asignar Días</a></li>
-						<li><a href="AsistenciaServlet?action=asistenciaRecreo">Recreo</a></li>
-						<li><a href="AsistenciaServlet?action=asistenciaPROA">PROA</a></li>
-						<li><a href="#">Expulsión</a></li>
-						<li><a href="SancionServlet?action=historialSanciones">Historial</a></li>
+					<ul style="background-color: #D6E6F4;" class="dropdown-menu">
+						<li><a href="ParteServlet?action=pendienteSancion">Partes</a></li>
+						<li><a href="SancionServlet?action=verSancionesSinDias">Sanciones</a></li>
+						<li><a href="AsistenciaServlet?action=asistenciaRecreo">Absentismo</a></li>
+						<li><a href="AsistenciaServlet?action=asistenciaPROA">Incidencias</a></li>
+						
 					</ul></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown"> Absentismo <b class="caret"></b>
-				</a>
-					<ul class="dropdown-menu">
-						<li><a href="CrearAbsentismo.jsp">Añadir</a></li>
-						<li><a href="AbsentismoServlet?action=historialabsentismos">Historial</a></li>
-					</ul></li>
-
+				
 				<li><a href="LogoutServlet?action=salir">Salir</a></li>
 			</ul>
 		</div>

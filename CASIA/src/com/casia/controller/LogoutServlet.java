@@ -39,7 +39,7 @@ public class LogoutServlet extends HttpServlet {
 			if(session != null) {
 				session.removeAttribute("user_name");
 				session.invalidate();
-				request.setAttribute("errMessage", "Cierre de sesión correcto");
+				request.setAttribute("errMessage", "* Cierre de sesión correcto");
 				rd = request.getRequestDispatcher("Login.jsp");
 				rd.forward(request, response);
 			}

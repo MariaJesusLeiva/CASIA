@@ -3,6 +3,7 @@
 <%@ page session="true" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=uft-8">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -11,6 +12,7 @@
 
 <title>Bienvenido a CASIA</title>
 </head>
+
 <body>
 	<%
 		if (session.getAttribute("directiva") == null) {
