@@ -23,7 +23,7 @@ import com.casia.entity.AbsentismoEntity;
 
 public class AbsentismoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static String HISTORIAL = "Absentismos.jsp";
+	private static String VERTODOABS = "Absentismos.jsp";
 	private static String VERABSENTISMO = "ConsultarAbsentismo.jsp";
 	private static String MODIFICARABSENTISMO = "ModificarAbsentismo.jsp";
        
@@ -44,7 +44,7 @@ public class AbsentismoServlet extends HttpServlet {
 		AbsentismoDao absentismoDao = new AbsentismoDao();
 				
 		if (action.equalsIgnoreCase("historialAbsentismos")) {
-			forward = HISTORIAL;
+			forward = VERTODOABS;
 			request.setAttribute("absentismos", absentismoDao.getAllAbsentismos());
 		} else if (action.equalsIgnoreCase("verAbsentismo")) {
 			forward = VERABSENTISMO;
@@ -152,7 +152,7 @@ public class AbsentismoServlet extends HttpServlet {
 		
 		}
 		
-		forward = HISTORIAL;
+		forward = VERTODOABS;
 		request.setAttribute("absentismos", absentismoDao.getAllAbsentismos());
 		RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);

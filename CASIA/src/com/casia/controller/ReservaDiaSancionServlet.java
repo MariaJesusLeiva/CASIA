@@ -52,7 +52,6 @@ public class ReservaDiaSancionServlet extends HttpServlet {
 			request.setAttribute("sancion", sancionDao.getSancionById(id_sancion));
 			sancionEnt = sancionDao.getSancionById(id_sancion);
 			alumsancion = sancionEnt.getNombre_alum();
-			System.out.println("Nombre alum "+alumsancion); 
 			session.setAttribute("alumsancion", alumsancion);
 			request.setAttribute("reservas", reservaDao.getAllReservas());
 		} else if (action.equalsIgnoreCase("asignadoDias")) {
@@ -70,40 +69,43 @@ public class ReservaDiaSancionServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		ReservaDiaSancionEntity reservaEnt = new ReservaDiaSancionEntity();
 		ReservaDiaSancionDao reservaDao = new ReservaDiaSancionDao();
 		Date fecha_inicio;
-		
+		HttpSession session = request.getSession();
+		String forward = "";
+
 		String id_sancion = request.getParameter("id_sancion");
-		System.out.println("id_sancion "+id_sancion);
+		System.out.println("id_sancion " + id_sancion);
 		reservaEnt.setId_sancion(Integer.parseInt(id_sancion));
 		reservaEnt.setNombre_alum(request.getParameter("nombre_alum"));
 		reservaEnt.setTipo_sancion(request.getParameter("tipo_sancion"));
-		try
-		{
+		
+		try {
 			fecha_inicio = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_inicio"));
 			reservaEnt.setFecha_inicio(fecha_inicio);
-		}
-		catch (ParseException e)
-		{
+		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		
-		reservaDao.addReserva(reservaEnt);
-		
-		//Para actualizar el campo total_dias de la tabla sancion
-				SancionDao sancionDao = new SancionDao();
-				Integer id_s = Integer.parseInt(request.getParameter("id_sancion"));
-				sancionDao.updateSancionDias(id_s);
-		
 
-		RequestDispatcher view = request.getRequestDispatcher("SancionesSinDias.jsp");
-		request.setAttribute("sancionSin", sancionDao.getAllSancionesSinDias());
-		request.setAttribute("sanciones", reservaDao.getAllReservas());
+		reservaDao.addReserva(reservaEnt);
+
+		// Para actualizar el campo total_dias de la tabla sancion
+		SancionDao sancionDao = new SancionDao();
+		Integer id_s = Integer.parseInt(request.getParameter("id_sancion"));
+		sancionDao.updateSancionDias(id_s);
+		SancionEntity sancionEnt = new SancionEntity();
+		forward = ASIGNARDIAS;
+		request.setAttribute("sancion", sancionDao.getSancionById(id_s));
+		sancionEnt = sancionDao.getSancionById(id_s);
+		String alumsancion = sancionEnt.getNombre_alum();
+		session.setAttribute("alumsancion", alumsancion);
+		request.setAttribute("reservas", reservaDao.getAllReservas());
+		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request, response);
-	
-	
 	}
 
 }

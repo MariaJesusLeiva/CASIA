@@ -17,7 +17,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/estilo3.css" rel="stylesheet" type="text/css">
-<title>Asistencia PROA</title>
+<title>Asistencia Recreo</title>
 </head>
 <%@ include file="Principal.jsp"%>
 <body>
@@ -91,7 +91,7 @@ $(function(){
 						
 				<div class="panel panel-info">
 					<div class="panel-heading">
-						<h3 class="panel-title">ASISTENCIA DE PROA</h3>
+						<h3 class="panel-title">EXPULSIONES ACTIVAS</h3>
 						<div class="pull-right">
 							<span class="clickable filter" data-toggle="tooltip"
 								title="Buscador" data-container="body"> <i
@@ -107,23 +107,20 @@ $(function(){
 						<table class="table table-hover" id="dev-table" align="center">
 							<thead>
 								<tr>
-									<th class="centrado">Fecha</th>
+									<th class="centrado">Fecha Inicio</th>
+									<th class="centrado">Fecha Fin</th>
 									<th class="centrado">Alumno</th>
-									<th class="centrado">Asistencia</th>
-									<th class="centrado">&nbsp</th>
 								</tr>
 							</thead>
 							<tbody class="centrado">
-								<c:forEach items="${proa}" var="proa">
+								<c:forEach items="${expulsionact}" var="expulsion">
 									<tr class="dark-row">
 										<%-- <td style="display: none"><c:out value="${recreo.id_sancion}" /></td> --%>
 										<td><fmt:formatDate pattern="dd-MM-yyyy"
-												value="${proa.fecha_inicio}" /></td>
-										<td><c:out value="${proa.nombre_alum}" /></td>
-										<td><input type="checkbox" name="asistencia"
-											value="${proa.id_sancion}"></td>
-										<td><input type="text" name="id_sancion"
-											style="display: none" value="${proa.id_sancion}"></td>
+												value="${expulsion.fecha_inicio}" /></td>
+												<td><fmt:formatDate pattern="dd-MM-yyyy"
+												value="${expulsion.fecha_fin}" /></td>
+										<td><c:out value="${expulsion.nombre_alum}" /></td>										
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -142,7 +139,7 @@ $(function(){
 			<div class="col-md-6">
 				<div class="panel panel-success">
 					<div class="panel-heading">
-						<h3 class="panel-title">HISTORIAL PROAS</h3>
+						<h3 class="panel-title">HISTORIAL EXPULSIONES</h3>
 						<div class="pull-right">
 							<span class="clickable filter" data-toggle="tooltip"
 								title="Buscador" data-container="body"> <i
@@ -157,21 +154,20 @@ $(function(){
 					</div>
 					<table class="table table-hover" id="task-table">
 						<thead>
-							<tr>
-								<th class="centrado">Fecha</th>
-								<th class="centrado">Sanción</th>
-								<th class="centrado">Alumno</th>
-								<th class="centrado">Asiste</th>
-							</tr>
+								<tr>
+									<th class="centrado">Fecha Inicio</th>
+									<th class="centrado">Fecha Fin</th>
+									<th class="centrado">Alumno</th>
+								</tr>
 						</thead>
 						<tbody class="centrado">
-							<c:forEach items="${reservaproa}" var="reserva">
+							<c:forEach items="${expulsiones}" var="expulsiones">
 								<tr>
-									<td><fmt:formatDate pattern="dd-MM-yyyy"
-											value="${reserva.fecha_inicio}" /></td>
-									<td><c:out value="${reserva.tipo_sancion}" /></td>
-									<td><c:out value="${reserva.nombre_alum}" /></td>
-									<td><c:out value="${reserva.asistencia}" /></td>
+										<td><fmt:formatDate pattern="dd-MM-yyyy"
+												value="${expulsiones.fecha_inicio}" /></td>
+												<td><fmt:formatDate pattern="dd-MM-yyyy"
+												value="${expulsiones.fecha_fin}" /></td>
+										<td><c:out value="${expulsiones.nombre_alum}" /></td>	
 								</tr>
 							</c:forEach>
 						</tbody>

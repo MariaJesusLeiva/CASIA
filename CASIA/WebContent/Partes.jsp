@@ -106,6 +106,7 @@ $(function(){
 								<th class="centrado">Grupo</th>
 								<th class="centrado">Sanción</th>
 								<th class="centrado">&nbsp</th>
+								<th class="centrado">&nbsp</th>
 							</tr>
 						</thead>
 						<tbody align="center">
@@ -123,6 +124,9 @@ $(function(){
 									<td><a
 										href="ParteServlet?action=verParte&id_parte=<c:out value="${parte.id_parte}"/>"><i
 											class="glyphicon glyphicon-eye-open"></i></a></td>
+									<td><a
+										href="ParteServlet?action=eliminarParte&id_parte=<c:out value="${parte.id_parte}"/>" onclick="return confirm('Al seleccionar esta opción, se borrará el parte y su sanción. ¿Confirma eliminar?');"><i
+											class="glyphicon glyphicon-trash"></i></a></td>
 								</tr>
 							</c:forEach>
 						</tbody>

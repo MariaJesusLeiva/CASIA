@@ -110,6 +110,7 @@ $(function(){
 									<th class="centrado">Fecha</th>
 									<th class="centrado">Alumno</th>
 									<th class="centrado">Asistencia</th>
+									<th class="centrado">&nbsp</th>
 								</tr>
 							</thead>
 							<tbody class="centrado">
@@ -137,6 +138,45 @@ $(function(){
 
 						</div>
 					</form>
+			</div>
+			<div class="col-md-6">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<h3 class="panel-title">HISTORIAL RECREOS</h3>
+						<div class="pull-right">
+							<span class="clickable filter" data-toggle="tooltip"
+								title="Buscador" data-container="body"> <i
+								class="glyphicon glyphicon-search"></i>
+							</span>
+						</div>
+					</div>
+					<div class="panel-body">
+						<input type="text" class="form-control" id="task-table-filter"
+							data-action="filter" data-filters="#task-table"
+							placeholder="Introduzca filtro" />
+					</div>
+					<table class="table table-hover" id="task-table">
+						<thead>
+							<tr>
+								<th class="centrado">Fecha</th>
+								<th class="centrado">Sanción</th>
+								<th class="centrado">Alumno</th>
+								<th class="centrado">Asiste</th>
+							</tr>
+						</thead>
+						<tbody class="centrado">
+							<c:forEach items="${reservare}" var="reserva">
+								<tr>
+									<td><fmt:formatDate pattern="dd-MM-yyyy"
+											value="${reserva.fecha_inicio}" /></td>
+									<td><c:out value="${reserva.tipo_sancion}" /></td>
+									<td><c:out value="${reserva.nombre_alum}" /></td>
+									<td><c:out value="${reserva.asistencia}" /></td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>

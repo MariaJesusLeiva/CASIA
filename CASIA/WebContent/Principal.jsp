@@ -20,10 +20,10 @@
 		}
 	%>
 
-	<div class="navbar navbar-light" style="background-color: #D6E6F4;">
+	<div class="navbar navbar-light" style="background-color: #D6E6F4; border-bottom: 1px #41719C solid; border-top: 1px #41719C solid;">
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="Principal.jsp">CASIA</a>
+				<a class="navbar-brand" href="AsistenciaServlet?action=sancionesHoy">CASIA</a>
 			</div>
 			<ul style="background-color: #D6E6F4;" class="nav navbar-nav" >
 				<li class="dropdown"><a style="background-color: #D6E6F4;" href="#" class="dropdown-toggle"
@@ -32,9 +32,7 @@
 					<ul style="background-color: #D6E6F4;" class="dropdown-menu">
 						<li><a href="CrearParte.jsp">Añadir</a></li>
 						<li><a href="ParteServlet?action=historialParte">Historial</a></li>
-						<li><a href="#">Link</a></li>
-						<li><a href="#">Link</a></li>
-					</ul></li>
+					</ul></li></b>
 				<li class="dropdown"><a style="background-color: #D6E6F4;" href="#" class="dropdown-toggle"
 					data-toggle="dropdown"> Sanciones <b class="caret"></b>
 				</a>
@@ -44,7 +42,7 @@
 						<li><div style="border-top: 2px #41719C solid "class="dropdown-divider"></div></li>
 						<li><a href="AsistenciaServlet?action=asistenciaRecreo">Recreo</a></li>
 						<li><a href="AsistenciaServlet?action=asistenciaPROA">PROA</a></li>
-						<li><a href="#">Expulsión</a></li>
+						<li><a href="SancionServlet?action=activaExpulsion">Expulsión</a></li>
 						<li><div style="border-top: 2px #41719C solid "class="dropdown-divider"></div></li>
 						<li><a href="SancionServlet?action=historialSanciones">Historial</a></li>
 					</ul></li>
@@ -62,16 +60,17 @@
 						<li><a href="ReunionServlet?action=crearReunion">Acta Reunion</a></li>
 						<li><a href="ReunionServlet?action=verReuniones">Reuniones</a></li>
 						<li><div style="border-top: 2px #41719C solid "class="dropdown-divider"></div></li>
-						<li><a href="InfMedicaServlet?action=crearInfMedica">Inf. Médica</a></li>
+						<li><a href="InfMedicaServlet?action=crearInfMedica">Información Médica</a></li>
 						<li><a href="InfMedicaServlet?action=verInfMedicas">Informaciones M.</a></li>
 						<li><div style="border-top: 2px #41719C solid "class="dropdown-divider"></div></li>
-						<li><a href="ActMedicaServlet?action=crearActMedica">Act. Médica</a></li>
+						<li><a href="ActMedicaServlet?action=crearActMedica">Actuación Médica</a></li>
 						<li><a href="ActMedicaServlet?action=verActMedicas">Actuaciones M.</a></li>
 						<li><div style="border-top: 2px #41719C solid "class="dropdown-divider"></div></li>
-						<li><a href="InfJuridicaServlet?action=crearInfJuridica">Inf. Jurídica</a></li>
+						<li><a href="InfJuridicaServlet?action=crearInfJuridica">Información Jurídica</a></li>
 						<li><a href="InfJuridicaServlet?action=verInfJuridicas">Informaciones J.</a></li>
 						<li><div style="border-top: 2px #41719C solid "class="dropdown-divider"></div></li>
-						<li><a href="SancionServlet?action=historialSanciones">Historial</a></li>
+						<li><a href="CrearProtocoloAcoso.jsp">Protocolo Acoso</a></li>
+						<li><a href="AcosoServlet?action=verAcosos">Protocolos</a></li>
 					</ul></li>
 
 			</ul>

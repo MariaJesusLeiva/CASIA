@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,7 +23,7 @@ import com.casia.entity.SancionEntity;
 
 public class ParteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static String HISTORIAL = "Partes.jsp";
+	private static String VERTODOPARTE = "Partes.jsp";
 	private static String VERPARTE = "ConsultarParte.jsp";
 	private static String MODIFICAR = "ModificarParte.jsp";
 	private static String PENDIENTESANCION = "PendienteSancion.jsp";
@@ -54,7 +53,7 @@ public class ParteServlet extends HttpServlet {
 		String action = request.getParameter("action");
 		
 		if (action.equalsIgnoreCase("historialParte")) {
-			forward = HISTORIAL;
+			forward = VERTODOPARTE;
 			request.setAttribute("partes", parteDao.getAllPartes());
 			
 		} else if (action.equalsIgnoreCase("verParte")) {
@@ -86,8 +85,12 @@ public class ParteServlet extends HttpServlet {
 			session.setAttribute("profesancion", profesancion);
 			session.setAttribute("codigoparte", codigoparte);	
 			
-		}
-
+		} else if (action.equalsIgnoreCase("eliminarParte")) {
+			forward = VERTODOPARTE;
+			int id_parte = Integer.parseInt(request.getParameter("id_parte"));
+			parteDao.deleteParteById(id_parte);
+			request.setAttribute("partes", parteDao.getAllPartes());			
+		} 
 		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request, response);
 	}
@@ -138,7 +141,7 @@ public class ParteServlet extends HttpServlet {
 			id_parte = Integer.parseInt(request.getParameter("id_parte"));			
 			parteEnt.setId_parte(id_parte);
 			parteDao.updateParte(parteEnt);
-			forward = HISTORIAL;
+			forward = VERTODOPARTE;
 			request.setAttribute("partes", parteDao.getAllPartes());
 			RequestDispatcher view = request.getRequestDispatcher(forward);
 	        view.forward(request, response);

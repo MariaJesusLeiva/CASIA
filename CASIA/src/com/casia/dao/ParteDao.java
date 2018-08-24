@@ -58,7 +58,19 @@ public class ParteDao {
 			e.printStackTrace();
 		}
 	}
+	
+	public void deleteParteById(int id_parte) {
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("DELETE FROM parte WHERE id_parte=?");
+			preparedStatement.setInt(1, id_parte);
+			preparedStatement.executeUpdate();
 
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public List<ParteEntity> getAllPartes() {
 		List<ParteEntity> partes = new ArrayList<ParteEntity>();
 
@@ -133,8 +145,8 @@ public class ParteDao {
 	public void updateSancionParte(int id_parte) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("UPDATE parte AS p " + "INNER JOIN sancion AS s " + "ON s.id_parte = p.id_parte "
-							+ "SET p.tipo_sancion = s.tipo_sancion " + "WHERE p.id_parte=?");
+					.prepareStatement("UPDATE parte AS p INNER JOIN sancion AS s ON s.id_parte = p.id_parte "
+							+ "SET p.tipo_sancion = s.tipo_sancion WHERE p.id_parte=?");
 
 			preparedStatement.setInt(1, id_parte);
 

@@ -5,9 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
-
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=uft-8">
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -17,16 +15,11 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/estilo3.css" rel="stylesheet" type="text/css">
-<title>Asistencia PROA</title>
+<title>Historial Protocolos Acoso</title>
 </head>
 <%@ include file="Principal.jsp"%>
 <body>
-	<script language="javascript">
-	function atras(){history.back();}
-	function actualizar(){location.reload();}
-	function adelante(){history.forward();}
-</script>
-<script>
+	<script>
 (function(){
     'use strict';
 	var $ = jQuery;
@@ -61,7 +54,7 @@
 	$('[data-action="filter"]').filterTable();
 })(jQuery);
 </script>
-<script>
+	<script>
 $(function(){
     // attach table filter plugin to inputs
 	$('[data-action="filter"]').filterTable();
@@ -86,63 +79,10 @@ $(function(){
 			</small>
 		</h1>
 		<div class="row">
-			<div class="col-md-6">
-			<form method="POST" action='AsistenciaServlet' name="frmAddAsistencia">
-						
-				<div class="panel panel-info">
-					<div class="panel-heading">
-						<h3 class="panel-title">ASISTENCIA DE PROA</h3>
-						<div class="pull-right">
-							<span class="clickable filter" data-toggle="tooltip"
-								title="Buscador" data-container="body"> <i
-								class="glyphicon glyphicon-search"></i>
-							</span>
-						</div>
-					</div>
-					<div class="panel-body">
-						<input type="text" class="form-control" id="dev-table-filter"
-							data-action="filter" data-filters="#dev-table"
-							placeholder="Introduzca filtro" />
-					</div>
-						<table class="table table-hover" id="dev-table" align="center">
-							<thead>
-								<tr>
-									<th class="centrado">Fecha</th>
-									<th class="centrado">Alumno</th>
-									<th class="centrado">Asistencia</th>
-									<th class="centrado">&nbsp</th>
-								</tr>
-							</thead>
-							<tbody class="centrado">
-								<c:forEach items="${proa}" var="proa">
-									<tr class="dark-row">
-										<%-- <td style="display: none"><c:out value="${recreo.id_sancion}" /></td> --%>
-										<td><fmt:formatDate pattern="dd-MM-yyyy"
-												value="${proa.fecha_inicio}" /></td>
-										<td><c:out value="${proa.nombre_alum}" /></td>
-										<td><input type="checkbox" name="asistencia"
-											value="${proa.id_sancion}"></td>
-										<td><input type="text" name="id_sancion"
-											style="display: none" value="${proa.id_sancion}"></td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-				</div>
-										<div>
-
-							<center><button class="btn btn-primary w-100 no-print" style=text-align=center type="submit"
-								value="Submit">Guardar</button>
-							<button class="btn btn-primary w-100 no-print" type="button"
-								value="Atrás" name="Boton1" onclick="atras();">Atrás</button></center>
-
-						</div>
-					</form>
-			</div>
-			<div class="col-md-6">
+			<div class="col-md-12">
 				<div class="panel panel-success">
 					<div class="panel-heading">
-						<h3 class="panel-title">HISTORIAL PROAS</h3>
+						<h3 class="panel-title">HISTORIAL DE PROTOCOLOS DE ACOSO</h3>
 						<div class="pull-right">
 							<span class="clickable filter" data-toggle="tooltip"
 								title="Buscador" data-container="body"> <i
@@ -158,20 +98,29 @@ $(function(){
 					<table class="table table-hover" id="task-table">
 						<thead>
 							<tr>
-								<th class="centrado">Fecha</th>
-								<th class="centrado">Sanción</th>
-								<th class="centrado">Alumno</th>
-								<th class="centrado">Asiste</th>
+								<th class="centrado">Código</th>
+								<th class="centrado">Curso</th>
+								<th class="centrado">Alumno Implicado</th>
+								<th class="centrado">Alumno Implicado</th>
+								<th class="centrado">Inicio del Protocolo</th>
+								<th class="centrado">&nbsp</th>
+								<th class="centrado">&nbsp</th>
 							</tr>
 						</thead>
-						<tbody class="centrado">
-							<c:forEach items="${reservaproa}" var="reserva">
+						<tbody align="center">
+							<c:forEach items="${acosos}" var="acoso">
 								<tr>
-									<td><fmt:formatDate pattern="dd-MM-yyyy"
-											value="${reserva.fecha_inicio}" /></td>
-									<td><c:out value="${reserva.tipo_sancion}" /></td>
-									<td><c:out value="${reserva.nombre_alum}" /></td>
-									<td><c:out value="${reserva.asistencia}" /></td>
+									<td><c:out value="${acoso.codigo}" /></td>
+									<td><c:out value="${acoso.curso}" /></td>
+									<td><c:out value="${acoso.nombre_alum}" /></td>
+									<td><c:out value="${acoso.nombre_alum2}" /></td>
+									<td><c:out value="${acoso.inicio_protocolo}" /></td>
+									<td><a
+										href="AcosoServlet?action=verAcoso&id_acoso=<c:out value="${acoso.id_acoso}"/>"><i
+											class="glyphicon glyphicon-eye-open"></i></a></td>
+									<td><a
+										href="AcosoServlet?action=eliminarAcoso&id_acoso=<c:out value="${acoso.id_acoso}"/>" onclick="return confirm('¿Está seguro de eliminar?');"><i
+											class="glyphicon glyphicon-trash"></i></a></td>
 								</tr>
 							</c:forEach>
 						</tbody>

@@ -73,8 +73,9 @@ function actualizaInfo(maximoCaracteres) {
 
 	</div>
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
+	<div class="row">
+		<div class="col-md-3"></div>
+			<div class="col-md-6">
 				<form method="POST" action='SancionServlet' name="frmModificarSancion">
 					<input type="text" name="id_parte" style="display: none"
 						value="<c:out value="${sancion.id_parte}" />">
@@ -96,7 +97,7 @@ function actualizaInfo(maximoCaracteres) {
 
 						<tr class="trfila">
 							<td class="titulo">Observacion</td>
-							<td colspan="3" class="form"><textarea class="estilograndetextarea" id="textarea" name="observacion"
+							<td colspan="3" class="form"><textarea class="estilograndetextareacon" id="textarea" name="observacion"
 									onkeypress="return limita(event, 500);"
 									onkeyup="actualizaInfo(500)"><c:out value="${sancion.observacion}"/></textarea>
 									<div id="info">Máximo 500 caracteres</div></td>
@@ -104,12 +105,12 @@ function actualizaInfo(maximoCaracteres) {
 						<tr class="trfila">
 							<td class="titulo">Sancion <span class="text-danger">*</span></td>
 							<td class="form"><input type="text"
-								name="tipo_sancion" readonly="readonly" value="<c:out value="${sancion.tipo_sancion}"/>">
+								name="tipo_sancion" value="<c:out value="${sancion.tipo_sancion}"/>">
 							<i>(Recreo, PROA o Expulsión)</i></td>	
 						</tr>
 						<tr class="trfila">
 							<td class="titulo">Trabajo</td>
-							<td colspan="3" class="form"><textarea class="estilograndetextarea" id="textarea2" name="trabajo"
+							<td colspan="3" class="form"><textarea class="estilograndetextareacon" id="textarea2" name="trabajo"
 									onkeypress="return limita(event, 500);"
 									onkeyup="actualizaInfo(500)"><c:out value="${sancion.trabajo}"/></textarea>
 									<div id="info2">Máximo 500 caracteres</div></td>
@@ -146,7 +147,8 @@ function actualizaInfo(maximoCaracteres) {
 						</div>
 					</div>
 				</form>
-			</div>			
+			</div>
+			<div class="col-md-3"></div>			
 		</div>
 	</div>
 </body>

@@ -11,7 +11,6 @@ public class SancionEntity {
 	private String tipo_sancion;
 	private String observacion;
 	private String trabajo;
-	private String asistencia;
 	private String nombre_alum;
 	private String asignado_dias;
 	
@@ -62,12 +61,6 @@ public class SancionEntity {
 	}
 	public void setTrabajo(String trabajo) {
 		this.trabajo = trabajo;
-	}
-	public String getAsistencia() {
-		return asistencia;
-	}
-	public void setAsistencia(String asistencia) {
-		this.asistencia = asistencia;
 	}
 	public String getNombre_alum() {
 		return nombre_alum;

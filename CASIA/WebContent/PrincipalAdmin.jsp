@@ -23,26 +23,11 @@
 			<div class="navbar-header">
 				<a class="navbar-brand" href="Principal.jsp">CASIA</a>
 			</div>
-			<ul style="background-color: #D6E6F4;" class="nav navbar-nav" >
-				<li class="dropdown"><a style="background-color: #D6E6F4;" href="#" class="dropdown-toggle"
-					data-toggle="dropdown"> Usuarios <b class="caret"></b>
-				</a>
-					<ul style="background-color: #D6E6F4;" class="dropdown-menu">
-						<li><a href="UsuarioServlet?action=crearUsuario">Administrar</a></li>
-					</ul></li>
-				<li class="dropdown"><a style="background-color: #D6E6F4;" href="#" class="dropdown-toggle"
-					data-toggle="dropdown"> Eliminar <b class="caret"></b>
-				</a>
-					<ul style="background-color: #D6E6F4;" class="dropdown-menu">
-						<li><a href="ParteServlet?action=pendienteSancion">Partes</a></li>
-						<li><a href="SancionServlet?action=verSancionesSinDias">Sanciones</a></li>
-						<li><a href="AsistenciaServlet?action=asistenciaRecreo">Absentismo</a></li>
-						<li><a href="AsistenciaServlet?action=asistenciaPROA">Incidencias</a></li>
-						
-					</ul></li>
-				
-				<li><a href="LogoutServlet?action=salir">Salir</a></li>
-			</ul>
+			
+      <ul class="nav navbar-nav navbar-right">
+        <li><a style="background-color: #D6E6F4;" href="LogoutServlet?action=salir">Salir</a></li>
+        
+      </ul>
 		</div>
 	</div>
 

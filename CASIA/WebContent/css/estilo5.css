@@ -96,6 +96,14 @@ select:valid {
   border: 1px solid green;
 }
 
+textarea:invalid {
+  border: 1px solid red;
+}
+
+textarea:valid {
+  border: 1px solid green;
+}
+
 .centrado {
     text-align: center;
 }

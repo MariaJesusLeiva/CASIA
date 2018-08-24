@@ -149,8 +149,7 @@ function actualizaInfo(maximoCaracteres) {
 						<div class="col-12">
 							<button class="btn btn-primary w-100 no-print" type="submit"
 								value="Submit">Guardar</button>
-							<button class="btn btn-primary w-100 no-print" type="button"
-								value="Atrás" name="Boton1" onclick="atras();">Atrás</button>
+							<a href="SancionServlet?action=verSancionesSinDias" class="btn btn-primary w-100 no-print">Atrás</a>
 						</div>
 					</div>
 				</form>
@@ -177,6 +176,7 @@ function actualizaInfo(maximoCaracteres) {
 								<th class="centrado">Fecha</th>
 								<th class="centrado">Sanción</th>
 								<th class="centrado">Alumno</th>
+								<th class="centrado">Asiste</th>
 							</tr>
 						</thead>
 						<tbody class="centrado">
@@ -186,6 +186,7 @@ function actualizaInfo(maximoCaracteres) {
 											value="${reserva.fecha_inicio}" /></td>
 									<td><c:out value="${reserva.tipo_sancion}" /></td>
 									<td><c:out value="${reserva.nombre_alum}" /></td>
+									<td><c:out value="${reserva.asistencia}" /></td>
 								</tr>
 							</c:forEach>
 						</tbody>

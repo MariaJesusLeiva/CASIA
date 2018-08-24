@@ -31,7 +31,8 @@
 	</div>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
+		<div class="col-md-3"></div>
+			<div class="col-md-4">
 				<form method="POST" action='SancionServlet' name="frmConsultarSancion">
 					<input type="text" name="id_parte" style="display: none"
 						value="<c:out value="${sancion.id_parte}" />">
@@ -54,7 +55,7 @@
 						<tr class="trfila">
 							<td class="titulo">Observacion</td>
 							<td colspan="3" class="form"><textarea
-									class="estilotextareagris" readonly="readonly" id="textarea"
+									class="estilotextareacongris" readonly="readonly" id="textarea"
 									name="observacion"><c:out
 										value="${sancion.observacion}" /></textarea>
 						</tr>
@@ -66,7 +67,7 @@
 						<tr class="trfila">
 							<td class="titulo">Trabajo</td>
 							<td colspan="3" class="form"><textarea
-									class="estilotextareagris" readonly="readonly" id="textarea"
+									class="estilotextareacongris" readonly="readonly" id="textarea"
 									name="trabajo"><c:out
 										value="${sancion.trabajo}" /></textarea>
 						</tr>
@@ -99,7 +100,8 @@
 						</div>
 					</div>
 				</form>
-			</div>			
+			</div>		
+			<div class="col-md-3"></div>	
 		</div>
 	</div>
 </body>

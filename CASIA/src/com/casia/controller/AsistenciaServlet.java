@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.casia.dao.PROADao;
 import com.casia.dao.ParteDao;
 import com.casia.dao.RecreoDao;
+import com.casia.dao.ReservaDiaSancionDao;
 import com.casia.dao.SancionDao;
+import com.casia.entity.ParteEntity;
 
 /**
  * Servlet implementation class AsistenciaServlet
@@ -21,7 +23,9 @@ import com.casia.dao.SancionDao;
 public class AsistenciaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String ASISTENCIARECREO = "AsistenciaRecreo.jsp";
-	private static String ASISTENCIAPROA = "AsistenciaPROA.jsp"; 
+	private static String ASISTENCIAPROA = "AsistenciaPROA.jsp";	
+	private static String VERSANCIONESSINDIAS = "SancionesSinDias.jsp";
+	private static String VERSANCIONESHOY = "Resumen.jsp";
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -35,15 +39,18 @@ public class AsistenciaServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RecreoDao recreoDao = new RecreoDao();
+		ReservaDiaSancionDao reservaDao = new ReservaDiaSancionDao();
 		PROADao proaDao = new PROADao();
 		String forward="";
 		String action = request.getParameter("action");
 		if (action.equalsIgnoreCase("asistenciaRecreo")) {
 			forward = ASISTENCIARECREO;
 			request.setAttribute("recreo", recreoDao.getAllAsistenciaRecreos());
+			request.setAttribute("reservare", reservaDao.getAllReservasRecreo());
 		} else if (action.equalsIgnoreCase("asistenciaPROA")) {
 			forward = ASISTENCIAPROA;
 			request.setAttribute("proa", proaDao.getAllAsistenciaPROAs());
+			request.setAttribute("reservaproa", reservaDao.getAllReservasPROA());
 		}
 		RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
@@ -54,6 +61,8 @@ public class AsistenciaServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("DoPost");
+		ReservaDiaSancionDao reservaDao = new ReservaDiaSancionDao();
+		String forward="";
 		
 		SancionDao sancionDao = new SancionDao();
 		String [] Array = request.getParameterValues("asistencia");
@@ -64,15 +73,14 @@ public class AsistenciaServlet extends HttpServlet {
 			String idAsistencia = Array[j];
 			Integer id = Integer.parseInt(idAsistencia);
 			System.out.println("idAsistencia " +id);
-			sancionDao.updateAsistencia(id);
+			reservaDao.updateAsistencia(id);
 			System.out.println("Database was updated");
 		}
 		
-		//CAMBIAR DESTINO
-		ParteDao parteDao = new ParteDao();
-		RequestDispatcher view = request.getRequestDispatcher("Partes.jsp");
-		request.setAttribute("partesSin", parteDao.getAllPartesSinSanciones());
-		request.setAttribute("partes", parteDao.getAllPartes());
+		forward = VERSANCIONESSINDIAS;
+		RequestDispatcher view = request.getRequestDispatcher(forward);
+		request.setAttribute("sancionSin", sancionDao.getAllSancionesSinDias());
+		request.setAttribute("sanciones", reservaDao.getAllRecreoPROA());
 		view.forward(request, response);			
 		} 
 

@@ -116,6 +116,7 @@ $(function(){
 								<th class="centrado">Fecha Inicio (Expulsión)</th>
 								<th class="centrado">Fecha Fin (Expulsión)</th>
 								<th class="centrado">&nbsp</th>
+								<th class="centrado">&nbsp</th>
 								
 							</tr>
 						</thead>
@@ -135,6 +136,9 @@ $(function(){
 								<td><a
 										href="SancionServlet?action=verSancion&id_sancion=<c:out value="${sancion.id_sancion}"/>"><i
 											class="glyphicon glyphicon-eye-open"></i></a></td>
+								<td><a
+										href="SancionServlet?action=eliminarSancion&id_sancion=<c:out value="${sancion.id_sancion}"/>" onclick="return confirm('¿Está seguro de eliminar?');"><i
+											class="glyphicon glyphicon-trash"></i></a></td>
 								</tr>
 							</c:forEach>
 						</tbody>

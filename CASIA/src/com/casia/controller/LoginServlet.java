@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.casia.dao.ReservaDiaSancionDao;
+import com.casia.dao.SancionDao;
 import com.casia.dao.UsuarioDao;
 import com.casia.entity.UsuarioEntity;
 
@@ -43,7 +45,10 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-        RequestDispatcher rd = null;        
+        RequestDispatcher rd = null;     
+        UsuarioDao usuarioDao = new UsuarioDao();
+        ReservaDiaSancionDao reservaDao = new ReservaDiaSancionDao();
+        SancionDao sancionDao = new SancionDao();
 
 		if (request.getParameter("btnEntrar") != null) {
 			String name_user = request.getParameter("name_user");
@@ -62,12 +67,18 @@ public class LoginServlet extends HttpServlet {
 					System.out.println("Entro en admin");
 					session.setAttribute("admin", rol_user);
 					session.setAttribute("name_user", name_user);
-					response.sendRedirect("PrincipalAdmin.jsp");
+					request.setAttribute("usuarios", usuarioDao.getAllUsuarios());
+					rd = request.getRequestDispatcher("AdmCrearUsuario.jsp");
+					rd.include(request, response);
 				} else if (rol_user.equals("directiva")) {
 					System.out.println("Entro en directiva");
 					session.setAttribute("directiva", rol_user);
 					session.setAttribute("user_name", name_user);
-					response.sendRedirect("Principal.jsp");
+					request.setAttribute("recreohoy", reservaDao.getAllRecreosHoy());
+					request.setAttribute("proahoy", reservaDao.getAllPROAsHoy());
+					request.setAttribute("expulsionact", sancionDao.getAllExpulsionesActiva());
+					rd = request.getRequestDispatcher("Resumen.jsp");
+					rd.include(request, response);
 				} else {
 					System.out.println("Error message = " + rol_user);
 					request.setAttribute("errMessage", rol_user);
@@ -75,7 +86,6 @@ public class LoginServlet extends HttpServlet {
 					rd.include(request, response);
 				}
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

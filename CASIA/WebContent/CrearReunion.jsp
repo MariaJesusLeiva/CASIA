@@ -253,22 +253,22 @@ function actualizaInfo(maximoCaracteres) {
 
 						<tr class="trreunion">
 							<td class="titulo">Temas Tratados</td>
-							<td class="form" colspan="3" class="w-75"><textarea
-									class="estilotextarea" id="textarea" name="temas_tratados"
+							<td class="form"><textarea
+									class="estilotextarea" id="textarea" name="inf_medica" 
+									value="<c:out value="${reunion.temas_tratados}" />"
 									onkeypress="return limita(event, 1000);"
-									onkeyup="actualizaInfo(1000)"
-									value="<c:out value="${reunion.temas_tratados}" />"></textarea>
+									onkeyup="actualizaInfo(1000)"></textarea>
 								<div id="info">Máximo 1000 caracteres</div></td>
 						</tr>						
 
 						<tr class="trreunion">
 							<td class="titulo">Conclusiones</td>
-							<td class="form" colspan="3" class="w-75"><textarea
-									class="estilotextarea" id="textarea2" name="conclusiones"
+							<td class="form"><textarea
+									class="estilotextarea" id="textarea" name="inf_medica" 
+									value="<c:out value="${reunion.conclusiones}" />"
 									onkeypress="return limita(event, 1000);"
-									onkeyup="actualizaInfo(1000)"
-									value="<c:out value="${reunion.conclusiones}" />"></textarea>
-								<div id="info2">Máximo 1000 caracteres</div></td>
+									onkeyup="actualizaInfo(1000)"></textarea>
+								<div id="info">Máximo 1000 caracteres</div></td>
 						</tr>
 						
 					</table>

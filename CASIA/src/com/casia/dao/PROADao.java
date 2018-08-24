@@ -11,27 +11,24 @@ import com.casia.config.conexionDB;
 import com.casia.entity.SancionEntity;
 
 public class PROADao {
-	
-private static Connection connection;
-	
-	public PROADao()
-	{
+
+	private static Connection connection;
+
+	public PROADao() {
 		connection = conexionDB.getConnection();
 	}
-	
+
 	public List<SancionEntity> getAllAsistenciaPROAs() {
 		List<SancionEntity> proas = new ArrayList<SancionEntity>();
-		try
-		{
+		try {
 			Statement statement = connection.createStatement();
 
-			ResultSet rs = statement.executeQuery("SELECT * FROM reservadiasancion r " + 
-										"INNER JOIN sancion s ON s.id_sancion=r.id_sancion " + 
-										"WHERE r.tipo_sancion= 'PROA' AND s.asistencia IS NULL " +
-										"ORDER BY r.fecha_inicio ASC");
-			
-			while (rs.next())
-			{
+			ResultSet rs = statement.executeQuery(
+					"SELECT * FROM reservadiasancion r INNER JOIN sancion s ON s.id_sancion=r.id_sancion "
+							+ "WHERE r.tipo_sancion= 'PROA' AND s.tipo_sancion= 'PROA' AND r.asistencia IS NULL "
+							+ "ORDER BY r.fecha_inicio ASC");
+
+			while (rs.next()) {
 				SancionEntity proa = new SancionEntity();
 				proa.setId_sancion(rs.getInt("id_sancion"));
 				proa.setId_parte(rs.getInt("id_parte"));
@@ -40,12 +37,10 @@ private static Connection connection;
 				proa.setTrabajo(rs.getString("trabajo"));
 				proa.setNombre_alum(rs.getString("nombre_alum"));
 				proa.setAsignado_dias(rs.getString("asignado_dias"));
-				
+
 				proas.add(proa);
 			}
-		}
-		catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return proas;

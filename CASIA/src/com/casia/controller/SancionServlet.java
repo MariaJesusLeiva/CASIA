@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -29,9 +28,10 @@ public class SancionServlet extends HttpServlet
 	private static final long serialVersionUID = 1L;
 	private static String CREARSANCION = "CrearSancion.jsp";
 	private static String VERSANCIONESSINDIAS = "SancionesSinDias.jsp";
-	private static String HISTORIAL = "Sanciones.jsp";
+	private static String VERTODASSANCION = "Sanciones.jsp";
 	private static String VERSANCION = "ConsultarSancion.jsp";
 	private static String MODIFICARSANCION = "ModificarSancion.jsp";
+	private static String EXPULSIONACTIVA = "AsistenciaExpulsion.jsp"; 
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -80,7 +80,7 @@ public class SancionServlet extends HttpServlet
 			request.setAttribute("sanciones", reservaDao.getAllRecreoPROA());
 			
 		} else if (action.equalsIgnoreCase("historialSanciones")) {
-			forward = HISTORIAL;
+			forward = VERTODASSANCION;
 			request.setAttribute("sanciones", sancionDao.getAllSanciones());
 			
 		} else if (action.equalsIgnoreCase("verSancion")) {
@@ -99,6 +99,16 @@ public class SancionServlet extends HttpServlet
 			forward = MODIFICARSANCION;			
 			int id_sancion = Integer.parseInt(request.getParameter("id_sancion"));
 			request.setAttribute("sancion", sancionDao.getSancionById(id_sancion)); 			
+		} else if (action.equalsIgnoreCase("eliminarSancion")) {
+			forward = VERTODASSANCION;
+			int id_sancion = Integer.parseInt(request.getParameter("id_sancion"));
+			sancionDao.deleteSancionById(id_sancion);
+			request.setAttribute("sanciones", sancionDao.getAllSanciones());			
+		} else if (action.equalsIgnoreCase("activaExpulsion")) {
+			forward = EXPULSIONACTIVA;
+			request.setAttribute("expulsionact", sancionDao.getAllExpulsionesActiva());
+			request.setAttribute("expulsiones", sancionDao.getAllExpulsiones());
+
 		}
 		
 		RequestDispatcher view = request.getRequestDispatcher(forward);
@@ -114,6 +124,7 @@ public class SancionServlet extends HttpServlet
 
 		SancionEntity sancionEnt = new SancionEntity();
 		SancionDao sancionDao = new SancionDao();
+		ReservaDiaSancionDao reservaDao = new ReservaDiaSancionDao();
 		Date fecha_inicio = null;
 		Date fecha_fin = null;
 		String forward="";
@@ -124,17 +135,11 @@ public class SancionServlet extends HttpServlet
 		sancionEnt.setTipo_sancion(request.getParameter("tipo_sancion"));
 		sancionEnt.setObservacion(request.getParameter("observacion"));
 		sancionEnt.setTrabajo(request.getParameter("trabajo"));
-		sancionEnt.setAsistencia(request.getParameter("asistencia"));
 		sancionEnt.setNombre_alum(request.getParameter("nombre_alum"));
 		
 		String id_sancion = request.getParameter("id_sancion");
 				
 		if(id_sancion == null || id_sancion.isEmpty()) {
-
-			/*List<SancionEntity> id;
-			id = (List<SancionEntity>)sancionDao.getAllSanciones();
-			Integer id_nuevo = id.size()+1;
-			sancionEnt.setId_sancion(id_nuevo);*/
 			
 			sancionDao.addSancion(sancionEnt);
 			System.out.println("Sancion creada");
@@ -171,7 +176,7 @@ public class SancionServlet extends HttpServlet
 				
 				sancionDao.updateSancionExpulsion(sancionEnt);
 				
-				forward = HISTORIAL;
+				forward = VERTODASSANCION;
 				request.setAttribute("sanciones", sancionDao.getAllSanciones());
 				RequestDispatcher view = request.getRequestDispatcher(forward);
 		        view.forward(request, response);
@@ -183,7 +188,6 @@ public class SancionServlet extends HttpServlet
 				Integer id_p = Integer.parseInt(request.getParameter("id_parte"));
 				parteDao.updateSancionParte(id_p);
 				forward = VERSANCIONESSINDIAS;
-				ReservaDiaSancionDao reservaDao = new ReservaDiaSancionDao();
 				RequestDispatcher view = request.getRequestDispatcher(forward);
 				request.setAttribute("sancionSin", sancionDao.getAllSancionesSinDias());
 				request.setAttribute("sanciones", reservaDao.getAllRecreoPROA());
@@ -191,14 +195,20 @@ public class SancionServlet extends HttpServlet
 			}
 			
 		} else {
-			id_snc = Integer.parseInt(request.getParameter("id_sancion"));			
+			
+			id_snc = Integer.parseInt(request.getParameter("id_sancion"));
 			sancionEnt.setId_sancion(id_snc);
+			String tipo_sanc = sancionDao.getTipoSancionById(id_snc);
+			String tipo_sancion =  request.getParameter("tipo_sancion");
 			sancionDao.updateSancion(sancionEnt);
+			if(tipo_sancion != tipo_sanc) {
+				sancionDao.reiniciarTotal_dias(id_snc);
+				reservaDao.deleteReservaById(id_snc);
+			}
+			
 			String total_dias = request.getParameter("total_dias");
 			System.out.println("total_dias " + total_dias);
 			sancionEnt.setTotal_dias(Integer.parseInt(total_dias));
-			String tipo_sancion =  request.getParameter("tipo_sancion");
-			System.out.println("tipo_sancion "+tipo_sancion);
 			
 			if (tipo_sancion.equals("Expulsión")) {
 				int id_p = Integer.parseInt(request.getParameter("id_parte"));
@@ -226,7 +236,7 @@ public class SancionServlet extends HttpServlet
 				
 				sancionDao.updateSancionExpulsion(sancionEnt);
 				
-				forward = HISTORIAL;
+				forward = VERTODASSANCION;
 				request.setAttribute("sanciones", sancionDao.getAllSanciones());
 				RequestDispatcher view = request.getRequestDispatcher(forward);
 		        view.forward(request, response);
@@ -239,7 +249,6 @@ public class SancionServlet extends HttpServlet
 				parteDao.updateSancionParte(id_p);
 
 				forward = VERSANCIONESSINDIAS;
-				ReservaDiaSancionDao reservaDao = new ReservaDiaSancionDao();
 				RequestDispatcher view = request.getRequestDispatcher(forward);
 				request.setAttribute("sancionSin", sancionDao.getAllSancionesSinDias());
 				request.setAttribute("sanciones", reservaDao.getAllRecreoPROA());
