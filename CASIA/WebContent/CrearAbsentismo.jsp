@@ -184,7 +184,7 @@ function limita(elEvento, maximoCaracteres) {
 							<td class="form"></td>
 						</tr>
 						<tr>
-							<td class="form"><input type="text" name="fechacita_fasedos" placeholder="dd-MM-yyyy"
+							<td style="text-align: center" class="form"><input type="text" name="fechacita_fasedos" placeholder="dd-MM-yyyy"
 								value="<c:out value="${absentismo.fechacita_fasedos}"/>"></td>
 							<td style="text-align: center" class="form"><input
 								type="time" name="horacita_fasedos"

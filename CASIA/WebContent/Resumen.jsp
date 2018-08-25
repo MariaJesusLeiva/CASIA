@@ -27,7 +27,7 @@
 					<table class="table table-sm">
 						<thead>
 							<tr>
-								<th class="centrado"><h2><b>RECREOS PARA HOY</b></h2></th>
+								<th class="centrado"><h4><b>RECREOS PARA HOY</b></h4></th>
 							</tr>
 						</thead>
 						<tbody class="centrado">
@@ -46,7 +46,7 @@
 					<table class="table table-sm">
 						<thead>
 							<tr>
-								<th class="centrado"><h2><b>PROAS PARA HOY</b></h2></th>
+								<th class="centrado"><h4><b>PROAS PARA HOY</b></h4></th>
 							</tr>
 						</thead>
 						<tbody class="centrado">
@@ -65,7 +65,7 @@
 					<table class="table table-sm">
 						<thead>
 							<tr>
-								<th class="centrado"><h2><b>EXPULSIONES EN CURSO</b></h2></th>
+								<th class="centrado"><h4><b>EXPULSIONES EN CURSO</b></h4></th>
 							</tr>
 						</thead>
 						<tbody class="centrado">

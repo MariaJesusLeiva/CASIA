@@ -94,7 +94,7 @@ function limita(elEvento, maximoCaracteres) {
 							<td class="form"><input type="number" min="1" max="9999999999" name="codigo"
 								value="<c:out value="${acoso.codigo}"/>" required></td>
 
-							<td class="titulo">Curso<span class="text-danger">* </span></td>
+							<td class="titulo">Curso <span class="text-danger">* </span></td>
 							<td class="form"><input type="text" name="curso"
 								size="10" placeholder="Ej. 17/18" value="<c:out value="${acoso.curso}" />"
 								required></td>							
@@ -102,9 +102,9 @@ function limita(elEvento, maximoCaracteres) {
 						<tr class="trfila">
 							<td class="titulo">Alumno <span class="text-danger">*</span></td>
 							<td class="form"><input type="text" name="nombre_alum"
-								size="40" placeholder="Apellido1 Apellido2, Nombre" value="<c:out value="${acoso.nombre_alum}"/>"
+								size="35" placeholder="Apellido1 Apellido2, Nombre" value="<c:out value="${acoso.nombre_alum}"/>"
 								required></td>
-							<td class="titulo">Grupo<span class="text-danger">*</span></td>
+							<td class="titulo">Grupo <span class="text-danger">*</span></td>
 							<td class="form"><input type="text" name="grupo" size="10"
 								placeholder="Ej. 2ºA" value="<c:out value="${acoso.grupo}"/>"
 								required></td>
@@ -122,9 +122,9 @@ function limita(elEvento, maximoCaracteres) {
 						<tr class="trfila">
 							<td class="titulo">Alumno <span class="text-danger">*</span></td>
 							<td class="form"><input type="text" name="nombre_alum2"
-								size="40" placeholder="Apellido1 Apellido2, Nombre" value="<c:out value="${acoso.nombre_alum}"/>"
+								size="35" placeholder="Apellido1 Apellido2, Nombre" value="<c:out value="${acoso.nombre_alum}"/>"
 								required></td>
-							<td class="titulo">Grupo<span class="text-danger">*</span></td>
+							<td class="titulo">Grupo <span class="text-danger">*</span></td>
 							<td class="form"><input type="text" name="grupo2" size="10"
 								placeholder="Ej. 2ºA" value="<c:out value="${acoso.grupo}"/>"
 								required></td>
@@ -138,14 +138,14 @@ function limita(elEvento, maximoCaracteres) {
 									</select>
 								</div></td>
 								</tr>
-							<%-- <tr class="trfila">
-							<td class="titulo">Fecha Reunión </td>
+							<tr class="trfila">
+							<td class="titulo">Fecha Reunión <span class="text-danger">*</span></td>
 							<td class="form"><input type="date" name="fecha_reunion" pattern="yyyy-MM-dd"
-								value="<c:out value="${acoso.fecha_reunion}"/>"	></td>
-							<td class="titulo">Hora Reunión </td>
+								value="<c:out value="${acoso.fecha_reunion}"/>"	required></td>
+							<td class="titulo">Hora Reunión <span class="text-danger">*</span></td>
 							<td class="form"><input
 								type="time" name="hora_reunion"
-								value="<c:out value="${acoso.hora_reunion}"/>"></td>
+								value="<c:out value="${acoso.hora_reunion}"/>"required></td>
 							</tr>
 							<tr class="trfila">
 							<td class="titulo">Asistentes</td>
@@ -155,7 +155,7 @@ function limita(elEvento, maximoCaracteres) {
 									onkeyup="actualizaInfo(500)"
 									value="<c:out value="${acoso.asistentes}" />"></textarea>
 								<div id="info">Máximo 500 caracteres</div></td>
-						</tr> --%>
+						</tr>
 
 						<tr class="trfila">
 							<td class="titulo">Información Aportada</td>

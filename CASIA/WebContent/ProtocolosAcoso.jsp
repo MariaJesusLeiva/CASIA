@@ -102,6 +102,8 @@ $(function(){
 								<th class="centrado">Curso</th>
 								<th class="centrado">Alumno Implicado</th>
 								<th class="centrado">Alumno Implicado</th>
+								<th class="centrado">Fecha Reunión</th>
+								<th class="centrado">Hora Reunión</th>
 								<th class="centrado">Inicio del Protocolo</th>
 								<th class="centrado">&nbsp</th>
 								<th class="centrado">&nbsp</th>
@@ -114,6 +116,8 @@ $(function(){
 									<td><c:out value="${acoso.curso}" /></td>
 									<td><c:out value="${acoso.nombre_alum}" /></td>
 									<td><c:out value="${acoso.nombre_alum2}" /></td>
+									<td><c:out value="${acoso.fecha_reunion}" /></td>
+									<td><c:out value="${acoso.hora_reunion}" /></td>
 									<td><c:out value="${acoso.inicio_protocolo}" /></td>
 									<td><a
 										href="AcosoServlet?action=verAcoso&id_acoso=<c:out value="${acoso.id_acoso}"/>"><i

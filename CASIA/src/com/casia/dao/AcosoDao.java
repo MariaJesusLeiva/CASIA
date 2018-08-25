@@ -23,14 +23,14 @@ private static Connection connection;
 	
 	public void addAcoso(AcosoEntity acosoEnt) {
 		try {
-			/*PreparedStatement preparedStatement = connection
-					.prepareStatement("INSERT INTO acoso(codigo, curso, grupo, grupo2, tipo, tipo2, nombre_alum, nombre_alum2, "
-							+ "inf_aportada, medidas, inicio_protocolo, fecha_reunion, hora_reunion, asistentes) "
-							+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");*/
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("INSERT INTO acoso(codigo, curso, grupo, grupo2, tipo, tipo2, nombre_alum, nombre_alum2, "
+							+ "inf_aportada, medidas, inicio_protocolo, asistentes, hora_reunion, fecha_reunion) "
+							+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			/*PreparedStatement preparedStatement = connection
+					.prepareStatement("INSERT INTO acoso(codigo, curso, grupo, grupo2, tipo, tipo2, nombre_alum, nombre_alum2, "
 							+ "inf_aportada, medidas, inicio_protocolo) "
-							+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+							+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");*/
 
 			preparedStatement.setInt(1, acosoEnt.getCodigo());
 			preparedStatement.setString(2, acosoEnt.getCurso());
@@ -42,10 +42,10 @@ private static Connection connection;
 			preparedStatement.setString(8, acosoEnt.getNombre_alum2());			
 			preparedStatement.setString(9, acosoEnt.getInf_aportada());			
 			preparedStatement.setString(10, acosoEnt.getMedidas());
-			preparedStatement.setString(11, acosoEnt.getInicio_protocolo());
-			//preparedStatement.setString(10, acosoEnt.getAsistentes());
-			/*preparedStatement.setString(12, acosoEnt.getHora_reunion());
-			preparedStatement.setDate(13, new java.sql.Date(acosoEnt.getFecha_reunion().getTime()));*/			
+			preparedStatement.setString(11, acosoEnt.getInicio_protocolo());			
+			preparedStatement.setString(12, acosoEnt.getAsistentes());
+			preparedStatement.setString(13, acosoEnt.getHora_reunion());
+			preparedStatement.setDate(14, new java.sql.Date(acosoEnt.getFecha_reunion().getTime()));			
 			
 			preparedStatement.executeUpdate();
 
@@ -56,7 +56,7 @@ private static Connection connection;
 	
 	public void updateAcoso(AcosoEntity acosoEnt) {
 		try {
-			/*PreparedStatement preparedStatement = connection
+			PreparedStatement preparedStatement = connection
 					.prepareStatement("UPDATE acoso SET codigo=?, curso=?, grupo=?, grupo2=?, tipo=?, tipo2=?, nombre_alum=?, nombre_alum2=?, " + 
 							"inf_aportada=?, medidas=?, inicio_protocolo=?, fecha_reunion=?, hora_reunion=?, asistentes=? " +
 							"WHERE id_acoso=?");
@@ -69,15 +69,17 @@ private static Connection connection;
 			preparedStatement.setString(6, acosoEnt.getTipo2());
 			preparedStatement.setString(7, acosoEnt.getNombre_alum());
 			preparedStatement.setString(8, acosoEnt.getNombre_alum2());
-			preparedStatement.setDate(9, new java.sql.Date(acosoEnt.getFecha_reunion().getTime()));
-			preparedStatement.setString(10, acosoEnt.getHora_reunion());
-			preparedStatement.setString(11, acosoEnt.getInf_aportada());
-			preparedStatement.setString(12, acosoEnt.getMedidas());
-			preparedStatement.setString(13, acosoEnt.getAsistentes());
-			preparedStatement.setString(14, acosoEnt.getInicio_protocolo());
+			preparedStatement.setString(9, acosoEnt.getInf_aportada());
+			preparedStatement.setString(10, acosoEnt.getMedidas());
+			preparedStatement.setString(11, acosoEnt.getInicio_protocolo());
+			preparedStatement.setDate(12, new java.sql.Date(acosoEnt.getFecha_reunion().getTime()));
+			preparedStatement.setString(13, acosoEnt.getHora_reunion());
+			preparedStatement.setString(14, acosoEnt.getAsistentes());
+			
 			preparedStatement.setInt(15, acosoEnt.getId_acoso());
-			preparedStatement.executeUpdate();*/
-			PreparedStatement preparedStatement = connection
+			preparedStatement.executeUpdate();
+			
+			/*PreparedStatement preparedStatement = connection
 					.prepareStatement("UPDATE acoso SET codigo=?, curso=?, grupo=?, grupo2=?, tipo=?, tipo2=?, nombre_alum=?, nombre_alum2=?, " + 
 							"inf_aportada=?, medidas=?, inicio_protocolo=? " +
 							"WHERE id_acoso=?");
@@ -94,7 +96,7 @@ private static Connection connection;
 			preparedStatement.setString(10, acosoEnt.getMedidas());
 			preparedStatement.setString(11, acosoEnt.getInicio_protocolo());
 			preparedStatement.setInt(12, acosoEnt.getId_acoso());
-			preparedStatement.executeUpdate();
+			preparedStatement.executeUpdate();*/
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -126,8 +128,8 @@ private static Connection connection;
 				acoso.setId_acoso(rs.getInt("id_acoso"));
 				acoso.setCodigo(rs.getInt("codigo"));
 				acoso.setCurso(rs.getString("curso"));
-				//acoso.setFecha_reunion(rs.getDate("fecha_reunion"));
-				//acoso.setHora_reunion(rs.getString("hora_reunion"));
+				acoso.setFecha_reunion(rs.getDate("fecha_reunion"));
+				acoso.setHora_reunion(rs.getString("hora_reunion"));
 				acoso.setGrupo(rs.getString("grupo"));
 				acoso.setGrupo2(rs.getString("grupo2"));
 				acoso.setTipo(rs.getString("tipo"));
@@ -136,7 +138,7 @@ private static Connection connection;
 				acoso.setNombre_alum2(rs.getString("nombre_alum2"));				
 				acoso.setInf_aportada(rs.getString("inf_aportada"));
 				acoso.setMedidas(rs.getString("medidas"));
-				//acoso.setAsistentes(rs.getString("asistentes"));
+				acoso.setAsistentes(rs.getString("asistentes"));
 				acoso.setInicio_protocolo(rs.getString("inicio_protocolo"));
 								
 				acosos.add(acoso);
@@ -161,8 +163,8 @@ private static Connection connection;
 				acoso.setId_acoso(rs.getInt("id_acoso"));
 				acoso.setCodigo(rs.getInt("codigo"));
 				acoso.setCurso(rs.getString("curso"));
-				//acoso.setFecha_reunion(rs.getDate("fecha_reunion"));
-				//acoso.setHora_reunion(rs.getString("hora_reunion"));
+				acoso.setFecha_reunion(rs.getDate("fecha_reunion"));
+				acoso.setHora_reunion(rs.getString("hora_reunion"));
 				acoso.setGrupo(rs.getString("grupo"));
 				acoso.setGrupo2(rs.getString("grupo2"));
 				acoso.setTipo(rs.getString("tipo"));
@@ -171,7 +173,7 @@ private static Connection connection;
 				acoso.setNombre_alum2(rs.getString("nombre_alum2"));				
 				acoso.setInf_aportada(rs.getString("inf_aportada"));
 				acoso.setMedidas(rs.getString("medidas"));
-				//acoso.setAsistentes(rs.getString("asistentes"));
+				acoso.setAsistentes(rs.getString("asistentes"));
 				acoso.setInicio_protocolo(rs.getString("inicio_protocolo"));
 			}
 		} catch (SQLException e) {

@@ -5,7 +5,7 @@
     <welcome-file>Login.jsp</welcome-file>
   </welcome-file-list>
   <session-config>
-    <session-timeout>10</session-timeout>
+    <session-timeout>20</session-timeout>
   </session-config>
   <servlet>
     <description></description>
@@ -127,7 +127,7 @@
     <servlet-name>InfJuridicaServlet</servlet-name>
     <url-pattern>/InfJuridicaServlet</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>AcosoServlet</display-name>
     <servlet-name>AcosoServlet</servlet-name>
@@ -136,5 +136,15 @@
   <servlet-mapping>
     <servlet-name>AcosoServlet</servlet-name>
     <url-pattern>/AcosoServlet</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>AlumnoServlet</display-name>
+    <servlet-name>AlumnoServlet</servlet-name>
+    <servlet-class>com.casia.controller.AlumnoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AlumnoServlet</servlet-name>
+    <url-pattern>/AlumnoServlet</url-pattern>
   </servlet-mapping>
 </web-app>

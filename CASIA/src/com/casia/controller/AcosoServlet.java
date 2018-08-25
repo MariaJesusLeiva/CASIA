@@ -7,15 +7,12 @@ import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.casia.dao.AcosoDao;
-import com.casia.dao.ReunionDao;
 import com.casia.entity.AcosoEntity;
-import com.casia.entity.ReunionEntity;
 
 /**
  * Servlet implementation class AcosoServlet
@@ -77,7 +74,7 @@ public class AcosoServlet extends HttpServlet {
 		String codigo = request.getParameter("codigo");
 		acosoEnt.setCodigo(Integer.parseInt(codigo));
 		acosoEnt.setCurso(request.getParameter("curso"));
-		//acosoEnt.setHora_reunion(request.getParameter("hora_reunion"));
+		acosoEnt.setHora_reunion(request.getParameter("hora_reunion"));
 		acosoEnt.setGrupo(request.getParameter("grupo"));
 		acosoEnt.setGrupo2(request.getParameter("grupo2"));
 		acosoEnt.setTipo(request.getParameter("tipo"));
@@ -86,15 +83,15 @@ public class AcosoServlet extends HttpServlet {
 		acosoEnt.setNombre_alum2(request.getParameter("nombre_alum2"));				
 		acosoEnt.setInf_aportada(request.getParameter("inf_aportada"));
 		acosoEnt.setMedidas(request.getParameter("medidas"));
-		//acosoEnt.setAsistentes(request.getParameter("asistentes"));
+		acosoEnt.setAsistentes(request.getParameter("asistentes"));
 		acosoEnt.setInicio_protocolo(request.getParameter("inicio_protocolo"));
 		
-		/*try {
+		try {
 			fecha_reunion = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("fecha_reunion"));
 			acosoEnt.setFecha_reunion(fecha_reunion);
 		} catch (ParseException e) {
 			e.printStackTrace();
-		}*/
+		}
 		
 		String id_acs = request.getParameter("id_acoso");
 		if(id_acs == null || id_acs.isEmpty()) {

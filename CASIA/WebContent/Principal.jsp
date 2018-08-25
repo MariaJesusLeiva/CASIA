@@ -74,9 +74,9 @@
 					</ul></li>
 
 			</ul>
-			<form class="navbar-form navbar-left" role="search">
+			<form method="POST" action='AlumnoServlet' class="navbar-form navbar-left" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" size=40 placeholder="Apellido1 Apellido2, Nombre">
+          <input type="text" class="form-control" name="nombre_alum" size=40 placeholder="Apellido1 Apellido2, Nombre">
         </div>
         <button class="btn btn-primary w-100 no-print" type="submit">Buscar</button>
       </form>

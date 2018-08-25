@@ -38,7 +38,7 @@
 							<td class="titulo">Código <span class="text-danger">*</span></td>
 							<td class="form"><input class="estilofondogris" type="number" min="1" max="9999999999" name="codigo"
 								value="<c:out value="${acoso.codigo}"/>" readonly="readonly"></td>
-							<td class="titulo">Curso<span class="text-danger">*</span></td>
+							<td class="titulo">Curso <span class="text-danger">*</span></td>
 							<td class="form"><input class="estilofondogris" type="text" name="curso"
 								size="10" value="<c:out value="${acoso.curso}" />"
 								readonly="readonly"></td>							
@@ -46,9 +46,9 @@
 						<tr class="trfila">
 							<td class="titulo">Alumno <span class="text-danger">*</span></td>
 							<td class="form"><input class="estilofondogris" type="text" name="nombre_alum"
-								size="40" value="<c:out value="${acoso.nombre_alum}"/>"
+								size="35" value="<c:out value="${acoso.nombre_alum}"/>"
 								readonly="readonly"></td>
-							<td class="titulo">Grupo<span class="text-danger">*</span></td>
+							<td class="titulo">Grupo <span class="text-danger">*</span></td>
 							<td class="form"><input class="estilofondogris" type="text" name="grupo" size="10" value="<c:out value="${acoso.grupo}"/>"
 								readonly="readonly"></td>
 						</tr>
@@ -60,9 +60,9 @@
 						<tr class="trfila">
 							<td class="titulo">Alumno <span class="text-danger">*</span></td>
 							<td class="form"><input class="estilofondogris" type="text" name="nombre_alum2"
-								size="40" value="<c:out value="${acoso.nombre_alum}"/>"
+								size="35" value="<c:out value="${acoso.nombre_alum}"/>"
 								readonly="readonly"></td>
-							<td class="titulo">Grupo<span class="text-danger">*</span></td>
+							<td class="titulo">Grupo <span class="text-danger">*</span></td>
 							<td class="form"><input class="estilofondogris" type="text" name="grupo2" size="10"	value="<c:out value="${acoso.grupo}"/>"
 								readonly="readonly"></td>
 						<tr class="trfila2">	
@@ -70,7 +70,7 @@
 							<td colspan ="3" class="form"><input class="estilofondogris" type="text"
 								name="tipo2" readonly="readonly" value="<c:out value="${acoso.tipo2}"/>"></td>
 								</tr>
-							<%-- <tr class="trfila">
+						<tr class="trfila">
 							<td class="titulo">Fecha Reunión <span class="text-danger">*</span></td>
 							<td class="form"><input class="estilofondogris" type="date" name="fecha_reunion" readonly="readonly"
 								value="<c:out value="${acoso.fecha_reunion}"/>"
@@ -79,12 +79,14 @@
 							<td class="form"><input class="estilofondogris"
 								type="time" name="hora_reunion"
 								value="<c:out value="${acoso.hora_reunion}"/>"readonly="readonly"></td>
+							</tr>
+							<tr class="trfila">
 							<td class="titulo">Asistentes</td>
 							<td colspan="3" class="form"><textarea
 									class="estilotextareacongris" id="textarea"
 									name="asistentes" readonly="readonly"><c:out
 										value="${acoso.asistentes}" /></textarea>
-						</tr> --%>
+						</tr>
 
 						<tr class="trfila">
 							<td class="titulo">Información Aportada</td>

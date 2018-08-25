@@ -18,7 +18,7 @@
 		}
 	%>
 
-	<div class="navbar navbar-light" style="background-color: #D6E6F4;">
+	<div class="navbar navbar-light" style="background-color: #D6E6F4; border-bottom: 1px #41719C solid; border-top: 1px #41719C solid;">
 		<div class="container">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="Principal.jsp">CASIA</a>

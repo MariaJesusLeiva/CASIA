@@ -40,7 +40,7 @@ private static Connection connection;
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("INSERT INTO sancion(id_parte, tipo_sancion, "
 							+ "observacion, trabajo, nombre_alum, asignado_dias) "
-							+ "VALUES (?, ?, ?, ?, ?, ?, ?)");
+							+ "VALUES (?, ?, ?, ?, ?, ?)");
 
 			preparedStatement.setInt(1, sancionEnt.getId_parte());
 			preparedStatement.setString(2, sancionEnt.getTipo_sancion());

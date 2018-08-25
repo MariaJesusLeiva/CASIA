@@ -39,6 +39,7 @@ public class AsistenciaServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RecreoDao recreoDao = new RecreoDao();
+		SancionDao sancionDao = new SancionDao();
 		ReservaDiaSancionDao reservaDao = new ReservaDiaSancionDao();
 		PROADao proaDao = new PROADao();
 		String forward="";
@@ -51,6 +52,11 @@ public class AsistenciaServlet extends HttpServlet {
 			forward = ASISTENCIAPROA;
 			request.setAttribute("proa", proaDao.getAllAsistenciaPROAs());
 			request.setAttribute("reservaproa", reservaDao.getAllReservasPROA());
+		} else if (action.equalsIgnoreCase("sancionesHoy")) {
+			forward = VERSANCIONESHOY;
+			request.setAttribute("recreohoy", reservaDao.getAllRecreosHoy());
+			request.setAttribute("proahoy", reservaDao.getAllPROAsHoy());
+			request.setAttribute("expulsionact", sancionDao.getAllExpulsionesActiva());
 		}
 		RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
