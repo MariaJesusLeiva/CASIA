@@ -118,7 +118,7 @@ function actualizaInfo(maximoCaracteres) {
 		<h3 class="titulo pb-2 pt-2">Formulario para Asignar los Días de Sanción para el Alumno (<%=session.getAttribute("alumsancion")%>)</h3>
 
 	</div>
-	</br>
+	<br/>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">

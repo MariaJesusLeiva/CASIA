@@ -364,4 +364,21 @@ private static Connection connection;
 
 		return sancion;
 	}
+	
+	public SancionEntity getAlumRecreoByIdSancion(int id_sancion) {
+		SancionEntity alumrecreo = new SancionEntity();
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("SELECT * FROM sancion WHERE id_sancion=?");
+			preparedStatement.setInt(1, id_sancion);
+			ResultSet rs = preparedStatement.executeQuery();
+
+			if (rs.next()) {
+				alumrecreo.setNombre_alum(rs.getString("nombre_alum"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return alumrecreo;
+	}
 }

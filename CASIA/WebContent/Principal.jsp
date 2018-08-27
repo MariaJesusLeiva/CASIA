@@ -23,7 +23,8 @@
 	<div class="navbar navbar-light" style="background-color: #D6E6F4; border-bottom: 1px #41719C solid; border-top: 1px #41719C solid;">
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="AsistenciaServlet?action=sancionesHoy">CASIA</a>
+				<a class="navbar-brand" href="AsistenciaServlet?action=sancionesHoy">CASIA <i
+											class="glyphicon glyphicon-home"></i></a>				
 			</div>
 			<ul style="background-color: #D6E6F4;" class="nav navbar-nav" >
 				<li class="dropdown"><a style="background-color: #D6E6F4;" href="#" class="dropdown-toggle"
@@ -72,14 +73,23 @@
 						<li><a href="CrearProtocoloAcoso.jsp">Protocolo Acoso</a></li>
 						<li><a href="AcosoServlet?action=verAcosos">Protocolos</a></li>
 					</ul></li>
+				<li class="dropdown"><a style="background-color: #D6E6F4;" href="#" class="dropdown-toggle"
+					data-toggle="dropdown"> Informes <b class="caret"></b>
+				</a>
+					<ul style="background-color: #D6E6F4;" class="dropdown-menu">
+						<li><a href="InformeRecreoServlet?action=verInfRecreo">Recreos</a></li>
+						<li><a href="InformePROAServlet?action=verInfPROA">PROAs</a></li>
+						<li><a href="InformeAbsentismoServlet?action=verInfAbsentismo">Absentismo</a></li>
+					</ul></li>
 
 			</ul>
-			<form method="POST" action='AlumnoServlet' class="navbar-form navbar-left" role="search">
+			<form method="POST" action='AlumnoServlet' class="navbar-form navbar-right" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" name="nombre_alum" size=40 placeholder="Apellido1 Apellido2, Nombre">
+          <input type="text" class="form-control" name="nombre_alum" size=30 placeholder="Apellido1 Apellido2, Nombre">
         </div>
         <button class="btn btn-primary w-100 no-print" type="submit">Buscar</button>
       </form>
+      
       <ul class="nav navbar-nav navbar-right">
         <li><a style="background-color: #D6E6F4;" href="LogoutServlet?action=salir">Salir</a></li>
         

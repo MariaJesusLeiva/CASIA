@@ -137,7 +137,7 @@
     <servlet-name>AcosoServlet</servlet-name>
     <url-pattern>/AcosoServlet</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>AlumnoServlet</display-name>
     <servlet-name>AlumnoServlet</servlet-name>
@@ -146,5 +146,35 @@
   <servlet-mapping>
     <servlet-name>AlumnoServlet</servlet-name>
     <url-pattern>/AlumnoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>InformeRecreoServlet</display-name>
+    <servlet-name>InformeRecreoServlet</servlet-name>
+    <servlet-class>com.casia.controller.InformeRecreoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InformeRecreoServlet</servlet-name>
+    <url-pattern>/InformeRecreoServlet</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>InformePROAServlet</display-name>
+    <servlet-name>InformePROAServlet</servlet-name>
+    <servlet-class>com.casia.controller.InformePROAServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InformePROAServlet</servlet-name>
+    <url-pattern>/InformePROAServlet</url-pattern>
+  </servlet-mapping>
+   <servlet>
+      <description></description>
+    <display-name>InformeAbsentismoServlet</display-name>
+    <servlet-name>InformeAbsentismoServlet</servlet-name>
+    <servlet-class>com.casia.controller.InformeAbsentismoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InformeAbsentismoServlet</servlet-name>
+    <url-pattern>/InformeAbsentismoServlet</url-pattern>
   </servlet-mapping>
 </web-app>

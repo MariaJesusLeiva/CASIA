@@ -24,20 +24,20 @@
 				<form name="form"
 					action="<%=request.getContextPath()%>/LoginServlet" method="post">
 					<img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive"
-						alt="" /> </br></br> 
+						alt="" /> <br/><br/>
 						<input type="text" name="name_user" placeholder="Usuario"
-						required="required" class="form-control input-lg" /> </br>
+						required class="form-control input-lg" /> <br/>
 						<input type="password" class="form-control input-lg" name="pass_user"
-						placeholder="Contrase&ntilde;a" required="required" />
-						</br></br>
-						<table>
+						placeholder="Contrase&ntilde;a" required />
+<br/><br/>
+					
+					<button type="submit" name="btnEntrar"
+						class="btn btn-lg btn-primary btn-block">Entrar</button>
+					<table>
 						<tr>
 							<td style="text-align: center"><span style="color: red"><%=(request.getAttribute("errMessage") == null) ? "" : request.getAttribute("errMessage")%></span></td>
 						</tr>
-					</table>
-					<button type="submit" name="btnEntrar"
-						class="btn btn-lg btn-primary btn-block">Entrar</button>
-						
+					</table>	
 				</form>
 				</div>
 			</div>

@@ -1,5 +1,5 @@
  body{
-    padding: 50px;
+    
     background-color: #D6E6F4;
 }
 .modal-dialog {
@@ -25,11 +25,14 @@
 
 .login-form {
 	margin-top: 100px;
-	max-width: 1500px;
-	height: 320px;
-	border: 1px solid #9C9C9C;
+	max-width: 400px;
+	height: 350px;
+	width: 400px;
+	border: 2px solid #9C9C9C;
 	background-color: #EAEAEA;
+	padding: 50px;
 }
+
 
 /* 
 body {

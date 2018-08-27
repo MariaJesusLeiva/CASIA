@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.casia.config.conexionDB;
-import com.casia.entity.ParteEntity;
-import com.casia.entity.SancionEntity;
 import com.casia.entity.UsuarioEntity;
 
 public class UsuarioDao {

@@ -4,17 +4,14 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.casia.dao.PROADao;
-import com.casia.dao.ParteDao;
-import com.casia.dao.RecreoDao;
+
 import com.casia.dao.ReservaDiaSancionDao;
 import com.casia.dao.SancionDao;
-import com.casia.entity.ParteEntity;
+
 
 /**
  * Servlet implementation class AsistenciaServlet
@@ -38,19 +35,18 @@ public class AsistenciaServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RecreoDao recreoDao = new RecreoDao();
+		
 		SancionDao sancionDao = new SancionDao();
 		ReservaDiaSancionDao reservaDao = new ReservaDiaSancionDao();
-		PROADao proaDao = new PROADao();
 		String forward="";
 		String action = request.getParameter("action");
 		if (action.equalsIgnoreCase("asistenciaRecreo")) {
 			forward = ASISTENCIARECREO;
-			request.setAttribute("recreo", recreoDao.getAllAsistenciaRecreos());
+			request.setAttribute("recreo", reservaDao.getAllAsistenciaRecreos());
 			request.setAttribute("reservare", reservaDao.getAllReservasRecreo());
 		} else if (action.equalsIgnoreCase("asistenciaPROA")) {
 			forward = ASISTENCIAPROA;
-			request.setAttribute("proa", proaDao.getAllAsistenciaPROAs());
+			request.setAttribute("proa", reservaDao.getAllAsistenciaPROAs());
 			request.setAttribute("reservaproa", reservaDao.getAllReservasPROA());
 		} else if (action.equalsIgnoreCase("sancionesHoy")) {
 			forward = VERSANCIONESHOY;

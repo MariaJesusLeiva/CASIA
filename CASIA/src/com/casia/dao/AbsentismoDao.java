@@ -312,5 +312,4 @@ public class AbsentismoDao {
 
 		return absentismo;
 	}
-
 }
