@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@page import="com.casia.entity.SancionEntity"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -14,6 +13,7 @@
 	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/md5.js"></script>
 <link href="css/estilo2.css" rel="stylesheet" type="text/css">
 <title>Modificar Usuario</title>
 </head>
@@ -96,8 +96,8 @@ $(function(){
 						</tr>
 						<tr class="trfila">
 							<td class="titulo">Contraseña <span class="text-danger">*</span>
-							<td class="form"><input type="text"	name="pass_user" required
-								value="<c:out value="${usuario.pass_user}" />"></td>
+							<td class="form"><input type="text"	required name="pass_usermd5" onkeyup="this.form.pass_user.value=md5(this.form.pass_usermd5.value)"
+								><input type="hidden" name="pass_user"></td>
 						</tr>
 
 					</table>
@@ -131,7 +131,6 @@ $(function(){
 						<thead>
 							<tr>
 								<th class="centrado">Usuario</th>
-								<th class="centrado">Contraseña</th>
 								<th class="centrado">&nbsp</th>
 								<th class="centrado">&nbsp</th>
 							</tr>
@@ -140,7 +139,6 @@ $(function(){
 							<c:forEach items="${usuarios}" var="user">
 								<tr>
 									<td><c:out value="${user.name_user}" /></td>
-									<td><c:out value="${user.pass_user}" /></td>
 									<td><a
 										href="UsuarioServlet?action=modificarUsuario&id_user=<c:out value="${user.id_user}"/>"><i
 											class="glyphicon glyphicon-pencil"></i></a></td>

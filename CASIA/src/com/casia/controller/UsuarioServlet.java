@@ -65,6 +65,8 @@ public class UsuarioServlet extends HttpServlet {
 		Integer id_user;
 		String rol_user = "directiva";
 		String forward= "";
+		String pass2 = null;
+		
 		
 		usuarioEnt.setName_user(request.getParameter("name_user"));
 		usuarioEnt.setPass_user(request.getParameter("pass_user"));
@@ -78,13 +80,15 @@ public class UsuarioServlet extends HttpServlet {
 			id = (List<UsuarioEntity>)usuarioDao.getAllUsuarios();
 			Integer id_nuevo = id.size()+1;
 			usuarioEnt.setId_user(id_nuevo);
+			System.out.println("contraseña crear: "+ request.getParameter("pass_user"));
 			usuarioDao.addUsuario(usuarioEnt);
 			forward = CREARUSUARIO;
 			request.setAttribute("usuarios", usuarioDao.getAllUsuarios());
 			RequestDispatcher view = request.getRequestDispatcher(forward);
 			view.forward(request, response);
 		} else {
-			id_user = Integer.parseInt(request.getParameter("id_user"));			
+			id_user = Integer.parseInt(request.getParameter("id_user"));
+			System.out.println("contraseña: "+ request.getParameter("pass_user"));
 			usuarioEnt.setId_user(id_user);
 			usuarioDao.updateUsuario(usuarioEnt);
 			forward = CREARUSUARIO;

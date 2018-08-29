@@ -11,6 +11,7 @@
 	rel="stylesheet" id="bootstrap-css">
 <script	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/md5.js"></script>
 <link href="css/login.css" rel="stylesheet" type="text/css">
 <title>Bienvenido a CASIA</title>
 </head>
@@ -27,8 +28,9 @@
 						alt="" /> <br/><br/>
 						<input type="text" name="name_user" placeholder="Usuario"
 						required class="form-control input-lg" /> <br/>
-						<input type="password" class="form-control input-lg" name="pass_user"
+						<input type="password" class="form-control input-lg" name="pass_usermd5" onkeyup="this.form.pass_user.value=md5(this.form.pass_usermd5.value)"
 						placeholder="Contrase&ntilde;a" required />
+						<input type="hidden" name="pass_user">
 <br/><br/>
 					
 					<button type="submit" name="btnEntrar"
