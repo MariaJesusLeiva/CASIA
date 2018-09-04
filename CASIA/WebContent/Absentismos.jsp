@@ -13,7 +13,6 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/estilo2.css" rel="stylesheet" type="text/css">
-
 <title>Historial Absentismos</title>
 </head>
 <%@ include file="Principal.jsp"%>
