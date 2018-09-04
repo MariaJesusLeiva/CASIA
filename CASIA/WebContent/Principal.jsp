@@ -55,7 +55,7 @@
 					</ul></li>
 				<li class="dropdown"><a style="background-color: #D6E6F4;"
 					href="#" class="dropdown-toggle" data-toggle="dropdown">
-						Absentismo <b class="caret"></b>
+						Absentismos <b class="caret"></b>
 				</a>
 					<ul style="background-color: #D6E6F4;" class="dropdown-menu">
 						<li><a href="CrearAbsentismo.jsp">Añadir</a></li>
@@ -67,7 +67,7 @@
 				</a>
 					<ul style="background-color: #D6E6F4;" class="dropdown-menu">
 						<li><a href="ReunionServlet?action=crearReunion">Acta
-								Reunion</a></li>
+								Reunión</a></li>
 						<li><a href="ReunionServlet?action=verReuniones">Reuniones</a></li>
 						<li><div style="border-top: 2px #41719C solid"
 								class="dropdown-divider"></div></li>
@@ -100,7 +100,7 @@
 						<li><a href="InformeRecreoServlet?action=verInfRecreo">Recreos</a></li>
 						<li><a href="InformePROAServlet?action=verInfPROA">PROAs</a></li>
 						<li><a
-							href="InformeAbsentismoServlet?action=verInfAbsentismo">Absentismo</a></li>
+							href="InformeAbsentismoServlet?action=verInfAbsentismo">Absentismos</a></li>
 					</ul></li>
 			</ul>
 			<form class="navbar-form navbar-left" method="POST"

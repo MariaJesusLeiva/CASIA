@@ -37,8 +37,24 @@
 							</tr>
 							<tr class="trfila">
 								<td class="titulo">Mes:</td>
-								<td class="form"><input type="text" name="mes" required
-									value="<c:out value="${absentismo.mes}" />"></td>
+								<td class="form"><div class="select-wrapper">
+									<select name="mes"
+										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;"
+										required>
+										<option value="Enero">Enero</option>
+										<option value="Febrero">Febrero</option>
+										<option value="Marzo">Marzo</option>
+										<option value="Abril">Abril</option>
+										<option value="Mayo">Mayo</option>
+										<option value="Junio">Junio</option>
+										<option value="Julio">Julio</option>
+										<option value="Agosto">Agosto</option>
+										<option value="Septiembre">Septiembre</option>
+										<option value="Octubre">Octubre</option>
+										<option value="Noviembre">Noviembre</option>
+										<option value="Diciembre">Diciembre</option>
+									</select>
+								</div>
 							</tr>
 						</table>
 						<button class="btn btn-primary w-100 no-print" type="submit">Informe</button>
@@ -65,6 +81,7 @@
 					<table class="table table-hover" id="task-table">
 						<thead>
 							<tr>
+								<th class="centrado">Curso</th>
 								<th class="centrado">Alumno</th>
 								<th class="centrado">Fase</th>
 								<th class="centrado">Fase 1</th>
@@ -77,6 +94,7 @@
 						<tbody class="centrado">
 							<c:forEach items="${abs}" var="abs">
 								<tr>
+									<td><c:out value="${abs.curso}" /></td>
 									<td><c:out value="${abs.nombre_alum}" /></td>
 									<td><c:out value="${abs.fase_actual}" /></td>
 									<td><c:out value="${abs.mes_faseuno}" /></td>
