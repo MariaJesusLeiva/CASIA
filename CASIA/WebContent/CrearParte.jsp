@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -21,55 +20,7 @@
 </head>
 <%@ include file="Principal.jsp"%>
 <body>
-	<script language="javascript">
-		function atras() {
-			history.back();
-		}
-		function actualizar() {
-			location.reload();
-		}
-		function adelante() {
-			history.forward();
-		}
-	</script>
-
-
-	<script>
-function limita(elEvento, maximoCaracteres) {
-  var elemento = document.getElementById("textmotivo");
-
-  // Obtener la tecla pulsada 
-  var evento = elEvento || window.event;
-  var codigoCaracter = evento.charCode || evento.keyCode;
-  // Permitir utilizar las teclas con flecha horizontal
-  if(codigoCaracter == 37 || codigoCaracter == 39) {
-    return true;
-  }
-
-  // Permitir borrar con la tecla Backspace y con la tecla Supr.
-  if(codigoCaracter == 8 || codigoCaracter == 46) {
-    return true;
-  }
-  else if(elemento.value.length >= maximoCaracteres ) {
-    return false;
-  }
-  else {
-    return true;
-  }
-}
-
-function actualizaInfo(maximoCaracteres) {
-  var elemento = document.getElementById("textmotivo");
-  var info = document.getElementById("info");
-
-  if(elemento.value.length > maximoCaracteres ) {
-    info.innerHTML = "Sobrepasa caracteres permitidos";
-  }  else {
-    info.innerHTML = (maximoCaracteres-elemento.value.length)+" Caracteres restantes";
-  }
-}
-</script>
-	<div class="text-white text-center d-block mb-1">
+<div class="text-white text-center d-block mb-1">
 		<h3 class="titulo pb-2 pt-2">Formulario para Parte de Convivencia</h3>
 
 	</div>
@@ -135,5 +86,36 @@ function actualizaInfo(maximoCaracteres) {
 			<div class="col-md-3"></div>
 		</div>
 	</div>
+<script>
+function atras(){history.back();}
+</script>
+
+<script>
+function limita(elEvento, maximoCaracteres) {
+  var elemento = document.getElementById("textmotivo");
+  var evento = elEvento || window.event;// Obtener la tecla pulsada 
+  var codigoCaracter = evento.charCode || evento.keyCode;
+   if(codigoCaracter == 37 || codigoCaracter == 39) {// Permitir utilizar las teclas con flecha horizontal
+    return true;
+  }
+  if(codigoCaracter == 8 || codigoCaracter == 46) {// Permitir borrar con la tecla Backspace y con la tecla Supr.
+    return true;
+  } else if(elemento.value.length >= maximoCaracteres ) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function actualizaInfo(maximoCaracteres) {
+  var elemento = document.getElementById("textmotivo");
+  var info = document.getElementById("info");
+  if(elemento.value.length > maximoCaracteres ) {
+    info.innerHTML = "Sobrepasa caracteres permitidos";
+  } else {
+    info.innerHTML = (maximoCaracteres-elemento.value.length)+" Caracteres restantes";
+  }
+}
+</script>
 </body>
 </html>

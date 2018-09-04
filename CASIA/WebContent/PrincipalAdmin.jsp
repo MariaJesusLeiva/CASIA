@@ -8,7 +8,6 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script	src="/bootstrap/js/bootstrap.min.js"></script>
 <script src="/scripts/jquery.min.js"></script>
-
 <title>Bienvenido a CASIA</title>
 </head>
 <body>
@@ -17,25 +16,20 @@
 			response.sendRedirect("Login.jsp");
 		}
 	%>
-
-	<div class="navbar navbar-light" style="background-color: #D6E6F4; border-bottom: 1px #41719C solid; border-top: 1px #41719C solid;">
+	<div class="navbar navbar-light" style="background-color: #D6E6F4; border-bottom: 1px #41719C solid; border-top: 1px #41719C solid;font-weight: bold">
 		<div class="container">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="UsuarioServlet?action=crearUsuario">CASIA</a>
 			</div>
-			
       <ul class="nav navbar-nav navbar-right">
         <li><a style="background-color: #D6E6F4;" href="LogoutServlet?action=salir">Salir</a></li>
         
       </ul>
 		</div>
 	</div>
-
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script
 		src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
 </body>
-
 </html>

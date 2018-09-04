@@ -13,12 +13,12 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/estilo5.css" rel="stylesheet" type="text/css">
-<title>Crear Reunión</title>
+<title>Modificar Reunión</title>
 </head>
 <%@ include file="Principal.jsp"%>
 <body>
 	<div class="text-white text-center d-block mb-1">
-		<h3 class="titulo pb-2 pt-2">Formulario para Acta de Reunión</h3>
+		<h3 class="titulo pb-2 pt-2">Modificar Acta de Reunión</h3>
 
 	</div>
 	<div class="container">
@@ -168,29 +168,27 @@
 
 						<tr class="trreunion">
 							<td class="titulo">Temas Tratados</td>
-							<td class="form"><textarea class="estilotextarea"
-									id="textarea" name="temas_tratados"
-									value="<c:out value="${reunion.temas_tratados}" />"
+							<td class="form"><textarea
+									class="estilotextarea" id="textarea" name="temas_tratados" 
 									onkeypress="return limita(event, 1000);"
-									onkeyup="actualizaInfo(1000)"></textarea>
+									onkeyup="actualizaInfo(1000)"><c:out value="${reunion.temas_tratados}"/></textarea>
 								<div id="info">Máximo 1000 caracteres</div></td>
 						</tr>
 
 						<tr class="trreunion">
 							<td class="titulo">Conclusiones</td>
-							<td class="form"><textarea class="estilotextarea"
-									id="textarea2" name="conclusiones"
-									value="<c:out value="${reunion.conclusiones}" />"
+							<td class="form"><textarea
+									class="estilotextarea" id="textarea2" name="conclusiones" 
 									onkeypress="return limita(event, 1000);"
-									onkeyup="actualizaInfo(1000)"></textarea>
-								<div id="info">Máximo 1000 caracteres</div></td>
+									onkeyup="actualizaInfo(1000)"><c:out value="${reunion.conclusiones}"/></textarea>
+								<div id="info2">Máximo 1000 caracteres</div></td>
 						</tr>
 
 					</table>
 					<div class="row mt-3 mb-3">
 						<div class="col-12">
 							<button class="btn btn-primary w-100 no-print" type="submit"
-								onclick="return confirm('¿Está seguro de crear la reunión?');"
+								onclick="return confirm('¿Está seguro de los cambios?');"
 								value="Submit">Guardar</button>
 							<button class="btn btn-primary w-100 no-print" type="button"
 								value="Atrás" name="Boton1" onclick="atras();">Atrás</button>

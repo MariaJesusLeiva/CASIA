@@ -18,35 +18,30 @@
 </head>
 <%@ include file="Principal.jsp"%>
 <body>
-
-	<script language="javascript">
-	function atras(){history.back();}
-	function actualizar(){location.reload();}
-	function adelante(){history.forward();}
-</script>
-
 	<div class="text-white text-center d-block mb-1">
-		<h3 class="titulo pb-2 pt-2">Sanción correspondiente al parte (<%=session.getAttribute("codigoparte")%>)</h3>
-
+		<h3 class="titulo pb-2 pt-2">
+			Sanción correspondiente al parte  (<a href="ParteServlet?action=verParte&id_parte=<c:out value="${sancion.id_parte}"/>"><i><%=session.getAttribute("codigoparte")%></i></a>)
+		</h3>
 	</div>
 	<div class="container">
 		<div class="row">
-		<div class="col-md-3"></div>
+			<div class="col-md-3"></div>
 			<div class="col-md-4">
-				<form method="POST" action='SancionServlet' name="frmConsultarSancion">
+				<form method="POST" action='SancionServlet'
+					name="frmConsultarSancion">
 					<input type="text" name="id_parte" style="display: none"
-						value="<c:out value="${sancion.id_parte}" />">
-						<input type="text" name="id_sancion" style="display: none"
+						value="<c:out value="${sancion.id_parte}" />"> <input
+						type="text" name="id_sancion" style="display: none"
 						value="<c:out value="${sancion.id_sancion}" />">
 					<table class="table table-sm">
 						<tr class="trfila">
-							<td class="titulo">Alumno </td>
+							<td class="titulo">Alumno</td>
 							<td class="form"><input class="estilofondogris" type="text"
 								name="nombre_alum" readonly="readonly" size="40"
 								value="<%=session.getAttribute("alumsancion")%>"></td>
 						</tr>
 						<tr class="trfila">
-							<td class="titulo">Profesor </td>
+							<td class="titulo">Profesor</td>
 							<td class="form"><input class="estilofondogris" type="text"
 								name="nombre_profe" readonly="readonly" size="40"
 								value="<%=session.getAttribute("profesancion")%>"></td>
@@ -62,47 +57,60 @@
 						<tr class="trfila">
 							<td class="titulo">Sancion <span class="text-danger">*</span></td>
 							<td class="form"><input class="estilofondogris" type="text"
-								name="tipo_sancion" readonly="readonly" value="<c:out value="${sancion.tipo_sancion}"/>"></td>
+								name="tipo_sancion" readonly="readonly"
+								value="<c:out value="${sancion.tipo_sancion}"/>"></td>
 						</tr>
 						<tr class="trfila">
 							<td class="titulo">Trabajo</td>
 							<td colspan="3" class="form"><textarea
 									class="estilotextareacongris" readonly="readonly" id="textarea"
-									name="trabajo"><c:out
-										value="${sancion.trabajo}" /></textarea>
+									name="trabajo"><c:out value="${sancion.trabajo}" /></textarea>
 						</tr>
 
 						<tr class="trfila">
-						<td class="expulsion"></td><td class="expulsion"><h4>En caso de Expulsión</h4></td>
+							<td class="expulsion"></td>
+							<td class="expulsion"><h4>En caso de Expulsión</h4></td>
 						</tr>
 						<tr class="trfila">
 							<td class="titulo">Fecha inicio</td>
-							<td class="form"><input class="estilofondogris" type="date" readonly="readonly" name="fecha_inicio"
+							<td class="form"><input class="estilofondogris" type="date"
+								readonly="readonly" name="fecha_inicio"
 								value="<c:out value="${sancion.fecha_inicio}" />"></td>
 						</tr>
 						<tr class="trfila">
 							<td class="titulo">Fecha fin</td>
-							<td class="form"><input class="estilofondogris" type="date" readonly="readonly" name="fecha_fin"
+							<td class="form"><input class="estilofondogris" type="date"
+								readonly="readonly" name="fecha_fin"
 								value="<c:out value="${sancion.fecha_fin}" />"></td>
 						</tr>
 						<tr class="trfila">
-							<td class="titulo">Nº de días</td>
-							<td class="form"><input class="estilofondogris" type="number" min="0" max="999" readonly="readonly" name="total_dias"
-								size="5"  
+							<td class="expulsion"></td>
+							<td class="expulsion"><h4>Días con Sanción</h4></td>
+						</tr>
+						<tr class="trfila">
+							<td class="titulo">Total</td>
+							<td class="form"><input class="estilofondogris"
+								type="number" min="0" max="999" readonly="readonly"
+								name="total_dias" size="5"
 								value="<c:out value="${sancion.total_dias}" />"></td>
 						</tr>
 					</table>
 					<div class="row mt-3 mb-3">
 						<div class="col-12">
-							<a href="SancionServlet?action=modificarSancion&id_sancion=<c:out value="${sancion.id_sancion}"/>" class="btn btn-primary w-100 no-print">Modificar</a>
+							<a
+								href="SancionServlet?action=modificarSancion&id_sancion=<c:out value="${sancion.id_sancion}"/>"
+								class="btn btn-primary w-100 no-print">Modificar</a>
 							<button class="btn btn-primary w-100 no-print" type="button"
 								value="Atrás" name="Boton1" onclick="atras();">Atrás</button>
 						</div>
 					</div>
 				</form>
-			</div>		
-			<div class="col-md-3"></div>	
+			</div>
+			<div class="col-md-3"></div>
 		</div>
 	</div>
+<script>
+function atras(){history.back();}
+</script>
 </body>
 </html>

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -18,13 +17,64 @@
 </head>
 <%@ include file="Principal.jsp"%>
 <body>
+	<div class="text-white text-center d-block mb-1"></div>
+	<div class="container">
+		<h1>
+			Pulsar en el icono de filtro <small>(<i
+				class="glyphicon glyphicon-search"></i>)
+			</small>
+		</h1>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">HISTORIAL INFORMACIÓN JURÍDICA</h3>
+						<div class="pull-right">
+							<span class="clickable filter" data-toggle="tooltip"
+								title="Buscador" data-container="body"> <i
+								class="glyphicon glyphicon-search"></i>
+							</span>
+						</div>
+					</div>
+					<div class="panel-body">
+						<input type="text" class="form-control" id="task-table-filter"
+							data-action="filter" data-filters="#task-table"
+							placeholder="Introduzca filtro" />
+					</div>
+					<table class="table table-hover" id="task-table" align="center">
+						<thead>
+							<tr>
+								<th class="centrado">Curso</th>
+								<th class="centrado">Alumno</th>
+								<th class="centrado">Fecha Nacimiento</th>
+								<th class="centrado">&nbsp</th>
+								<th class="centrado">&nbsp</th>
 
-	<script language="javascript">
-	function atras(){history.back();}
-	function actualizar(){location.reload();}
-	function adelante(){history.forward();}
-</script>
-<script>
+							</tr>
+						</thead>
+						<tbody class="centrado">
+							<c:forEach items="${infjuridicas}" var="juridica">
+								<tr>
+									<td><c:out value="${juridica.curso}" /></td>
+									<td><c:out value="${juridica.nombre_alum}" /></td>
+									<td><fmt:formatDate pattern="dd-MM-yyyy"
+											value="${juridica.fecha_nacimiento}" /></td>
+									<td><a
+										href="InfJuridicaServlet?action=verInfJuridica&id_juridica=<c:out value="${juridica.id_juridica}"/>"><i
+											class="glyphicon glyphicon-eye-open"></i></a></td>
+									<td><a
+										href="InfJuridicaServlet?action=eliminarInfJuridica&id_juridica=<c:out value="${juridica.id_juridica}"/>"
+										onclick="return confirm('¿Está seguro de eliminar?');"><i
+											class="glyphicon glyphicon-trash"></i></a></td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
 (function(){
     'use strict';
 	var $ = jQuery;
@@ -59,9 +109,8 @@
 	$('[data-action="filter"]').filterTable();
 })(jQuery);
 </script>
-	<script>
+<script>
 $(function(){
-    // attach table filter plugin to inputs
 	$('[data-action="filter"]').filterTable();
 	
 	$('.container').on('click', '.panel-heading span.filter', function(e){
@@ -76,65 +125,5 @@ $(function(){
 	$('[data-toggle="tooltip"]').tooltip();
 })
 </script>
-
-
-	<div class="text-white text-center d-block mb-1">
-		
-	</div>
-	<section class="container">
-		<h1>
-			Pulsar en el icono de filtro <small>(<i
-				class="glyphicon glyphicon-search"></i>)
-			</small>
-		</h1>
-		<div class="row">
-			<div class="col-md-12">
-				<div class="panel panel-success">
-					<div class="panel-heading">
-						<h3 class="panel-title">HISTORIAL INFORMACIÓN JURÍDICA</h3>
-						<div class="pull-right">
-							<span class="clickable filter" data-toggle="tooltip"
-								title="Buscador" data-container="body"> <i
-								class="glyphicon glyphicon-search"></i>
-							</span>
-						</div>
-					</div>
-					<div class="panel-body">
-						<input type="text" class="form-control" id="task-table-filter"
-							data-action="filter" data-filters="#task-table"
-							placeholder="Introduzca filtro" />
-					</div>
-					<table class="table table-hover" id="task-table" align="center">
-						<thead>
-							<tr>
-								<th class="centrado">Curso</th>
-								<th class="centrado">Alumno</th>
-								<th class="centrado">Fecha Nacimiento</th>								
-								<th class="centrado">&nbsp</th>
-								<th class="centrado">&nbsp</th>
-								
-							</tr>
-						</thead>
-						<tbody class="centrado">
-							<c:forEach items="${infjuridicas}" var="juridica">
-								<tr>
-									<td><c:out value="${juridica.curso}" /></td>
-									<td><c:out value="${juridica.nombre_alum}" /></td>
-									<td><fmt:formatDate pattern="dd-MM-yyyy"
-											value="${juridica.fecha_nacimiento}" /></td>
-								<td><a
-										href="InfJuridicaServlet?action=verInfJuridica&id_juridica=<c:out value="${juridica.id_juridica}"/>"><i
-											class="glyphicon glyphicon-eye-open"></i></a></td>
-											<td><a
-										href="InfJuridicaServlet?action=eliminarInfJuridica&id_juridica=<c:out value="${juridica.id_juridica}"/>" onclick="return confirm('¿Está seguro de eliminar?');"><i
-											class="glyphicon glyphicon-trash"></i></a></td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-	</section>
 </body>
 </html>

@@ -54,6 +54,11 @@ public class AbsentismoServlet extends HttpServlet {
 			forward = MODIFICARABSENTISMO;			
 			int id_absentismo = Integer.parseInt(request.getParameter("id_absentismo"));
 			request.setAttribute("absentismo", absentismoDao.getAbsentismoById(id_absentismo)); 
+		} else if (action.equalsIgnoreCase("eliminarAbsentismo")) {
+			forward = VERTODOABS;
+			int id_absentismo = Integer.parseInt(request.getParameter("id_absentismo"));
+			absentismoDao.deleteAbsentismoById(id_absentismo);
+			request.setAttribute("absentismos", absentismoDao.getAllAbsentismos());
 		}
 		RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);

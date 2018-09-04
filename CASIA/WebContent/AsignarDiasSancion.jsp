@@ -18,109 +18,17 @@
 </head>
 <%@ include file="Principal.jsp"%>
 <body>
-
-	<script language="javascript">
-	function atras(){history.back();}
-	function actualizar(){location.reload();}
-	function adelante(){history.forward();}
-</script>
-	<script>
-(function(){
-    'use strict';
-	var $ = jQuery;
-	$.fn.extend({
-		filterTable: function(){
-			return this.each(function(){
-				$(this).on('keyup', function(e){
-					$('.filterTable_no_results').remove();
-					var $this = $(this), 
-                        search = $this.val().toLowerCase(), 
-                        target = $this.attr('data-filters'), 
-                        $target = $(target), 
-                        $rows = $target.find('tbody tr');
-                        
-					if(search == '') {
-						$rows.show(); 
-					} else {
-						$rows.each(function(){
-							var $this = $(this);
-							$this.text().toLowerCase().indexOf(search) === -1 ? $this.hide() : $this.show();
-						})
-						if($target.find('tbody tr:visible').size() === 0) {
-							var col_count = $target.find('tr').first().find('td').size();
-							var no_results = $('<tr class="filterTable_no_results"><td colspan="'+col_count+'">Sin resultados</td></tr>')
-							$target.find('tbody').append(no_results);
-						}
-					}
-				});
-			});
-		}
-	});
-	$('[data-action="filter"]').filterTable();
-})(jQuery);
-</script>
-	<script>
-$(function(){
-    // attach table filter plugin to inputs
-	$('[data-action="filter"]').filterTable();
-	
-	$('.container').on('click', '.panel-heading span.filter', function(e){
-		var $this = $(this), 
-			$panel = $this.parents('.panel');
-		
-		$panel.find('.panel-body').slideToggle();
-		if($this.css('display') != 'none') {
-			$panel.find('.panel-body input').focus();
-		}
-	});
-	$('[data-toggle="tooltip"]').tooltip();
-})
-</script>
-	<script>
-function limita(elEvento, maximoCaracteres) {
-  var elemento = document.getElementById("textarea");
-
-  // Obtener la tecla pulsada 
-  var evento = elEvento || window.event;
-  var codigoCaracter = evento.charCode || evento.keyCode;
-  // Permitir utilizar las teclas con flecha horizontal
-  if(codigoCaracter == 37 || codigoCaracter == 39) {
-    return true;
-  }
-
-  // Permitir borrar con la tecla Backspace y con la tecla Supr.
-  if(codigoCaracter == 8 || codigoCaracter == 46) {
-    return true;
-  }
-  else if(elemento.value.length >= maximoCaracteres ) {
-    return false;
-  }
-  else {
-    return true;
-  }
-}
-
-function actualizaInfo(maximoCaracteres) {
-  var elemento = document.getElementById("textarea");
-  var info = document.getElementById("info");
-
-  if(elemento.value.length >= maximoCaracteres ) {
-    info.innerHTML = "Máximo "+maximoCaracteres+" caracteres";
-  }  else {
-    info.innerHTML = (maximoCaracteres-elemento.value.length)+" Caracteres restantes";
-  }
-}
-</script>
-
 	<div class="text-white text-center d-block mb-1">
-		<h3 class="titulo pb-2 pt-2">Formulario para Asignar los Días de Sanción para el Alumno (<%=session.getAttribute("alumsancion")%>)</h3>
-
+		<h3 class="titulo pb-2 pt-2">
+			Formulario para Asignar los Días de Sanción para el Alumno (<%=session.getAttribute("alumsancion")%>)
+		</h3>
 	</div>
-	<br/>
+	<br />
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<form method="POST" action='ReservaDiaSancionServlet' name="frmAddDia">
+				<form method="POST" action='ReservaDiaSancionServlet'
+					name="frmAddDia">
 					<input type="text" name="id_sancion" style="display: none"
 						value="<c:out value="${sancion.id_sancion}" />">
 					<table class="table table-sm">
@@ -147,13 +55,14 @@ function actualizaInfo(maximoCaracteres) {
 						<div class="col-12">
 							<button class="btn btn-primary w-100 no-print" type="submit"
 								value="Submit">Guardar</button>
-							<a href="SancionServlet?action=verSancionesSinDias" class="btn btn-primary w-100 no-print">Atrás</a>
+							<a href="SancionServlet?action=verSancionesSinDias"
+								class="btn btn-primary w-100 no-print">Atrás</a>
 						</div>
 					</div>
 				</form>
 			</div>
 			<div class="col-md-6">
-				<div class="panel panel-success">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<h3 class="panel-title">HISTORIAL RECREO Y PROA</h3>
 						<div class="pull-right">
@@ -193,5 +102,84 @@ function actualizaInfo(maximoCaracteres) {
 			</div>
 		</div>
 	</div>
+<script>
+(function(){
+    'use strict';
+	var $ = jQuery;
+	$.fn.extend({
+		filterTable: function(){
+			return this.each(function(){
+				$(this).on('keyup', function(e){
+					$('.filterTable_no_results').remove();
+					var $this = $(this), 
+                        search = $this.val().toLowerCase(), 
+                        target = $this.attr('data-filters'), 
+                        $target = $(target), 
+                        $rows = $target.find('tbody tr');
+                        
+					if(search == '') {
+						$rows.show(); 
+					} else {
+						$rows.each(function(){
+							var $this = $(this);
+							$this.text().toLowerCase().indexOf(search) === -1 ? $this.hide() : $this.show();
+						})
+						if($target.find('tbody tr:visible').size() === 0) {
+							var col_count = $target.find('tr').first().find('td').size();
+							var no_results = $('<tr class="filterTable_no_results"><td colspan="'+col_count+'">Sin resultados</td></tr>')
+							$target.find('tbody').append(no_results);
+						}
+					}
+				});
+			});
+		}
+	});
+	$('[data-action="filter"]').filterTable();
+})(jQuery);
+</script>
+<script>
+$(function(){
+	$('[data-action="filter"]').filterTable();
+	
+	$('.container').on('click', '.panel-heading span.filter', function(e){
+		var $this = $(this), 
+			$panel = $this.parents('.panel');
+		
+		$panel.find('.panel-body').slideToggle();
+		if($this.css('display') != 'none') {
+			$panel.find('.panel-body input').focus();
+		}
+	});
+	$('[data-toggle="tooltip"]').tooltip();
+})
+</script>
+<script>
+function limita(elEvento, maximoCaracteres) {
+  var elemento = document.getElementById("textarea");
+  var evento = elEvento || window.event;// Obtener la tecla pulsada 
+  var codigoCaracter = evento.charCode || evento.keyCode;  // Permitir utilizar las teclas con flecha horizontal
+  if (codigoCaracter == 37 || codigoCaracter == 39) {
+    return true;
+  }
+  if (codigoCaracter == 8 || codigoCaracter == 46) {// Permitir borrar con la tecla Backspace y con la tecla Supr.
+    return true;
+  } else if (elemento.value.length >= maximoCaracteres ) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function actualizaInfo(maximoCaracteres) {
+  var elemento = document.getElementById("textarea");
+  var info = document.getElementById("info");
+
+  if (elemento.value.length >= maximoCaracteres ) {
+    info.innerHTML = "Máximo "+maximoCaracteres+" caracteres";
+  } else {
+    info.innerHTML = (maximoCaracteres-elemento.value.length)+" Caracteres restantes";
+  }
+}
+</script>
 </body>
 </html>

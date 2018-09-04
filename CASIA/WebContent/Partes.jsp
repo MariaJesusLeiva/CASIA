@@ -19,59 +19,6 @@
 </head>
 <%@ include file="Principal.jsp"%>
 <body>
-	<script>
-(function(){
-    'use strict';
-	var $ = jQuery;
-	$.fn.extend({
-		filterTable: function(){
-			return this.each(function(){
-				$(this).on('keyup', function(e){
-					$('.filterTable_no_results').remove();
-					var $this = $(this), 
-                        search = $this.val().toLowerCase(), 
-                        target = $this.attr('data-filters'), 
-                        $target = $(target), 
-                        $rows = $target.find('tbody tr');
-                        
-					if(search == '') {
-						$rows.show(); 
-					} else {
-						$rows.each(function(){
-							var $this = $(this);
-							$this.text().toLowerCase().indexOf(search) === -1 ? $this.hide() : $this.show();
-						})
-						if($target.find('tbody tr:visible').size() === 0) {
-							var col_count = $target.find('tr').first().find('td').size();
-							var no_results = $('<tr class="filterTable_no_results"><td colspan="'+col_count+'">Sin resultados</td></tr>')
-							$target.find('tbody').append(no_results);
-						}
-					}
-				});
-			});
-		}
-	});
-	$('[data-action="filter"]').filterTable();
-})(jQuery);
-</script>
-	<script>
-$(function(){
-    // attach table filter plugin to inputs
-	$('[data-action="filter"]').filterTable();
-	
-	$('.container').on('click', '.panel-heading span.filter', function(e){
-		var $this = $(this), 
-			$panel = $this.parents('.panel');
-		
-		$panel.find('.panel-body').slideToggle();
-		if($this.css('display') != 'none') {
-			$panel.find('.panel-body input').focus();
-		}
-	});
-	$('[data-toggle="tooltip"]').tooltip();
-})
-</script>
-
 	<div class="container">
 		<h1>
 			Pulsar en el icono de filtro <small>(<i
@@ -80,7 +27,7 @@ $(function(){
 		</h1>
 		<div class="row">
 			<div class="col-md-12">
-				<div class="panel panel-success">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<h3 class="panel-title">HISTORIAL DE PARTES</h3>
 						<div class="pull-right">
@@ -120,12 +67,14 @@ $(function(){
 									<td><c:out value="${parte.nombre_alum}" /></td>
 									<td><c:out value="${parte.grupo}" /></td>
 									<td><a
-										href="ParteServlet?action=verSancion&id_parte=<c:out value="${parte.id_parte}"/>"><i><c:out value="${parte.tipo_sancion}" /></i></a></td>
+										href="ParteServlet?action=verSancion&id_parte=<c:out value="${parte.id_parte}"/>"><i><c:out
+													value="${parte.tipo_sancion}" /></i></a></td>
 									<td><a
 										href="ParteServlet?action=verParte&id_parte=<c:out value="${parte.id_parte}"/>"><i
 											class="glyphicon glyphicon-eye-open"></i></a></td>
 									<td><a
-										href="ParteServlet?action=eliminarParte&id_parte=<c:out value="${parte.id_parte}"/>" onclick="return confirm('Al seleccionar esta opción, se borrará el parte y su sanción. ¿Confirma eliminar?');"><i
+										href="ParteServlet?action=eliminarParte&id_parte=<c:out value="${parte.id_parte}"/>"
+										onclick="return confirm('Al seleccionar esta opción, se borrará el parte y su sanción. ¿Confirma eliminar?');"><i
 											class="glyphicon glyphicon-trash"></i></a></td>
 								</tr>
 							</c:forEach>
@@ -135,5 +84,54 @@ $(function(){
 			</div>
 		</div>
 	</div>
+<script>
+(function(){
+    'use strict';
+	var $ = jQuery;
+	$.fn.extend({
+		filterTable: function(){
+			return this.each(function(){
+				$(this).on('keyup', function(e){
+					$('.filterTable_no_results').remove();
+					var $this = $(this), 
+                        search = $this.val().toLowerCase(), 
+                        target = $this.attr('data-filters'), 
+                        $target = $(target), 
+                        $rows = $target.find('tbody tr');
+                        
+					if(search == '') {
+						$rows.show(); 
+					} else {
+						$rows.each(function(){
+							var $this = $(this);
+							$this.text().toLowerCase().indexOf(search) === -1 ? $this.hide() : $this.show();
+						})
+						if($target.find('tbody tr:visible').size() === 0) {
+							var col_count = $target.find('tr').first().find('td').size();
+							var no_results = $('<tr class="filterTable_no_results"><td colspan="'+col_count+'">Sin resultados</td></tr>')
+							$target.find('tbody').append(no_results);
+						}
+					}
+				});
+			});
+		}
+	});
+	$('[data-action="filter"]').filterTable();
+})(jQuery);
+</script>
+	<script>
+$(function(){
+   $('[data-action="filter"]').filterTable();	
+	$('.container').on('click', '.panel-heading span.filter', function(e){
+		var $this = $(this), 
+			$panel = $this.parents('.panel');		
+		$panel.find('.panel-body').slideToggle();
+		if($this.css('display') != 'none') {
+			$panel.find('.panel-body input').focus();
+		}
+	});
+	$('[data-toggle="tooltip"]').tooltip();
+})
+</script>
 </body>
 </html>

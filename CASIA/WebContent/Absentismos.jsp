@@ -1,10 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=uft-8">
 <link
@@ -20,12 +18,76 @@
 </head>
 <%@ include file="Principal.jsp"%>
 <body>
+	<div class="text-white text-center d-block mb-1"></div>
+	<div class="container">
+		<h1>
+			Pulsar en el icono de filtro <small>(<i
+				class="glyphicon glyphicon-search"></i>)
+			</small>
+		</h1>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">HISTORIAL ABSENTISMOS</h3>
+						<div class="pull-right">
+							<span class="clickable filter" data-toggle="tooltip"
+								title="Buscador" data-container="body"> <i
+								class="glyphicon glyphicon-search"></i>
+							</span>
+						</div>
+					</div>
+					<div class="panel-body">
+						<input type="text" class="form-control" id="task-table-filter"
+							data-action="filter" data-filters="#task-table"
+							placeholder="Introduzca filtro" />
+					</div>
+					<table class="table table-hover" id="task-table" align="center">
+						<thead>
+							<tr>
+								<th class="centrado">Curso</th>
+								<th class="centrado">Código</th>
+								<th class="centrado">Alumno</th>
+								<th class="centrado">Fase Actual</th>
+								<th class="centrado">Mes Fase 1</th>
+								<th class="centrado">Mes Fase 2</th>
+								<th class="centrado">Mes Fase 3</th>
+								<th class="centrado">Mes Fase 4</th>
+								<th class="centrado">Caso Resuelto</th>
+								<th class="centrado">Edad > 16</th>
+								<th class="centrado">&nbsp</th>
+								<th class="centrado">&nbsp</th>
 
-	<script language="javascript">
-	function atras(){history.back();}
-	function actualizar(){location.reload();}
-	function adelante(){history.forward();}
-</script>
+							</tr>
+						</thead>
+						<tbody class="centrado">
+							<c:forEach items="${absentismos}" var="absentismo">
+								<tr>
+									<td><c:out value="${absentismo.curso}" /></td>
+									<td><c:out value="${absentismo.codigo_absen}" /></td>
+									<td><c:out value="${absentismo.nombre_alum}" /></td>
+									<td><c:out value="${absentismo.fase_actual}" /></td>
+									<td><c:out value="${absentismo.mes_faseuno}" /></td>
+									<td><c:out value="${absentismo.mes_fasedos}" /></td>
+									<td><c:out value="${absentismo.mes_fasetres}" /></td>
+									<td><c:out value="${absentismo.mes_fasecuatro}" /></td>
+									<td><c:out value="${absentismo.caso_resuelto}" /></td>
+									<td><c:out value="${absentismo.mayor_edad}" /></td>
+									<td><a
+										href="AbsentismoServlet?action=verabsentismo&id_absentismo=<c:out value="${absentismo.id_absentismo}"/>"><i
+											class="glyphicon glyphicon-eye-open"></i></a></td>
+									<td><a
+										href="AbsentismoServlet?action=eliminarabsentismo&id_absentismo=<c:out value="${absentismo.id_absentismo}"/>"
+										onclick="return confirm('¿Está seguro de eliminar?');"><i
+											class="glyphicon glyphicon-trash"></i></a></td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 <script>
 (function(){
     'use strict';
@@ -61,9 +123,8 @@
 	$('[data-action="filter"]').filterTable();
 })(jQuery);
 </script>
-	<script>
+<script>
 $(function(){
-    // attach table filter plugin to inputs
 	$('[data-action="filter"]').filterTable();
 	
 	$('.container').on('click', '.panel-heading span.filter', function(e){
@@ -78,73 +139,5 @@ $(function(){
 	$('[data-toggle="tooltip"]').tooltip();
 })
 </script>
-
-
-	<div class="text-white text-center d-block mb-1">
-		
-	</div>
-	<div class="container">
-		<h1>
-			Pulsar en el icono de filtro <small>(<i
-				class="glyphicon glyphicon-search"></i>)
-			</small>
-		</h1>
-		<div class="row">
-			<div class="col-md-12">
-				<div class="panel panel-success">
-					<div class="panel-heading">
-						<h3 class="panel-title">HISTORIAL ABSENTISMOS</h3>
-						<div class="pull-right">
-							<span class="clickable filter" data-toggle="tooltip"
-								title="Buscador" data-container="body"> <i
-								class="glyphicon glyphicon-search"></i>
-							</span>
-						</div>
-					</div>
-					<div class="panel-body">
-						<input type="text" class="form-control" id="task-table-filter"
-							data-action="filter" data-filters="#task-table"
-							placeholder="Introduzca filtro" />
-					</div>
-					<table class="table table-hover" id="task-table" align="center">
-						<thead>
-							<tr>
-								<th class="centrado">Curso</th>
-								<th class="centrado">Código</th>
-								<th class="centrado">Alumno</th>
-								<th class="centrado">Fase Actual</th>
-								<th class="centrado">Mes Fase 1</th>
-								<th class="centrado">Mes Fase 2</th>
-								<th class="centrado">Mes Fase 3</th>
-								<th class="centrado">Mes Fase 4</th>
-								<th class="centrado">Caso Resuelto</th>
-								<th class="centrado">Edad > 16</th>
-								
-							</tr>
-						</thead>
-						<tbody class="centrado">
-							<c:forEach items="${absentismos}" var="absentismo">
-								<tr>
-									<td><c:out value="${absentismo.curso}" /></td>		
-									<td><c:out value="${absentismo.codigo_absen}" /></td>									
-									<td><c:out value="${absentismo.nombre_alum}" /></td>
-									<td><c:out value="${absentismo.fase_actual}" /></td>
-									<td><c:out value="${absentismo.mes_faseuno}" /></td>
-									<td><c:out value="${absentismo.mes_fasedos}" /></td>
-									<td><c:out value="${absentismo.mes_fasetres}" /></td>
-									<td><c:out value="${absentismo.mes_fasecuatro}" /></td>
-									<td><c:out value="${absentismo.caso_resuelto}" /></td>
-									<td><c:out value="${absentismo.mayor_edad}" /></td>
-								<td><a
-										href="AbsentismoServlet?action=verabsentismo&id_absentismo=<c:out value="${absentismo.id_absentismo}"/>"><i
-											class="glyphicon glyphicon-eye-open"></i></a></td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
 </body>
 </html>

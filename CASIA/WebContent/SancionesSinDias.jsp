@@ -1,9 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=uft-8">
@@ -15,61 +13,6 @@
 </head>
 <%@ include file="Principal.jsp"%>
 <body>
-<script>
-(function(){
-    'use strict';
-	var $ = jQuery;
-	$.fn.extend({
-		filterTable: function(){
-			return this.each(function(){
-				$(this).on('keyup', function(e){
-					$('.filterTable_no_results').remove();
-					var $this = $(this), 
-                        search = $this.val().toLowerCase(), 
-                        target = $this.attr('data-filters'), 
-                        $target = $(target), 
-                        $rows = $target.find('tbody tr');
-                        
-					if(search == '') {
-						$rows.show(); 
-					} else {
-						$rows.each(function(){
-							var $this = $(this);
-							$this.text().toLowerCase().indexOf(search) === -1 ? $this.hide() : $this.show();
-						})
-						if($target.find('tbody tr:visible').size() === 0) {
-							var col_count = $target.find('tr').first().find('td').size();
-							var no_results = $('<tr class="filterTable_no_results"><td colspan="'+col_count+'">Sin resultados</td></tr>')
-							$target.find('tbody').append(no_results);
-						}
-					}
-				});
-			});
-		}
-	});
-	$('[data-action="filter"]').filterTable();
-})(jQuery);
-</script>
-<script>
-$(function(){
-    // attach table filter plugin to inputs
-	$('[data-action="filter"]').filterTable();
-	
-	$('.container').on('click', '.panel-heading span.filter', function(e){
-		var $this = $(this), 
-			$panel = $this.parents('.panel');
-		
-		$panel.find('.panel-body').slideToggle();
-		if($this.css('display') != 'none') {
-			$panel.find('.panel-body input').focus();
-		}
-	});
-	$('[data-toggle="tooltip"]').tooltip();
-})
-</script>
-
-
-
 <div class="container">
     <h1>Pulsar en el icono de filtro <small>(<i class="glyphicon glyphicon-search"></i>)</small></h1>
     	<div class="row">
@@ -114,7 +57,7 @@ $(function(){
 				</div>
 			</div>
 			<div class="col-md-6">
-				<div class="panel panel-success">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<h3 class="panel-title">HISTORIAL RECREO Y PROA</h3>
 						<div class="pull-right">
@@ -149,5 +92,55 @@ $(function(){
 			</div>
 		</div>
 	</div>
+<script>
+(function(){
+    'use strict';
+	var $ = jQuery;
+	$.fn.extend({
+		filterTable: function(){
+			return this.each(function(){
+				$(this).on('keyup', function(e){
+					$('.filterTable_no_results').remove();
+					var $this = $(this), 
+                        search = $this.val().toLowerCase(), 
+                        target = $this.attr('data-filters'), 
+                        $target = $(target), 
+                        $rows = $target.find('tbody tr');
+                        
+					if(search == '') {
+						$rows.show(); 
+					} else {
+						$rows.each(function(){
+							var $this = $(this);
+							$this.text().toLowerCase().indexOf(search) === -1 ? $this.hide() : $this.show();
+						})
+						if($target.find('tbody tr:visible').size() === 0) {
+							var col_count = $target.find('tr').first().find('td').size();
+							var no_results = $('<tr class="filterTable_no_results"><td colspan="'+col_count+'">Sin resultados</td></tr>')
+							$target.find('tbody').append(no_results);
+						}
+					}
+				});
+			});
+		}
+	});
+	$('[data-action="filter"]').filterTable();
+})(jQuery);
+</script>
+<script>
+$(function(){
+	$('[data-action="filter"]').filterTable();	
+	$('.container').on('click', '.panel-heading span.filter', function(e){
+		var $this = $(this), 
+			$panel = $this.parents('.panel');
+		
+		$panel.find('.panel-body').slideToggle();
+		if($this.css('display') != 'none') {
+			$panel.find('.panel-body input').focus();
+		}
+	});
+	$('[data-toggle="tooltip"]').tooltip();
+})
+</script>
 </body>
 </html>

@@ -253,6 +253,18 @@ public class AbsentismoDao {
 		}
 	}
 
+	public void deleteAbsentismoById(int id_absentismo) {
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("DELETE FROM absentismo WHERE id_absentismo=?");
+			preparedStatement.setInt(1, id_absentismo);
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public AbsentismoEntity getAbsentismoById(int id_absentismo) {
 		AbsentismoEntity absentismo = new AbsentismoEntity();
 

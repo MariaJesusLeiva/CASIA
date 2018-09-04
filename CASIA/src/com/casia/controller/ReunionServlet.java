@@ -24,6 +24,7 @@ public class ReunionServlet extends HttpServlet {
 	private static String VERREUNIONES = "Reuniones.jsp";
 	private static String VERREUNION = "ConsultarReunion.jsp";
 	private static String CREARREUNION = "CrearReunion.jsp";
+	private static String MODIFICARREUNION = "ModificarReunion.jsp";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -51,6 +52,11 @@ public class ReunionServlet extends HttpServlet {
 			request.setAttribute("reuniones", reunionDao.getAllReuniones());
 		} else if (action.equalsIgnoreCase("verReunion")) {
 			forward = VERREUNION;
+			int id_reunion = Integer.parseInt(request.getParameter("id_reunion"));
+			request.setAttribute("reunion", reunionDao.getReunionById(id_reunion));
+			request.setAttribute("reuniones", reunionDao.getAllReuniones());
+		} else if (action.equalsIgnoreCase("modificarReunion")) {
+			forward = MODIFICARREUNION;
 			int id_reunion = Integer.parseInt(request.getParameter("id_reunion"));
 			request.setAttribute("reunion", reunionDao.getReunionById(id_reunion));
 			request.setAttribute("reuniones", reunionDao.getAllReuniones());
