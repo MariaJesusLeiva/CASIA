@@ -19,12 +19,10 @@
 <body>
 	<div class="text-white text-center d-block mb-1">
 		<h3 class="titulo pb-2 pt-2">Formulario para Acta de Reunión</h3>
-
 	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-
 				<form method="POST" action='ReunionServlet' name="frmAddReunion">
 					<table class="table table-md">
 						<tr class="trreunion">

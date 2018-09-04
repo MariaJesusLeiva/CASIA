@@ -21,7 +21,6 @@
 		<h3 class="titulo pb-2 pt-2">
 			Formulario para Asignar una Sanción Correspondiente al Parte con Código (<a href="ParteServlet?action=verParte&id_parte=<c:out value="${sancion.id_parte}"/>"><i><%=session.getAttribute("codigoparte")%></i></a>)
 		</h3>
-
 	</div>
 	<div class="container">
 		<div class="row">

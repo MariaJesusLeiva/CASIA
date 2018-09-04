@@ -19,7 +19,6 @@
 <body>
 	<div class="text-white text-center d-block mb-1">
 		<h3 class="titulo pb-2 pt-2">Formulario para Protocolo de Acoso</h3>
-
 	</div>
 	<div class="container">
 		<div class="row">
@@ -128,7 +127,6 @@
 								name="inicio_protocolo" size="3" placeholder="Sí/No"
 								value="<c:out value="${acoso.inicio_protocolo}"/>"></td>
 						</tr>
-
 					</table>
 					<div class="row mt-3 mb-3">
 						<div class="col-12">

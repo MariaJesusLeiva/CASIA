@@ -18,7 +18,6 @@
 </head>
 <%@ include file="Principal.jsp"%>
 <body>
-
 	<div class="text-white text-center d-block mb-1">
 		<h3 class="titulo pb-2 pt-2">Formulario para Información Médica</h3>
 	</div>

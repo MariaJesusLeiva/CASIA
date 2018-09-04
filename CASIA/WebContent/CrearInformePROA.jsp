@@ -21,7 +21,6 @@
 	<div class="text-white text-center d-block mb-1">
 		<h3 class="titulo pb-2 pt-2">Creación de Informes para la Sanción
 			de Recreo</h3>
-
 	</div>
 	<br />
 	<div class="container">
@@ -36,7 +35,6 @@
 						</div>
 						<button class="btn btn-primary w-100 no-print" type="submit">Informe</button>
 					</form>
-
 			</div>
 			<div class="col-md-2"></div>
 			<div class="col-md-6">

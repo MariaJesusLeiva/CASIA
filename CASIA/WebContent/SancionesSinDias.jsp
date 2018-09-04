@@ -14,8 +14,7 @@
 <%@ include file="Principal.jsp"%>
 <body>
 <div class="container">
-    <h1>Pulsar en el icono de filtro <small>(<i class="glyphicon glyphicon-search"></i>)</small></h1>
-    	<div class="row">
+       	<div class="row">
 			<div class="col-md-6">
 				<div class="panel panel-info">
 					<div class="panel-heading">

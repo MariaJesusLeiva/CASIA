@@ -21,7 +21,6 @@
 	<div class="text-white text-center d-block mb-1">
 		<h3 class="titulo pb-2 pt-2">Creación de Informes para el Control
 			Mensual de Absentismo</h3>
-
 	</div>
 	<br />
 	<div class="container">
@@ -42,9 +41,7 @@
 									value="<c:out value="${absentismo.mes}" />"></td>
 							</tr>
 						</table>
-
 						<button class="btn btn-primary w-100 no-print" type="submit">Informe</button>
-
 					</form>
 				</div>
 			</div>
@@ -86,8 +83,6 @@
 									<td><c:out value="${abs.mes_fasedos}" /></td>
 									<td><c:out value="${abs.mes_fasetres}" /></td>
 									<td><c:out value="${abs.mes_fasecuatro}" /></td>
-
-
 								</tr>
 							</c:forEach>
 						</tbody>
