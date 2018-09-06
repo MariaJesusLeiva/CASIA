@@ -44,7 +44,6 @@ public class AlumnoServlet extends HttpServlet {
 		AlumnoDao alumDao = new AlumnoDao();		
 		
 		String nombre_alum = request.getParameter("nombre_alum");
-		System.out.println("alumno buscado: " + nombre_alum);
 		
 		forward = RESULTADO;
 		session.setAttribute("nombre_alum", nombre_alum);
