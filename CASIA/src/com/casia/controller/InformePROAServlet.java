@@ -34,7 +34,6 @@ public class InformePROAServlet extends HttpServlet {
      */
     public InformePROAServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -48,6 +47,7 @@ public class InformePROAServlet extends HttpServlet {
 			forward = VERINFPROA;
 			request.setAttribute("proas", reservaDao.getAllPROAsPendientes());
 		}
+		
 		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request, response);
 	}

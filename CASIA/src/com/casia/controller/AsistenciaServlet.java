@@ -28,7 +28,6 @@ public class AsistenciaServlet extends HttpServlet {
      */
     public AsistenciaServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -54,6 +53,7 @@ public class AsistenciaServlet extends HttpServlet {
 			request.setAttribute("proahoy", reservaDao.getAllPROAsHoy());
 			request.setAttribute("expulsionact", sancionDao.getAllExpulsionesActiva());
 		}
+		
 		RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
 	}
@@ -64,19 +64,14 @@ public class AsistenciaServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("DoPost");
 		ReservaDiaSancionDao reservaDao = new ReservaDiaSancionDao();
-		String forward="";
-		
+		String forward="";		
 		SancionDao sancionDao = new SancionDao();
 		String [] Array = request.getParameterValues("asistencia");
-		for(int i=0;i<Array.length-1;i++) {
-			System.out.println("Array["+i+"] "+Array[i]);
-		}
+		
 		for (int j=0; j<Array.length; j++) {
 			String idAsistencia = Array[j];
 			Integer id = Integer.parseInt(idAsistencia);
-			System.out.println("idAsistencia " +id);
 			reservaDao.updateAsistencia(id);
-			System.out.println("Database was updated");
 		}
 		
 		forward = VERSANCIONESSINDIAS;
@@ -85,5 +80,4 @@ public class AsistenciaServlet extends HttpServlet {
 		request.setAttribute("sanciones", reservaDao.getAllRecreoPROA());
 		view.forward(request, response);			
 		} 
-
 }

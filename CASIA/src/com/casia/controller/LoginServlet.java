@@ -1,7 +1,6 @@
 package com.casia.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -19,25 +18,21 @@ import com.casia.entity.UsuarioEntity;
 /**
  * Servlet implementation class UsuarioServlet
  */
-//@WebServlet("/UsuarioServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public LoginServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-
+	
 	}
 
 	/**
@@ -62,16 +57,13 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			try {
 				String rol_user = userDao.ObtenerRol(userEnt);
-				System.out.println("El rol es: " + userDao.ObtenerRol(userEnt));
 				if (rol_user.equals("admin")) {
-					System.out.println("Entro en admin");
 					session.setAttribute("admin", rol_user);
 					session.setAttribute("name_user", name_user);
 					request.setAttribute("usuarios", usuarioDao.getAllUsuarios());
 					rd = request.getRequestDispatcher("AdmCrearUsuario.jsp");
 					rd.include(request, response);
 				} else if (rol_user.equals("directiva")) {
-					System.out.println("Entro en directiva");
 					session.setAttribute("directiva", rol_user);
 					session.setAttribute("user_name", name_user);
 					request.setAttribute("recreohoy", reservaDao.getAllRecreosHoy());
@@ -91,5 +83,3 @@ public class LoginServlet extends HttpServlet {
 		}
 	}
 }
-
-

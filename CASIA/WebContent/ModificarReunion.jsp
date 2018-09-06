@@ -12,7 +12,7 @@
 	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<link href="css/estilo5.css" rel="stylesheet" type="text/css">
+<link href="css/casia.css" rel="stylesheet" type="text/css">
 <title>Modificar Reunión</title>
 </head>
 <%@ include file="Principal.jsp"%>
@@ -24,8 +24,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-
 				<form method="POST" action='ReunionServlet' name="frmAddReunion">
+				<input type="text" name="id_reunion" style="display: none"
+						value="<c:out value="${reunion.id_reunion}" />">
 					<table class="table table-md">
 						<tr class="trreunion">
 							<td class="titulo">Curso <span class="text-danger">*</span></td>

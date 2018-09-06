@@ -68,14 +68,14 @@ public class ReunionDao {
 			preparedStatement.setString(4, reunionEnt.getLugar_reunion());
 			preparedStatement.setString(5, reunionEnt.getAsistente1());
 			preparedStatement.setString(6, reunionEnt.getEn_calidad_de1());
-			preparedStatement.setString(7, reunionEnt.getAsistente1());
-			preparedStatement.setString(8, reunionEnt.getEn_calidad_de1());
-			preparedStatement.setString(9, reunionEnt.getAsistente2());
-			preparedStatement.setString(10, reunionEnt.getEn_calidad_de2());
-			preparedStatement.setString(11, reunionEnt.getAsistente3());
-			preparedStatement.setString(12, reunionEnt.getEn_calidad_de3());
-			preparedStatement.setString(13, reunionEnt.getAsistente4());
-			preparedStatement.setString(14, reunionEnt.getEn_calidad_de4());
+			preparedStatement.setString(7, reunionEnt.getAsistente2());
+			preparedStatement.setString(8, reunionEnt.getEn_calidad_de2());
+			preparedStatement.setString(9, reunionEnt.getAsistente3());
+			preparedStatement.setString(10, reunionEnt.getEn_calidad_de3());
+			preparedStatement.setString(11, reunionEnt.getAsistente4());
+			preparedStatement.setString(12, reunionEnt.getEn_calidad_de4());
+			preparedStatement.setString(13, reunionEnt.getAsistente5());
+			preparedStatement.setString(14, reunionEnt.getEn_calidad_de5());
 			preparedStatement.setString(15, reunionEnt.getTemas_tratados());
 			preparedStatement.setString(16, reunionEnt.getConclusiones());
 			
@@ -90,25 +90,25 @@ public class ReunionDao {
 	public void updateReunion(ReunionEntity reunionEnt) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("UPDATE reunion SET curso=?, fecha_reunion=?, lugar_reunion=?, hora_reunion=? " + 
+					.prepareStatement("UPDATE reunion SET curso=?, fecha_reunion=?, lugar_reunion=?, hora_reunion=?, " + 
 							"asistente1=?, en_calidad_de1=?, asistente2=?, en_calidad_de2=?, asistente3=?, en_calidad_de3=?, " +
 							"asistente4=?, en_calidad_de4=?, asistente5=?, en_calidad_de5=?, temas_tratados=?, conclusiones=? " +
 							"WHERE id_reunion=?");
 			
 			preparedStatement.setString(1, reunionEnt.getCurso());
 			preparedStatement.setDate(2, new java.sql.Date(reunionEnt.getFecha_reunion().getTime()));
-			preparedStatement.setString(3, reunionEnt.getHora_reunion());
-			preparedStatement.setString(4, reunionEnt.getLugar_reunion());
+			preparedStatement.setString(3, reunionEnt.getLugar_reunion());
+			preparedStatement.setString(4, reunionEnt.getHora_reunion());
 			preparedStatement.setString(5, reunionEnt.getAsistente1());
 			preparedStatement.setString(6, reunionEnt.getEn_calidad_de1());
-			preparedStatement.setString(7, reunionEnt.getAsistente1());
-			preparedStatement.setString(8, reunionEnt.getEn_calidad_de1());
-			preparedStatement.setString(9, reunionEnt.getAsistente2());
-			preparedStatement.setString(10, reunionEnt.getEn_calidad_de2());
-			preparedStatement.setString(11, reunionEnt.getAsistente3());
-			preparedStatement.setString(12, reunionEnt.getEn_calidad_de3());
-			preparedStatement.setString(13, reunionEnt.getAsistente4());
-			preparedStatement.setString(14, reunionEnt.getEn_calidad_de4());
+			preparedStatement.setString(7, reunionEnt.getAsistente2());
+			preparedStatement.setString(8, reunionEnt.getEn_calidad_de2());
+			preparedStatement.setString(9, reunionEnt.getAsistente3());
+			preparedStatement.setString(10, reunionEnt.getEn_calidad_de3());
+			preparedStatement.setString(11, reunionEnt.getAsistente4());
+			preparedStatement.setString(12, reunionEnt.getEn_calidad_de4());
+			preparedStatement.setString(13, reunionEnt.getAsistente5());
+			preparedStatement.setString(14, reunionEnt.getEn_calidad_de5());
 			preparedStatement.setString(15, reunionEnt.getTemas_tratados());
 			preparedStatement.setString(16, reunionEnt.getConclusiones());
 			preparedStatement.setInt(17, reunionEnt.getId_reunion());

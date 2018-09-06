@@ -7,15 +7,12 @@ import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.casia.dao.InfJuridicaDao;
-import com.casia.dao.InfMedicaDao;
 import com.casia.entity.InfJuridicaEntity;
-import com.casia.entity.InfMedicaEntity;
 
 /**
  * Servlet implementation class InfJuridicaServlet
@@ -91,6 +88,7 @@ public class InfJuridicaServlet extends HttpServlet {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+		
 		infjuridicaEnt.setCurso(request.getParameter("curso"));
 		infjuridicaEnt.setDocumentacion(request.getParameter("documentacion"));
 		infjuridicaEnt.setGrupo(request.getParameter("grupo"));
@@ -112,5 +110,4 @@ public class InfJuridicaServlet extends HttpServlet {
 		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request, response);
 	}
-
 }

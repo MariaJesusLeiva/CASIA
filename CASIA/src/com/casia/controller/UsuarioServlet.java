@@ -27,17 +27,17 @@ public class UsuarioServlet extends HttpServlet {
      */
     public UsuarioServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UsuarioDao usuarioDao = new UsuarioDao();
 		
+		UsuarioDao usuarioDao = new UsuarioDao();		
 		String forward="";
 		String action = request.getParameter("action");
+		
 		if (action.equalsIgnoreCase("crearUsuario")) {
 			forward = CREARUSUARIO;
 			request.setAttribute("usuarios", usuarioDao.getAllUsuarios());
@@ -52,6 +52,7 @@ public class UsuarioServlet extends HttpServlet {
 			usuarioDao.deleteUsuarioById(id_user);
 			request.setAttribute("usuarios", usuarioDao.getAllUsuarios());
 		}
+		
 		RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
 	}
@@ -64,9 +65,7 @@ public class UsuarioServlet extends HttpServlet {
 		UsuarioEntity usuarioEnt = new UsuarioEntity();
 		Integer id_user;
 		String rol_user = "directiva";
-		String forward= "";
-		String pass2 = null;
-		
+		String forward= "";		
 		
 		usuarioEnt.setName_user(request.getParameter("name_user"));
 		usuarioEnt.setPass_user(request.getParameter("pass_user"));
@@ -97,5 +96,4 @@ public class UsuarioServlet extends HttpServlet {
 			view.forward(request, response);
 		}	
 	}
-
 }

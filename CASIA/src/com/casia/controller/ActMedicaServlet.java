@@ -7,15 +7,12 @@ import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.casia.dao.ActMedicaDao;
-import com.casia.dao.InfMedicaDao;
 import com.casia.entity.ActMedicaEntity;
-import com.casia.entity.InfMedicaEntity;
 
 /**
  * Servlet implementation class ActMedicaServlet
@@ -33,7 +30,6 @@ public class ActMedicaServlet extends HttpServlet {
      */
     public ActMedicaServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**

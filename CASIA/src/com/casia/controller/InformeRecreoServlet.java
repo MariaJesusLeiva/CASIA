@@ -34,7 +34,6 @@ public class InformeRecreoServlet extends HttpServlet {
      */
     public InformeRecreoServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -44,6 +43,7 @@ public class InformeRecreoServlet extends HttpServlet {
 		String forward = "";
 		String action = request.getParameter("action");
 		ReservaDiaSancionDao reservaDao = new ReservaDiaSancionDao();
+		
 		if (action.equalsIgnoreCase("verInfRecreo")) {
 			forward = VERINFRECREO;
 			request.setAttribute("recreos", reservaDao.getAllRecreosPendientes());

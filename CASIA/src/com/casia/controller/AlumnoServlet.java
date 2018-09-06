@@ -4,21 +4,12 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.casia.dao.AbsentismoDao;
-import com.casia.dao.AcosoDao;
-import com.casia.dao.ActMedicaDao;
 import com.casia.dao.AlumnoDao;
-import com.casia.dao.InfJuridicaDao;
-import com.casia.dao.InfMedicaDao;
-import com.casia.dao.ParteDao;
-import com.casia.dao.ReunionDao;
-import com.casia.dao.SancionDao;
 
 /**
  * Servlet implementation class AlumnoServlet
@@ -33,7 +24,6 @@ public class AlumnoServlet extends HttpServlet {
      */
     public AlumnoServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -51,8 +41,7 @@ public class AlumnoServlet extends HttpServlet {
 		
 		String forward= "";
 		HttpSession session = request.getSession();
-		AlumnoDao alumDao = new AlumnoDao();
-		
+		AlumnoDao alumDao = new AlumnoDao();		
 		
 		String nombre_alum = request.getParameter("nombre_alum");
 		System.out.println("alumno buscado: " + nombre_alum);
@@ -70,5 +59,4 @@ public class AlumnoServlet extends HttpServlet {
 		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request, response);
 	}
-
 }

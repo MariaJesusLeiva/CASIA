@@ -13,7 +13,7 @@
 	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<link href="css/estilo5.css" rel="stylesheet" type="text/css">
+<link href="css/casia.css" rel="stylesheet" type="text/css">
 <title>Consultar Reunión</title>
 </head>
 <%@ include file="Principal.jsp"%>
@@ -115,14 +115,14 @@
 
 						<tr class="trreunion">
 							<td class="titulo">Temas Tratados</td>
-							<td class="form"><textarea class="estilotextareagris"
+							<td class="form"><textarea class="estilotextareagris2"
 									name="temas_tratados" readonly="readonly" rows="10" cols="75"><c:out
 										value="${reunion.temas_tratados}" /></textarea></td>
 						</tr>
 
 						<tr class="trreunion">
 							<td class="titulo">Conclusiones</td>
-							<td class="form"><textarea class="estilotextareagris"
+							<td class="form"><textarea class="estilotextareagris2"
 									name="conclusiones" readonly="readonly" rows="10" cols="75"><c:out
 										value="${reunion.conclusiones}" /></textarea></td>
 						</tr>

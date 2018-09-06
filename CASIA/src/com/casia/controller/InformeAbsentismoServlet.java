@@ -40,7 +40,6 @@ public class InformeAbsentismoServlet extends HttpServlet {
      */
     public InformeAbsentismoServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -50,10 +49,12 @@ public class InformeAbsentismoServlet extends HttpServlet {
 		String forward = "";
 		String action = request.getParameter("action");
 		AbsentismoDao absentismoDao = new AbsentismoDao();
+		
 		if (action.equalsIgnoreCase("verInfAbsentismo")) {
 			forward = VERINFABS;
 			request.setAttribute("abs", absentismoDao.getAllAbsentismos());
 		}
+		
 		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request, response);
 	}
@@ -69,8 +70,7 @@ public class InformeAbsentismoServlet extends HttpServlet {
 		
 		OutputStream out = response.getOutputStream();
 		try {
-			Connection connection = conexionDB.getConnection();
-			java.sql.Date fecha;
+			Connection connection = conexionDB.getConnection();			
 			String curso = request.getParameter("curso");
 			String mes = request.getParameter("mes");
 			PreparedStatement preparedStatement = connection.prepareStatement(
@@ -98,8 +98,7 @@ public class InformeAbsentismoServlet extends HttpServlet {
 				part2.add(new Phrase(Chunk.NEWLINE));
 				part2.add(new Phrase(Chunk.NEWLINE));
 				part2.add(new Phrase("Mes: "+mes, fonttitulo2));
-				
-				
+								
 				part2.add(new Phrase(Chunk.NEWLINE));
 				part2.add(new Phrase(Chunk.NEWLINE));
 				part2.add(new Phrase(Chunk.NEWLINE));
@@ -154,7 +153,6 @@ public class InformeAbsentismoServlet extends HttpServlet {
 					tabla.addCell(rs.getString(32));
 				}
 				documento.add(tabla);
-
 				documento.close();
 			} catch (Exception ex) {
 				ex.getMessage();
@@ -163,5 +161,4 @@ public class InformeAbsentismoServlet extends HttpServlet {
 			ex.getMessage();
 		}
 	}
-
 }

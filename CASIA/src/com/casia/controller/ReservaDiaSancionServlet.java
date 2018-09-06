@@ -31,7 +31,6 @@ public class ReservaDiaSancionServlet extends HttpServlet {
      */
     public ReservaDiaSancionServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -61,9 +60,9 @@ public class ReservaDiaSancionServlet extends HttpServlet {
 			request.setAttribute("sancionSin", sancionDao.getAllSancionesSinDias());
 			request.setAttribute("sanciones", reservaDao.getAllRecreoPROA());
 		}
+		
 		RequestDispatcher view = request.getRequestDispatcher(forward);
-        view.forward(request, response);
-	 
+        view.forward(request, response);	 
 	}
 
 	/**

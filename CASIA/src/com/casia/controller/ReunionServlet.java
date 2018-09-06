@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -31,7 +30,6 @@ public class ReunionServlet extends HttpServlet {
      */
     public ReunionServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -39,7 +37,6 @@ public class ReunionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		ReunionEntity reunionEnt =  new ReunionEntity();
 		ReunionDao reunionDao = new ReunionDao();
 		String forward="";
 		String action = request.getParameter("action");
@@ -67,6 +64,7 @@ public class ReunionServlet extends HttpServlet {
 			reunionDao.deleteReunionById(id_reunion);
 			request.setAttribute("reuniones", reunionDao.getAllReuniones());
 		}
+		
 		 RequestDispatcher view = request.getRequestDispatcher(forward);
 		 view.forward(request, response);
 	}
@@ -117,8 +115,6 @@ public class ReunionServlet extends HttpServlet {
 		forward = VERREUNIONES;
 		request.setAttribute("reuniones", reunionDao.getAllReuniones());
 		RequestDispatcher view = request.getRequestDispatcher(forward);
-		view.forward(request, response);
-		
+		view.forward(request, response);		
 	}
-
 }

@@ -32,7 +32,6 @@ public class AbsentismoServlet extends HttpServlet {
      */
     public AbsentismoServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -71,11 +70,9 @@ public class AbsentismoServlet extends HttpServlet {
 
 		AbsentismoEntity absentismoEnt = new AbsentismoEntity();
 		String forward="";
-		Date fecha_nacimiento;
-		
+		Date fecha_nacimiento;		
 		Integer id_abs, codigo_absen;
-		AbsentismoDao absentismoDao = new AbsentismoDao();
-		
+		AbsentismoDao absentismoDao = new AbsentismoDao();		
 				
 		codigo_absen = Integer.parseInt(request.getParameter("codigo_absen"));
 		absentismoEnt.setCodigo_absen(codigo_absen);
@@ -145,23 +142,16 @@ public class AbsentismoServlet extends HttpServlet {
 		
 		String id_absentismo = request.getParameter("id_absentismo");
 		if(id_absentismo == null || id_absentismo.isEmpty()) {
-			/*List<AbsentismoEntity> id;
-			id = (List<AbsentismoEntity>)absentismoDao.getAllAbsentismos();
-			Integer id_nuevo = id.size()+1;
-			absentismoEnt.setId_absentismo(id_nuevo);*/
 			absentismoDao.addAbsentismoTodo(absentismoEnt);
 		} else {
 			id_abs = Integer.parseInt(request.getParameter("id_absentismo"));
 			absentismoEnt.setId_absentismo(id_abs);
-			absentismoDao.updateAbsentismo(absentismoEnt);
-		
+			absentismoDao.updateAbsentismo(absentismoEnt);		
 		}
 		
 		forward = VERTODOABS;
 		request.setAttribute("absentismos", absentismoDao.getAllAbsentismos());
 		RequestDispatcher view = request.getRequestDispatcher(forward);
-        view.forward(request, response);
-		
+        view.forward(request, response);		
 	}
-
 }

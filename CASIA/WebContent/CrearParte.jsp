@@ -12,7 +12,7 @@
 	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<link href="css/estilo1.css" rel="stylesheet" type="text/css">
+<link href="css/casia.css" rel="stylesheet" type="text/css">
 <title>Crear Parte</title>
 </head>
 <%@ include file="Principal.jsp"%>
@@ -27,37 +27,37 @@
 				<form method="POST" action='ParteServlet' name="frmAddParte">
 					<table class="table table-sm">
 						<tr class="trparte">
-							<td class="titulo">Código <span class="text-danger">*</span></td>
+							<td class="titulo3">Código <span class="text-danger">*</span></td>
 							<td class="form"><input type="number" min="1"
 								max="9999999999" name="codigo"
 								value="<c:out value="${parte.codigo}"/>" required></td>
-							<td class="titulo">Curso <span class="text-danger">*</span></td>
+							<td class="titulo3">Curso <span class="text-danger">*</span></td>
 							<td class="form"><input type="text" name="curso" size="10"
 								placeholder="Ej. 17/18" value="<c:out value="${parte.curso}" />"
 								required></td>
 						</tr>
 						<tr class="trparte">
-							<td class="titulo">Alumno <span class="text-danger">*</span></td>
+							<td class="titulo3">Alumno <span class="text-danger">*</span></td>
 							<td class="form"><input type="text" name="nombre_alum"
 								size="40" placeholder="Apellido1 Apellido2, Nombre"
 								value="<c:out value="${parte.nombre_alum}"/>" required></td>
-							<td class="titulo">Grupo <span class="text-danger">*</span></td>
+							<td class="titulo3">Grupo <span class="text-danger">*</span></td>
 							<td class="form"><input type="text" name="grupo" size="10"
 								placeholder="Ej. 2ºA" value="<c:out value="${parte.grupo}"/>"
 								required></td>
 						</tr>
 						<tr class="trparte">
-							<td class="titulo">Profesor <span class="text-danger">*</span></td>
+							<td class="titulo3">Profesor <span class="text-danger">*</span></td>
 							<td class="form"><input type="text" name="nombre_profe"
 								size="40" placeholder="Apellido1 Apellido2, Nombre"
 								value="<c:out value="${parte.nombre_profe}"/>" required></td>
-							<td class="titulo">Fecha <span class="text-danger">*</span></td>
+							<td class="titulo3">Fecha <span class="text-danger">*</span></td>
 							<td class="form"><input type="date" name="fecha_parte"
 								pattern="yyyy-MM-dd"
 								value="<c:out value="${parte.fecha_parte}"/>" required></td>
 						</tr>
 						<tr class="trparte">
-							<td class="titulo">Motivo del Parte <span
+							<td class="titulo3">Motivo del Parte <span
 								class="text-danger">*</span>
 							</td>
 							<td colspan="3" class="form"><textarea

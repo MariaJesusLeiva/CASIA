@@ -14,7 +14,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/md5.js"></script>
-<link href="css/estilo2.css" rel="stylesheet" type="text/css">
+<link href="css/casia.css" rel="stylesheet" type="text/css">
 <title>Modificar Usuario</title>
 </head>
 <%@ include file="PrincipalAdmin.jsp"%>

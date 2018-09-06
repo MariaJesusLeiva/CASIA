@@ -29,7 +29,6 @@ public class AcosoServlet extends HttpServlet {
      */
     public AcosoServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -98,7 +97,6 @@ public class AcosoServlet extends HttpServlet {
 			acosoDao.addAcoso(acosoEnt);			
 		} else {
 			id_acoso = Integer.parseInt(request.getParameter("id_acoso"));
-			System.out.println("id_acoso "+id_acoso);
 			acosoEnt.setId_acoso(id_acoso);
 			acosoDao.updateAcoso(acosoEnt);
 		}
@@ -107,7 +105,5 @@ public class AcosoServlet extends HttpServlet {
 		request.setAttribute("acosos", acosoDao.getAllAcosos());
 		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request, response);
-		
 	}
-
 }

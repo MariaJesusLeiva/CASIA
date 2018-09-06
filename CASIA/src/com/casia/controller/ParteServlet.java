@@ -34,7 +34,6 @@ public class ParteServlet extends HttpServlet {
      */
     public ParteServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -91,6 +90,7 @@ public class ParteServlet extends HttpServlet {
 			parteDao.deleteParteById(id_parte);
 			request.setAttribute("partes", parteDao.getAllPartes());			
 		} 
+		
 		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request, response);
 	}
@@ -123,13 +123,7 @@ public class ParteServlet extends HttpServlet {
 		String id_p = request.getParameter("id_parte");
 		ParteDao parteDao = new ParteDao();
 		
-		if(id_p == null || id_p.isEmpty()) {
-			/*List<ParteEntity> id;
-			id = (List<ParteEntity>)parteDao.getAllPartes();
-			System.out.println("id de lista "+id.size()); 
-			Integer id_nuevo = id.size()+1;
-			parteEnt.setId_parte(id_nuevo);
-			System.out.println("id " + parteEnt.getId_parte());*/
+		if(id_p == null || id_p.isEmpty()) {			
 			parteDao.addParte(parteEnt);
 			
 			forward = PENDIENTESANCION;

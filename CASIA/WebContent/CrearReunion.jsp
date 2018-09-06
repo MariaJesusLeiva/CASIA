@@ -12,7 +12,7 @@
 	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<link href="css/estilo5.css" rel="stylesheet" type="text/css">
+<link href="css/casia.css" rel="stylesheet" type="text/css">
 <title>Crear Reunión</title>
 </head>
 <%@ include file="Principal.jsp"%>
@@ -181,7 +181,7 @@
 									value="<c:out value="${reunion.conclusiones}" />"
 									onkeypress="return limita(event, 1000);"
 									onkeyup="actualizaInfo(1000)"></textarea>
-								<div id="info">Máximo 1000 caracteres</div></td>
+								<div id="info2">Máximo 1000 caracteres</div></td>
 						</tr>
 
 					</table>

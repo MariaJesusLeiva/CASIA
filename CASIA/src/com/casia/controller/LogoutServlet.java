@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,7 +23,6 @@ public class LogoutServlet extends HttpServlet {
      */
     public LogoutServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -33,14 +31,16 @@ public class LogoutServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession(false);
+		String forward= "";
 		RequestDispatcher rd = null;
 		String action = request.getParameter("action");
 		if (action.equalsIgnoreCase("salir")) {
 			if(session != null) {
+				forward = SALIR;
 				session.removeAttribute("user_name");
 				session.invalidate();
 				request.setAttribute("errMessage", "* Cierre de sesión correcto");
-				rd = request.getRequestDispatcher("Login.jsp");
+				rd = request.getRequestDispatcher(forward);
 				rd.forward(request, response);
 			}
 		}
@@ -54,5 +54,4 @@ public class LogoutServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }
