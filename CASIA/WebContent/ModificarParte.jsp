@@ -64,9 +64,9 @@
 							<td class="titulo3">Motivo del Parte <span
 								class="text-danger">*</span></td>
 							<td colspan="3" class="form"><textarea
-									class="estilotextarea" required id="textarea"
+									class="estilograndetextarea" required id="textarea"
 									name="motivo_parte" onkeypress="return limita(event, 1000);"
-									onkeyup="actualizaInfo(1000)" rows="10" cols="75"><c:out
+									onkeyup="actualizaInfo(1000)"><c:out
 										value="${parte.motivo_parte}" /></textarea>
 								<div id="info">Máximo 1000 caracteres</div></td>
 						</tr>

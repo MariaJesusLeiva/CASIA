@@ -61,9 +61,8 @@
 								class="text-danger">*</span>
 							</td>
 							<td colspan="3" class="form"><textarea
-									class="estilotextarea" id="textmotivo" name="motivo_parte"
-									value="<c:out value="${parte.motivo_parte}" />" rows="10"
-									cols="75" required onkeypress="return limita(event, 1000);"
+									class="estilograndetextarea" id="textmotivo" name="motivo_parte"
+									value="<c:out value="${parte.motivo_parte}" />"  required onkeypress="return limita(event, 1000);"
 									onkeyup="actualizaInfo(1000)"></textarea>
 								<div id="info">Máximo 1000 caracteres</div></td>
 						</tr>
