@@ -144,30 +144,26 @@
 function atras(){history.back();}
 </script>
 <script>
-function limita(elEvento, maximoCaracteres) {
-	  var elemento = document.getElementById("textarea");
-	  var elemento2 = document.getElementById("textarea2");
-	  var elemento3 = document.getElementById("textarea3");
-	  var evento = elEvento || window.event; // Obtener la tecla pulsada
-	  var codigoCaracter = evento.charCode || evento.keyCode;
-	  if(codigoCaracter == 37 || codigoCaracter == 39) {// Permitir utilizar las teclas con flecha horizontal
-	    return true;
-	  }
-	  if(codigoCaracter == 8 || codigoCaracter == 46) { // Permitir borrar con la tecla Backspace y con la tecla Supr.
-	    return true;
-	  }	else if (elemento.value.length > maximoCaracteres) {
-				return false;
-			} else if (elemento2.value.length > maximoCaracteres) {
-				return false;
-			} else if (elemento3.value.length > maximoCaracteres) {
-				return false;
-			} else {
-				return true;
-			}
-		}
 
-function actualizaInfo(maximoCaracteres) {
-	var elemento = document.getElementById("textarea");
+	function limita(elEvento, maximoCaracteres) {
+		var elemento = document.getElementById("textarea");
+		var elemento2 = document.getElementById("textarea2");
+		var elemento3 = document.getElementById("textarea3");
+		var evento = elEvento || window.event; // Obtener la tecla pulsada
+		var codigoCaracter = evento.charCode || evento.keyCode;
+		if (elemento.value.length > maximoCaracteres) {
+			return false;
+		} else if (elemento2.value.length > maximoCaracteres) {
+			return false;
+		} else if (elemento3.value.length > maximoCaracteres) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	function actualizaInfo(maximoCaracteres) {
+		var elemento = document.getElementById("textarea");
 		var elemento2 = document.getElementById("textarea2");
 		var elemento3 = document.getElementById("textarea3");
 		var info = document.getElementById("info");

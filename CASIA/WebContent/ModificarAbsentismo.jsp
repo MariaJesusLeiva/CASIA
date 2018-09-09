@@ -305,13 +305,8 @@ function limita(elEvento, maximoCaracteres) {
   var elemento4 = document.getElementById("textobservacion4");
   var evento = elEvento || window.event;// Obtener la tecla pulsada 
   var codigoCaracter = evento.charCode || evento.keyCode;
-  if(codigoCaracter == 37 || codigoCaracter == 39) {// Permitir utilizar las teclas con flecha horizontal
-    return true;
-  }
-  if(codigoCaracter == 8 || codigoCaracter == 46) {// Permitir borrar con la tecla Backspace y con la tecla Supr.
-    return true;
-  }	else if (elemento.value.length > maximoCaracteres) {
-			return false;
+  if (elemento.value.length > maximoCaracteres) {
+	return false;
 		} else if (elemento2.value.length > maximoCaracteres) {
 			return false;
 		} else if (elemento3.value.length > maximoCaracteres) {
@@ -322,8 +317,6 @@ function limita(elEvento, maximoCaracteres) {
 			return true;
 		}
 	}
-
-
 
 	function actualizaInfo(maximoCaracteres) {
 		var elemento = document.getElementById("textobservacion");

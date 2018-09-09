@@ -178,6 +178,7 @@ public class SancionServlet extends HttpServlet {
 			ParteDao parteDao = new ParteDao();
 			Integer id_p = Integer.parseInt(request.getParameter("id_parte"));
 			parteDao.updateSancionParte(id_p);
+			
 			if (tipo_sancion.equals("Recreo") || tipo_sancion.equals("PROA")) {
 				forward = VERSANCIONESSINDIAS;
 				RequestDispatcher view = request.getRequestDispatcher(forward);
