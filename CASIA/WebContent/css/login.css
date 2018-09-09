@@ -33,6 +33,7 @@ body {
 	height: 350px;
 	width: 400px;
 	border: 4px solid #9C9C9C;
+	outline: 5px solid #41719C;
 	background-color: #EAEAEA;
 	padding: 40px;
 }
@@ -44,5 +45,4 @@ div.titulo {
 	color: #41719C;
 	font-size: 35px;
 	text-decoration: underline;
-    text-decoration-color: #9C9C9C;
 }
