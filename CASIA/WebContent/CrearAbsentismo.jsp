@@ -274,6 +274,7 @@
 									<select name="fase_actual"
 										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;"
 										required>
+										<option value=''>Seleccionar</option>
 										<option value="Fase 1">Fase 1</option>
 										<option value="Fase 2">Fase 2</option>
 										<option value="Fase 3">Fase 3</option>

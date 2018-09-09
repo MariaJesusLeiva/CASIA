@@ -17,7 +17,7 @@
 <body style="background-color: #f4f7f9">
 	<div class="text-white text-center d-block mb-1">
 		<h3 class="titulo pb-2 pt-2">
-			Formulario para Asignar una Sanción Correspondiente al Parte con Código (<a href="ParteServlet?action=verParte&id_parte=<c:out value="${sancion.id_parte}"/>"><i><%=session.getAttribute("codigoparte")%></i></a>)
+			Formulario para Asignar una Sanción Correspondiente al Parte (<a href="ParteServlet?action=verParte&id_parte=<c:out value="${sancion.id_parte}"/>"><i><%=session.getAttribute("codigoparte")%></i></a>)
 		</h3>
 	</div>
 	<div class="container">
@@ -53,9 +53,10 @@
 							<td class="titulo">Sanción <span class="text-danger">*</span></td>
 							<td class="form">
 								<div class="select-wrapper">
-									<select name="tipo_sancion"
+									<select name="tipo_sancion" id="tipo_sancion"
 										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;"
 										required>
+										<option value=''>Seleccionar</option>
 										<option value="Recreo">Recreo</option>
 										<option value="PROA">PROA</option>
 										<option value="Expulsión">Expulsión</option>
@@ -126,8 +127,6 @@
 					<table class="table table-hover" id="task-table" align="center">
 						<thead>
 							<tr>
-								<!-- <th>Código</th>
-								<th>Fecha Inicio</th>-->
 								<th class="centrado">Tipo</th>
 								<th class="centrado">Total Días</th>
 								<th class="centrado">Alumno</th>

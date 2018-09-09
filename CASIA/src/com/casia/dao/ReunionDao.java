@@ -41,8 +41,8 @@ public class ReunionDao {
 				reunion.setEn_calidad_de3(rs.getString("en_calidad_de3"));
 				reunion.setAsistente4(rs.getString("asistente4"));
 				reunion.setEn_calidad_de4(rs.getString("en_calidad_de4"));
-				reunion.setAsistente5(rs.getString("asistente1"));
-				reunion.setEn_calidad_de5(rs.getString("en_calidad_de1"));
+				reunion.setAsistente5(rs.getString("asistente5"));
+				reunion.setEn_calidad_de5(rs.getString("en_calidad_de5"));
 				reunion.setTemas_tratados(rs.getString("temas_tratados"));
 				reunion.setConclusiones(rs.getString("conclusiones"));
 				
@@ -156,8 +156,8 @@ public class ReunionDao {
 				reunion.setEn_calidad_de3(rs.getString("en_calidad_de3"));
 				reunion.setAsistente4(rs.getString("asistente4"));
 				reunion.setEn_calidad_de4(rs.getString("en_calidad_de4"));
-				reunion.setAsistente5(rs.getString("asistente1"));
-				reunion.setEn_calidad_de5(rs.getString("en_calidad_de1"));
+				reunion.setAsistente5(rs.getString("asistente5"));
+				reunion.setEn_calidad_de5(rs.getString("en_calidad_de5"));
 				reunion.setTemas_tratados(rs.getString("temas_tratados"));
 				reunion.setConclusiones(rs.getString("conclusiones"));
 			}

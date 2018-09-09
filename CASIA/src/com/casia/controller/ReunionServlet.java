@@ -106,7 +106,7 @@ public class ReunionServlet extends HttpServlet {
 		String id_reunion = request.getParameter("id_reunion");
 		if(id_reunion == null || id_reunion.isEmpty()) {
 			reunionDao.addReunion(reunionEnt);			
-		}else {
+		} else {
 			id_rn = Integer.parseInt(request.getParameter("id_reunion"));
 			reunionEnt.setId_reunion(id_rn);
 			reunionDao.updateReunion(reunionEnt);

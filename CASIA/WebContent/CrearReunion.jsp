@@ -57,6 +57,7 @@
 								<div class="select-wrapper">
 									<select name="en_calidad_de1"
 										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;">
+										<option value=''>Seleccionar</option>
 										<option value="Alumnado">Alumnado</option>
 										<option value="Equipo Directivo">Equipo Directivo</option>
 										<option value="Tutor/a">Tutor/a</option>
@@ -80,6 +81,7 @@
 								<div class="select-wrapper">
 									<select name="en_calidad_de2"
 										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;">
+										<option value=''>Seleccionar</option>
 										<option value="Alumnado">Alumnado</option>
 										<option value="Equipo Directivo">Equipo Directivo</option>
 										<option value="Tutor/a">Tutor/a</option>
@@ -103,6 +105,7 @@
 								<div class="select-wrapper">
 									<select name="en_calidad_de3"
 										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;">
+										<option value=''>Seleccionar</option>
 										<option value="Alumnado">Alumnado</option>
 										<option value="Equipo Directivo">Equipo Directivo</option>
 										<option value="Tutor/a">Tutor/a</option>
@@ -114,7 +117,6 @@
 								</div>
 							</td>
 						</tr>
-						<tr class="trreunion">
 						<tr class="trreunion2">
 							<td class="titulo">Asistente 4</td>
 							<td class="form"><input type="text" name="asistente4"
@@ -127,6 +129,7 @@
 								<div class="select-wrapper">
 									<select name="en_calidad_de4"
 										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;">
+										<option value=''>Seleccionar</option>
 										<option value="Alumnado">Alumnado</option>
 										<option value="Equipo Directivo">Equipo Directivo</option>
 										<option value="Tutor/a">Tutor/a</option>
@@ -138,7 +141,7 @@
 								</div>
 							</td>
 						</tr>
-						<tr class="trreunion2">
+							<tr class="trreunion2">
 							<td class="titulo">Asistente 5</td>
 							<td class="form"><input type="text" name="asistente5"
 								size="40" placeholder="Apellido1 Apellido2, Nombre"
@@ -150,6 +153,7 @@
 								<div class="select-wrapper">
 									<select name="en_calidad_de5"
 										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;">
+										<option value=''>Seleccionar</option>
 										<option value="Alumnado">Alumnado</option>
 										<option value="Equipo Directivo">Equipo Directivo</option>
 										<option value="Tutor/a">Tutor/a</option>

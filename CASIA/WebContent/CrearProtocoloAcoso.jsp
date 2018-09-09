@@ -54,6 +54,7 @@
 									<select name="tipo" required
 										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;"
 										required>
+										<option value=''>Seleccionar</option>
 										<option value="Presunto Acosado">Presunto Acosado</option>
 										<option value="Presunto Acosador">Presunto Acosador</option>
 									</select>
@@ -76,6 +77,7 @@
 									<select name="tipo2" required
 										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;"
 										required>
+										<option value=''>Seleccionar</option>
 										<option value="Presunto Acosado">Presunto Acosado</option>
 										<option value="Presunto Acosador">Presunto Acosador</option>
 									</select>

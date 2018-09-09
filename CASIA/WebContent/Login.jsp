@@ -18,17 +18,15 @@
 			<div class="col-md-4"></div>
 			<div class="col-md-4">
 				<div class="login-form">
+				<center><div class="titulo">C A S I A</div></center><br/>
 				<form name="form"
 					action="<%=request.getContextPath()%>/LoginServlet" method="post">
-					<img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive"
-						alt="" /> <br/><br/>
 						<input type="text" name="name_user" placeholder="Usuario"
 						required class="form-control input-lg" /> <br/>
 						<input type="password" class="form-control input-lg" name="pass_usermd5" onkeyup="this.form.pass_user.value=md5(this.form.pass_usermd5.value)"
 						placeholder="Contrase&ntilde;a" required />
 						<input type="hidden" name="pass_user">
-<br/><br/>
-					
+						<br/><br/>					
 					<button type="submit" name="btnEntrar"
 						class="btn btn-lg btn-primary btn-block">Entrar</button>
 					<table>

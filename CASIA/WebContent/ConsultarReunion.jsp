@@ -109,7 +109,7 @@
 						<tr class="trreunion3">
 							<td class="titulo">En calidad de</td>
 							<td class="form"><input class="estilofondogris" type="text"
-								name="en_calidad_de1" size="20" readonly="readonly"
+								name="en_calidad_de5" size="20" readonly="readonly"
 								value="<c:out value="${reunion.en_calidad_de5}"/>"></td>
 						</tr>
 
