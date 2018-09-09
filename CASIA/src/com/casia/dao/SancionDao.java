@@ -113,9 +113,6 @@ private static Connection connection;
 		List<SancionEntity> sanciones = new ArrayList<SancionEntity>();
 		try	{
 			Statement statement = connection.createStatement();
-			/*ResultSet rs = statement.executeQuery("SELECT * FROM sancion s " + 
-										"INNER JOIN parte p ON s.id_parte=p.id_parte " +
-										"ORDER BY s.fecha_inicio ASC");*/
 			ResultSet rs = statement.executeQuery("SELECT * FROM sancion ORDER BY id_sancion DESC");
 			
 			while (rs.next()) {
@@ -143,9 +140,6 @@ private static Connection connection;
 		List<SancionEntity> sanciones = new ArrayList<SancionEntity>();
 		try	{
 			Statement statement = connection.createStatement();
-			/*ResultSet rs = statement.executeQuery("SELECT * FROM sancion s " + 
-										"INNER JOIN parte p ON s.id_parte=p.id_parte " +
-										"ORDER BY s.fecha_inicio ASC");*/
 			ResultSet rs = statement.executeQuery("SELECT * FROM sancion WHERE tipo_sancion != 'Expulsión' " +
 										"ORDER BY fecha_inicio ASC");
 			

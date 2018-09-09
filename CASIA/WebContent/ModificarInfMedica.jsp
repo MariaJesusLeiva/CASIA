@@ -12,7 +12,7 @@
 <title>Modificar Inf. Médica</title>
 </head>
 <%@ include file="Principal.jsp"%>
-<body>
+<body style="background-color: #f4f7f9">
 <div class="text-white text-center d-block mb-1">
 		<h3 class="titulo pb-2 pt-2">Modificar Información Médica</h3>
 	</div>

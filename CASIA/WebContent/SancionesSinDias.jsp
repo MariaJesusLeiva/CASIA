@@ -12,7 +12,7 @@
 <title>Sanciones Sin Días</title>
 </head>
 <%@ include file="Principal.jsp"%>
-<body>
+<body style="background-color: #f4f7f9">
 <div class="container">
        	<div class="row">
 			<div class="col-md-6">

@@ -8,14 +8,13 @@
 <link
 	href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script	src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link href="css/buscar.css" rel="stylesheet" type="text/css">
 <title><%=session.getAttribute("nombre_alum")%></title>
 </head>
 <%@ include file="Principal.jsp"%>
-<body>
+<body style="background-color: #f4f7f9">
 	<div class="container">
 		<div class="page-header">
 			<h1>
@@ -38,7 +37,6 @@
 									Jurídica</a></li>
 							<li><a href="#tab7primary" data-toggle="tab">Protocolo
 									Acoso</a></li>
-
 						</ul>
 					</div>
 					<div class="panel-body">
@@ -181,7 +179,6 @@
 											<th style="text-align: center">Implicado</th>
 											<th style="text-align: center">Info. Aportada</th>
 											<th style="text-align: center">Protocolo Iniciado</th>
-
 										</tr>
 									</thead>
 									<tbody align="center">

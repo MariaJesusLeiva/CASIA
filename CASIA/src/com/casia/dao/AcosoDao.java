@@ -25,10 +25,6 @@ private static Connection connection;
 					.prepareStatement("INSERT INTO acoso(codigo, curso, grupo, grupo2, tipo, tipo2, nombre_alum, nombre_alum2, "
 							+ "inf_aportada, medidas, inicio_protocolo, asistentes, hora_reunion, fecha_reunion) "
 							+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-			/*PreparedStatement preparedStatement = connection
-					.prepareStatement("INSERT INTO acoso(codigo, curso, grupo, grupo2, tipo, tipo2, nombre_alum, nombre_alum2, "
-							+ "inf_aportada, medidas, inicio_protocolo) "
-							+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");*/
 
 			preparedStatement.setInt(1, acosoEnt.getCodigo());
 			preparedStatement.setString(2, acosoEnt.getCurso());
@@ -76,25 +72,6 @@ private static Connection connection;
 			
 			preparedStatement.setInt(15, acosoEnt.getId_acoso());
 			preparedStatement.executeUpdate();
-			
-			/*PreparedStatement preparedStatement = connection
-					.prepareStatement("UPDATE acoso SET codigo=?, curso=?, grupo=?, grupo2=?, tipo=?, tipo2=?, nombre_alum=?, nombre_alum2=?, " + 
-							"inf_aportada=?, medidas=?, inicio_protocolo=? " +
-							"WHERE id_acoso=?");
-			
-			preparedStatement.setInt(1, acosoEnt.getCodigo());
-			preparedStatement.setString(2, acosoEnt.getCurso());
-			preparedStatement.setString(3, acosoEnt.getGrupo());
-			preparedStatement.setString(4, acosoEnt.getGrupo2());
-			preparedStatement.setString(5, acosoEnt.getTipo());
-			preparedStatement.setString(6, acosoEnt.getTipo2());
-			preparedStatement.setString(7, acosoEnt.getNombre_alum());
-			preparedStatement.setString(8, acosoEnt.getNombre_alum2());
-			preparedStatement.setString(9, acosoEnt.getInf_aportada());
-			preparedStatement.setString(10, acosoEnt.getMedidas());
-			preparedStatement.setString(11, acosoEnt.getInicio_protocolo());
-			preparedStatement.setInt(12, acosoEnt.getId_acoso());
-			preparedStatement.executeUpdate();*/
 
 		} catch (SQLException e) {
 			e.printStackTrace();

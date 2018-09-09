@@ -8,24 +8,21 @@
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/casia.css" rel="stylesheet" type="text/css">
 <title>Modificar Parte</title>
 </head>
 <%@ include file="Principal.jsp"%>
-<body>
+<body style="background-color: #f4f7f9">
+	<div class="text-white text-center d-block mb-1">
+		<h3 class="titulo pb-2 pt-2">Modificar Parte de Convivencia</h3>
+	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<div class="text-white text-center d-block mb-1">
-					<h4 class="titulo pb-2 pt-2">Modificar Parte de Convivencia</h4>
-				</div>
 				<form method="POST" action='ParteServlet' name="frmModificarParte">
-
 					<input type="text" name="id_parte" style="display: none"
 						value="<c:out value="${parte.id_parte}" />">
 					<table class="table table-sm">
@@ -85,10 +82,10 @@
 			<div class="col-md-3"></div>
 		</div>
 	</div>
-<script>
+	<script>
 function atras(){history.back();}
 </script>
-<script>
+	<script>
 (function(){
     'use strict';
 	var $ = jQuery;
@@ -123,7 +120,7 @@ function atras(){history.back();}
 	$('[data-action="filter"]').filterTable();
 })(jQuery);
 </script>
-<script>
+	<script>
 $(function(){
 	$('[data-action="filter"]').filterTable();	
 	$('.container').on('click', '.panel-heading span.filter', function(e){
@@ -137,7 +134,7 @@ $(function(){
 	$('[data-toggle="tooltip"]').tooltip();
 })
 </script>
-<script>
+	<script>
 function limita(elEvento, maximoCaracteres) {
   var elemento = document.getElementById("textarea");
   var evento = elEvento || window.event; // Obtener la tecla pulsada 

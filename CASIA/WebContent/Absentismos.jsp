@@ -8,15 +8,13 @@
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/casia.css" rel="stylesheet" type="text/css">
 <title>Historial Absentismos</title>
 </head>
 <%@ include file="Principal.jsp"%>
-<body>
+<body style="background-color: #f4f7f9">
 	<div class="text-white text-center d-block mb-1"></div>
 	<div class="container">
 		<div class="row">
@@ -51,7 +49,6 @@
 								<th class="centrado">Edad > 16</th>
 								<th class="centrado">&nbsp</th>
 								<th class="centrado">&nbsp</th>
-
 							</tr>
 						</thead>
 						<tbody class="centrado">

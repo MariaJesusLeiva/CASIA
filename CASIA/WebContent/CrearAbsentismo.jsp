@@ -8,22 +8,20 @@
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/casia.css" rel="stylesheet" type="text/css">
 <title>Crear Absentismo</title>
 </head>
 <%@ include file="Principal.jsp"%>
-<body>
+<body style="background-color: #f4f7f9">
+	<div class="text-white text-center d-block mb-1">
+		<h3 class="titulo pb-2 pt-2">Formulario para Registro de
+			Absentismo</h3>
+	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-12 mt-4">
-				<div class="text-white text-center d-block mb-1">
-					<h4 class="titulo pb-2 pt-2">Formulario para Registro de
-						Absentismo</h4>
-				</div>
 				<form method="POST" action='AbsentismoServlet'
 					name="frmAddabsentismo">
 					<table class="table table-sm">
@@ -303,10 +301,10 @@
 			</div>
 		</div>
 	</div>
-<script>
+	<script>
 function atras(){history.back();}
 </script>
-<script>
+	<script>
 function limita(elEvento, maximoCaracteres) {
   var elemento = document.getElementById("textobservacion");
   var elemento2 = document.getElementById("textobservacion2");

@@ -140,8 +140,6 @@ public class ParteDao {
 		return alumsancion;
 	}
 
-	// Usado en SancionServlet para actualizar el campo tipo_sancion de la tabla
-	// parte
 	public void updateSancionParte(int id_parte) {
 		try {
 			PreparedStatement preparedStatement = connection
@@ -161,7 +159,7 @@ public class ParteDao {
 
 		try {
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("SELECT * FROM parte WHERE tipo_sancion IS NULL ORDER BY fecha_parte ASC");
+			ResultSet rs = statement.executeQuery("SELECT * FROM parte WHERE tipo_sancion IS NULL ORDER BY codigo ASC");
 			while (rs.next()) {
 				ParteEntity parte = new ParteEntity();
 				parte.setId_parte(rs.getInt("id_parte"));

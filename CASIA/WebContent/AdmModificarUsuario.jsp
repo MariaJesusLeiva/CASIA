@@ -8,16 +8,14 @@
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/md5.js"></script>
 <link href="css/casia.css" rel="stylesheet" type="text/css">
 <title>Modificar Usuario</title>
 </head>
 <%@ include file="PrincipalAdmin.jsp"%>
-<body>
+<body style="background-color: #f4f7f9">
 	<div class="text-white text-center d-block mb-1"></div>
 	<div class="container">
 		<div class="row">
@@ -39,7 +37,6 @@
 							<td class="form"><input type="text"	required name="pass_usermd5" onkeyup="this.form.pass_user.value=md5(this.form.pass_usermd5.value)"
 								><input type="hidden" name="pass_user"></td>
 						</tr>
-
 					</table>
 					<div class="row mt-3 mb-3">
 						<div class="col-12">
@@ -85,8 +82,7 @@
 								<td><a
 										href="UsuarioServlet?action=eliminarUsuario&id_user=<c:out value="${user.id_user}"/>"onclick="return confirm('¿Está seguro de eliminar?');"><i
 											class="glyphicon glyphicon-trash"></i></a></td>
-								</tr>
-								</tr>
+								</tr>								
 							</c:forEach>
 						</tbody>
 					</table>

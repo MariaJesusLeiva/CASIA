@@ -55,17 +55,7 @@ public class ReservaDiaSancionDao {
 
 		try {
 			Statement statement = connection.createStatement();
-			/*
-			 * ResultSet rs = statement.executeQuery("SELECT * FROM sancion s " +
-			 * "INNER JOIN parte p ON s.id_parte=p.id_parte " +
-			 * "ORDER BY s.fecha_inicio ASC");
-			 */
 			ResultSet rs = statement.executeQuery("SELECT * FROM reservadiasancion ORDER BY fecha_inicio ASC");
-			/*
-			 * ResultSet rs = statement.executeQuery("SELECT * FROM reservadiasancion r " +
-			 * "INNER JOIN sancion s ON s.id_sancion=r.id_sancion " +
-			 * "WHERE r.tipo_sancion=s.tipo_sancion " + "ORDER BY r.fecha_inicio ASC");
-			 */
 
 			while (rs.next()) {
 				ReservaDiaSancionEntity reserva = new ReservaDiaSancionEntity();
@@ -89,7 +79,6 @@ public class ReservaDiaSancionDao {
 
 		try {
 			Statement statement = connection.createStatement();
-
 			ResultSet rs = statement.executeQuery("SELECT * FROM reservadiasancion WHERE tipo_sancion = 'Recreo' ORDER BY fecha_inicio ASC");
 
 			while (rs.next()) {
@@ -114,7 +103,6 @@ public class ReservaDiaSancionDao {
 
 		try {
 			Statement statement = connection.createStatement();
-
 			ResultSet rs = statement.executeQuery("SELECT * FROM reservadiasancion WHERE tipo_sancion = 'PROA' ORDER BY fecha_inicio ASC");
 
 			while (rs.next()) {
@@ -137,8 +125,7 @@ public class ReservaDiaSancionDao {
 	public List<ReservaDiaSancionEntity> getAllRecreoPROA() {
 		List<ReservaDiaSancionEntity> reservas = new ArrayList<ReservaDiaSancionEntity>();
 		try {
-			Statement statement = connection.createStatement();
-			
+			Statement statement = connection.createStatement();			
 			ResultSet rs = statement.executeQuery("SELECT * FROM reservadiasancion r " +
 								"INNER JOIN sancion s ON s.id_sancion = r.id_sancion " +
 								"ORDER BY r.fecha_inicio ASC");
@@ -215,7 +202,6 @@ public class ReservaDiaSancionDao {
 		List<SancionEntity> proas = new ArrayList<SancionEntity>();
 		try {
 			Statement statement = connection.createStatement();
-
 			ResultSet rs = statement.executeQuery(
 					"SELECT * FROM reservadiasancion r INNER JOIN sancion s ON s.id_sancion=r.id_sancion "
 							+ "WHERE r.tipo_sancion= 'PROA' AND s.tipo_sancion= 'PROA' AND r.asistencia IS NULL "
@@ -243,7 +229,6 @@ public class ReservaDiaSancionDao {
 		List<SancionEntity> recreos = new ArrayList<SancionEntity>();
 		try {
 			Statement statement = connection.createStatement();
-
 			ResultSet rs = statement.executeQuery(
 					"SELECT * FROM reservadiasancion r INNER JOIN sancion s ON s.id_sancion=r.id_sancion "
 							+ "WHERE r.tipo_sancion= 'Recreo' AND s.tipo_sancion= 'Recreo' AND r.asistencia IS NULL "
@@ -345,6 +330,5 @@ public class ReservaDiaSancionDao {
 			e.printStackTrace();
 		}
 		return proas;
-	}
-	
+	}	
 }

@@ -172,20 +172,19 @@ public class SancionServlet extends HttpServlet {
 				request.setAttribute("sanciones", sancionDao.getAllSanciones());
 				RequestDispatcher view = request.getRequestDispatcher(forward);
 				view.forward(request, response);
-
-			} else {
-
-				// Para actualizar el campo tipo_sancion de la tabla parte
-				ParteDao parteDao = new ParteDao();
-				Integer id_p = Integer.parseInt(request.getParameter("id_parte"));
-				parteDao.updateSancionParte(id_p);
+			}
+			
+			// Para actualizar el campo tipo_sancion de la tabla parte
+			ParteDao parteDao = new ParteDao();
+			Integer id_p = Integer.parseInt(request.getParameter("id_parte"));
+			parteDao.updateSancionParte(id_p);
+			if (tipo_sancion.equals("Recreo") || tipo_sancion.equals("PROA")) {
 				forward = VERSANCIONESSINDIAS;
 				RequestDispatcher view = request.getRequestDispatcher(forward);
 				request.setAttribute("sancionSin", sancionDao.getAllSancionesSinDias());
 				request.setAttribute("sanciones", reservaDao.getAllRecreoPROA());
 				view.forward(request, response);
 			}
-
 		} else {
 
 			id_snc = Integer.parseInt(request.getParameter("id_sancion"));
@@ -230,14 +229,14 @@ public class SancionServlet extends HttpServlet {
 				request.setAttribute("sanciones", sancionDao.getAllSanciones());
 				RequestDispatcher view = request.getRequestDispatcher(forward);
 				view.forward(request, response);
+			}
 
-			} else {
+			// Para actualizar el campo tipo_sancion de la tabla parte
+			ParteDao parteDao = new ParteDao();
+			Integer id_p = Integer.parseInt(request.getParameter("id_parte"));
+			parteDao.updateSancionParte(id_p);
 
-				// Para actualizar el campo tipo_sancion de la tabla parte
-				ParteDao parteDao = new ParteDao();
-				Integer id_p = Integer.parseInt(request.getParameter("id_parte"));
-				parteDao.updateSancionParte(id_p);
-
+			if (tipo_sancion.equals("Recreo") || tipo_sancion.equals("PROA")) {
 				forward = VERSANCIONESSINDIAS;
 				RequestDispatcher view = request.getRequestDispatcher(forward);
 				request.setAttribute("sancionSin", sancionDao.getAllSancionesSinDias());
