@@ -8,8 +8,10 @@
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
-<script	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script
+	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/casia.css" rel="stylesheet" type="text/css">
 <title>Bienvenido a CASIA</title>
 </head>
@@ -24,9 +26,15 @@
 					<table class="table table-sm">
 						<thead>
 							<tr>
-								<th class="centrado"><h4>
-										<b>RECREOS PARA HOY</b>
-									</h4></th>
+								<th class="centrado">
+									<div class="panel panel-primary">
+										<div class="panel-heading">
+											<h3 class="panel-title">
+												<b>RECREOS PARA HOY</b>
+											</h3>
+										</div>
+									</div>
+								</th>
 							</tr>
 						</thead>
 						<tbody class="centrado">
@@ -46,9 +54,15 @@
 					<table class="table table-sm">
 						<thead>
 							<tr>
-								<th class="centrado"><h4>
-										<b>PROAS PARA HOY</b>
-									</h4></th>
+								<th class="centrado">
+									<div class="panel panel-primary">
+										<div class="panel-heading">
+											<h3 class="panel-title">
+												<b>PROAS PARA HOY</b>
+											</h3>
+										</div>
+									</div>
+								</th>
 							</tr>
 						</thead>
 						<tbody class="centrado">
@@ -68,9 +82,14 @@
 					<table class="table table-sm">
 						<thead>
 							<tr>
-								<th class="centrado"><h4>
-										<b>EXPULSIONES EN CURSO</b>
-									</h4></th>
+								<th class="centrado">
+									<div class="panel panel-primary">
+										<div class="panel-heading">
+											<h3 class="panel-title">
+												<b>EXPULSIONES EN CURSO</b>
+											</h3>
+										</div>
+									</div>
 							</tr>
 						</thead>
 						<tbody class="centrado">

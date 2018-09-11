@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=uft-8">
 <link
-	href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
 <script	src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -26,17 +26,17 @@
 				<div class="panel with-nav-tabs panel-primary">
 					<div class="panel-heading">
 						<ul class="nav nav-tabs">
-							<li class="active"><a href="#tab1primary" data-toggle="tab">Partes</a></li>
-							<li><a href="#tab2primary" data-toggle="tab">Sanciones</a></li>
-							<li><a href="#tab3primary" data-toggle="tab">Absentismo</a></li>
-							<li><a href="#tab4primary" data-toggle="tab">Info.
-									Médica</a></li>
-							<li><a href="#tab5primary" data-toggle="tab">Actuación
-									Médica</a></li>
-							<li><a href="#tab6primary" data-toggle="tab">Info.
-									Jurídica</a></li>
-							<li><a href="#tab7primary" data-toggle="tab">Protocolo
-									Acoso</a></li>
+							<li class="active"><a href="#tab1primary" data-toggle="tab"><b>Partes</b></a></li>
+							<li><a href="#tab2primary" data-toggle="tab"><b>Sanciones</b></a></li>
+							<li><a href="#tab3primary" data-toggle="tab"><b>Absentismo</b></a></li>
+							<li><a href="#tab4primary" data-toggle="tab"><b>Info.
+									Médica</b></a></li>
+							<li><a href="#tab5primary" data-toggle="tab"><b>Actuación
+									Médica</b></a></li>
+							<li><a href="#tab6primary" data-toggle="tab"><b>Info.
+									Jurídica</b></a></li>
+							<li><a href="#tab7primary" data-toggle="tab"><b>Protocolo
+									Acoso</b></a></li>
 						</ul>
 					</div>
 					<div class="panel-body">

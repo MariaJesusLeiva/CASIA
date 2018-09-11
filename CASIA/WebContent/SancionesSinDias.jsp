@@ -42,7 +42,9 @@
 							<c:forEach items="${sancionSin}" var="sancion">
 								<tr>
 									<td><c:out value="${sancion.nombre_alum}" /></td>
-									<td><c:out value="${sancion.tipo_sancion}" /></td>
+									<td><a
+													href="SancionServlet?action=verSancion&id_sancion=<c:out value="${sancion.id_sancion}"/>"><i><c:out
+																value="${sancion.tipo_sancion}" /></i></a></td>
 									<td><c:out value="${sancion.total_dias}" /></td>
 									<%-- <td><c:out value="${parte.motivo_parte}" /></td> --%>
 									<td><a

@@ -62,7 +62,7 @@
 						</tr>
 						<tr>
 							<td class="titulo4">Mes</td>
-							<td class="form4"><input type="month" name="mes_faseuno"
+							<td class="form4"><input type="text" name="mes_faseuno"
 								value="<c:out value="${absentismo.mes_faseuno}"/>"></td>
 							<td class="titulo4">Total Horas Injustificadas</td>
 							<td class="form4"><input type="text"
@@ -96,7 +96,7 @@
 						</tr>
 						<tr>
 							<td class="titulo4">Mes</td>
-							<td class="form4"><input type="month" name="mes_fasedos"
+							<td class="form4"><input type="text" name="mes_fasedos"
 								value="<c:out value="${absentismo.mes_fasedos}"/>"></td>
 							<td class="titulo4">Total Horas Injustificadas</td>
 							<td class="form4"><input type="text"
@@ -163,7 +163,7 @@
 						</tr>
 						<tr>
 							<td class="titulo4">Mes</td>
-							<td class="form4"><input type="month" name="mes_fasetres"
+							<td class="form4"><input type="text" name="mes_fasetres"
 								value="<c:out value="${absentismo.mes_fasetres}"/>"></td>
 							<td class="titulo4">Total Horas Injustificadas</td>
 							<td class="form4"><input type="text"
@@ -231,7 +231,7 @@
 						</tr>
 						<tr>
 							<td class="titulo4">Mes</td>
-							<td class="form4"><input type="month" name="mes_fasecuatro"
+							<td class="form4"><input type="text" name="mes_fasecuatro"
 								value="<c:out value="${absentismo.mes_fasecuatro}"/>"></td>
 							<td class="titulo4">Total Horas Injustificadas</td>
 							<td class="form4"><input type="text"

@@ -72,7 +72,6 @@ public class LoginServlet extends HttpServlet {
 					rd = request.getRequestDispatcher("Resumen.jsp");
 					rd.include(request, response);
 				} else {
-					System.out.println("Error message = " + rol_user);
 					request.setAttribute("errMessage", rol_user);
 					rd = request.getRequestDispatcher("Login.jsp");
 					rd.include(request, response);
