@@ -45,8 +45,16 @@
 						</tr>
 						<tr class="trfila2">
 							<td class="titulo">Tipo <span class="text-danger">*</span></td>
-							<td colspan="3" class="form"><input type="text" name="tipo"
-								value="<c:out value="${acoso.tipo}"/>" required></td>
+							<td colspan="3" class="form">
+							<div class="select-wrapper">
+									<select name="tipo" required
+										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;"
+										required>
+										<option value="${acoso.tipo}">${acoso.tipo}</option>
+										<option value="Presunto Acosado">Presunto Acosado</option>
+										<option value="Presunto Acosador">Presunto Acosador</option>
+									</select>
+								</div></td>
 						</tr>
 						<tr class="trfila">
 							<td class="titulo">Alumno <span class="text-danger">*</span></td>
@@ -57,8 +65,15 @@
 								value="<c:out value="${acoso.grupo}"/>" required></td>
 						<tr class="trfila2">
 							<td class="titulo">Tipo <span class="text-danger">*</span></td>
-							<td colspan="3" class="form"><input type="text" name="tipo2"
-								value="<c:out value="${acoso.tipo2}"/>" required></td>
+							<td colspan="3" class="form"><div class="select-wrapper">
+									<select name="tipo2" required
+										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;"
+										required>
+										<option value="${acoso.tipo2}">${acoso.tipo2}</option>
+										<option value="Presunto Acosado">Presunto Acosado</option>
+										<option value="Presunto Acosador">Presunto Acosador</option>
+									</select>
+								</div></td>
 						</tr>
 						<tr class="trfila">
 							<td class="titulo">Fecha Reunión <span class="text-danger">*</span></td>

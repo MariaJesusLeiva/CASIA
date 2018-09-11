@@ -60,7 +60,7 @@
 			<div class="col-md-6">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<h3 class="panel-title">HISTORIAL RECREO Y PROA</h3>
+						<h3 class="panel-title">HISTORIAL DÍAS ASIGNADOS RECREO Y PROA</h3>
 						<div class="pull-right">
 							<span class="clickable filter" data-toggle="tooltip" title="Buscador" data-container="body">
 								<i class="glyphicon glyphicon-search"></i>

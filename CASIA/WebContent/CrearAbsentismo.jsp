@@ -29,7 +29,9 @@
 							<td style="border-top: 5px #41719C solid" class="titulo4">Código
 								<span class="text-danger">*</span>
 							</td>
-							<td style="border-top: 5px #41719C solid" class="titulo4">Curso</td>
+							<td style="border-top: 5px #41719C solid" class="titulo4">Curso
+								<span class="text-danger">*</span>
+							</td>
 							<td style="border-top: 5px #41719C solid" class="titulo4">Grupo</td>
 							<td style="border-top: 5px #41719C solid" class="titulo4"></td>
 						</tr>
@@ -39,7 +41,7 @@
 								value="<c:out value="${absentismo.codigo_absen}"/>" required></td>
 							<td style="text-align: center" class="form4"><input
 								type="text" name="curso" size="10" placeholder="Ej. 17/18"
-								value="<c:out value="${absentismo.curso}" />"></td>
+								value="<c:out value="${absentismo.curso}" />" required></td>
 							<td style="text-align: center" class="form4"><input
 								type="text" name="grupo" size="10" placeholder="Ej. 2ºA"
 								value="<c:out value="${absentismo.grupo}"/>"></td>

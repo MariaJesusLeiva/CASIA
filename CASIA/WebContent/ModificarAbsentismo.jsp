@@ -31,7 +31,9 @@
 							<td style="border-top: 5px #41719C solid" class="titulo4">Código
 								<span class="text-danger">*</span>
 							</td>
-							<td style="border-top: 5px #41719C solid" class="titulo4">Curso</td>
+							<td style="border-top: 5px #41719C solid" class="titulo4">Curso
+								<span class="text-danger">*</span>
+							</td>
 							<td style="border-top: 5px #41719C solid" class="titulo4">Grupo</td>
 							<td style="border-top: 5px #41719C solid" class="titulo4"></td>
 						</tr>
@@ -41,7 +43,7 @@
 								value="<c:out value="${absentismo.codigo_absen}"/>" required></td>
 							<td style="text-align: center" class="form4"><input
 								type="text" name="curso" size="10" placeholder="Ej. 17/18"
-								value="<c:out value="${absentismo.curso}" />"></td>
+								value="<c:out value="${absentismo.curso}"/>" required></td>
 							<td style="text-align: center" class="form4"><input
 								type="text" name="grupo" size="10" placeholder="Ej. 2ºA"
 								value="<c:out value="${absentismo.grupo}"/>"></td>
@@ -269,10 +271,18 @@
 							<td style="border-top: 5px #41719C solid" class="titulo4"></td>
 						</tr>
 						<tr style="border-bottom: 5px #41719C solid">
-							<td style="text-align: center" class="form4"><input
-								type="text" name="fase_actual" size="10"
-								placeholder="Ej. Fase 1"
-								value="<c:out value="${absentismo.fase_actual}"/>" required></td>
+							<td style="text-align: center" class="form4">
+							<div class="select-wrapper">
+									<select name="fase_actual"
+										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;"
+										required>
+										<option value="${absentismo.fase_actual}">${absentismo.fase_actual}</option>
+										<option value="Fase 1">Fase 1</option>
+										<option value="Fase 2">Fase 2</option>
+										<option value="Fase 3">Fase 3</option>
+										<option value="Fase 4">Fase 4</option>
+									</select>
+								</div></td>
 							<td style="text-align: center" class="form4"><input
 								type="text" name="caso_resuelto" size="3" placeholder="Sí/No"
 								value="<c:out value="${absentismo.caso_resuelto}"/>"></td>

@@ -55,9 +55,17 @@
 						</tr>
 						<tr class="trfila">
 							<td class="titulo">Sancion <span class="text-danger">*</span></td>
-							<td class="form"><input type="text" name="tipo_sancion"
-								value="<c:out value="${sancion.tipo_sancion}"/>"> <i>(Recreo,
-									PROA o Expulsión)</i></td>
+							<td class="form">
+								<div class="select-wrapper">
+									<select name="tipo_sancion" id="tipo_sancion"
+										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;"
+										required>
+										<option value="${sancion.tipo_sancion}">${sancion.tipo_sancion}</option>
+										<option value="Recreo">Recreo</option>
+										<option value="PROA">PROA</option>
+										<option value="Expulsión">Expulsión</option>
+									</select>
+								</div>
 						</tr>
 						<tr class="trfila">
 							<td class="titulo">Trabajo</td>

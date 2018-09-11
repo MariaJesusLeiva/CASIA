@@ -59,7 +59,7 @@
 								<div class="select-wrapper">
 									<select name="en_calidad_de1"
 										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;">
-										<option value=''>Seleccionar</option>
+										<option value="${reunion.en_calidad_de1}">${reunion.en_calidad_de1}</option>
 										<option value="Alumnado">Alumnado</option>
 										<option value="Equipo Directivo">Equipo Directivo</option>
 										<option value="Tutor/a">Tutor/a</option>
@@ -83,7 +83,7 @@
 								<div class="select-wrapper">
 									<select name="en_calidad_de2"
 										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;">
-										<option value=''>Seleccionar</option>
+										<option value="${reunion.en_calidad_de2}">${reunion.en_calidad_de2}</option>
 										<option value="Alumnado">Alumnado</option>
 										<option value="Equipo Directivo">Equipo Directivo</option>
 										<option value="Tutor/a">Tutor/a</option>
@@ -107,7 +107,7 @@
 								<div class="select-wrapper">
 									<select name="en_calidad_de3"
 										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;">
-										<option value=''>Seleccionar</option>
+										<option value="${reunion.en_calidad_de3}">${reunion.en_calidad_de3}</option>
 										<option value="Alumnado">Alumnado</option>
 										<option value="Equipo Directivo">Equipo Directivo</option>
 										<option value="Tutor/a">Tutor/a</option>
@@ -132,7 +132,7 @@
 								<div class="select-wrapper">
 									<select name="en_calidad_de4"
 										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;">
-										<option value=''>Seleccionar</option>
+										<option value="${reunion.en_calidad_de4}">${reunion.en_calidad_de4}</option>
 										<option value="Alumnado">Alumnado</option>
 										<option value="Equipo Directivo">Equipo Directivo</option>
 										<option value="Tutor/a">Tutor/a</option>
@@ -156,7 +156,7 @@
 								<div class="select-wrapper">
 									<select name="en_calidad_de5"
 										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;">
-										<option value=''>Seleccionar</option>
+										<option value="${reunion.en_calidad_de5}">${reunion.en_calidad_de5}</option>
 										<option value="Alumnado">Alumnado</option>
 										<option value="Equipo Directivo">Equipo Directivo</option>
 										<option value="Tutor/a">Tutor/a</option>
