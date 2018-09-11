@@ -43,7 +43,7 @@ public class ParteDao {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("UPDATE parte SET codigo=?, fecha_parte=?, nombre_profe=?,"
 							+ "nombre_alum=?, grupo=?, motivo_parte=?, curso=? WHERE id_parte=?");
-			// Parameters start with 1
+			
 			preparedStatement.setInt(1, parteEnt.getCodigo());
 			preparedStatement.setDate(2, new java.sql.Date(parteEnt.getFecha_parte().getTime()));
 			preparedStatement.setString(3, parteEnt.getNombre_profe());

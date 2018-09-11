@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.casia.config.conexionDB;
+import com.casia.entity.ParteEntity;
 import com.casia.entity.ReservaDiaSancionEntity;
 import com.casia.entity.SancionEntity;
 
@@ -38,6 +39,25 @@ public class ReservaDiaSancionDao {
 		}
 	}
 
+	public void updateReserva(ReservaDiaSancionEntity reservaEnt) {
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("UPDATE reservadiasancion SET id_sancion=?, fecha_inicio=?, nombre_alum=?,"
+							+ "tipo_sancion=?, asistencia=? WHERE id_reserva=?");
+			
+			preparedStatement.setInt(1, reservaEnt.getId_sancion());
+			preparedStatement.setDate(2, new java.sql.Date(reservaEnt.getFecha_inicio().getTime()));
+			preparedStatement.setString(3, reservaEnt.getNombre_alum());
+			preparedStatement.setString(4, reservaEnt.getTipo_sancion());
+			preparedStatement.setString(5, reservaEnt.getAsistencia());
+			preparedStatement.setInt(6, reservaEnt.getId_reserva());
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void deleteReservaById(int id_sancion) {
 		try {
 			PreparedStatement preparedStatement = connection
@@ -48,6 +68,30 @@ public class ReservaDiaSancionDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public ReservaDiaSancionEntity getReservaById(int id_reserva) {
+
+		ReservaDiaSancionEntity reserva = new ReservaDiaSancionEntity();
+
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("SELECT * FROM reservadiasancion WHERE id_reserva=?");
+			preparedStatement.setInt(1, id_reserva);
+			ResultSet rs = preparedStatement.executeQuery();
+
+			if (rs.next()) {
+				reserva.setId_reserva(rs.getInt("id_reserva"));
+				reserva.setId_sancion(rs.getInt("id_sancion"));
+				reserva.setFecha_inicio(rs.getDate("fecha_inicio"));
+				reserva.setNombre_alum(rs.getString("nombre_alum"));
+				reserva.setTipo_sancion(rs.getString("tipo_sancion"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return reserva;
 	}
 
 	public List<ReservaDiaSancionEntity> getAllReservas() {

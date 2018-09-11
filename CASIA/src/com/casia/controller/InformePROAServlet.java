@@ -85,9 +85,11 @@ public class InformePROAServlet extends HttpServlet {
 				documento.open();
 
 				Paragraph part1 = new Paragraph();
+				Paragraph part2 = new Paragraph();
 
-				Font fonttitulo = new Font(Font.FontFamily.HELVETICA, 25, Font.BOLD, BaseColor.BLUE);
+				Font fonttitulo = new Font(Font.FontFamily.HELVETICA, 25, Font.BOLD, BaseColor.BLACK);
 				Font fonttitulo2 = new Font(Font.FontFamily.HELVETICA, 20, Font.NORMAL, BaseColor.BLUE);
+				Font fonttexto = new Font(Font.FontFamily.HELVETICA, 10, Font.ITALIC, BaseColor.BLACK);
 				
 				part1.add(new Phrase("PROA", fonttitulo));
 				
@@ -140,7 +142,14 @@ public class InformePROAServlet extends HttpServlet {
 					tabla.addCell("");
 				}
 				documento.add(tabla);
-
+				
+				part2.add(new Phrase(Chunk.NEWLINE));
+				part2.add(new Phrase("Asiste: marcar con una X en caso de asistencia.", fonttexto));
+				part2.setAlignment(Element.ALIGN_LEFT);
+				part2.add(new Phrase(Chunk.NEWLINE));
+				part2.add(new Phrase("Trabaja: marcar con una X si el alumno realiza el trabajo impuesto.", fonttexto));
+				part2.setAlignment(Element.ALIGN_LEFT);
+				documento.add(part2);
 				documento.close();
 			} catch (Exception ex) {
 				ex.getMessage();

@@ -80,13 +80,15 @@
 						</thead>
 						<tbody class="centrado">
             <c:forEach items="${sanciones}" var="sancion">
-                <tr>
-                   <td><fmt:formatDate pattern="dd-MM-yyyy" value="${sancion.fecha_inicio}" /></td>
-                    <td><c:out value="${sancion.tipo_sancion}" /></td>
-                    <td><c:out value="${sancion.nombre_alum}" /></td>
-                    
-                </tr>
-            </c:forEach>
+								<tr>
+									<td><a
+										href="ReservaDiaSancionServlet?action=verDia&id_reserva=<c:out value="${sancion.id_reserva}"/>"><i><fmt:formatDate
+													pattern="dd-MM-yyyy" value="${sancion.fecha_inicio}" /></i></a></td>
+									<td><c:out value="${sancion.tipo_sancion}" /></td>
+									<td><c:out value="${sancion.nombre_alum}" /></td>
+
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 				</div>

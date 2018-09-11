@@ -11,13 +11,13 @@
 <script	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/casia.css" rel="stylesheet" type="text/css">
-<title>Asignar Días</title>
+<title>Modificar Día</title>
 </head>
 <%@ include file="Principal.jsp"%>
 <body style="background-color: #f4f7f9">
 	<div class="text-white text-center d-block mb-1">
 		<h3 class="titulo pb-2 pt-2">
-			Formulario para Asignar los Días de Sanción para el Alumno (<%=session.getAttribute("alumsancion")%>)
+			Formulario para Modificar el Día de Sanción para el Alumno (<%=session.getAttribute("alumsancion")%>)
 		</h3>
 	</div>
 	<br />
@@ -27,7 +27,9 @@
 				<form method="POST" action='ReservaDiaSancionServlet'
 					name="frmAddDia">
 					<input type="text" name="id_sancion" style="display: none"
-						value="<c:out value="${sancion.id_sancion}" />">
+						value="<c:out value="${reserva.id_sancion}" />">
+					<input type="text" name="id_reserva" style="display: none"
+						value="<c:out value="${reserva.id_reserva}" />">
 					<table class="table table-sm">
 						<tr class="trfila">
 							<td class="titulo">Alumno</td>
@@ -39,13 +41,13 @@
 							<td class="titulo">Sanción</td>
 							<td class="form"><input class="estiloinput" type="text"
 								name="tipo_sancion" readonly="readonly"
-								value="${sancion.tipo_sancion}"></td>
+								value="${reserva.tipo_sancion}"></td>
 						</tr>
 						<tr class="trfila">
 							<td class="titulo">Fecha <span class="text-danger">*</span></td>
 							<td class="form"><input type="date" name="fecha_inicio"
 								pattern="yyyy-MM-dd" required
-								value="<c:out value="${sancion.fecha_inicio}" />"></td>
+								value="<c:out value="${reserva.fecha_inicio}" />"></td>
 						</tr>
 					</table>
 					<div class="row mt-3 mb-3">
@@ -85,9 +87,8 @@
 						</thead>
 						<tbody class="centrado">
 							<c:forEach items="${reservas}" var="reserva">
-							<input type="text" name="id_parte" style="display: none"
-						value="<c:out value="${reserva.id_reserva}" />">
-								<tr><td><a
+								<tr>
+									<td><a
 										href="ReservaDiaSancionServlet?action=verDia&id_reserva=<c:out value="${reserva.id_reserva}"/>"><i><fmt:formatDate pattern="dd-MM-yyyy"
 											value="${reserva.fecha_inicio}" /></i></a></td>
 									<td><c:out value="${reserva.tipo_sancion}" /></td>

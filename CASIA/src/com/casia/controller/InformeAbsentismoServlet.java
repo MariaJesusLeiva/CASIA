@@ -85,21 +85,22 @@ public class InformeAbsentismoServlet extends HttpServlet {
 
 				Paragraph part1 = new Paragraph();
 
-				Font fonttitulo = new Font(Font.FontFamily.HELVETICA, 25, Font.BOLD, BaseColor.BLUE);
-				Font fonttitulo2 = new Font(Font.FontFamily.HELVETICA, 20, Font.NORMAL, BaseColor.BLUE);
+				Font fonttitulo = new Font(Font.FontFamily.HELVETICA, 25, Font.BOLD, BaseColor.BLACK);
+				Font fonttitulo2 = new Font(Font.FontFamily.HELVETICA, 20, Font.NORMAL, BaseColor.BLACK);
+				Font fonttitulo3 = new Font(Font.FontFamily.HELVETICA, 20, Font.NORMAL, BaseColor.BLUE);
 				
 				part1.add(new Phrase("Control mensual de absentismo", fonttitulo));
 				part1.setAlignment(Element.ALIGN_CENTER);
 				part1.add(new Phrase(Chunk.NEWLINE));// Para salto de linea
 				part1.add(new Phrase(Chunk.NEWLINE));
 				Paragraph part2 = new Paragraph();
-				part2.add(new Phrase("Curso: "+curso, fonttitulo2));
-				part2.setAlignment(Element.ALIGN_LEFT);
+				part2.add(new Phrase("Curso: ", fonttitulo2));
+				part2.add(new Phrase(curso, fonttitulo3));				
 				part2.add(new Phrase(Chunk.NEWLINE));
 				part2.add(new Phrase(Chunk.NEWLINE));
-				part2.add(new Phrase("Mes: "+mes, fonttitulo2));
-								
-				part2.add(new Phrase(Chunk.NEWLINE));
+				part2.add(new Phrase("Mes: ", fonttitulo2));
+				part2.add(new Phrase(mes, fonttitulo3));
+				part2.setAlignment(Element.ALIGN_LEFT);	
 				part2.add(new Phrase(Chunk.NEWLINE));
 				part2.add(new Phrase(Chunk.NEWLINE));
 
