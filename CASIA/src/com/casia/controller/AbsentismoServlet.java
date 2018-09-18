@@ -1,3 +1,9 @@
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
+
 package com.casia.controller;
 
 import java.io.IOException;
@@ -139,7 +145,7 @@ public class AbsentismoServlet extends HttpServlet {
 		
 		String id_absentismo = request.getParameter("id_absentismo");
 		if(id_absentismo == null || id_absentismo.isEmpty()) {
-			absentismoDao.addAbsentismoTodo(absentismoEnt);
+			absentismoDao.addAbsentismo(absentismoEnt);
 		} else {
 			id_abs = Integer.parseInt(request.getParameter("id_absentismo"));
 			absentismoEnt.setId_absentismo(id_abs);

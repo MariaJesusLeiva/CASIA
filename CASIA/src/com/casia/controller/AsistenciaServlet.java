@@ -1,3 +1,9 @@
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
+
 package com.casia.controller;
 
 import java.io.IOException;
@@ -43,10 +49,12 @@ public class AsistenciaServlet extends HttpServlet {
 			forward = ASISTENCIARECREO;
 			request.setAttribute("recreo", reservaDao.getAllAsistenciaRecreos());
 			request.setAttribute("reservare", reservaDao.getAllReservasRecreo());
+			
 		} else if (action.equalsIgnoreCase("asistenciaPROA")) {
 			forward = ASISTENCIAPROA;
 			request.setAttribute("proa", reservaDao.getAllAsistenciaPROAs());
 			request.setAttribute("reservaproa", reservaDao.getAllReservasPROA());
+			
 		} else if (action.equalsIgnoreCase("sancionesHoy")) {
 			forward = VERSANCIONESHOY;
 			request.setAttribute("recreohoy", reservaDao.getAllRecreosHoy());
@@ -62,7 +70,7 @@ public class AsistenciaServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("DoPost");
+		
 		ReservaDiaSancionDao reservaDao = new ReservaDiaSancionDao();
 		String forward="";		
 		SancionDao sancionDao = new SancionDao();

@@ -1,3 +1,7 @@
+<!-- Nombre aplicación: CASIA -->
+<!-- Autor: María Jesús Leiva Romera -->
+<!-- Año: 2018 -->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page session="true" %>
@@ -5,9 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=uft-8">
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="/bootstrap/js/bootstrap.min.js"></script>
 <script src="/scripts/jquery.min.js"></script>
 <title>Bienvenido a CASIA</title>
@@ -110,8 +112,7 @@
 						placeholder="Apellido1 Apellido2, Nombre" name="nombre_alum">
 					<div class="input-group-btn">
 						<button class="btn btn-primary w-100 no-print" type="submit">Buscar</button>
-						<i class="glyphicon glyphicon-search"></i>
-						</button>
+						<i class="glyphicon glyphicon-search"></i>						
 					</div>
 				</div>
 			</form>

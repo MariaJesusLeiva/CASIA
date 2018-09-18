@@ -1,3 +1,9 @@
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
+
 package com.casia.entity;
 
 public class UsuarioEntity {

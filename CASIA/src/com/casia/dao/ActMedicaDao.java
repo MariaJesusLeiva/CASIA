@@ -1,3 +1,9 @@
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
+
 package com.casia.dao;
 
 import java.sql.Connection;
@@ -20,6 +26,7 @@ public class ActMedicaDao {
 	}
 
 	public void addActMedica(ActMedicaEntity actmedicaEnt) {
+		
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("INSERT INTO actmedica(nombre_alum, curso, grupo, "
@@ -39,6 +46,7 @@ public class ActMedicaDao {
 	}
 
 	public void updateActMedica(ActMedicaEntity actmedicaEnt) {
+		
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("UPDATE actmedica SET nombre_alum=?, curso=?, grupo=?, "
@@ -59,6 +67,7 @@ public class ActMedicaDao {
 	}
 
 	public void deleteActMedicaById(int id_actuacion) {
+		
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("DELETE FROM actmedica WHERE id_actuacion=?");
@@ -71,7 +80,7 @@ public class ActMedicaDao {
 	}
 
 	public ActMedicaEntity getActMedicaById(int id_actuacion) {
-
+		
 		ActMedicaEntity actmedicaEnt = new ActMedicaEntity();
 
 		try {
@@ -96,7 +105,9 @@ public class ActMedicaDao {
 	}
 
 	public List<ActMedicaEntity> getAllActMedicas() {
+		
 		List<ActMedicaEntity> actmedicas = new ArrayList<ActMedicaEntity>();
+		
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet rs = statement.executeQuery("SELECT * FROM actmedica ORDER BY fecha_actuacion ASC");
@@ -117,5 +128,4 @@ public class ActMedicaDao {
 		}
 		return actmedicas;
 	}
-
 }

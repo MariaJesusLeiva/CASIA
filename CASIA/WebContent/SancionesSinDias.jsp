@@ -1,3 +1,7 @@
+<!-- Nombre aplicación: CASIA -->
+<!-- Autor: María Jesús Leiva Romera -->
+<!-- Año: 2018 -->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -75,7 +79,8 @@
 							<tr>
 								<th class="centrado">Fecha</th>
 								<th class="centrado">Sanción</th>
-								<th class="centrado">Alumno</th>           	
+								<th class="centrado">Alumno</th>   
+								<th class="centrado">Asiste</th>         	
 							</tr>
 						</thead>
 						<tbody class="centrado">
@@ -86,6 +91,7 @@
 													pattern="dd-MM-yyyy" value="${sancion.fecha_inicio}" /></i></a></td>
 									<td><c:out value="${sancion.tipo_sancion}" /></td>
 									<td><c:out value="${sancion.nombre_alum}" /></td>
+									<td><c:out value="${sancion.asistencia}" /></td>
 
 								</tr>
 							</c:forEach>

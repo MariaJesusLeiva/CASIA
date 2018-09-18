@@ -1,3 +1,9 @@
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
+
 package com.casia.dao;
 
 import java.sql.Connection;
@@ -20,6 +26,7 @@ private static Connection connection;
 	}	
 	
 	public void addAcoso(AcosoEntity acosoEnt) {
+		
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("INSERT INTO acoso(codigo, curso, grupo, grupo2, tipo, tipo2, nombre_alum, nombre_alum2, "
@@ -49,6 +56,7 @@ private static Connection connection;
 	}
 	
 	public void updateAcoso(AcosoEntity acosoEnt) {
+		
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("UPDATE acoso SET codigo=?, curso=?, grupo=?, grupo2=?, tipo=?, tipo2=?, nombre_alum=?, nombre_alum2=?, " + 
@@ -79,6 +87,7 @@ private static Connection connection;
 	}
 
 	public void deleteAcosoById(int id_acoso) {
+		
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("DELETE FROM acoso WHERE id_acoso=?");
@@ -92,7 +101,9 @@ private static Connection connection;
 	}
 
 	public List<AcosoEntity> getAllAcosos() {
+		
 		List<AcosoEntity> acosos = new ArrayList<AcosoEntity>();
+		
 		try	{
 			Statement statement = connection.createStatement();
 			ResultSet rs = statement.executeQuery("SELECT * FROM acoso " + 

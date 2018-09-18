@@ -1,3 +1,9 @@
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
+
 package com.casia.entity;
 
 import java.util.Date;
@@ -47,5 +53,4 @@ public class ActMedicaEntity {
 	public void setObservacion(String observacion) {
 		this.observacion = observacion;
 	}
-	
 }

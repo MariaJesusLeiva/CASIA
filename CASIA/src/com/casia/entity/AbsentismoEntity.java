@@ -1,3 +1,9 @@
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
+
 package com.casia.entity;
 
 import java.util.Date;
@@ -20,11 +26,6 @@ public class AbsentismoEntity {
 	private String totalhoras_fasetres;
 	private String totalhoras_fasecuatro;
 
-	/*private Integer totalhoras_faseuno;
-	private Integer totalhoras_fasedos;
-	private Integer totalhoras_fasetres;
-	private Integer totalhoras_fasecuatro;*/
-
 	private String justificada_faseuno;
 	private String justificada_fasedos;
 
@@ -35,10 +36,6 @@ public class AbsentismoEntity {
 	private String observacion_fasetres;
 	private String observacion_fasecuatro;
 
-	// private Integer totalhoras_fasedos;
-	// private Date fechacarta_fasedos;
-	// private Date fechacita_fasedos;
-
 	private String acude_fasedos;
 	private String acude_fasetres;
 	private String justificadacita_fasedos;
@@ -46,11 +43,6 @@ public class AbsentismoEntity {
 	private String compromiso_fasedos;
 	private String compromiso_fasetres;
 	private String justificada_fasetres;
-
-	// private Integer totalhoras_fasetres;
-	// private Date fechacarta_fasetres;
-	// private Date fechacita_fasetres;
-	// private Date fechacarta_fasecuatro;
 
 	private String fase_actual;
 	private String caso_resuelto;
@@ -291,30 +283,4 @@ public class AbsentismoEntity {
 	public void setFechacita_fasetres(String fechacita_fasetres) {
 		this.fechacita_fasetres = fechacita_fasetres;
 	}
-	/*public Integer getTotalhoras_faseuno() {
-		return totalhoras_faseuno;
-	}
-	public void setTotalhoras_faseuno(Integer totalhoras_faseuno) {
-		this.totalhoras_faseuno = totalhoras_faseuno;
-	}
-	public Integer getTotalhoras_fasedos() {
-		return totalhoras_fasedos;
-	}
-	public void setTotalhoras_fasedos(Integer totalhoras_fasedos) {
-		this.totalhoras_fasedos = totalhoras_fasedos;
-	}
-	public Integer getTotalhoras_fasetres() {
-		return totalhoras_fasetres;
-	}
-	public void setTotalhoras_fasetres(Integer totalhoras_fasetres) {
-		this.totalhoras_fasetres = totalhoras_fasetres;
-	}
-	public Integer getTotalhoras_fasecuatro() {
-		return totalhoras_fasecuatro;
-	}
-	public void setTotalhoras_fasecuatro(Integer totalhoras_fasecuatro) {
-		this.totalhoras_fasecuatro = totalhoras_fasecuatro;
-	}*/
-
-	
 }

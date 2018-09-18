@@ -1,3 +1,7 @@
+<!-- Nombre aplicación: CASIA -->
+<!-- Autor: María Jesús Leiva Romera -->
+<!-- Año: 2018 -->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -5,9 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=uft-8">
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/casia.css" rel="stylesheet" type="text/css">
@@ -56,7 +58,6 @@
 									onkeypress="return limita(event, 500);"
 									onkeyup="actualizaInfo(500)"></textarea>
 								<div id="info">Máximo 500 caracteres</div></td>
-
 						</tr>
 						<tr class="trfila">
 							<td class="titulo">Aporta Documentación <span
@@ -64,7 +65,6 @@
 							<td class="form"><input type="text" name="documentacion"
 								required size="3" placeholder="Sí/No"
 								value="<c:out value="${infmedica.documentacion}"/>"></td>
-
 						</tr>
 						<tr class="trfila">
 							<td class="titulo">Aporta Medicación <span
@@ -72,7 +72,6 @@
 							<td class="form"><input type="text" name="medicacion"
 								required size="3" placeholder="Sí/No"
 								value="<c:out value="${infmedica.medicacion}"/>"></td>
-
 						</tr>
 					</table>
 					<div class="row mt-3 mb-3">

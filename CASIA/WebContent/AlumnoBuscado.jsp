@@ -1,3 +1,7 @@
+<!-- Nombre aplicación: CASIA -->
+<!-- Autor: María Jesús Leiva Romera -->
+<!-- Año: 2018 -->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -5,9 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=uft-8">
-<link
-	href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script	src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link href="css/buscar.css" rel="stylesheet" type="text/css">
@@ -29,14 +31,10 @@
 							<li class="active"><a href="#tab1primary" data-toggle="tab"><b>Partes</b></a></li>
 							<li><a href="#tab2primary" data-toggle="tab"><b>Sanciones</b></a></li>
 							<li><a href="#tab3primary" data-toggle="tab"><b>Absentismo</b></a></li>
-							<li><a href="#tab4primary" data-toggle="tab"><b>Info.
-									Médica</b></a></li>
-							<li><a href="#tab5primary" data-toggle="tab"><b>Actuación
-									Médica</b></a></li>
-							<li><a href="#tab6primary" data-toggle="tab"><b>Info.
-									Jurídica</b></a></li>
-							<li><a href="#tab7primary" data-toggle="tab"><b>Protocolo
-									Acoso</b></a></li>
+							<li><a href="#tab4primary" data-toggle="tab"><b>Info. Médica</b></a></li>
+							<li><a href="#tab5primary" data-toggle="tab"><b>Actuación Médica</b></a></li>
+							<li><a href="#tab6primary" data-toggle="tab"><b>Info. Jurídica</b></a></li>
+							<li><a href="#tab7primary" data-toggle="tab"><b>Protocolo Acoso</b></a></li>
 						</ul>
 					</div>
 					<div class="panel-body">

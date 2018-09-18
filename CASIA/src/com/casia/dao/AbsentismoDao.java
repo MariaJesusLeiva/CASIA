@@ -1,3 +1,9 @@
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
+
 package com.casia.dao;
 
 import java.sql.Connection;
@@ -20,26 +26,7 @@ public class AbsentismoDao {
 	}
 
 	public void addAbsentismo(AbsentismoEntity absentismoEnt) {
-		try {
-			PreparedStatement preparedStatement = connection
-					.prepareStatement("INSERT INTO absentismo(id_absentismo, codigo_absen, "
-							+ "grupo, curso, nombre_alum, fecha_nacimiento) VALUES (?, ?, ?, ?, ?, ?)");
-
-			preparedStatement.setInt(1, absentismoEnt.getId_absentismo());
-			preparedStatement.setInt(2, absentismoEnt.getCodigo_absen());
-			preparedStatement.setString(3, absentismoEnt.getGrupo());
-			preparedStatement.setString(4, absentismoEnt.getCurso());
-			preparedStatement.setString(5, absentismoEnt.getNombre_alum());
-			preparedStatement.setDate(6, new java.sql.Date(absentismoEnt.getFecha_nacimiento().getTime()));
-
-			preparedStatement.executeUpdate();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void addAbsentismoTodo(AbsentismoEntity absentismoEnt) {
+		
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("INSERT INTO absentismo(codigo_absen, grupo, curso, "
@@ -58,13 +45,11 @@ public class AbsentismoDao {
 			preparedStatement.setString(4, absentismoEnt.getNombre_alum());
 			preparedStatement.setDate(5, new java.sql.Date(absentismoEnt.getFecha_nacimiento().getTime()));
 			preparedStatement.setString(6, absentismoEnt.getMes_faseuno());
-			// preparedStatement.setInt(7, absentismoEnt.getTotalhoras_faseuno());
 			preparedStatement.setString(7, absentismoEnt.getTotalhoras_faseuno());
 			preparedStatement.setString(8, absentismoEnt.getFechacarta_faseuno());
 			preparedStatement.setString(9, absentismoEnt.getJustificada_faseuno());
 			preparedStatement.setString(10, absentismoEnt.getObservacion_faseuno());
-			preparedStatement.setString(11, absentismoEnt.getMes_fasedos());
-			// preparedStatement.setInt(12, absentismoEnt.getTotalhoras_fasedos());
+			preparedStatement.setString(11, absentismoEnt.getMes_fasedos());			
 			preparedStatement.setString(12, absentismoEnt.getTotalhoras_fasedos());
 			preparedStatement.setString(13, absentismoEnt.getFechacarta_fasedos());
 			preparedStatement.setString(14, absentismoEnt.getJustificada_fasedos());
@@ -74,8 +59,7 @@ public class AbsentismoDao {
 			preparedStatement.setString(18, absentismoEnt.getJustificadacita_fasedos());
 			preparedStatement.setString(19, absentismoEnt.getCompromiso_fasedos());
 			preparedStatement.setString(20, absentismoEnt.getObservacion_fasedos());
-			preparedStatement.setString(21, absentismoEnt.getMes_fasetres());
-			// preparedStatement.setInt(22, absentismoEnt.getTotalhoras_fasetres());
+			preparedStatement.setString(21, absentismoEnt.getMes_fasetres());			
 			preparedStatement.setString(22, absentismoEnt.getTotalhoras_fasetres());
 			preparedStatement.setString(23, absentismoEnt.getFechacarta_fasetres());
 			preparedStatement.setString(24, absentismoEnt.getJustificada_fasetres());
@@ -85,16 +69,14 @@ public class AbsentismoDao {
 			preparedStatement.setString(28, absentismoEnt.getJustificadacita_fasetres());
 			preparedStatement.setString(29, absentismoEnt.getCompromiso_fasetres());
 			preparedStatement.setString(30, absentismoEnt.getObservacion_fasetres());
-			preparedStatement.setString(31, absentismoEnt.getMes_fasecuatro());
-			// preparedStatement.setInt(32, absentismoEnt.getTotalhoras_fasecuatro());
+			preparedStatement.setString(31, absentismoEnt.getMes_fasecuatro());			
 			preparedStatement.setString(32, absentismoEnt.getTotalhoras_fasecuatro());
 			preparedStatement.setString(33, absentismoEnt.getFechacarta_fasecuatro());
 			preparedStatement.setString(34, absentismoEnt.getObservacion_fasecuatro());
 			preparedStatement.setString(35, absentismoEnt.getFase_actual());
 			preparedStatement.setString(36, absentismoEnt.getCaso_resuelto());
 			preparedStatement.setString(37, absentismoEnt.getMayor_edad());
-			// preparedStatement.setInt(38, absentismoEnt.getId_absentismo());
-
+			
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -103,14 +85,12 @@ public class AbsentismoDao {
 	}
 
 	public List<AbsentismoEntity> getAllAbsentismos() {
+		
 		List<AbsentismoEntity> absentismos = new ArrayList<AbsentismoEntity>();
+		
 		try {
 			Statement statement = connection.createStatement();
-			/*
-			 * ResultSet rs = statement.executeQuery("SELECT * FROM sancion s " +
-			 * "INNER JOIN parte p ON s.id_parte=p.id_parte " +
-			 * "ORDER BY s.fecha_inicio ASC");
-			 */
+
 			ResultSet rs = statement
 					.executeQuery("SELECT * FROM absentismo " + "ORDER BY curso DESC, codigo_absen DESC");
 
@@ -127,11 +107,6 @@ public class AbsentismoDao {
 				absentismo.setMes_fasedos(rs.getString("mes_fasedos"));
 				absentismo.setMes_fasetres(rs.getString("mes_fasetres"));
 				absentismo.setMes_fasecuatro(rs.getString("mes_fasecuatro"));
-
-				// absentismo.setTotalhoras_faseuno(rs.getInt("totalhoras_faseuno"));
-				// absentismo.setTotalhoras_fasedos(rs.getInt("totalhoras_fasedos"));
-				// absentismo.setTotalhoras_fasetres(rs.getInt("totalhoras_fasetres"));
-				// absentismo.setTotalhoras_fasecuatro(rs.getInt("totalhoras_fasecuatro"));
 
 				absentismo.setTotalhoras_faseuno(rs.getString("totalhoras_faseuno"));
 				absentismo.setTotalhoras_fasedos(rs.getString("totalhoras_fasedos"));
@@ -180,6 +155,7 @@ public class AbsentismoDao {
 	}
 
 	public void updateAbsentismo(AbsentismoEntity absentismoEnt) {
+		
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("UPDATE absentismo SET codigo_absen=?, grupo=?, curso=?, "
@@ -197,38 +173,25 @@ public class AbsentismoDao {
 			preparedStatement.setString(3, absentismoEnt.getCurso());
 			preparedStatement.setString(4, absentismoEnt.getNombre_alum());
 			preparedStatement.setDate(5, new java.sql.Date(absentismoEnt.getFecha_nacimiento().getTime()));
-			preparedStatement.setString(6, absentismoEnt.getMes_faseuno());
-			// preparedStatement.setInt(7, absentismoEnt.getTotalhoras_faseuno());
-			preparedStatement.setString(7, absentismoEnt.getTotalhoras_faseuno());
-			// preparedStatement.setDate(8, new
-			// java.sql.Date(absentismoEnt.getFechacarta_faseuno().getTime()));
+			preparedStatement.setString(6, absentismoEnt.getMes_faseuno());			
+			preparedStatement.setString(7, absentismoEnt.getTotalhoras_faseuno());			
 			preparedStatement.setString(8, absentismoEnt.getFechacarta_faseuno());
 			preparedStatement.setString(9, absentismoEnt.getJustificada_faseuno());
 			preparedStatement.setString(10, absentismoEnt.getObservacion_faseuno());
-			preparedStatement.setString(11, absentismoEnt.getMes_fasedos());
-			// preparedStatement.setInt(12, absentismoEnt.getTotalhoras_fasedos());
-			preparedStatement.setString(12, absentismoEnt.getTotalhoras_fasedos());
-			// preparedStatement.setDate(13, new
-			// java.sql.Date(absentismoEnt.getFechacarta_fasedos().getTime()));
+			preparedStatement.setString(11, absentismoEnt.getMes_fasedos());			
+			preparedStatement.setString(12, absentismoEnt.getTotalhoras_fasedos());			
 			preparedStatement.setString(13, absentismoEnt.getFechacarta_fasedos());
-			preparedStatement.setString(14, absentismoEnt.getJustificada_fasedos());
-			// preparedStatement.setDate(15, new
-			// java.sql.Date(absentismoEnt.getFechacita_fasedos().getTime()));
+			preparedStatement.setString(14, absentismoEnt.getJustificada_fasedos());			
 			preparedStatement.setString(15, absentismoEnt.getFechacita_fasedos());
 			preparedStatement.setString(16, absentismoEnt.getHoracita_fasedos());
 			preparedStatement.setString(17, absentismoEnt.getAcude_fasedos());
 			preparedStatement.setString(18, absentismoEnt.getJustificadacita_fasedos());
 			preparedStatement.setString(19, absentismoEnt.getCompromiso_fasedos());
 			preparedStatement.setString(20, absentismoEnt.getObservacion_fasedos());
-			preparedStatement.setString(21, absentismoEnt.getMes_fasetres());
-			// preparedStatement.setInt(22, absentismoEnt.getTotalhoras_fasetres());
+			preparedStatement.setString(21, absentismoEnt.getMes_fasetres());			
 			preparedStatement.setString(22, absentismoEnt.getTotalhoras_fasetres());
-			// preparedStatement.setDate(23, new
-			// java.sql.Date(absentismoEnt.getFechacarta_fasetres().getTime()));
 			preparedStatement.setString(23, absentismoEnt.getFechacarta_fasetres());
 			preparedStatement.setString(24, absentismoEnt.getJustificada_fasetres());
-			// preparedStatement.setDate(25, new
-			// java.sql.Date(absentismoEnt.getFechacita_fasetres().getTime()));
 			preparedStatement.setString(25, absentismoEnt.getFechacita_fasetres());
 			preparedStatement.setString(26, absentismoEnt.getHoracita_fasetres());
 			preparedStatement.setString(27, absentismoEnt.getAcude_fasetres());
@@ -236,16 +199,14 @@ public class AbsentismoDao {
 			preparedStatement.setString(29, absentismoEnt.getCompromiso_fasetres());
 			preparedStatement.setString(30, absentismoEnt.getObservacion_fasetres());
 			preparedStatement.setString(31, absentismoEnt.getMes_fasecuatro());
-			// preparedStatement.setInt(32, absentismoEnt.getTotalhoras_fasecuatro());
 			preparedStatement.setString(32, absentismoEnt.getTotalhoras_fasecuatro());
-			// preparedStatement.setDate(33, new
-			// java.sql.Date(absentismoEnt.getFechacarta_fasecuatro().getTime()));
 			preparedStatement.setString(33, absentismoEnt.getFechacarta_fasecuatro());
 			preparedStatement.setString(34, absentismoEnt.getObservacion_fasecuatro());
 			preparedStatement.setString(35, absentismoEnt.getFase_actual());
 			preparedStatement.setString(36, absentismoEnt.getCaso_resuelto());
 			preparedStatement.setString(37, absentismoEnt.getMayor_edad());
 			preparedStatement.setInt(38, absentismoEnt.getId_absentismo());
+			
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -254,6 +215,7 @@ public class AbsentismoDao {
 	}
 
 	public void deleteAbsentismoById(int id_absentismo) {
+		
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("DELETE FROM absentismo WHERE id_absentismo=?");
@@ -266,6 +228,7 @@ public class AbsentismoDao {
 	}
 	
 	public AbsentismoEntity getAbsentismoById(int id_absentismo) {
+		
 		AbsentismoEntity absentismo = new AbsentismoEntity();
 
 		try {
@@ -282,13 +245,11 @@ public class AbsentismoDao {
 				absentismo.setNombre_alum(rs.getString("nombre_alum"));
 				absentismo.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
 				absentismo.setMes_faseuno(rs.getString("mes_faseuno"));
-				// absentismo.setTotalhoras_faseuno(rs.getInt("totalhoras_faseuno"));
 				absentismo.setTotalhoras_faseuno(rs.getString("totalhoras_faseuno"));
 				absentismo.setFechacarta_faseuno(rs.getString("fechacarta_faseuno"));
 				absentismo.setJustificada_faseuno(rs.getString("justificada_faseuno"));
 				absentismo.setObservacion_faseuno(rs.getString("observacion_faseuno"));
 				absentismo.setMes_fasedos(rs.getString("mes_fasedos"));
-				// absentismo.setTotalhoras_fasedos(rs.getInt("totalhoras_fasedos"));
 				absentismo.setTotalhoras_fasedos(rs.getString("totalhoras_fasedos"));
 				absentismo.setFechacarta_fasedos(rs.getString("fechacarta_fasedos"));
 				absentismo.setJustificada_fasedos(rs.getString("justificada_fasedos"));
@@ -299,7 +260,6 @@ public class AbsentismoDao {
 				absentismo.setCompromiso_fasedos(rs.getString("compromiso_fasedos"));
 				absentismo.setObservacion_fasedos(rs.getString("observacion_fasedos"));
 				absentismo.setMes_fasetres(rs.getString("mes_fasetres"));
-				// absentismo.setTotalhoras_fasetres(rs.getInt("totalhoras_fasetres"));
 				absentismo.setTotalhoras_fasetres(rs.getString("totalhoras_fasetres"));
 				absentismo.setFechacarta_fasetres(rs.getString("fechacarta_fasetres"));
 				absentismo.setJustificada_fasetres(rs.getString("justificada_fasetres"));
@@ -310,7 +270,6 @@ public class AbsentismoDao {
 				absentismo.setCompromiso_fasetres(rs.getString("compromiso_fasetres"));
 				absentismo.setObservacion_fasetres(rs.getString("observacion_fasetres"));
 				absentismo.setMes_fasecuatro(rs.getString("mes_fasecuatro"));
-				// absentismo.setTotalhoras_fasecuatro(rs.getInt("totalhoras_fasecuatro"));
 				absentismo.setTotalhoras_fasecuatro(rs.getString("totalhoras_fasecuatro"));
 				absentismo.setFechacarta_fasecuatro(rs.getString("fechacarta_fasecuatro"));
 				absentismo.setObservacion_fasecuatro(rs.getString("observacion_fasecuatro"));
@@ -321,7 +280,6 @@ public class AbsentismoDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 		return absentismo;
 	}
 }

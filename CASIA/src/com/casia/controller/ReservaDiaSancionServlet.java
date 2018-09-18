@@ -1,3 +1,9 @@
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
+
 package com.casia.controller;
 
 import java.io.IOException;
@@ -12,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.casia.dao.ParteDao;
 import com.casia.dao.ReservaDiaSancionDao;
 import com.casia.dao.SancionDao;
 import com.casia.entity.ReservaDiaSancionEntity;
@@ -56,12 +61,14 @@ public class ReservaDiaSancionServlet extends HttpServlet {
 			alumsancion = sancionEnt.getNombre_alum();
 			session.setAttribute("alumsancion", alumsancion);
 			request.setAttribute("reservas", reservaDao.getAllReservas());
+			
 		} else if (action.equalsIgnoreCase("asignadoDias")) {
 			forward = ASIGNADODIAS;
 			int id_sancion = Integer.parseInt(request.getParameter("id_sancion"));
 			sancionDao.updateAsignadoDias(id_sancion);   
 			request.setAttribute("sancionSin", sancionDao.getAllSancionesSinDias());
 			request.setAttribute("sanciones", reservaDao.getAllRecreoPROA());
+			
 		} else if (action.equalsIgnoreCase("verDia")) {
 			forward = VERDIA;
 			int id_reserva = Integer.parseInt(request.getParameter("id_reserva"));
@@ -84,6 +91,7 @@ public class ReservaDiaSancionServlet extends HttpServlet {
 
 		ReservaDiaSancionEntity reservaEnt = new ReservaDiaSancionEntity();
 		ReservaDiaSancionDao reservaDao = new ReservaDiaSancionDao();
+		SancionEntity sancionEnt = new SancionEntity();
 		Date fecha_inicio;
 		HttpSession session = request.getSession();
 		String forward = "";
@@ -99,6 +107,7 @@ public class ReservaDiaSancionServlet extends HttpServlet {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+		
 		String id_r = request.getParameter("id_reserva");
 		if(id_r == null || id_r.isEmpty()) {
 			reservaDao.addReserva(reservaEnt);
@@ -107,7 +116,6 @@ public class ReservaDiaSancionServlet extends HttpServlet {
 			SancionDao sancionDao = new SancionDao();
 			Integer id_s = Integer.parseInt(request.getParameter("id_sancion"));
 			sancionDao.updateSancionDias(id_s);
-			SancionEntity sancionEnt = new SancionEntity();
 			
 			forward = ASIGNARDIAS;
 			request.setAttribute("sancion", sancionDao.getSancionById(id_s));
@@ -127,7 +135,6 @@ public class ReservaDiaSancionServlet extends HttpServlet {
 			SancionDao sancionDao = new SancionDao();
 			Integer id_s = Integer.parseInt(request.getParameter("id_sancion"));
 			sancionDao.updateSancionDias(id_s);
-			SancionEntity sancionEnt = new SancionEntity();
 			
 			forward = ASIGNADODIAS;
 			int id_snc = Integer.parseInt(request.getParameter("id_sancion"));

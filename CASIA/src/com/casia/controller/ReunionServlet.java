@@ -1,3 +1,9 @@
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
+
 package com.casia.controller;
 
 import java.io.IOException;
@@ -44,14 +50,17 @@ public class ReunionServlet extends HttpServlet {
 		if (action.equalsIgnoreCase("crearReunion")) {
 			forward = CREARREUNION;
 			request.setAttribute("reuniones", reunionDao.getAllReuniones());
+			
 		} else if (action.equalsIgnoreCase("verReuniones")) {
 			forward = VERREUNIONES;
 			request.setAttribute("reuniones", reunionDao.getAllReuniones());
+			
 		} else if (action.equalsIgnoreCase("verReunion")) {
 			forward = VERREUNION;
 			int id_reunion = Integer.parseInt(request.getParameter("id_reunion"));
 			request.setAttribute("reunion", reunionDao.getReunionById(id_reunion));
 			request.setAttribute("reuniones", reunionDao.getAllReuniones());
+			
 		} else if (action.equalsIgnoreCase("modificarReunion")) {
 			forward = MODIFICARREUNION;
 			int id_reunion = Integer.parseInt(request.getParameter("id_reunion"));

@@ -1,3 +1,7 @@
+<!-- Nombre aplicación: CASIA -->
+<!-- Autor: María Jesús Leiva Romera -->
+<!-- Año: 2018 -->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page session="true" %>
@@ -22,8 +26,7 @@
 				<a class="navbar-brand" href="UsuarioServlet?action=crearUsuario">CASIA</a>
 			</div>
       <ul class="nav navbar-nav navbar-right">
-        <li><a style="background-color: #D6E6F4;" href="LogoutServlet?action=salir">Salir</a></li>
-        
+        <li><a style="background-color: #D6E6F4;" href="LogoutServlet?action=salir">Salir</a></li>        
       </ul>
 		</div>
 	</div>

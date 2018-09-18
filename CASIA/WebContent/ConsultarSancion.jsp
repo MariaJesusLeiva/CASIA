@@ -1,3 +1,7 @@
+<!-- Nombre aplicación: CASIA -->
+<!-- Autor: María Jesús Leiva Romera -->
+<!-- Año: 2018 -->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -5,9 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=uft-8">
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/casia.css" rel="stylesheet" type="text/css">
@@ -25,8 +27,7 @@
 		<div class="row">
 			<div class="col-md-3"></div>
 			<div class="col-md-4">
-				<form method="POST" action='SancionServlet'
-					name="frmConsultarSancion">
+				<form method="POST" action='SancionServlet'	name="frmConsultarSancion">
 					<input type="text" name="id_parte" style="display: none"
 						value="<c:out value="${sancion.id_parte}" />"> <input
 						type="text" name="id_sancion" style="display: none"
@@ -44,7 +45,6 @@
 								name="nombre_profe" readonly="readonly" size="40"
 								value="<%=session.getAttribute("profesancion")%>"></td>
 						</tr>
-
 						<tr class="trfila">
 							<td class="titulo">Observacion</td>
 							<td colspan="3" class="form"><textarea
@@ -64,7 +64,6 @@
 									class="estilotextareacongris" readonly="readonly" id="textarea"
 									name="trabajo"><c:out value="${sancion.trabajo}" /></textarea>
 						</tr>
-
 						<tr class="trfila">
 							<td class="expulsion"></td>
 							<td class="expulsion"><h4>En caso de Expulsión</h4></td>

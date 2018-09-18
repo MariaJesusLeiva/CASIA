@@ -1,3 +1,9 @@
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
+
 package com.casia.entity;
 
 import java.util.Date;
@@ -68,5 +74,4 @@ public class ParteEntity {
 	public void setMotivo_parte(String motivo_parte) {
 		this.motivo_parte = motivo_parte;
 	}
-	
 }

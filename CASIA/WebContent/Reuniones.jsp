@@ -1,3 +1,7 @@
+<!-- Nombre aplicación: CASIA -->
+<!-- Autor: María Jesús Leiva Romera -->
+<!-- Año: 2018 -->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -5,9 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=uft-8">
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/casia.css" rel="stylesheet" type="text/css">
@@ -37,28 +39,20 @@
 					<table class="table table-hover" id="task-table" align="center">
 						<thead>
 							<tr>
-								<!-- <th>Código</th>
-								<th>Fecha Inicio</th>-->
 								<th class="centrado">Curso</th>
 								<th class="centrado">Fecha</th>
 								<th class="centrado">Hora</th>
 								<th class="centrado">&nbsp</th>
 								<th class="centrado">&nbsp</th>
-
 							</tr>
 						</thead>
 						<tbody class="centrado">
 							<c:forEach items="${reuniones}" var="reunion">
 								<tr>
-									<%-- <td><c:out value="${parte.codigo}" /></td>
-									<td><fmt:formatDate pattern="dd-MM-yyyy"
-											value="${sancion.fecha_inicio}" /></td>--%>
 									<td><c:out value="${reunion.curso}" /></td>
 									<td><fmt:formatDate pattern="dd-MM-yyyy"
 											value="${reunion.fecha_reunion}" /></td>
 									<td><c:out value="${reunion.hora_reunion}" /></td>
-
-
 									<td><a
 										href="ReunionServlet?action=verReunion&id_reunion=<c:out value="${reunion.id_reunion}"/>"><i
 											class="glyphicon glyphicon-eye-open"></i></a></td>
@@ -73,7 +67,7 @@
 				</div>
 			</div>
 		</div>
-		</div>
+	</div>
 <script>
 (function(){
     'use strict';
@@ -109,7 +103,7 @@
 	$('[data-action="filter"]').filterTable();
 })(jQuery);
 </script>
-	<script>
+<script>
 $(function(){
    $('[data-action="filter"]').filterTable();	
 	$('.container').on('click', '.panel-heading span.filter', function(e){

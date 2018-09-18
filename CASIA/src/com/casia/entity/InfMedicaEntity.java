@@ -1,3 +1,9 @@
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
+
 package com.casia.entity;
 
 import java.util.Date;
@@ -62,6 +68,4 @@ public class InfMedicaEntity {
 	public void setMedicacion(String medicacion) {
 		this.medicacion = medicacion;
 	}
-	
-
 }

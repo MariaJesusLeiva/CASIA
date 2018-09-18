@@ -1,3 +1,7 @@
+<!-- Nombre aplicación: CASIA -->
+<!-- Autor: María Jesús Leiva Romera -->
+<!-- Año: 2018 -->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -5,9 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=uft-8">
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/casia.css" rel="stylesheet" type="text/css">
@@ -21,8 +23,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12 mt-4">
-				<form method="POST" action='AbsentismoServlet'
-					name="frmConsultarabsentismo">
+				<form method="POST" action='AbsentismoServlet' name="frmConsultarabsentismo">
 					<table class="table table-sm" padding="5">
 						<tr>
 							<td style="border-top: 5px #41719C solid" class="titulo4">Código
@@ -59,7 +60,6 @@
 								readonly="readonly" type="date" name="fecha_nacimiento"
 								pattern="yyyy-MM-dd"
 								value="<c:out value="${absentismo.fecha_nacimiento}"/>" required></td>
-
 						</tr>
 						<tr class="trabs">
 							<td colspan="6" class="titulofase"><h4>FASE 1</h4></td>
@@ -81,7 +81,6 @@
 								readonly="readonly" type="text" name="fechacarta_faseuno"
 								placeholder="dd-MM-yyyy"
 								value="<c:out value="${absentismo.fechacarta_faseuno}"/>"></td>
-
 							<td class="titulo4">Justificada</td>
 							<td class="form4"><input class="estilofondogris"
 								readonly="readonly" type="text" name="justificada_faseuno"
@@ -192,7 +191,6 @@
 								size="3" placeholder="Sí/No"
 								value="<c:out value="${absentismo.justificada_fasetres}"/>"></td>
 						</tr>
-
 						<tr>
 							<td rowspan="2" class="titulo4"><h4>Cita con Jefatura</h4></td>
 

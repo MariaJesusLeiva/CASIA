@@ -1,3 +1,9 @@
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
+
 package com.casia.dao;
 
 import java.sql.Connection;
@@ -127,5 +133,4 @@ public class InfMedicaDao {
 		}
 		return medicas;
 	}
-
 }

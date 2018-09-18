@@ -1,3 +1,7 @@
+<!-- Nombre aplicación: CASIA -->
+<!-- Autor: María Jesús Leiva Romera -->
+<!-- Año: 2018 -->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -13,59 +17,62 @@
 </head>
 <%@ include file="Principal.jsp"%>
 <body style="background-color: #f4f7f9">
-<div class="text-white text-center d-block mb-1">
+	<div class="text-white text-center d-block mb-1">
 		<h3 class="titulo pb-2 pt-2">Modificar Información Médica</h3>
 	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<form method="POST" action='InfMedicaServlet' name="frmModificarInfmedica">
-				<input type="text" name="id_medica" style="display: none"
+				<form method="POST" action='InfMedicaServlet'
+					name="frmModificarInfmedica">
+					<input type="text" name="id_medica" style="display: none"
 						value="<c:out value="${infmedica.id_medica}" />">
 					<table class="table table-sm">
 						<tr class="trfila">
 							<td class="titulo">Curso <span class="text-danger">*</span></td>
-							<td class="form"><input type="text" name="curso" size="10" placeholder="Ej. 17/18"
-								value="<c:out value="${infmedica.curso}" />"required></td>
-						</tr>	
+							<td class="form"><input type="text" name="curso" size="10"
+								placeholder="Ej. 17/18"
+								value="<c:out value="${infmedica.curso}" />" required></td>
+						</tr>
 						<tr class="trfila">
 							<td class="titulo">Grupo <span class="text-danger">*</span></td>
-							<td class="form"><input type="text" name="grupo" size="10" placeholder="Ej. 2ºA"
-								value="<c:out value="${infmedica.grupo}" />"required></td>
-						</tr>					
+							<td class="form"><input type="text" name="grupo" size="10"
+								placeholder="Ej. 2ºA"
+								value="<c:out value="${infmedica.grupo}" />" required></td>
+						</tr>
 						<tr class="trfila">
 							<td class="titulo">Alumno <span class="text-danger">*</span></td>
 							<td class="form"><input type="text" name="nombre_alum"
 								size="40" placeholder="Apellido1 Apellido2, Nombre"
 								value="<c:out value="${infmedica.nombre_alum}"/>" required></td>
-						<tr class="trfila">	
+						<tr class="trfila">
 							<td class="titulo">Fecha Nacimiento <span
 								class="text-danger">*</span></td>
 							<td class="form"><input type="date" name="fecha_nacimiento"
 								pattern="yyyy-MM-dd"
 								value="<c:out value="${infmedica.fecha_nacimiento}"/>" required></td>
 						<tr class="trfila">
-							<td class="titulo">Información </td>
-							<td class="form"><textarea
-									class="estilotextarea" id="textarea" name="inf_medica" 
+							<td class="titulo">Información</td>
+							<td class="form"><textarea class="estilotextarea"
+									id="textarea" name="inf_medica"
 									onkeypress="return limita(event, 500);"
-									onkeyup="actualizaInfo(500)"><c:out value="${infmedica.inf_medica}"/></textarea>
+									onkeyup="actualizaInfo(500)"><c:out
+										value="${infmedica.inf_medica}" /></textarea>
 								<div id="info">Máximo 500 caracteres</div></td>
-
 						</tr>
 						<tr class="trfila">
-							<td class="titulo">Aporta Documentación <span class="text-danger">*</span></td>
-							<td class="form"><input type="text" name="documentacion" required
-								size="3" placeholder="Sí/No"
+							<td class="titulo">Aporta Documentación <span
+								class="text-danger">*</span></td>
+							<td class="form"><input type="text" name="documentacion"
+								required size="3" placeholder="Sí/No"
 								value="<c:out value="${infmedica.documentacion}"/>"></td>
-
 						</tr>
 						<tr class="trfila">
-							<td class="titulo">Aporta Medicación <span class="text-danger">*</span></td>
-							<td class="form"><input type="text" name="medicacion" required
-								size="3" placeholder="Sí/No"
+							<td class="titulo">Aporta Medicación <span
+								class="text-danger">*</span></td>
+							<td class="form"><input type="text" name="medicacion"
+								required size="3" placeholder="Sí/No"
 								value="<c:out value="${infmedica.medicacion}"/>"></td>
-
 						</tr>
 					</table>
 					<div class="row mt-3 mb-3">
@@ -77,7 +84,7 @@
 								value="Atrás" name="Boton1" onclick="atras();">Atrás</button>
 						</div>
 					</div>
-								</form>
+				</form>
 			</div>
 			<div class="col-md-6">
 				<div class="panel panel-primary">
@@ -99,7 +106,7 @@
 						<thead>
 							<tr>
 								<th class="centrado">Curso</th>
-								<th class="centrado">Alumno</th>								
+								<th class="centrado">Alumno</th>
 								<th class="centrado">&nbsp</th>
 							</tr>
 						</thead>
@@ -108,7 +115,7 @@
 								<tr>
 									<td><c:out value="${medica.curso}" /></td>
 									<td><c:out value="${medica.nombre_alum}" /></td>
-								<td><a
+									<td><a
 										href="InfMedicaServlet?action=verInfMedica&id_medica=<c:out value="${medica.id_medica}"/>"><i
 											class="glyphicon glyphicon-eye-open"></i></a></td>
 								</tr>
@@ -157,7 +164,7 @@ function atras(){history.back();}
 	$('[data-action="filter"]').filterTable();
 })(jQuery);
 </script>
-	<script>
+<script>
 $(function(){
 	$('[data-action="filter"]').filterTable();	
 	$('.container').on('click', '.panel-heading span.filter', function(e){

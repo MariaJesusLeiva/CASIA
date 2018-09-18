@@ -1,3 +1,9 @@
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
+
 package com.casia.dao;
 
 import java.sql.Connection;
@@ -9,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.casia.config.conexionDB;
-import com.casia.entity.ParteEntity;
 import com.casia.entity.ReservaDiaSancionEntity;
 import com.casia.entity.SancionEntity;
 

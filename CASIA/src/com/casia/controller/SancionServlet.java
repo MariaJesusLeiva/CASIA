@@ -1,3 +1,9 @@
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
+
 package com.casia.controller;
 
 import java.io.IOException;
@@ -60,7 +66,6 @@ public class SancionServlet extends HttpServlet {
 			int id_parte = Integer.parseInt(request.getParameter("id_parte"));
 			request.setAttribute("sancion", sancionDao.getParteById(id_parte));
 
-			// Para mostrar el nombre del alumno al cual se está seleccionando la sanción
 			parteEnt = parteDao.getAlumSancionByIdParte(id_parte);
 			alumsancion = parteEnt.getNombre_alum();
 			profesancion = parteEnt.getNombre_profe();
@@ -95,11 +100,13 @@ public class SancionServlet extends HttpServlet {
 			forward = MODIFICARSANCION;
 			int id_sancion = Integer.parseInt(request.getParameter("id_sancion"));
 			request.setAttribute("sancion", sancionDao.getSancionById(id_sancion));
+			
 		} else if (action.equalsIgnoreCase("eliminarSancion")) {
 			forward = VERTODASSANCION;
 			int id_sancion = Integer.parseInt(request.getParameter("id_sancion"));
 			sancionDao.deleteSancionById(id_sancion);
 			request.setAttribute("sanciones", sancionDao.getAllSanciones());
+			
 		} else if (action.equalsIgnoreCase("activaExpulsion")) {
 			forward = EXPULSIONACTIVA;
 			request.setAttribute("expulsionact", sancionDao.getAllExpulsionesActiva());
@@ -138,7 +145,6 @@ public class SancionServlet extends HttpServlet {
 		if (id_sancion == null || id_sancion.isEmpty()) {
 
 			sancionDao.addSancion(sancionEnt);
-
 			String tipo_sancion = request.getParameter("tipo_sancion");
 
 			if (tipo_sancion.equals("Expulsión")) {

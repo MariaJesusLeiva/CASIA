@@ -1,3 +1,9 @@
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
+
 package com.casia.controller;
 
 import java.io.IOException;
@@ -16,7 +22,7 @@ import com.casia.dao.UsuarioDao;
 import com.casia.entity.UsuarioEntity;
 
 /**
- * Servlet implementation class UsuarioServlet
+ * Servlet implementation class LoginServlet
  */
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -55,6 +61,7 @@ public class LoginServlet extends HttpServlet {
 
 			UsuarioDao userDao = new UsuarioDao();
 			HttpSession session = request.getSession();
+			
 			try {
 				String rol_user = userDao.ObtenerRol(userEnt);
 				if (rol_user.equals("admin")) {

@@ -1,3 +1,9 @@
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
+
 package com.casia.entity;
 
 import java.util.Date;
@@ -74,5 +80,4 @@ public class SancionEntity {
 	public void setAsignado_dias(String asignado_dias) {
 		this.asignado_dias = asignado_dias;
 	}
-	
 }

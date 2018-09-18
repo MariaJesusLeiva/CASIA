@@ -1,3 +1,9 @@
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
+
 package com.casia.controller;
 
 import java.io.IOException;
@@ -48,6 +54,7 @@ public class InformeRecreoServlet extends HttpServlet {
 			forward = VERINFRECREO;
 			request.setAttribute("recreos", reservaDao.getAllRecreosPendientes());
 		}
+		
 		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request, response);
 	}
@@ -71,6 +78,7 @@ public class InformeRecreoServlet extends HttpServlet {
 		String fechatitulo = new SimpleDateFormat("dd-MM-yyyy").format(fecha_inicio);
 
 		OutputStream out = response.getOutputStream();
+		
 		try {
 			Connection connection = conexionDB.getConnection();
 			java.sql.Date fecha;

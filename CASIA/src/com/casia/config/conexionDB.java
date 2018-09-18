@@ -1,4 +1,8 @@
-/*Clase para la inicialización de la conexión a la base de datos*/
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
 
 package com.casia.config;
 

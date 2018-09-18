@@ -1,3 +1,9 @@
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
+
 package com.casia.entity;
 
 import java.util.Date;
@@ -39,7 +45,6 @@ public class ReunionEntity {
 	public void setFecha_reunion(Date fecha_reunion) {
 		this.fecha_reunion = fecha_reunion;
 	}
-	
 	public String getHora_reunion() {
 		return hora_reunion;
 	}
@@ -124,6 +129,4 @@ public class ReunionEntity {
 	public void setConclusiones(String conclusiones) {
 		this.conclusiones = conclusiones;
 	}
-
-	
 }

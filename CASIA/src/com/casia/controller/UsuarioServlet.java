@@ -1,3 +1,9 @@
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
+
 package com.casia.controller;
 
 import java.io.IOException;
@@ -41,11 +47,13 @@ public class UsuarioServlet extends HttpServlet {
 		if (action.equalsIgnoreCase("crearUsuario")) {
 			forward = CREARUSUARIO;
 			request.setAttribute("usuarios", usuarioDao.getAllUsuarios());
+			
 		} else if (action.equalsIgnoreCase("modificarUsuario")) {
 			forward = MODIFICARUSUARIO;
 			int id_user = Integer.parseInt(request.getParameter("id_user"));
 			request.setAttribute("usuario", usuarioDao.getUsuarioById(id_user));
 			request.setAttribute("usuarios", usuarioDao.getAllUsuarios());
+			
 		} else if (action.equalsIgnoreCase("eliminarUsuario")) {
 			forward = CREARUSUARIO;
 			int id_user = Integer.parseInt(request.getParameter("id_user"));

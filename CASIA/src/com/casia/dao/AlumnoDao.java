@@ -1,3 +1,9 @@
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
+
 package com.casia.dao;
 
 import java.sql.Connection;
@@ -129,7 +135,7 @@ public class AlumnoDao {
 			e.printStackTrace();
 		}
 		return medicas;
-		}
+	}
 	
 	public List<InfJuridicaEntity> getAlumInfJuridica(String nombre_alum) {
 		List<InfJuridicaEntity> juridicas = new ArrayList<InfJuridicaEntity>();

@@ -1,3 +1,9 @@
+/*
+ * Nombre aplicación: CASIA
+ * Autor: María Jesús Leiva Romera
+ * Año: 2018
+ */
+
 package com.casia.controller;
 
 import java.io.IOException;
@@ -34,6 +40,7 @@ public class LogoutServlet extends HttpServlet {
 		String forward= "";
 		RequestDispatcher rd = null;
 		String action = request.getParameter("action");
+		
 		if (action.equalsIgnoreCase("salir")) {
 			if(session != null) {
 				forward = SALIR;

@@ -1,3 +1,7 @@
+<!-- Nombre aplicación: CASIA -->
+<!-- Autor: María Jesús Leiva Romera -->
+<!-- Año: 2018 -->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -5,9 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=uft-8">
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="css/casia.css" rel="stylesheet" type="text/css">
@@ -46,7 +48,7 @@
 						<tr class="trfila2">
 							<td class="titulo">Tipo <span class="text-danger">*</span></td>
 							<td colspan="3" class="form">
-							<div class="select-wrapper">
+								<div class="select-wrapper">
 									<select name="tipo" required
 										style="border: 0; white-space: pre-wrap; white-space: -moz-pre-wrap;"
 										required>
@@ -54,7 +56,8 @@
 										<option value="Presunto Acosado">Presunto Acosado</option>
 										<option value="Presunto Acosador">Presunto Acosador</option>
 									</select>
-								</div></td>
+								</div>
+							</td>
 						</tr>
 						<tr class="trfila">
 							<td class="titulo">Alumno <span class="text-danger">*</span></td>
@@ -92,7 +95,6 @@
 										value="${acoso.asistentes}" /></textarea>
 								<div id="info2">Máximo 500 caracteres</div></td>
 						</tr>
-
 						<tr class="trfila">
 							<td class="titulo">Información Aportada</td>
 							<td colspan="3" class="form"><textarea
@@ -117,7 +119,6 @@
 								name="inicio_protocolo" size="3"
 								value="<c:out value="${acoso.inicio_protocolo}"/>"></td>
 						</tr>
-
 					</table>
 					<div class="row mt-3 mb-3">
 						<div class="col-12">
@@ -133,11 +134,9 @@
 			<div class="col-md-3"></div>
 		</div>
 	</div>
-	<script>
-		function atras() {
-			history.back();
-		}
-	</script>
+<script>
+function atras() {	history.back();	}
+</script>
 <script>
 function limita(elEvento, maximoCaracteres) {
 	  var elemento = document.getElementById("textarea");
@@ -183,6 +182,6 @@ function actualizaInfo(maximoCaracteres) {
 					+ " Caracteres restantes";
 		}
 	}
-</script>	
+</script>
 </body>
 </html>
