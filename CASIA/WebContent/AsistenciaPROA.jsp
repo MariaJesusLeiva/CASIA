@@ -52,9 +52,9 @@
 												value="${proa.fecha_inicio}" /></td>
 										<td><c:out value="${proa.nombre_alum}" /></td>
 										<td><input type="checkbox" name="asistencia"
-											value="${proa.id_sancion}"></td>
+											value="${proa.id_reserva}"></td>
 										<td><input type="text" name="id_sancion"
-											style="display: none" value="${proa.id_sancion}"></td>
+											style="display: none" value="${proa.id_reserva}"></td>
 									</tr>
 								</c:forEach>
 							</tbody>

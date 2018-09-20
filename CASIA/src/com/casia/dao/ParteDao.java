@@ -207,4 +207,18 @@ public class ParteDao {
 
 		return alumsancion;
 	}
+
+	public void SancionEliminada(int id_parte) {
+		
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("UPDATE parte SET tipo_sancion= NULL WHERE id_parte=?");
+			
+			preparedStatement.setInt(1, id_parte);
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

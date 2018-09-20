@@ -47,14 +47,17 @@ public class AcosoServlet extends HttpServlet {
 		if (action.equalsIgnoreCase("verAcosos")) {
 			forward = VERACOSOS;
 			request.setAttribute("acosos", acosoDao.getAllAcosos());
+			
 		} else if (action.equalsIgnoreCase("verAcoso")){
 			forward = VERACOSO;
 			int id_acoso = Integer.parseInt(request.getParameter("id_acoso"));
 			request.setAttribute("acoso", acosoDao.getAcosoById(id_acoso));
+			
 		} else if (action.equalsIgnoreCase("modificarAcoso")) {
 			forward = MODIFICARACOSO;			
 			int id_acoso = Integer.parseInt(request.getParameter("id_acoso"));
-			request.setAttribute("acoso", acosoDao.getAcosoById(id_acoso));			
+			request.setAttribute("acoso", acosoDao.getAcosoById(id_acoso));
+			
 		} else if (action.equalsIgnoreCase("eliminarAcoso")) {
 			forward = VERACOSOS;
 			int id_acoso = Integer.parseInt(request.getParameter("id_acoso"));

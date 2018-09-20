@@ -48,20 +48,24 @@ public class AbsentismoServlet extends HttpServlet {
 		if (action.equalsIgnoreCase("historialAbsentismos")) {
 			forward = VERTODOABS;
 			request.setAttribute("absentismos", absentismoDao.getAllAbsentismos());
+			
 		} else if (action.equalsIgnoreCase("verAbsentismo")) {
 			forward = VERABSENTISMO;
 			int id_absentismo = Integer.parseInt(request.getParameter("id_absentismo"));
 			request.setAttribute("absentismo", absentismoDao.getAbsentismoById(id_absentismo));
+			
 		} else if (action.equalsIgnoreCase("modificarAbsentismo")) {
 			forward = MODIFICARABSENTISMO;			
 			int id_absentismo = Integer.parseInt(request.getParameter("id_absentismo"));
 			request.setAttribute("absentismo", absentismoDao.getAbsentismoById(id_absentismo)); 
+			
 		} else if (action.equalsIgnoreCase("eliminarAbsentismo")) {
 			forward = VERTODOABS;
 			int id_absentismo = Integer.parseInt(request.getParameter("id_absentismo"));
 			absentismoDao.deleteAbsentismoById(id_absentismo);
 			request.setAttribute("absentismos", absentismoDao.getAllAbsentismos());
 		}
+		
 		RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
 	}
@@ -102,15 +106,7 @@ public class AbsentismoServlet extends HttpServlet {
 		absentismoEnt.setMes_fasedos(request.getParameter("mes_fasedos"));
 		absentismoEnt.setMes_fasetres(request.getParameter("mes_fasetres"));
 		absentismoEnt.setMes_fasecuatro(request.getParameter("mes_fasecuatro"));
-		
-		//String totalhoras_faseuno = request.getParameter("totalhoras_faseuno");
-		//absentismoEnt.setTotalhoras_faseuno(Integer.parseInt(totalhoras_faseuno));
-		//String totalhoras_fasedos = request.getParameter("totalhoras_fasedos");
-		//absentismoEnt.setTotalhoras_fasedos(Integer.parseInt(totalhoras_fasedos));
-		//String totalhoras_fasetres = request.getParameter("totalhoras_fasetres");
-		//absentismoEnt.setTotalhoras_fasetres(Integer.parseInt(totalhoras_fasetres));
-		//String totalhoras_fasecuatro = request.getParameter("totalhoras_fasecuatro");
-		//absentismoEnt.setTotalhoras_fasecuatro(Integer.parseInt(totalhoras_fasecuatro));
+
 		absentismoEnt.setTotalhoras_faseuno(request.getParameter("totalhoras_faseuno"));
 		absentismoEnt.setTotalhoras_fasedos(request.getParameter("totalhoras_fasedos"));		
 		absentismoEnt.setTotalhoras_fasetres(request.getParameter("totalhoras_fasetres"));
@@ -144,6 +140,7 @@ public class AbsentismoServlet extends HttpServlet {
 		absentismoEnt.setMayor_edad(request.getParameter("mayor_edad"));
 		
 		String id_absentismo = request.getParameter("id_absentismo");
+		
 		if(id_absentismo == null || id_absentismo.isEmpty()) {
 			absentismoDao.addAbsentismo(absentismoEnt);
 		} else {

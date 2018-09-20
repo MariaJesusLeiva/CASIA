@@ -52,9 +52,9 @@
 												value="${recreo.fecha_inicio}" /></td>
 										<td><c:out value="${recreo.nombre_alum}" /></td>
 										<td><input type="checkbox" name="asistencia"
-											value="${recreo.id_sancion}"></td>
+											value="${recreo.id_reserva}"></td>
 										<td><input type="text" name="id_sancion"
-											style="display: none" value="${recreo.id_sancion}"></td>
+											style="display: none" value="${recreo.id_reserva}"></td>
 									</tr>
 								</c:forEach>
 							</tbody>

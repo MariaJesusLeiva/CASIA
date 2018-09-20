@@ -104,6 +104,8 @@ public class SancionServlet extends HttpServlet {
 		} else if (action.equalsIgnoreCase("eliminarSancion")) {
 			forward = VERTODASSANCION;
 			int id_sancion = Integer.parseInt(request.getParameter("id_sancion"));
+			int id_parte = sancionDao.getIdParteByIdSancion(id_sancion);
+			parteDao.SancionEliminada(id_parte);
 			sancionDao.deleteSancionById(id_sancion);
 			request.setAttribute("sanciones", sancionDao.getAllSanciones());
 			

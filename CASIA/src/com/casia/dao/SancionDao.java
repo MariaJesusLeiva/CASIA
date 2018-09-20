@@ -381,4 +381,23 @@ private static Connection connection;
 		}
 		return alumrecreo;
 	}
+
+	public int getIdParteByIdSancion(int id_sancion) {
+		
+		int id_parte = 0;
+		
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("SELECT * FROM sancion WHERE id_sancion=?");
+			preparedStatement.setInt(1, id_sancion);
+			ResultSet rs = preparedStatement.executeQuery();
+
+			if (rs.next()) {
+				id_parte = rs.getInt("id_parte");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return id_parte;
+	}
 }

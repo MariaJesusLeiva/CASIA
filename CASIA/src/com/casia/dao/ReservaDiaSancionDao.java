@@ -234,12 +234,12 @@ public class ReservaDiaSancionDao {
 		return reservas;
 	}
 	
-	public void updateAsistencia(Integer id_sancion) {
+	public void updateAsistencia(Integer id_reserva) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("UPDATE reservadiasancion SET asistencia= 'Sí' WHERE id_sancion=?");
+					.prepareStatement("UPDATE reservadiasancion SET asistencia= 'Sí' WHERE id_reserva=?");
 			
-			preparedStatement.setInt(1, id_sancion);
+			preparedStatement.setInt(1, id_reserva);
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -247,8 +247,8 @@ public class ReservaDiaSancionDao {
 		}
 	}
 	
-	public List<SancionEntity> getAllAsistenciaPROAs() {
-		List<SancionEntity> proas = new ArrayList<SancionEntity>();
+	public List<ReservaDiaSancionEntity> getAllAsistenciaPROAs() {
+		List<ReservaDiaSancionEntity> proas = new ArrayList<ReservaDiaSancionEntity>();
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet rs = statement.executeQuery(
@@ -257,16 +257,12 @@ public class ReservaDiaSancionDao {
 							+ "ORDER BY r.fecha_inicio ASC");
 
 			while (rs.next()) {
-				SancionEntity proa = new SancionEntity();
-				proa.setId_sancion(rs.getInt("id_sancion"));
-				proa.setId_parte(rs.getInt("id_parte"));
-				proa.setFecha_inicio(rs.getDate("fecha_inicio"));
-				proa.setObservacion(rs.getString("observacion"));
-				proa.setTrabajo(rs.getString("trabajo"));
-				proa.setNombre_alum(rs.getString("nombre_alum"));
-				proa.setAsignado_dias(rs.getString("asignado_dias"));
-
-				proas.add(proa);
+				ReservaDiaSancionEntity reserva = new ReservaDiaSancionEntity();
+				reserva.setId_reserva(rs.getInt("id_reserva"));
+				reserva.setFecha_inicio(rs.getDate("fecha_inicio"));
+				reserva.setNombre_alum(rs.getString("nombre_alum"));
+				reserva.setId_sancion(rs.getInt("id_sancion"));
+				proas.add(reserva);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -274,8 +270,8 @@ public class ReservaDiaSancionDao {
 		return proas;
 	}
 	
-	public List<SancionEntity> getAllAsistenciaRecreos() {
-		List<SancionEntity> recreos = new ArrayList<SancionEntity>();
+	public List<ReservaDiaSancionEntity> getAllAsistenciaRecreos() {
+		List<ReservaDiaSancionEntity> recreos = new ArrayList<ReservaDiaSancionEntity>();
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet rs = statement.executeQuery(
@@ -284,23 +280,19 @@ public class ReservaDiaSancionDao {
 							+ "ORDER BY r.fecha_inicio ASC");
 
 			while (rs.next()) {
-				SancionEntity recreo = new SancionEntity();
-				recreo.setId_sancion(rs.getInt("id_sancion"));
-				recreo.setId_parte(rs.getInt("id_parte"));
-				recreo.setFecha_inicio(rs.getDate("fecha_inicio"));
-				recreo.setObservacion(rs.getString("observacion"));
-				recreo.setTrabajo(rs.getString("trabajo"));
-				recreo.setNombre_alum(rs.getString("nombre_alum"));
-				recreo.setAsignado_dias(rs.getString("asignado_dias"));
-
-				recreos.add(recreo);
+				ReservaDiaSancionEntity reserva = new ReservaDiaSancionEntity();
+				reserva.setId_reserva(rs.getInt("id_reserva"));
+				reserva.setFecha_inicio(rs.getDate("fecha_inicio"));
+				reserva.setNombre_alum(rs.getString("nombre_alum"));
+				reserva.setId_sancion(rs.getInt("id_sancion"));
+				recreos.add(reserva);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return recreos;
 	}
-
+	
 	public static List<SancionEntity> getAllRecreos() {
 		List<SancionEntity> recreos = new ArrayList<SancionEntity>();
 		try {
