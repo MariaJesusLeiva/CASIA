@@ -151,7 +151,7 @@
 								value="<c:out value="${absentismo.acude_fasedos}"/>"></td>
 							<td style="text-align: center" class="form4"><input
 								class="estilofondogris" readonly="readonly" type="text"
-								name="justificada_fasedos" size="3" placeholder="Sí/No"
+								name="justificadacita_fasedos" size="3" placeholder="Sí/No"
 								value="<c:out value="${absentismo.justificadacita_fasedos}"/>"></td>
 							<td style="text-align: center" class="form4"><input
 								class="estilofondogris" readonly="readonly" type="text"
@@ -171,7 +171,7 @@
 						<tr>
 							<td class="titulo4">Mes</td>
 							<td class="form4"><input class="estilofondogris"
-								readonly="readonly" type="month" name="mes_fasedos"
+								readonly="readonly" type="month" name="mes_fasetres"
 								value="<c:out value="${absentismo.mes_fasetres}"/>"></td>
 							<td class="titulo4">Total Horas Injustificadas</td>
 							<td class="form4"><input class="estilofondogris"
@@ -221,7 +221,7 @@
 								value="<c:out value="${absentismo.acude_fasetres}"/>"></td>
 							<td style="text-align: center" class="form4"><input
 								class="estilofondogris" readonly="readonly" type="text"
-								name="justificada_fasetres" size="3" placeholder="Sí/No"
+								name="justificadacita_fasetres" size="3" placeholder="Sí/No"
 								value="<c:out value="${absentismo.justificadacita_fasetres}"/>"></td>
 							<td style="text-align: center" class="form4"><input
 								class="estilofondogris" readonly="readonly" type="text"

@@ -66,10 +66,10 @@
 							<td class="titulo">Alumno <span class="text-danger">*</span></td>
 							<td class="form"><input type="text" name="nombre_alum2"
 								size="35" placeholder="Apellido1 Apellido2, Nombre"
-								value="<c:out value="${acoso.nombre_alum}"/>" required></td>
+								value="<c:out value="${acoso.nombre_alum2}"/>" required></td>
 							<td class="titulo">Grupo <span class="text-danger">*</span></td>
 							<td class="form"><input type="text" name="grupo2" size="10"
-								placeholder="Ej. 2ºA" value="<c:out value="${acoso.grupo}"/>"
+								placeholder="Ej. 2ºA" value="<c:out value="${acoso.grupo2}"/>"
 								required></td>
 						<tr class="trfila2">
 							<td class="titulo">Tipo <span class="text-danger">*</span></td>

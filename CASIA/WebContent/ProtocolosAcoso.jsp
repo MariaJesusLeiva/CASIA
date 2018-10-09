@@ -56,7 +56,8 @@
 									<td><c:out value="${acoso.curso}" /></td>
 									<td><c:out value="${acoso.nombre_alum}" /></td>
 									<td><c:out value="${acoso.nombre_alum2}" /></td>
-									<td><c:out value="${acoso.fecha_reunion}" /></td>
+									<td><fmt:formatDate pattern="dd-MM-yyyy"
+											value="${acoso.fecha_reunion}" /></td>
 									<td><c:out value="${acoso.hora_reunion}" /></td>
 									<td><c:out value="${acoso.inicio_protocolo}" /></td>
 									<td><a

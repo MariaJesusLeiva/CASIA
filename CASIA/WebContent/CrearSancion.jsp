@@ -67,7 +67,7 @@
 						<tr class="trfila">
 							<td class="titulo">Trabajo</td>
 							<td class="form" colspan="3" class="w-75"><textarea
-									class="estilotextarea" id="textarea2" name="observacion"
+									class="estilotextarea" id="textarea2" name="trabajo"
 									onkeypress="return limita(event, 500);"
 									onkeyup="actualizaInfo(500)"
 									value="<c:out value="${sancion.trabajo}" />"></textarea>

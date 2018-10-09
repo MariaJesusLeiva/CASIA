@@ -57,11 +57,11 @@
 							<td class="titulo">Alumno <span class="text-danger">*</span></td>
 							<td class="form"><input class="estilofondogris" type="text"
 								name="nombre_alum2" size="35"
-								value="<c:out value="${acoso.nombre_alum}"/>"
+								value="<c:out value="${acoso.nombre_alum2}"/>"
 								readonly="readonly"></td>
 							<td class="titulo">Grupo <span class="text-danger">*</span></td>
 							<td class="form"><input class="estilofondogris" type="text"
-								name="grupo2" size="10" value="<c:out value="${acoso.grupo}"/>"
+								name="grupo2" size="10" value="<c:out value="${acoso.grupo2}"/>"
 								readonly="readonly"></td>
 						<tr class="trfila2">
 							<td class="titulo">Tipo <span class="text-danger">*</span></td>

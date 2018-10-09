@@ -45,7 +45,7 @@
 								value="<%=session.getAttribute("profesancion")%>"></td>
 						</tr>
 						<tr class="trfila">
-							<td class="titulo">Observacion</td>
+							<td class="titulo">Observación</td>
 							<td colspan="3" class="form"><textarea
 									class="estilograndetextareacon" id="textarea"
 									name="observacion" onkeypress="return limita(event, 500);"
@@ -54,7 +54,7 @@
 								<div id="info">Máximo 500 caracteres</div></td>
 						</tr>
 						<tr class="trfila">
-							<td class="titulo">Sancion <span class="text-danger">*</span></td>
+							<td class="titulo">Sanción <span class="text-danger">*</span></td>
 							<td class="form">
 								<div class="select-wrapper">
 									<select name="tipo_sancion" id="tipo_sancion"

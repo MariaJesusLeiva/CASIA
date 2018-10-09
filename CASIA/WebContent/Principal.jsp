@@ -43,7 +43,7 @@
 				</a>
 					<ul style="background-color: #D6E6F4;" class="dropdown-menu">
 						<li><a href="ParteServlet?action=pendienteSancion">Pendientes
-								de sanción</a></li>
+								de Sanción</a></li>
 						<li><a href="SancionServlet?action=verSancionesSinDias">Asignar
 								Días</a></li>
 						<li><div style="border-top: 2px #41719C solid"

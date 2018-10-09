@@ -46,14 +46,14 @@
 								value="<%=session.getAttribute("profesancion")%>"></td>
 						</tr>
 						<tr class="trfila">
-							<td class="titulo">Observacion</td>
+							<td class="titulo">Observación</td>
 							<td colspan="3" class="form"><textarea
 									class="estilotextareacongris" readonly="readonly" id="textarea"
 									name="observacion"><c:out
 										value="${sancion.observacion}" /></textarea>
 						</tr>
 						<tr class="trfila">
-							<td class="titulo">Sancion <span class="text-danger">*</span></td>
+							<td class="titulo">Sanción <span class="text-danger">*</span></td>
 							<td class="form"><input class="estilofondogris" type="text"
 								name="tipo_sancion" readonly="readonly"
 								value="<c:out value="${sancion.tipo_sancion}"/>"></td>
