@@ -139,7 +139,7 @@
 										<c:forEach items="${alumactmedica}" var="alumactmedica">
 											<tr>
 												<td><a
-													href="ActMedicaServlet?action=verActMedica&id_medica=<c:out value="${alumactmedica.id_actuacion}"/>"><i><fmt:formatDate
+													href="ActMedicaServlet?action=verActMedica&id_actuacion=<c:out value="${alumactmedica.id_actuacion}"/>"><i><fmt:formatDate
 																pattern="dd-MM-yyyy"
 																value="${alumactmedica.fecha_actuacion}" /></i></a></td>
 											</tr>
