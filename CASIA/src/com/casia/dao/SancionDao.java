@@ -355,6 +355,8 @@ private static Connection connection;
 				sancion.setFecha_inicio(rs.getDate("fecha_inicio"));
 				sancion.setFecha_fin(rs.getDate("fecha_fin"));
 				sancion.setTotal_dias(rs.getInt("total_dias"));
+				sancion.setObservacion(rs.getString("observacion"));
+				sancion.setTrabajo(rs.getString("trabajo"));
 				sancion.setAsignado_dias(rs.getString("asignado_dias"));
 
 			}

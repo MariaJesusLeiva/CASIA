@@ -48,9 +48,9 @@
 						<tr class="trfila">
 							<td class="titulo">Observación</td>
 							<td colspan="3" class="form"><textarea
-									class="estilotextareacongris" readonly="readonly" id="textarea"
+									class="estilotextareacongris" readonly="readonly" 
 									name="observacion"><c:out
-										value="${sancion.observacion}" /></textarea>
+										value="${sancion.observacion}" /></textarea></td>
 						</tr>
 						<tr class="trfila">
 							<td class="titulo">Sanción <span class="text-danger">*</span></td>
@@ -61,8 +61,8 @@
 						<tr class="trfila">
 							<td class="titulo">Trabajo</td>
 							<td colspan="3" class="form"><textarea
-									class="estilotextareacongris" readonly="readonly" id="textarea"
-									name="trabajo"><c:out value="${sancion.trabajo}" /></textarea>
+									class="estilotextareacongris" readonly="readonly"
+									name="trabajo"><c:out value="${sancion.trabajo}" /></textarea></td>
 						</tr>
 						<tr class="trfila">
 							<td class="expulsion"></td>
